@@ -1,0 +1,212 @@
+
+> mnre-cms@0.0.0 start /home/mnre_web
+> nodemon ./bin/www
+
+[33m[nodemon] 1.18.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node ./bin/www`[39m
+events.js:165
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event at:
+    at fs.read (fs.js:2116:12)
+    at FSReqWrap.wrapper [as oncomplete] (fs.js:673:17)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! mnre-cms@0.0.0 start: `nodemon ./bin/www`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the mnre-cms@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-01-16T11_37_16_243Z-debug.log
+
+> mnre-cms@0.0.0 start /home/mnre_web
+> nodemon ./bin/www
+
+[33m[nodemon] 1.18.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node ./bin/www`[39m
+events.js:165
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event at:
+    at fs.read (fs.js:2116:12)
+    at FSReqWrap.wrapper [as oncomplete] (fs.js:673:17)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! mnre-cms@0.0.0 start: `nodemon ./bin/www`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the mnre-cms@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-02-25T11_52_19_005Z-debug.log
+
+> mnre-cms@0.0.0 start /home/mnre_web
+> nodemon ./bin/www
+
+[33m[nodemon] 1.18.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node ./bin/www`[39m
+events.js:165
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event at:
+    at fs.read (fs.js:2116:12)
+    at FSReqWrap.wrapper [as oncomplete] (fs.js:673:17)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! mnre-cms@0.0.0 start: `nodemon ./bin/www`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the mnre-cms@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-02-25T11_52_52_914Z-debug.log
+
+> mnre-cms@0.0.0 start /home/mnre_web
+> nodemon ./bin/www
+
+[33m[nodemon] 1.18.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node ./bin/www`[39m
+events.js:165
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event at:
+    at fs.read (fs.js:2116:12)
+    at FSReqWrap.wrapper [as oncomplete] (fs.js:673:17)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! mnre-cms@0.0.0 start: `nodemon ./bin/www`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the mnre-cms@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-02-25T11_56_10_484Z-debug.log
+
+> mnre-cms@0.0.0 start /home/mnre_web
+> nodemon ./bin/www
+
+[33m[nodemon] 1.18.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node ./bin/www`[39m
+events.js:165
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event at:
+    at fs.read (fs.js:2116:12)
+    at FSReqWrap.wrapper [as oncomplete] (fs.js:673:17)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! mnre-cms@0.0.0 start: `nodemon ./bin/www`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the mnre-cms@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-02-25T11_57_40_769Z-debug.log
+
+> mnre-cms@0.0.0 start /home/mnre_web
+> nodemon ./bin/www
+
+[33m[nodemon] 1.18.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node ./bin/www`[39m
+events.js:165
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event at:
+    at fs.read (fs.js:2116:12)
+    at FSReqWrap.wrapper [as oncomplete] (fs.js:673:17)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! mnre-cms@0.0.0 start: `nodemon ./bin/www`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the mnre-cms@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-02-25T12_01_27_384Z-debug.log
+
+Usage: npm <command>
+
+where <command> is one of:
+    access, adduser, bin, bugs, c, cache, completion, config,
+    ddp, dedupe, deprecate, dist-tag, docs, doctor, edit,
+    explore, get, help, help-search, i, init, install,
+    install-test, it, link, list, ln, login, logout, ls,
+    outdated, owner, pack, ping, prefix, profile, prune,
+    publish, rb, rebuild, repo, restart, root, run, run-script,
+    s, se, search, set, shrinkwrap, star, stars, start, stop, t,
+    team, test, token, tst, un, uninstall, unpublish, unstar,
+    up, update, v, version, view, whoami
+
+npm <command> -h     quick help on <command>
+npm -l           display full usage info
+npm help <term>  search for help on <term>
+npm help npm     involved overview
+
+Specify configs in the ini-formatted file:
+    /root/.npmrc
+or on the command line via: npm <command> --key value
+Config info can be viewed via: npm help config
+
+npm@5.6.0 /usr/local/lib/node_modules/npm
+
+Did you mean one of these?
+    start
+    tst
+    set
+
+> mnre-cms@0.0.0 start /home/mnre_web
+> nodemon ./bin/www
+
+[33m[nodemon] 1.18.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node ./bin/www`[39m
+events.js:165
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event at:
+    at fs.read (fs.js:2116:12)
+    at FSReqWrap.wrapper [as oncomplete] (fs.js:673:17)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! mnre-cms@0.0.0 start: `nodemon ./bin/www`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the mnre-cms@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2020-04-28T10_22_00_357Z-debug.log

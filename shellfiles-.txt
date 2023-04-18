@@ -1,0 +1,4 @@
+/home/mnre_web/public/js/ckeditor/plugins/wsc/dialogs/ciframe.html
+/home/mnre_web/public/js/ckeditor/samples/old/datafiltering.html
+/home/mnre_web/public/js/ckeditor/samples/old/uilanguages.html
+/home/mnre_web/public/js/ckeditor/samples/old/htmlwriter/outputforflash.html
