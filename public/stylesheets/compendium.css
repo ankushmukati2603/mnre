@@ -1,0 +1,12 @@
+.rfd__card--item {
+        border: 1px solid black;
+        border-radius: 2%;
+    }
+
+    .rfd__card--title {
+        padding: 1rem 0rem;
+    }
+
+    .filter-bc {
+        justify-content: center;
+    }

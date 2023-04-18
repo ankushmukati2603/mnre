@@ -1,0 +1,504 @@
+[{
+        "title": "Home Page",
+        "secret":"home",
+        "editable_sections": [{
+            "title": "Banner Images",
+            "class": "edit_home_banner"
+        }, {
+            "title": "Block 1",
+            "class": "editBlockOne"
+        }, {
+            "title": "Block 2",
+            "class": "editBlockTwo"
+        }, {
+            "title": "Block 3",
+            "class": "editBlockThree"
+        }, {
+            "title": "Knowledge Center",
+            "class": "edit_knowledge_center"
+        }, {
+            "title": "IRIX",
+            "class": "edit_irix"
+        }, {
+            "title": "ISA",
+            "class": "edit_isa"
+        }]
+    }, {
+        "title": "The Ministry",
+        "editable_sections": [{
+                "title": "Banner Section",
+                "class": "edit_banner_ministry"
+            },
+            {
+                "title": "Journey Section",
+                "class": "edit_journey_image"
+            },
+            {
+                "title": "Vision Section Description",
+                "class": "edit_vision_description"
+            }
+        ]
+    },
+    {
+        "title": "Solar",
+        "editable_sections": [{
+                "title": "Current Status",
+                "class": "edit_solar_current"
+            },
+            {
+                "title": "Section 2",
+                "class": "edit_solar_section2"
+            },
+            {
+                "title": "Panel One",
+                "class": "edit_solar_panel_one"
+            },
+            {
+                "title": "Panel Two",
+                "class": "edit_solar_panel_two"
+            },
+            {
+                "title": "Panel Three",
+                "class": "edit_solar_panel_three"
+            }
+        ]
+    },
+    {
+        "title":"Offshore Wind",
+        "editable_sections":[{
+            "title":"STATUS",
+            "class":"editoffwind"
+        }]
+    },
+    {
+        "title": "Solar Sections",
+        "editable_sections": [{
+            "title": "Solar Decentralized",
+            "class": "editsolardec"
+        },{
+            "title": "Solar New Energy",
+            "class": "editsolarnew"
+        }]
+    },
+    {
+        "title": "Wind",
+        "editable_sections": [{
+                "title": "Current Status",
+                "class": "edit_wind_current"
+            },
+            {
+                "title": "Section 2",
+                "class": "edit_wind_section2"
+            },
+            {
+                "title": "Panel One",
+                "class": "edit_wind_panel_one"
+            },
+            {
+                "title": "Panel Two",
+                "class": "edit_wind_panel_two"
+            },
+            {
+                "title": "Panel Three",
+                "class": "edit_wind_panel_three"
+            }
+        ]
+    },
+    {
+        "title": "Small Hydro",
+        "editable_sections": [{
+                "title": "Current Status",
+                "class": "edit_small_hydro_current"
+            },
+            {
+                "title": "Section 2",
+                "class": "edit_small_hydro_section2"
+            },
+            {
+                "title": "Panel One",
+                "class": "edit_small_hydro_panel_one"
+            },
+            {
+                "title": "Panel Two",
+                "class": "edit_small_hydro_panel_two"
+            },
+            {
+                "title": "Panel Three",
+                "class": "edit_small_hydro_panel_three"
+            }
+        ]
+    },
+    {
+        "title": "Waste to Energy",
+        "editable_sections": [{
+                "title": "Current Status",
+                "class": "edit_waste_current"
+            },
+            {
+                "title": "Section 2",
+                "class": "edit_waste_section2"
+            },
+            {
+                "title": "Panel One",
+                "class": "edit_waste_panel_one"
+            },
+            {
+                "title": "Panel Two",
+                "class": "edit_waste_panel_two"
+            },
+            {
+                "title": "Panel Three",
+                "class": "edit_waste_panel_three"
+            }
+        ]
+    },
+    {
+        "title": "Bio Energy",
+        "editable_sections": [{
+                "title": "Current Status",
+                "class": "edit_bio_current"
+            },
+            {
+                "title": "Section 2",
+                "class": "edit_bio_section2"
+            },
+            {
+                "title": "Panel One",
+                "class": "edit_bio_panel_one"
+            },
+            {
+                "title": "Panel Two",
+                "class": "edit_bio_panel_two"
+            },
+            {
+                "title": "Panel Three",
+                "class": "edit_bio_panel_three"
+            }
+        ]
+    },
+    {
+        "title": "Other Renewables",
+        "editable_sections": [{
+                "title": "Current Status",
+                "class": "edit_other_current"
+            },
+            {
+                "title": "Section 2",
+                "class": "edit_other_section2"
+            },
+            {
+                "title": "Panel One",
+                "class": "edit_other_panel_one"
+            },
+            {
+                "title": "Panel Two",
+                "class": "edit_other_panel_two"
+            },
+            {
+                "title": "Panel Three",
+                "class": "edit_other_panel_three"
+            }
+        ]
+    },
+    {
+        "title": "Green Energy Corridor",
+        "editable_sections": [{
+                "title": "Introduction",
+                "class": "edit_green_intro"
+            },
+            {
+                "title": "Add Files",
+                "class": "edit_green_files"
+            }
+        ]
+    },
+    {
+        "title": "Hydrogen Energy",
+        "editable_sections": [{
+                "title": "Section One",
+                "class": "edit__hydrogen--section-one"
+            },
+            {
+                "title": "Objectives",
+                "class":"edithydobj"
+            },
+            {
+                "title": "Activities",
+                "class":"edithydact"
+            },
+            {
+                "title": "Ongoing Projects",
+                "class":"edithydong"
+            },
+            {
+                "title": "Achievements",
+                "class":"edithydach"
+            },
+            {
+                "title": "Thrust Areas",
+                "class":"edithydthrust"
+            },
+            {
+                "title": "Potential Applications",
+                "class":"edithydpot"
+            },
+            {
+                "title": "Orgs Working in Hydrogen Area",
+                "class":"edithydorg"
+            },
+            {
+                "title": "Hydrogen Storage",
+                "class":"edithydsto"
+            },
+            {
+                "title": "Application of Hydrogen",
+                "class":"edithydapp"
+            },
+            {
+                "title": "Other Areas",
+                "class":"edithydoth"
+            }
+        ]
+    },
+    {
+        "title": "Chemical Sources of Energy (Fuel Cells)",
+        "editable_sections": [{
+            "title":"Section One",
+            "class":"editfc"
+        }, {
+            "title": "Objectives",
+            "class":"editfcobj"
+        }, {
+            "title": "Activities",
+            "class":"editfcact"
+        }, {
+            "title": "Ongoing Projects",
+            "class":"editfcong"
+        }, {
+            "title": "Achievements",
+            "class": "editfcach"
+        }, {
+            "title": "Thrust Areas",
+            "class": "editfcthrust"
+        }]
+    },
+    {
+        "title": "Geo Thermal Energy",
+        "editable_sections": [{
+            "title": "Section One",
+            "class":"editgeo"
+        }, {
+            "title": "Objectives",
+            "class":"editgeoobj"
+        }, {
+            "title": "Activities",
+            "class": "editgeoact"
+        }, {
+            "title": "Ongoing Projects",
+            "class": "editgeoong"
+        }, {
+            "title": "Achievements",
+            "class": "editgeoach"
+        }, {
+            "title": "Thrust Areas",
+            "class": "editgeothrust"
+        }]
+    }, {
+        "title": "Energy Storage",
+        "editable_sections": [{
+            "title": "Section One",
+            "class": "edites"
+        }, {
+            "title": "Objectives",
+            "class": "editesobj"
+        }, {
+            "title": "Activities",
+            "class": "editesact"
+        }, {
+            "title": "Ongoing Projects",
+            "class": "editesong"
+        }, {
+            "title": "Achievements",
+            "class": "editesach"
+        }, {
+            "title": "Thrust Areas",
+            "class": "editesthrust"
+        }]
+    },
+    {
+        "title": "Ocean Energy",
+        "editable_sections": [{
+            "title": "Section One",
+            "class":"editocean"
+        }, {
+            "title": "Objectives",
+            "class":"editoceanobj"
+        }, {
+            "title": "Activities",
+            "class":"editoceanact"
+        }, {
+            "title": "Ongoing Projects",
+            "class":"editoceanong"
+        }, {
+            "title": "Achievements",
+            "class":"editoceanach"
+        }, {
+            "title": "Thrust Areas",
+            "class":"editoceanthrust"
+        }]
+    },
+    {
+        "title": "RE-Invest",
+        "editable_sections":[
+        {
+            "title":"2018",
+            "class":"edit_re_2018"
+        },
+        {
+            "title":"2019",
+            "class":"edit_re_2019"
+        }
+    ]
+    },
+    {
+        "title": "Media Center",
+        "editable_sections":[{
+            "title":"Recent News",
+            "class":"edit_recent"
+        },{
+            "title":"Speeches & Visits",
+            "class":"edit_speeches"
+        },{
+            "title":"Initiatives & Achievements",
+            "class":"edit_ia"
+        }]
+    },
+    {
+        "title": "Knowledge Center",
+        "editable_sections":[{
+            "title":"Training Modules",
+            "class":"edit_training"
+        },{
+            "title":"Infographs",
+            "class":"edit_infographs"
+        },{
+            "title":"Videos",
+            "class":"edit_videos"
+        },{
+            "title":"Case Studies",
+            "class":"edit_case"
+        }]
+    },
+    {
+        "title": "Public Information",
+        "editable_sections": [{
+            "title": "RFD Overview",
+            "class": "edit_rfd_overview"
+        }, {
+            "title": "Policies Overview",
+            "class": "edit_policies_overview"
+        }, {
+            "title": "Presentations Overview",
+            "class": "edit_presentation_overview"
+        }, {
+            "title": "Advertisements Overview",
+            "class": "edit_ad_overview"
+        }, {
+            "title": "Events Overview",
+            "class": "edit_event_overview"
+        }, {
+            "title": "Reports Overview",
+            "class": "edit_report_overview"
+        }, {
+            "title": "Circulars Overview",
+            "class": "edit_circular_overview"
+        }, {
+            "title": "Notifications Overview",
+            "class": "edit_notification_overview"
+        }, {
+            "title": "Accounts Overview",
+            "class": "edit_account_overview"
+        }, {
+            "title": "Supporting Programmes Overview",
+            "class": "edit_sup_overview"
+        }, {
+            "title": "PIDPI Overview",
+            "class": "edit_pidpi_overview"
+        }, {
+            "title": "Compendium Overview",
+            "class": "edit_comp_overview"
+        }]
+    },{
+        "title":"Manufacturing & Quality Control",
+        "editable_sections":[{
+            "title":"Solar Energy",
+            "class":"editmansolar"
+        },{
+            "title":"Wind Energy",
+            "class":"editmanwind"
+        },{
+            "title":"Small Hydro Energy",
+            "class":"editmansmall"
+        },{
+            "title":"Bio Energy",
+            "class":"editmanbio"
+        },{
+            "title":"Waste to Energy",
+            "class":"editmanwaste"
+        }]
+    }, {
+        "title": "International Relations",
+        "editable_sections": [{
+            "title": "Description",
+            "class":"edit_ir"
+        },{
+            "title":"Solar Energy",
+            "class":"edit_solar_ir"
+        }, {
+            "title": "Wind Energy",
+            "class": "edit_wind_ir"
+        }, {
+            "title": "Small Hydro Energy",
+            "class": "edit_small_ir"
+        }, {
+            "title": "Bio Energy",
+            "class": "edit_bio_ir"
+        }, {
+            "title": "Waste To Energy",
+            "class": "edit_waste_ir"
+        }]
+    },{
+        "title":"ISA PAGE",
+        "editable_sections":[{
+            "title":"Overview",
+            "class":"editisaoverview"
+        }]
+    },{
+        "title":"Tenders",
+        "editable_sections":[{
+            "title":"Recent Tenders",
+            "class":"editrtender"
+        },{
+            "title":"Archived Tenders",
+            "class":"editatender"
+        }]
+    }, {
+        "title": "Contact Us",
+        "editable_sections": [{
+            "title": "Address"
+        }, {
+            "title": "Contact Information"
+        }, {
+            "title": "Minister's Office"
+        }, {
+            "title": "MNRE Headquarter"
+        }]
+    }, {
+        "title": "Parliament Questions"
+    }, {
+        "title": "Schedule an Appointment",
+        "editable_sections": [{
+            "title": "Officials"
+        }]
+    }
+]

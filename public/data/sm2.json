@@ -1,0 +1,407 @@
+[
+    {
+        "section": "The Ministry",
+        "pages": [
+            {
+                "section": "What does the Ministry Do?",
+                "url": "/the-ministry/what-does-the-ministry-do"
+            },
+            {
+                "section": "Who's Who",
+                "url": "/the-ministry/whos-who"
+            },
+            {
+                "section": "Akshay Urja Portal",
+                "url": "",
+                "class": "external_link"
+            },
+            {
+                "section": "Task Monitoring (For Internal user only)",
+                "url": "",
+                "class": "external_link"
+            },
+            {
+                "section": "Career",
+                "url": "/the-ministry/vacancy"
+            },
+            {
+                "section": "Physical Progress (Achievements)",
+                "url": "/the-ministry/physical-progress"
+            }
+        ]
+    },
+    {
+        "section": "Public Information",
+        "pages": [
+            {
+                "section": "Who's Who",
+                "url": "/public-information/whos-who/"
+            },
+            {
+                "section": "Recent News",
+                "url": "/public-information/news/"
+            },
+            {
+                "section": "Events",
+                "url": "/public-information/events/"
+            },
+            {
+                "section": "Current Notice",
+                "url": "/public-information/current-notice/"
+            },
+            {
+                "section": "Office Orders & Memorandums",
+                "url": "/public-information/office-orders/"
+            },
+            {
+                "section": "Circulars",
+                "url": "/public-information/circulars/"
+            },
+            {
+                "section": "Notifications",
+                "url": "/public-information/notifications/"
+            },
+            {
+                "section": "Recruitment Rules",
+                "url": "/public-information/recrutiment-rules/"
+            },
+            {
+                "section": "Citizen Charter",
+                "url": "/public-information/citizen-charter/"
+            },
+            {
+                "section": "Designated Authority & Nodal Officer Under PIDPI",
+                "url": "/public-information/designated-authority-and-nodal-officer/"
+            }
+        ]
+    },
+    {
+        "section": "International Relations",
+        "pages": [
+            {
+                "section": "Overview",
+                "url": "/international-relations/overview"
+            },
+            {
+                "section": "Memorandums of Understanding (MoUs)",
+                "url": "/international-relations/memorandums"
+            },
+            {
+                "section": "International Organizations",
+                "url": "/international-relations/international-organisations"
+            },
+            {
+                "section": "Support to Other Countries",
+                "url": "/international-relations/support-to-other-countries"
+            }
+        ]
+    },
+    {
+        "section": "Knowledge Center",
+        "pages": [
+            {
+                "section": "Reports",
+                "url": "/knowledge-center/reports/"
+            },
+            {
+                "section": "Publications",
+                "url": "/knowledge-center/publication/"
+            },
+            {
+                "section": "Articles",
+                "url": "/knowledge-center/articles/"
+            },
+            {
+                "section": "Videos",
+                "url": "/knowledge-center/videos/"
+            },
+            {
+                "section": "Images",
+                "url": "/knowledge-center/images/"
+            },
+            {
+                "section": "Infographics",
+                "url": "/knowledge-center/infographics/"
+            },
+            {
+                "section": "IRIX",
+                "url": "",
+                "class": "external_link"
+            },
+            {
+                "section": "Presentations",
+                "url": "/knowledge-center/presentations/"
+            }
+        ]
+    },
+    {
+        "section": "International Solar Alliance",
+        "pages": [
+            {
+                "section": "ISA",
+                "url": "/isa/"
+            }
+        ]
+    },
+    {
+        "section": "Solar Energy",
+        "pages": [
+            {
+                "section": "Solar Overview",
+                "url": "/solar/current-status/"
+            },
+            {
+                "section": "Solar RPO and REC Framework",
+                "url": "/solar/rpo/"
+            },
+            {
+                "section": "Policies & Guidelines",
+                "url": "/Solar/policy-and-guidelines/"
+            },
+            {
+                "section": "Schemes",
+                "url": "/solar/schemes/"
+            },
+            {
+                "section": "Research & Development",
+                "url": "/research-and-development/solar"
+            },
+            {
+                "section": "Suryamitra",
+                "url": "/solar/suryamitra"
+            },
+            {
+                "section": "Human Resource Development",
+                "url": "/solar/human-resource-development"
+            },
+            {
+                "section": "International relations",
+                "url": "/solar/international-relations"
+            },
+            {
+                "section": "Manufacturing",
+                "url": "/solar/manufacturers-and-quality-control"
+            },
+            {
+                "section": "NISE",
+                "url": "https://nise.res.in/",
+                "class": "external_link"
+            },
+            {
+                "section": "Standard, Specification & Benchmark Cost",
+                "url": "/solar/standard-specs-cost"
+            }
+        ]
+    },
+    {
+        "section": "Wind Energy",
+        "pages": [
+            {
+                "section": "Wind Overview",
+                "url": "/wind/current-status/"
+            },
+            {
+                "section": "Off Shore Wind",
+                "url": "/wind/offshore-wind/"
+            },
+            {
+                "section": "Policies",
+                "url": "/Wind/policy-and-guidelines"
+            },
+            {
+                "section": "Schemes & Guidelines",
+                "url": "/wind/schemes"
+            },
+            {
+                "section": "Research & Development",
+                "url": "/research-and-development/wind"
+            },
+            {
+                "section": "Human Resource Development",
+                "url": "/wind/human-resource-development"
+            },
+            {
+                "section": "International Relations",
+                "url": "/wind/international-relations"
+            },
+            {
+                "section": "Manufacturing",
+                "url": "/wind/manufacturers-and-quality-control"
+            },
+            {
+                "section": "NIWE",
+                "url": "https://niwe.res.in/",
+                "class": "external_link"
+            }
+        ]
+    },
+    {
+        "section": "Small Hydro",
+        "pages": [
+            {
+                "section": "Small Hydro Overview",
+                "url": "/small-hydro/current-status"
+            },
+            {
+                "section": "Policies & Guidelines",
+                "url": "/Small Hydro/policy-and-guidelines"
+            },
+            {
+                "section": "Schemes",
+                "url": "/small-hydro/schemes"
+            },
+            {
+                "section": "Research & Development",
+                "url": "/research-and-development/small-hydro"
+            },
+            {
+                "section": "Human Resource Development",
+                "url": "/small-hydro/human-resource-development"
+            },
+            {
+                "section": "International Relations",
+                "url": "/hydro/international-relations"
+            },
+            {
+                "section": "Manufacturing",
+                "url": "/small-hydro/manufacturers-and-quality-control"
+            },
+            {
+                "section": "Supporting Institide",
+                "url": "https://www.iitr.ac.in/departments/HRE/pages/Home.html",
+                "class": "external_link"
+            }
+        ]
+    },
+    {
+        "section": "Waste To Energy",
+        "pages": [
+            {
+                "section": "Waste To Energy Overview",
+                "url": "/waste-to-energy/current-status"
+            },
+            {
+                "section": "Policies & Guidelines",
+                "url": "/Waste To Energy/policy-and-guidelines"
+            },
+            {
+                "section": "Schemes",
+                "url": "/waste-to-energy/schemes"
+            },
+            {
+                "section": "Research & Development",
+                "url": "/research-and-development/waste-to-energy"
+            },
+            {
+                "section": "Human Resource Development",
+                "url": "/waste/human-resource-development"
+            },
+            {
+                "section": "International Relations",
+                "url": "/waste/international-relations"
+            },
+            {
+                "section": "Manufacturing",
+                "url": "/waste-to-energy/manufacturers-and-quality-control"
+            },
+            {
+                "section": "NIBE",
+                "url": "http://nibe.res.in/",
+                "class": "external_link"
+            }
+        ]
+    },
+    {
+        "section": "Bio Energy",
+        "pages": [
+            {
+                "section": "Bio Energy Overview",
+                "url": "/bio-energy/current-status"
+            },
+            {
+                "section": "Policies & Guidelines",
+                "url": "/Bio Energy/policy-and-guidelines"
+            },
+            {
+                "section": "Schemes",
+                "url": "/bio-energy/schemes"
+            },
+            {
+                "section": "Research & Development",
+                "url": "/research-and-development/bio-energy"
+            },
+            {
+                "section": "Human Resource Development",
+                "url": "/bio-energy/human-resource-development"
+            },
+            {
+                "section": "International Relations",
+                "url": "/bio-energy/international-relations"
+            },
+            {
+                "section": "Manufacturing",
+                "url": "/bio-energy/manufacturers-and-quality-control"
+            },
+            {
+                "section": "NIBE",
+                "url": "http://www.nibe.res.in/",
+                "class": "external_link"
+            }
+        ]
+    },
+    {
+        "section": "Green Energy Corridor",
+        "pages": [
+            {
+                "section": "Overview",
+                "url": "/green-energy-corridor"
+            }
+        ]
+    },
+    {
+        "section": "Tenders",
+        "pages": [
+            {
+                "section": "Recent Tenders",
+                "url": "/tenders/recent/"
+            },
+            {
+                "section": "Archived Tenders",
+                "url": "/tenders/archived/"
+            }
+        ]
+    },
+    {
+        "section": "RE - Invest",
+        "pages": [
+            {
+                "section": "Home",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "section": "Parliament Questions",
+        "pages": [
+            {
+                "section": "Lok Shaba",
+                "url": "http://loksabhaph.nic.in/Questions/qsearch15.aspx",
+                "class": "external_link"
+            },
+            {
+                "section": "Rajya Shaba",
+                "url": "",
+                "class": "external_link"
+            }
+        ]
+    },
+    {
+        "section": "Contact Us",
+        "pages": [
+            {
+                "section": "Contact Page",
+                "url": "/contact-mnre"
+            }
+        ]
+    }
+]

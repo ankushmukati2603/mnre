@@ -1,0 +1,406 @@
+{
+    "HOME": [
+        {
+            "name": "Home Page Meta",
+            "code": "HOM_PAG"
+        }
+    ],
+    "MIN":[
+        {
+            "name":"What does the Ministry Do?",
+            "code":"MIN_DO"
+        },
+        {
+            "name": "Comprehensive Achievements",
+            "code":"MIN_COM"
+        },
+        {
+            "name":"Organogram of the Ministry",
+            "code":"MIN_ORG"
+        },
+        {
+            "name": "Recruitment Rules",
+            "code":"MIN_REC"
+        }
+    ],
+    "PI":[
+        {
+            "name":"Result Framework Document",
+            "code":"PI_RFD"
+        },
+        {
+            "name":"Policies & Guidelines",
+            "code":"PI_POL"
+        },
+        {
+            "name":"Presentations",
+            "code":"PI_PRE"
+        },
+        {
+            "name":"Advertisements",
+            "code":"PI_ADV"
+        },
+        {
+            "name":"Events",
+            "code":"PI_EVT"
+        },
+        {
+            "name":"Office Orders and Memorandums",
+            "code":"PI_OOM"
+        },
+        {
+            "name":"Circulars",
+            "code":"PI_CIR"
+        },
+        {
+            "name":"Notifications",
+            "code":"PI_NOT"
+        },
+        {
+            "name":"Supporting Programmes",
+            "code":"PI_SUP"
+        },
+        {
+            "name":"Reports",
+            "code":"PI_REP"
+        },
+        {
+            "name": "Designated Authority & Nodal Officer under PIDPI",
+            "code":"PI_DES"
+        },
+        {
+            "name": "Compendium of Regulations & Policies",
+            "code":"PI_COM"
+        }
+    ],
+    "IR":[
+        {
+            "name":"International Relations Overview",
+            "code":"IR_OVE"
+        },
+        {
+            "name":"Memorandums of Understanding",
+            "code":"IR_MOU"
+        },
+        {
+            "name":"International Organizations",
+            "code":"IR_ORG"
+        },
+        {
+            "name":"Support to Other Countries",
+            "code":"IR_SUP"
+        }
+    ],
+    "KC":[
+        {
+            "name":"Training Modules",
+            "code": "KC_TRA"
+        },
+        {
+            "name":"Infographics",
+            "code": "KC_INF"
+        },
+        {
+            "name":"Videos",
+            "code": "KC_VID"
+        },
+        {
+            "name":"Case Studies",
+            "code": "KC_CAS"
+        },
+        {
+            "name":"Reports",
+            "code": "KC_REP"
+        },
+        {
+            "name":"Articles",
+            "code": "KC_ART"
+        },
+        {
+            "name":"Presentations",
+            "code": "KC_PRE"
+        },
+        {
+            "name":"Akshay Urja",
+            "code":"KC_AKS"
+        }
+    ],
+    "MC":[
+        {
+            "name":"Recent News",
+            "code":"MC_REC"
+        },
+        {
+            "name":"Speeches & Visits",
+            "code":"MC_SNV"
+        },
+        {
+            "name":"Initiatives & Achievements",
+            "code": "MC_INA"
+        }
+    ],
+    "ISA":[
+        {
+            "name":"ISA Overview",
+            "code":"ISA_OVE"
+        }
+    ],
+    "SOLAR":[
+        {
+            "name":"Solar Energy Overview",
+            "code": "SOL_OVE"
+        },
+        {
+            "name":"Solar Energy Policy & Guidelines",
+            "code": "SOL_POL"
+        },
+        {
+            "name": "Solar Energy Schemes",
+            "code": "SOL_SCH"
+        },
+        {
+            "name": "Solar Energy Research & Development",
+            "code": "SOL_RND"
+        },
+        {
+            "name":"Solar Energy Human Resource & Development",
+            "code": "SOL_HRD"
+        },
+        {
+            "name": "Solar Energy International Relations",
+            "code": "SOL_INR"
+        },
+        {
+            "name": "Solar Energy Manufacturing",
+            "code": "SOL_MAN"
+        },
+        {
+            "name":"Solar Energy RPO & REC Framework",
+            "code": "SOL_RPO"
+        },
+        {
+            "name": "Solar Cities",
+            "code": "SOL_CIT"
+        },
+        {
+            "name": "Green Buildings",
+            "code":"SOL_GRE"
+        },
+        {
+            "name": "R&D Format",
+            "code": "SOL_RDF"
+        }
+    ],
+    "WIND":[
+        {
+            "name": "Wind Energy Overview",
+            "code": "WIN_OVE"
+        }, {
+            "name": "Wind Energy Policy & Guidelines",
+            "code": "WIN_POL"
+        }, {
+            "name": "Wind Energy Schemes",
+            "code": "WIN_SCH"
+        }, {
+            "name": "Wind Energy Research & Development",
+            "code": "WIN_RND"
+        }, {
+            "name": "Wind Energy Human Resource & Development",
+            "code": "WIN_HRD"
+        }, {
+            "name": "Wind Energy International Relations",
+            "code": "WIN_INR"
+        }, {
+            "name": "wind Energy Manufacturing",
+            "code": "WIN_MAN"
+        },  {
+            "name": "R&D Format",
+            "code": "WIN_RDF"
+        }
+    ],
+    "SHY":[
+        {
+            "name": "Small Hydro Energy Overview",
+            "code": "SHY_OVE"
+        }, {
+            "name": "Small Hydro Energy Policy & Guidelines",
+            "code": "SHY_POL"
+        }, {
+            "name": "Small Hydro Energy Schemes",
+            "code": "SHY_SCH"
+        }, {
+            "name": "Small Hydro Energy Research & Development",
+            "code": "SHY_RND"
+        }, {
+            "name": "Small Hydro Energy Human Resource & Development",
+            "code": "SHY_HRD"
+        }, {
+            "name": "Small Hydro Energy International Relations",
+            "code": "SHY_INR"
+        }, {
+            "name": "Small Hydro Energy Manufacturing",
+            "code": "SHY_MAN"
+        }, {
+            "name": "R&D Format",
+            "code": "SHY_RDF"
+        }
+    ],
+    "WASTE":[
+        {
+            "name": "Waste To Energy Overview",
+            "code":"WAS_OVE"
+        },
+        {
+            "name": "Waste to Energy Policies & Guidelines",
+            "code": "WAS_POL"
+        },
+        {
+            "name": "Waste to Energy Schemes",
+            "code": "WAS_SCH"
+        },
+        {
+            "name": "Waste to Energy Research & Development",
+            "code": "WAS_RND"
+        },
+        {
+            "name": "Waste To Energy Human Resource & Development",
+            "code": "WAS_HRD"
+        },
+        {
+            "name": "Waste To Energy International Relations",
+            "code": "WAS_INR"
+        },
+        {
+            "name": "Waste To Energy Manufacturing",
+            "code": "WAS_MAN"
+        },
+        {
+            "name": "Waste To Energy Supporting Institute",
+            "code": "WAS_SUP"
+        },
+        {
+            "name": "Waste To Energy R&D Format",
+            "code": "WAS_RDF"
+        }
+    ],
+    "BIO":[
+        {
+            "name": "Bio Energy Overview",
+            "code": "BIO_OVE"
+        },
+        {
+            "name": "Bio Energy Policies & Guidelines",
+            "code": "BIO_POL"
+        },
+        {
+            "name": "Bio Energy Schemes",
+            "code": "BIO_SCH"
+        },
+        {
+            "name": "Bio Energy Research & Development",
+            "code": "BIO_RND"
+        },
+        {
+            "name": "Bio Energy Human Resource & Development",
+            "code": "BIO_HRD"
+        },
+        {
+            "name": "Bio Energy International Relations",
+            "code": "BIO_INR"
+        },
+        {
+            "name": "Bio Energy Manufacturing",
+            "code": "BIO_MAN"
+        },
+        {
+            "name": "Bio Energy Research & Development Format",
+            "code": "BIO_RDF"
+        }
+    ],
+    "GED": [
+        {
+            "name": "Green Energy Documents Overview",
+            "code": "GED_OVE"
+        }
+    ],
+    "NEW": [
+        {
+            "name": "New Technologies Overview",
+            "code": "NEW_OVE"
+        },
+        {
+            "name":"Hydrogen Energy Overview",
+            "code": "NEW_HYD"
+        },
+        {
+            "name": "Chemical Sources of Energy Overview",
+            "code": "NEW_CHE"
+        },
+        {
+            "name": "Geo Thermal Energy Overview",
+            "code": "NEW_GEO"
+        },
+        {
+            "name": "Ocean Energy Overview",
+            "code": "NEW_OCE"
+        },
+        {
+            "name": "Energy Storage Overview",
+            "code": "NEW_EST"
+        }
+    ],
+    "TENDERS": [
+        {
+            "name": "Recent Tenders Overview",
+            "code": "TEN_REC"
+        },
+        {
+            "name": "Archived Tenders Overview",
+            "code": "TEN_ARC"
+        }
+    ],
+    "RE":[
+        {
+            "name": "2018 - Overview RE-Invest",
+            "code": "REI_ONE"
+        },
+        {
+            "name": "2019 - Overview Re-Invest",
+            "code": "REI_TWO"
+        }
+    ],
+    "PAR_QUE":[
+        {
+            "name": "Parliament Questions Overview",
+            "code": "PAR_OVE"
+        }
+    ],
+    "CONTACT":[
+        {
+            "name":"Contact Us Overview",
+            "code": "MNR_CON"
+        }
+    ],
+    "STATIC":[
+        {
+            "name": "Website Policy",
+            "code": "WEB_POL"
+        },
+        {
+            "name": "Website FAQ",
+            "code": "WEB_FAQ"
+        },
+        {
+            "name": "Website Sitemap",
+            "code": "WEB_SIT"
+        },
+        {
+            "name": "Website Feedback",
+            "code": "WEB_FEE"
+        },
+        {
+            "name": "Website Help",
+            "code": "WEB_HEL"
+        }
+    ]
+}

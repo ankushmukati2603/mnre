@@ -1,0 +1,531 @@
+[
+  {
+    "title": "The Ministry",
+    "image": "/img/icons_menu/ministry.png",
+    "relativeUrl": "/the-ministry/what-does-the-ministry-do/",
+    "subheaders": [
+      {
+        "title": "What does the Ministry do?",
+        "subheaders": [
+          {
+            "title": "Mission"
+          },
+          {
+            "title": "Vision"
+          },
+          {
+            "title": "Core Values"
+          },
+          {
+            "title": "The Organogram of the Ministry"
+          }
+        ]
+      },
+      {
+        "title": "Overall Status"
+      },
+      {
+        "title": "What is the Ministry all about ?"
+      }
+    ]
+  },
+  {
+    "title": "Solar",
+    "relativeUrl": "/solar/current-status/",
+    "image": "/img/icons_menu/solar_icon.png",
+    "subheaders": [
+      {
+        "title": "Current Status"
+      },
+      {
+        "title": "Policies and Guidelines",
+        "subheaders": [
+          {
+            "title": "Mandatory Guidelines and Policies Pertaining to Solar Energy"
+          }
+        ]
+      },
+      {
+        "title": "Schemes",
+        "subheaders": [
+          {
+            "title": "Off Shore"
+          },
+          {
+            "title": "On Shore"
+          }
+        ]
+      },
+      {
+        "title": "R&D",
+        "subheaders": [
+          {
+            "title": "Projects Completed"
+          },
+          {
+            "title": "Ongoing R&D Projects"
+          },
+          {
+            "title": "Focused area for R&D"
+          },
+          {
+            "title": "Lab policy, standards and quality control"
+          }
+        ]
+      },
+      {
+        "title": "Human Resource Development",
+        "subheaders": [
+          {
+            "title": "HRD Policy of the Ministry of Solar"
+          },
+          {
+            "title": "Accelaration Support"
+          },
+          {
+            "title": "Financial Support"
+          }
+        ]
+      },
+      {
+        "title": "Emerging Areas"
+      },
+      {
+        "title": "Supporting Institute"
+      }
+    ]
+  },
+  {
+    "title": "Wind",
+    "relativeUrl": "/wind/current-status/",
+    "image": "/img/icons_menu/wind_icon.png",
+    "subheaders": [
+      {
+        "title": "Current Status"
+      },
+      {
+        "title": "Off Shore Wind",
+        "subheaders": [
+          {
+            "title": "Mandatory Guidelines and Policies Pertaining to Wind Energy"
+          }
+        ]
+      },
+      {
+        "title": "Policies and Guidelines"
+      },
+      {
+        "title": "Schemes",
+        "subheaders": [
+          {
+            "title": "Off Shore"
+          },
+          {
+            "title": "On Shore"
+          }
+        ]
+      },
+      {
+        "title": "R&D",
+        "subheaders": [
+          {
+            "title": "Projects Completed"
+          },
+          {
+            "title": "Ongoing R&D Projects"
+          },
+          {
+            "title": "Focused area for R&D"
+          },
+          {
+            "title": "Lab policy, standards and quality control"
+          }
+        ]
+      },
+      {
+        "title": "Human Resource Development",
+        "subheaders": [
+          {
+            "title": "HRD Policy of the Ministry of Solar"
+          },
+          {
+            "title": "Accelaration Support"
+          },
+          {
+            "title": "Financial Support"
+          }
+        ]
+      },
+      {
+        "title": "Emerging Areas"
+      },
+      {
+        "title": "Supporting Institute"
+      }
+    ]
+  },
+  {
+    "title": "Small Hydro",
+    "image": "/img/icons_menu/hydro.png",
+    "relativeUrl": "/small-hydro/current-status",
+    "subheaders": [
+      {
+        "title": "Current Status"
+      },
+      {
+        "title": "Policies and Guidelines",
+        "subheaders": [
+          {
+            "title": "Mandatory Guidelines and Policies Pertaining to Small Hydro Energy"
+          }
+        ]
+      },
+      {
+        "title": "Schemes",
+        "subheaders": [
+          {
+            "title": "Off Shore"
+          },
+          {
+            "title": "On Shore"
+          }
+        ]
+      },
+      {
+        "title": "R&D",
+        "subheaders": [
+          {
+            "title": "Projects Completed"
+          },
+          {
+            "title": "Ongoing R&D Projects"
+          },
+          {
+            "title": "Focused area for R&D"
+          },
+          {
+            "title": "Lab policy, standards and quality control"
+          }
+        ]
+      },
+      {
+        "title": "Human Resource Development",
+        "subheaders": [
+          {
+            "title": "HRD Policy of the Ministry of Solar"
+          },
+          {
+            "title": "Accelaration Support"
+          },
+          {
+            "title": "Financial Support"
+          }
+        ]
+      },
+      {
+        "title": "Emerging Areas"
+      },
+      {
+        "title": "Supporting Institute"
+      }
+    ]
+  },
+  {
+    "title": "Waste to Energy",
+    "image": "/img/icons_menu/waste_icon.png",
+    "relativeUrl": "/waste-to-energy/current-status",
+    "subheaders": [
+      {
+        "title": "Current Status"
+      },
+      {
+        "title": "Policies and Guidelines",
+        "subheaders": [
+          {
+            "title": "Mandatory Guidelines and Policies Pertaining to Waste to Energy Energy"
+          }
+        ]
+      },
+      {
+        "title": "Schemes",
+        "subheaders": [
+          {
+            "title": "Off Shore"
+          },
+          {
+            "title": "On Shore"
+          }
+        ]
+      },
+      {
+        "title": "R&D",
+        "subheaders": [
+          {
+            "title": "Projects Completed"
+          },
+          {
+            "title": "Ongoing R&D Projects"
+          },
+          {
+            "title": "Focused area for R&D"
+          },
+          {
+            "title": "Lab policy, standards and quality control"
+          }
+        ]
+      },
+      {
+        "title": "Human Resource Development",
+        "subheaders": [
+          {
+            "title": "HRD Policy of the Ministry of Solar"
+          },
+          {
+            "title": "Accelaration Support"
+          },
+          {
+            "title": "Financial Support"
+          }
+        ]
+      },
+      {
+        "title": "Emerging Areas"
+      },
+      {
+        "title": "Supporting Institute"
+      }
+    ]
+  },
+  {
+    "title": "Bio Energy",
+    "image": "/img/icons_menu/bio.png",
+    "relativeUrl": "/bio-energy/current-status",
+    "subheaders": [
+      {
+        "title": "Current Status"
+      },
+      {
+        "title": "Policies and Guidelines",
+        "subheaders": [
+          {
+            "title": "Mandatory Guidelines and Policies Pertaining to Bio Energy"
+          }
+        ]
+      },
+      {
+        "title": "Schemes",
+        "subheaders": [
+          {
+            "title": "Off Shore"
+          },
+          {
+            "title": "On Shore"
+          }
+        ]
+      },
+      {
+        "title": "R&D",
+        "subheaders": [
+          {
+            "title": "Projects Completed"
+          },
+          {
+            "title": "Ongoing R&D Projects"
+          },
+          {
+            "title": "Focused area for R&D"
+          },
+          {
+            "title": "Lab policy, standards and quality control"
+          }
+        ]
+      },
+      {
+        "title": "Human Resource Development",
+        "subheaders": [
+          {
+            "title": "HRD Policy of the Ministry of Solar"
+          },
+          {
+            "title": "Accelaration Support"
+          },
+          {
+            "title": "Financial Support"
+          }
+        ]
+      },
+      {
+        "title": "Emerging Areas"
+      },
+      {
+        "title": "Supporting Institute"
+      }
+    ]
+  },
+  {
+    "title": "Green Energy Corridor",
+    "image": "/img/icons_menu/Otherrenewables_icon.png",
+    "short": "green_energy_corridor",
+    "href": "/green-energy-corridor"
+  },
+  {
+    "title": "New Technologies",
+    "image": "/img/icons_menu/NewTechnologies_icon.png",
+    "relativeUrl": "/new-technologies/overview",
+    "subheaders": [
+      {
+        "title": "Hydrogen Energy"
+      },
+      {
+        "title": "Chemical Sources of Energy (Fuel Cells)"
+      },
+      {
+        "title": "Geo Thermal Energy"
+      },
+      {
+        "title": "Ocean Energy"
+      }
+    ]
+  },
+  {
+    "title": "Human Resource Development",
+    "image": "/img/icons_menu/hrd.png",
+    "short": "human_resource_development",
+    "href": "/human-resource-development"
+  },
+  {
+    "title": "Lab Policy, Standards and Quality Control",
+    "image": "/img/icons_menu/quality_standard_policy.png",
+    "short": "quality_standard_policy"
+  },
+  {
+    "title": "International Relations",
+    "image": "/img/icons_menu/InternationalRelations_icon.png",
+    "relativeUrl": "/international-relations/overview",
+    "subheaders": [
+      {
+        "title": "International Relations Memorandums"
+      },
+      {
+        "title": "International Relations Memberships"
+      }
+    ]
+  },
+  {
+    "title": "Public Information",
+    "image": "/img/icons_menu/pi_icon.png",
+    "subheaders": [
+      {
+        "title": "Result Framework Document"
+      },
+      {
+        "title": "Policies"
+      },
+      {
+        "title": "Presentations"
+      },
+      {
+        "title": "Advertisements"
+      },
+      {
+        "title": "Events"
+      },
+      {
+        "title": "Reports"
+      },
+      {
+        "title": "Circulars"
+      },
+      {
+        "title": "Notifications"
+      }
+    ]
+  }, 
+  {
+    "title": "International Solar Alliance",
+    "image": "/img/icons_menu/InternationalSolarAlliance_icon.png",
+    "short": "international_solar_alliance"
+  },      
+  {
+    "title": "Autonomous Institutes",
+    "image": "/img/icons_menu/AutonomousInstitutions_icon.png",
+    "subheaders": [
+      {
+        "title": "National Institute of Solar Energy",
+        "class": "nise_menu"
+      },
+      {
+        "title": "National Institute of Wind Energy"
+      },
+      {
+        "title": "National Institue of Renewable Energy"
+      }
+    ]
+  }, 
+  {
+    "title": "Right To Information",
+    "image": "/img/icons_menu/rti_icon.png",
+    "short": "rti"
+  }, 
+  {
+    "title": "Knowledge Center",
+    "image": "/img/icons_menu/KnowledgeCenter_icon.png",
+    "subheaders": [
+      {
+        "title": "Training Modules"
+      },
+      {
+        "title": "Infographics for e-learning"
+      },
+      {
+        "title": "Videos for e-learning"
+      }
+    ]
+  },     
+  {
+    "title": "Public Sector Undertakings",
+    "image": "/img/icons_menu/PublicSector_icon.png",
+    "subheaders": [
+      {
+        "title": "SECI"
+      },
+      {
+        "title": "IREDA"
+      }
+    ]
+  },
+  {
+    "title": "Tenders",
+    "image": "/img/icons_menu/tender_icon.png",
+    "subheaders": [
+      {
+        "title": "Recent Tenders"
+      },
+      {
+        "title": "Archived Tenders"
+      }
+    ]
+  },
+  {
+    "title": "3rd RE-Invest",
+    "image": "/img/icons_menu/ReInvest_icon.png",
+    "short": "re_invest"
+  },
+  {
+    "title": "Parliament Questions",
+    "image": "/img/icons_menu/ParliamentQuestions_icon.png",
+    "subheaders": [
+      {
+        "title": "Lok Sabha"
+      },
+      {
+        "title": "Rajya Sabha"
+      }
+    ]
+  },
+  {
+    "title": "Contact Us",
+    "image": "/img/icons_menu/contact.png",
+    "short": "contact_us"
+  }
+]

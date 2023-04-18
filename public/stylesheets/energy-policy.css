@@ -1,0 +1,6 @@
+.issue_date {
+    width: 66px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+}

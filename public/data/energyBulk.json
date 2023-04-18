@@ -1,0 +1,34 @@
+[
+  {
+    "year": 2016,
+    "lantern_lamp": 996931,
+    "home_light": 1285877,
+    "street_light": 387632,
+    "pump": 61834,
+    "standalone": 150001.44
+  },
+  {
+    "year": 2017,
+    "lantern_lamp": 996931,
+    "home_light": 1407209,
+    "street_light": 464103,
+    "pump": 114878,
+    "standalone": 176847.36
+  },
+  {
+    "year": 2018,
+    "lantern_lamp": 3074002,
+    "home_light": 1647821,
+    "street_light": 605249,
+    "pump": 171228,
+    "standalone": 185900.07
+  },
+  {
+    "year": 2019,
+    "lantern_lamp": 5823800,
+    "home_light": 1715214,
+    "street_light": 659218,
+    "pump": 237120,
+    "standalone": 212054.17
+  }
+]

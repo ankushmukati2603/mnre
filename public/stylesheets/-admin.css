@@ -1,0 +1,112 @@
+body {
+    background-color: #bada55
+}
+
+
+
+/* 
+** NAVBAR Styles 
+*/
+.navbar_1 {
+    margin: 0 70px;
+    background-color: transparent
+}
+
+/*
+**  FOOTER Styles
+*/
+.admin_footer {
+    padding: 1rem !important
+}
+
+/* 
+** CARD Styles 
+*/
+.admin_edit {
+    height: 100%
+}
+
+.editPage_section_list {
+    padding-bottom: 30px;
+}
+
+.editPage_section_list-item {
+    padding: 1rem
+}
+
+.edit_button_text {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.admin_edit_content {
+    height: 200px;
+    overflow-y: scroll;
+    padding-top: 0px;
+}
+
+
+/* NOTIFICATION */
+
+.notification {
+    position: fixed;
+    top: 0;
+    width: 31%;
+    right: 0;
+    margin: 2rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    z-index: 6000000;
+}
+
+.is-visible{
+    visibility: visible;
+    opacity: 1;
+}
+
+.home__banner--image{
+    width:100%;
+    height: 300px!important;
+    padding: 1rem;
+}
+
+.banner__description--column{
+    padding: 1rem;
+}
+
+.banner__column{
+    padding: 1rem;
+}
+
+.main__modal--card{
+    width:70%
+}
+.banner__buttons--1{
+    width: 100%;
+    display: flex;
+}
+.banner__buttons--2{
+    width: 100%;
+    display: flex;
+}
+
+.bannerEdit{
+    padding:0.3rem;
+}
+
+.editing{
+    border: 1px solid black;
+}
+.addNewBanner{
+    margin-bottom: 1rem!important;
+}
+
+.banners_container{
+    margin:1.2rem
+}
+
+.item__image--banner{
+    height: 200px!important;
+}

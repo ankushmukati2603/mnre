@@ -1,0 +1,31 @@
+@media screen and (max-width: 600px) {
+    .download__icon {
+        width: 10%;
+    }
+}
+
+.areas__content {
+    font-size: 18px;
+}
+
+.standing__committee--list {
+    font-size: 20px;
+    padding: 40px;
+}
+
+.areas_content--main {
+    padding: 1rem 5rem 2rem 5rem;
+}
+
+.address__correspondence {
+    list-style: none;
+    padding: 1rem
+}
+
+.areas__documents {
+    padding-bottom: 20px
+}
+
+.areas__document--title {
+    font-weight: 300 !important
+}
