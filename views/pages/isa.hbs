@@ -1,0 +1,25 @@
+<div class="_isa_banner">
+  <img src="/img/pi-banner.jpeg" alt="" />
+</div>
+
+<div class="_page_head isa_bg">
+  <p class="_heading">{{pageTitle}}</p>
+</div>
+
+<main class="_page_wrapper">
+  <div class="margin_boo">
+    {{{overview}}}
+  </div>
+  <a class="isa_link">Go To ISA Website</a>
+</main>
+
+<script>
+  $('.isa_link').click(function () {
+    var choice = confirm("You are Redirecting to an External Site. Do you want to continue?")
+    if (choice == true) {
+      window.open("http://isolaralliance.org/", "_blank")
+    } else {
+      console.log('Redirect Cancelled')
+    }
+  });
+</script>

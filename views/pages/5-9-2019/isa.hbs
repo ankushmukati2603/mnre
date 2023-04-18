@@ -1,0 +1,40 @@
+
+<div id="carouselExampleFade" class="carousel slide desktop" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active isa">
+
+    </div>
+  </div>
+</div>
+<div class="container-fluid rehd isa_bg">
+  <h1 class="text-center rehd isa_bg" style="margin: 0; padding-bottom: 12px;">International Solar Alliance</h1>
+
+</div>
+<main class="ml-5 mr-5 mb-5 mt-5">
+  <div class="container-fluid">
+    <div class="hdpart">
+      <div class="col-sm-12 mt-3 rmtext">
+        <div class="margin_boo">
+          {{{overview}}}
+        </div>
+        <br>
+        <br>
+        <br>
+        <a id="isa_link"><button class="rebt isa_bg"
+            style="text-align: center">Go To
+            Website</button></a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+$('#isa_link').click(function () {
+		var choice = confirm("You are Redirecting to an External Site. Do you want to continue ?")
+		if (choice == true) {
+			window.open("http://isolaralliance.org/", "_blank")
+		} else {
+			console.log('Redirect Cancelled')
+		}
+	});
+</script>

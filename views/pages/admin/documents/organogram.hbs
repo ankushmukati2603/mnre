@@ -1,0 +1,200 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+</style>
+{{> language_dom}}
+
+
+<div class="_wrapper _admin_wrapper">
+    <div class="_section_wrap _energy_list">
+        <div class="_table_listings">
+            <div class="_top">
+                <p class="_head">{{heading}}</p>
+                <a class="button" href="javascript:void(0)" onclick="_organogramModal('formModal','{{form}}')">Add New
+                    Listing</a>
+            </div>
+
+            <table id="table_id" class="display">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Name</th>
+                        <th>Designation</th>
+                        <th>Category</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr>
+                        <td>#</td>
+                        <td>{{this.name}}</td>
+                        <td>{{this.designation}}</td>
+                        <td>{{this.new_category}}</td>
+                        <td>{{this.email}}</td>
+                        <td>
+                            <button onclick="_getOrganogramById('{{this._id}}','formModal')">Edit</button>
+                            <button onclick="_removeOrganogramById('{{this._id}}')">Delete</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="formModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <button class="delete" onclick="_closeModal('formModal')" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form">
+                    <form name="_{{form}}_form" id="_{{form}}_form" class="_schemes_form">
+                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                        <input type="hidden" value="add" id="_action_mode" name="_action_mode">
+                        <div class="_form_field">
+                            <label>Name Prefix :</label>
+                            <input type="text" placeholder="Name Prefix..." name="_prefix" class="input"
+                                id="_prefix"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Name :</label>
+                            <input type="text" placeholder="Type your title here..." name="_name" class="input"
+                                id="_name"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Designation :</label>
+                            <input type="text" name="_designation" class="input" id="_designation"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Programmes :</label>
+                            <textarea name="_programmes" id="_programmes" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Phone Residence :</label>
+                            <input type="text" name="_phone_residence" class="input" id="_phone_residence"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Fax :</label>
+                            <input type="text" name="_fax" class="input" id="_fax"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Facebook :</label>
+                            <input type="text" name="_facebook" class="input" id="_facebook"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Twitter :</label>
+                            <input type="text" name="_twitter" class="input" id="_twitter"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Linkedin :</label>
+                            <input type="text" name="_linkedin" class="input" id="_linkedin"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Website :</label>
+                            <input type="text" name="_website" class="input" id="_website"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Email :</label>
+                            <input type="text" name="_email" class="input" id="_email"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Phone Office :</label>
+                            <input type="text" name="_phone_office" class="input" id="_phone_office"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Mobile :</label>
+                            <input type="text" name="_mobile" class="input" id="_mobile"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Department :</label>
+                            <input type="text" name="_department" class="input" id="_department"></textarea>
+                        </div>
+                        {{!-- <div class="_form_field">
+                            <label>Old Category :</label>
+                            <select class="_location_drop" id="_category1" name="_category1">
+                                <option value="">Choose Category</option>
+                                <option value="Ministers">Ministers</option>
+                                <option value="Secretary">Secretary</option>
+                                <option value="AS &amp; JS">AS &amp; JS</option>
+                                <option value="AS">AS</option>
+                                <option value="JS">JS</option>
+                                <option value="Scientist G DDG">Scientist G DDG</option>
+                                <option value="Economic Advisor">Economic Advisor</option>
+                                <option value="Scientist F,E,D Director DS">Scientist F,E,D Director DS</option>
+                                <option value="Under Secretary Scientist C,B">Under Secretary Scientist C,B</option>
+                                <option value="Section Officer">Section Officer</option>
+                                <option value="Web Information Manager">Web Information Manager</option>
+                                <option value="Special Secretary">Special Secretary</option>
+                            </select>
+                        </div> --}}
+
+                        <div class="_form_field">
+                            <label>Category :</label>
+                            <select class="_location_drop" id="_category" name="_category">
+                                <option value="">Choose Category</option>
+                                <option value="Cab Minister">Ministers</option>
+                                <option value="Mos">Mos</option>
+                                <option value="Secretary">Secretary</option>
+                                <option value="AS & JS">AS &amp; JS</option>
+                                <option value="AS">AS</option>
+                                <option value="AD">AD</option>
+                                <option value="JS">JS</option>
+                                <option value="G">Scientist G</option>
+                                <option value="DDG">Scientist DDG</option>
+                                <option value="Economic Advisor">Economic Advisor</option>
+                                <option value="CAA">Chief Controller of Accounts</option>
+                                <option value="F">Scientist F</option>
+                                <option value="E">Scientist E</option>
+                                <option value="D">Scientist D</option>
+                                <option value="Director">Director</option>
+                                <option value="DD">Deputy Director</option>
+                                <option value="DS">Deputy Secretary</option>
+                                <option value="C"> Scientist C</option>
+                                <option value="B"> Scientist B</option>
+                                <option value="Under Secretary"> Under Secretary</option>
+                                <option value="Section Officer">Section Officer</option>
+                                <option value="Web Information Manager">Web Information Manager</option>
+                                <option value="Special Secretary">Special Secretary</option>
+                            </select>
+                        </div>
+
+                        <div class="_upload_image _image">
+                            <div class="_form_field">
+                                <label for="_organogramFileMain" class="label">File (Image) :</label>
+                                <input type="file" id="_organogramFileMain">
+                                <input type="hidden" name="_file" />
+                            </div>
+                            <div class="_show_uploaded">
+
+                            </div>
+                            {{#if (ifEquals access "super-admin")}}
+                            <div class="_reviewed_box">
+
+                            </div>
+                            {{/if}}
+                        </div>
+
+                        <footer class="modal-card-foot">
+                            <button class="button is-success _saveData">Save changes</button>
+                        </footer>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

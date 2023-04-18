@@ -1,0 +1,25 @@
+<div class="_page_head newhydro">
+    <p class="_heading">New Technologies</p>
+</div>
+
+<main class="_page_wrapper">
+  <div class="_page_heading">
+    <p class="english_data">{{page_title}}</p>
+    <p class="hindi_data">{{page_title_hi}}</p>
+  </div>
+  <div class="_page_content">
+    <p class="english_data">{{page_content}}</p>
+    <p class="hindi_data">{{page_content_hi}}</p>
+  </div>  
+</main>
+
+<script>
+    var lang = '{{language}}';
+    if(lang === 'EN'){
+        $('.english_data').show();
+        $('.hindi_data').hide();
+    } else {
+        $('.english_data').hide();
+        $('.hindi_data').show();
+    }
+</script>

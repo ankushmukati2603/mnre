@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{page_title}}</title>
+    <link rel="stylesheet" href="/stylesheets/bulma.min.css">
+    <link rel="stylesheet" href="/stylesheets/bulma.css.map">
+    <link href="/stylesheets/filepond.css" rel="stylesheet">
+    <script defer src="/js/fontawesome/all.js"></script>
+    <link rel="stylesheet" href="/stylesheets/trumbowyg.min.css">
+	<script src="/js/sha512.js"></script>
+
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <script>
+        history.pushState(null, document.title, location.href);
+        window.addEventListener('popstate', function (event) {
+            history.pushState(null, document.title, location.href);
+        });
+		
+    </script>
+		<script>
+	 var a=navigator.onLine;
+	 if(a){
+	  }else{
+	  alert('Please check your internet connection');
+	  window.location='/admin/logout'; 
+	  
+	  } </script>
+	<script language="JavaScript" type="text/javascript">
+		javascript: window.history.forward(1);
+
+		function noBack() {
+		window.history.forward();
+		}
+	</script>
+	
+</head>
+
+<body oncontextmenu="return false;">
+    
+    {{{body}}}
+    
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <!-- include summernote css/js -->    
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/crypto-js.js"></script>
+    <script src="/js/css-styles.js"></script>
+    <script>
+       
+        
+    </script>    
+</body>
+
+</html>

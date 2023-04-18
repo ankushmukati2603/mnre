@@ -1,0 +1,129 @@
+<div class="container-fluid policies mb-5 knowledge_center_bg">
+    <h1 class="text-center wdet knowledge_center_bg">{{{page_title}}}</h1>
+</div>
+
+{{#if overview}}
+<div class="container-fluid">
+    <div class="hdpart">
+        <div class="col-sm-12 mt-3 overview__text">
+            <div class="margin_boo">
+                {{{overview}}}
+            </div>
+        </div>
+
+    </div>
+</div>
+{{/if}}
+
+<!-- Accordion -->
+{{#if articles}}
+<div class="_policy_accordion">
+    <ul class="nav nav-tabs publication-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#akshayurja" role="tab"
+                aria-controls="profile" aria-selected="false">Akshay Urja</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="home-tab" data-toggle="tab" href="#annualreport" role="tab" aria-controls="home"
+                aria-selected="true">Annual Report</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="akshayurja" role="tabpanel" aria-labelledby="home-tab">
+            <div class="accordion" id="accordionExample">
+                {{#each articles}}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse"
+                                data-target="#collapse_{{@index}}" aria-expanded="true" aria-controls="collapseOne">
+                                {{this.title}}
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapse_{{@index}}" class="collapse" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                            <p>{{this.description}}</p>
+
+                            <div class="_pdf_links">
+                                <div class="_pdf_links_inner">
+                                    <p>English</p>
+                                    <a target="_blank" href="http://10.246.24.71/{{this.file.url}}" class="ml-1">
+                                        <img class="pdf" src="/img/view-pdf.png" alt="view">
+                                    </a>
+                                    <a data-href="http://10.246.24.71/{{this.file.url}}" class="ml-1 download_file">
+                                        <img class="pdf" src="/img/download-pdf.png" alt="view">
+                                    </a>
+                                </div>
+                                {{#if this.pdfhindi}}
+                                <div class="_pdf_links_inner">
+                                    <p>Hindi</p>
+                                    <a target="_blank" href="http://10.246.24.71/{{this.pdfhindi.url}}" class="ml-1">
+                                        <img class="pdf" src="/img/view-pdf.png" alt="view">
+                                    </a>
+                                    <a data-href="http://10.246.24.71/{{this.pdfhindi.url}}" class="ml-1 download_file">
+                                        <img class="pdf" src="/img/download-pdf.png" alt="view">
+                                    </a>
+                                </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="annualreport" role="tabpanel" aria-labelledby="home-tab">
+            <div class="accordion" id="accordionExample">
+                {{#each annualreports}}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse"
+                                data-target="#collapse_{{@index}}" aria-expanded="true" aria-controls="collapseOne">
+                                {{this.title}}
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapse_{{@index}}" class="collapse" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                            <p>{{this.description}}</p>
+
+                            <div class="_pdf_links">
+                                <div class="_pdf_links_inner">
+                                    <p>English</p>
+                                    <a target="_blank" href="http://10.246.24.71/{{this.file.url}}" class="ml-1">
+                                        <img class="pdf" src="/img/view-pdf.png" alt="view">
+                                    </a>
+                                    <a data-href="http://10.246.24.71/{{this.file.url}}" class="ml-1 download_file">
+                                        <img class="pdf" src="/img/download-pdf.png" alt="view">
+                                    </a>
+                                </div>
+                                {{#if this.pdfhindi}}
+                                <div class="_pdf_links_inner">
+                                    <p>Hindi</p>
+                                    <a target="_blank" href="http://10.246.24.71/{{this.pdfhindi.url}}" class="ml-1">
+                                        <img class="pdf" src="/img/view-pdf.png" alt="view">
+                                    </a>
+                                    <a data-href="http://10.246.24.71/{{this.pdfhindi.url}}" class="ml-1 download_file">
+                                        <img class="pdf" src="/img/download-pdf.png" alt="view">
+                                    </a>
+                                </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+{{else}}
+<div class="col-sm-12">
+    <h1 class="text-center mt-4 mb-4">No Documents Found</h1>
+</div>
+{{/if}}
+<!-- Accordion -->

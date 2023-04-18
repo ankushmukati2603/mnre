@@ -1,0 +1,46 @@
+<style>
+  .notification{position: absolute; top: 0; right: 0; margin: 40px;}
+</style>
+
+<!-- Form-->
+<div class="_login_page">
+  <div class="_form_wrap">
+    <div class="_logo">
+      <img src="/img/logo.png" alt="">
+    </div>
+    <div class="_form">
+      <form method="POST" autocomplete="off" autocapitalize="off">
+        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <div class="_form_field">
+          {{{user.name}}}
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="e.g. rahulsharma" required>
+        </div>
+        <div class="_form_field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="*********" required>
+        </div>
+        <div class="_form_field text-danger">
+          <p>
+            {{#if session.error }}
+            {{session.error}}
+            {{ else if session.success}}
+            {{session.success}}
+
+            {{/if}}
+          </p>
+        </div>
+        <div class="_form_field">
+          <button type="submit">Log In</button>
+        </div>        
+      </form> 
+      <p class="_info_text">ADMIN MNRE - This is the Admin Panel of the Ministry of New and Renewable Energy, India.</p>     
+    </div>    
+  </div>
+</div>
+
+<div class="notification is-danger" id="dashboardNotification">
+  <p class="error_msg" id="notification_message">
+    Success Message
+  </p>
+</div>

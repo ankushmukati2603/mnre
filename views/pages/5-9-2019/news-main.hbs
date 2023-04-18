@@ -1,0 +1,903 @@
+
+<div class="container-fluid wde policies">
+	<h1 class="text-center wdet policies" style="padding-bottom: 0;">Speeches & Visits</h1>
+
+</div>
+{{#if overview}}
+<div class="container-fluid">
+	<div class="hdpart">
+		<div class="col-sm-12 mt-3">
+			<div class="margin_boo">
+				{{{overview}}}
+			</div>
+		</div>
+
+	</div>
+</div>
+{{/if}}
+<div id="carouselExampleFade" class="carousel slide mobile" data-ride="carousel">
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img src="/img/mobile-mobile-news-banner.jpg" class="d-block w-100" alt="...">
+
+		</div>
+
+
+	</div>
+</div>
+
+
+<div class="filter mt-5 mb-5">
+        <div class="row filter-bc _policy_dropdown">
+        <div class="col">
+            <div class="search-option">
+
+                <label for="f184318d184322" class="sr-only">Format</label>
+                <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                    onChange="window.location.href=this.value">
+					<option value="" selected>Select a section</option>
+                    <option title="news" value="/media-center/news">Recent News</option>
+                    <option title="speeches-and-visits" value="/media-center/speeches-and-visits">Speeches & Visits</option>
+                    
+                </select>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{!-- EVENTS SECTION START --}}
+<div class="events_block media_section">
+	<div class="container">
+		<div class="article">
+			<div class="row grp">
+				<div class="col-sm-4 mt-5">
+					<div class="project">
+						<img src="/img/news5.jpg" width="100%">
+						<p class="mt-2 projects">"Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+						</p>
+						<p class="mt-3">Read More &nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i></p>
+					</div>
+				</div>
+				<div class="col-sm-4 mt-5">
+					<div class="project">
+						<img src="/img/news4.jpg" width="100%">
+						<p class="mt-2 projects">"Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+						</p>
+						<p class="mt-3">Read more &nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i></p>
+					</div>
+				</div>
+				<div class="col-sm-4 mt-5">
+					<div class="project">
+						<img src="/img/news5.jpg" width="100%">
+						<p class="mt-2 projects">"Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+						</p>
+						<p class="mt-3">Read more &nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{!-- EVENTS SECTION END --}}
+
+{{!-- NEWS SECTION START --}}
+
+<div class="news_block media_section">
+	
+
+
+	<div class="container">
+		<div class="article">
+			<div class="row grp pb-5">
+				{{#if speeches}}
+					{{#each articles}}
+					<div class="col-sm-4 mt-5">
+						<div class="project">
+							<img src="http://10.246.24.71{{this.thumbnail.url}}" width="100%">
+							<p class="mt-2 projects">{{this.title}}</p>
+							<a href="/news/{{this._id}}" class="mt-3 news_link">Read More &nbsp;&nbsp;<i
+									class="fas fa-arrow-circle-right"></i></a>
+						</div>
+					</div>
+					{{/each}}
+				{{else}}
+					<div class="col-sm-12"><h1 class="text-center mt-5 mb-5">No Documents Found</h1></div>
+				{{/if}}
+				
+
+			</div>
+		</div>
+	</div>
+</div>
+{{!-- NEWS SECTION END --}}
+{{!-- PRESS RELEASE START --}}
+<div class="press_block media_section">
+	<div class="container newsbg">
+	</div>
+	<div class="container h-100 mt-5">
+		<div class="d-flex justify-content-center h-100">
+			<div class="searchbar">
+				<input class="search_input" type="text" name="" placeholder="Search for Press Release">
+				<a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 d-flex mt-5">
+				<div class="col-sm-4">
+					<figure class="snip1174 pink col-sm-12">
+						<img src="/img/b-block-1.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 teal col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 black col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+
+
+			</div>
+			<div class="col-sm-12 d-flex mt-4">
+				<div class="col-sm-4">
+					<figure class="snip1174 yelli col-sm-12">
+						<img src="/img/b-block-1.png" class="right" alt="sq-sample33" />
+						<figcaption class="blog-right">
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 gg col-sm-12">
+						<img src="/img/b-block-2.png" class="right" alt="sq-sample33" />
+						<figcaption class="blog-right">
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 ggg col-sm-12">
+						<img src="/img/b-block-2.png" class="right" alt="sq-sample33" />
+						<figcaption class="blog-right">
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+
+
+			</div>
+			<div class="col-sm-12 d-flex mt-4">
+				<div class="col-sm-4">
+					<figure class="snip1174 pink col-sm-12">
+						<img src="/img/b-block-1.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 teal col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 black col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+
+
+			</div>
+			<div class="col-sm-12 text-center">
+
+			</div>
+
+		</div>
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center mt-5">
+				<li class="page-item">
+					<a class="page-link" href="#" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+						<span class="sr-only">Previous</span>
+					</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+						<span class="sr-only">Next</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+{{!-- PRESS RELEASE END --}}
+{{!-- PRESENTATION START --}}
+<div class="presentation_block media_section">
+	<div class="container newsbg">
+		<h1 class="newsh">PRESENTATIONS</h1>
+	</div>
+	<div class="container h-100 mt-5">
+		<div class="d-flex justify-content-center h-100">
+			<div class="searchbar">
+				<input class="search_input" type="text" name="" placeholder="Search for Presentation">
+				<a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 d-flex mt-5">
+				<div class="col-sm-4">
+					<figure class="snip1174 pink col-sm-12">
+						<img src="/img/b-block-1.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 teal col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elitn
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 black col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+
+
+			</div>
+			<div class="col-sm-12 d-flex mt-4">
+				<div class="col-sm-4">
+					<figure class="snip1174 yelli col-sm-12">
+						<img src="/img/b-block-1.png" class="right" alt="sq-sample33" />
+						<figcaption class="blog-right">
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 gg col-sm-12">
+						<img src="/img/b-block-2.png" class="right" alt="sq-sample33" />
+						<figcaption class="blog-right">
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 ggg col-sm-12">
+						<img src="/img/b-block-2.png" class="right" alt="sq-sample33" />
+						<figcaption class="blog-right">
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+
+
+			</div>
+			<div class="col-sm-12 d-flex mt-4">
+				<div class="col-sm-4">
+					<figure class="snip1174 pink col-sm-12">
+						<img src="/img/b-block-1.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 teal col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 black col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+
+
+			</div>
+			<div class="col-sm-12 text-center">
+
+			</div>
+
+		</div>
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center mt-5">
+				<li class="page-item">
+					<a class="page-link" href="#" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+						<span class="sr-only">Previous</span>
+					</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+						<span class="sr-only">Next</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+{{!-- PRESENTATION END --}}
+{{!-- ADVERTISEMENT START --}}
+<div class="advertisement_block media_section">
+	<div class="container newsbg">
+		<h1 class="newsh">ADVERTISEMENT</h1>
+	</div>
+	<div class="container h-100 mt-5">
+		<div class="d-flex justify-content-center h-100">
+			<div class="searchbar">
+				<input class="search_input" type="text" name="" placeholder="Search for Advertisement">
+				<a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 d-flex mt-5">
+				<div class="col-sm-4">
+					<figure class="snip1174 pink col-sm-12">
+						<img src="/img/b-block-1.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 teal col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 black col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+
+
+			</div>
+			<div class="col-sm-12 d-flex mt-4">
+				<div class="col-sm-4">
+					<figure class="snip1174 yelli col-sm-12">
+						<img src="/img/b-block-1.png" class="right" alt="sq-sample33" />
+						<figcaption class="blog-right">
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 gg col-sm-12">
+						<img src="/img/b-block-2.png" class="right" alt="sq-sample33" />
+						<figcaption class="blog-right">
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 ggg col-sm-12">
+						<img src="/img/b-block-2.png" class="right" alt="sq-sample33" />
+						<figcaption class="blog-right">
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+
+
+			</div>
+			<div class="col-sm-12 d-flex mt-4">
+				<div class="col-sm-4">
+					<figure class="snip1174 pink col-sm-12">
+						<img src="/img/b-block-1.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 teal col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 black col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="col-sm-12 text-center">
+
+			</div>
+
+		</div>
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center mt-5">
+				<li class="page-item">
+					<a class="page-link" href="#" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+						<span class="sr-only">Previous</span>
+					</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+						<span class="sr-only">Next</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+{{!-- ADVERTISEMENT END --}}
+{{!-- GALLERY START --}}
+<div class="gallery_block media_section">
+	<div class="container newsbg">
+		<h1 class="newsh">GALLERY</h1>
+	</div>
+	<div class="container h-100 mt-5">
+		<div class="d-flex justify-content-center h-100">
+			<div class="searchbar">
+				<input class="search_input" type="text" name="" placeholder="Search in Gallery">
+				<a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-5 ml-3">
+		<div class="row">
+			<div class="col-md-4 col-xs-6 thumb">
+				<a href="/img/gallery/gallery1.jpg" data-title="Lorem Ipsum title" data-caption="Lorem Ipsum Dolor Istat"
+					data-fancybox="images">
+					<img src="/img/gallery/gallery1.jpg" width="400px" height="250px" />
+				</a>
+			</div>
+			<div class="col-md-4 col-xs-6 thumb">
+				<a href="/img/gallery/gallery2.jpg" title="Lorem Ipsum title" data-caption="Lorem Ipsum Dolor Istat"
+					data-fancybox="images">
+					<img src="/img/gallery/gallery2.jpg" width="400px" height="250px" />
+				</a>
+			</div>
+			<div class="col-md-4 col-xs-6 thumb">
+				<a href="/img/gallery/gallery3.jpg" title="Lorem Ipsum title" data-caption="Lorem Ipsum Dolor Istat"
+					data-fancybox="images">
+					<img src="/img/gallery/gallery3.jpg" width="400px" height="250px" />
+				</a>
+			</div>
+			<div class="col-md-4 col-xs-6 thumb">
+				<a href="/img/gallery/gallery4.jpg" title="Lorem Ipsum title" data-caption="Lorem Ipsum Dolor Istat"
+					data-fancybox="images">
+					<img src="/img/gallery/gallery4.jpg" width="400px" height="250px" />
+				</a>
+			</div>
+			<div class="col-md-4 col-xs-6 thumb">
+				<a href="/img/gallery/gallery5.jpg" title="Lorem Ipsum title" data-caption="Lorem Ipsum Dolor Istat"
+					data-fancybox="images">
+					<img src="/img/gallery/gallery5.jpg" width="400px" height="250px" />
+				</a>
+			</div>
+			<div class="col-md-4 col-xs-6 thumb">
+				<a href="/img/gallery/gallery6.jpg" title="Lorem Ipsum title" data-caption="Lorem Ipsum Dolor Istat"
+					data-fancybox="images">
+					<img src="/img/gallery/gallery6.jpg" width="400px" height="250px" />
+				</a>
+			</div>
+
+
+
+		</div>
+
+
+	</div>
+	<nav aria-label="Page navigation example">
+		<ul class="pagination justify-content-center mt-5">
+			<li class="page-item">
+				<a class="page-link" href="#" aria-label="Previous">
+					<span aria-hidden="true">&laquo;</span>
+					<span class="sr-only">Previous</span>
+				</a>
+			</li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item">
+				<a class="page-link" href="#" aria-label="Next">
+					<span aria-hidden="true">&raquo;</span>
+					<span class="sr-only">Next</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+</div>
+{{!-- GALLERY END --}}
+{{!-- PUBLICATION START --}}
+<div class="publication_block media_section">
+	<div class="container newsbg">
+		<h1 class="newsh">PUBLICATION</h1>
+	</div>
+	<div class="container h-100 mt-5">
+		<div class="d-flex justify-content-center h-100">
+			<div class="searchbar">
+				<input class="search_input" type="text" name="" placeholder="Search for Publications">
+				<a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 d-flex mt-5">
+				<div class="col-sm-4">
+					<figure class="snip1174 pink col-sm-12">
+						<img src="/img/b-block-1.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 teal col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 black col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+
+
+			</div>
+			<div class="col-sm-12 d-flex mt-5">
+				<div class="col-sm-4">
+					<figure class="snip1174 yelli col-sm-12">
+						<img src="/img/b-block-1.png" class="right" alt="sq-sample33" />
+						<figcaption class="blog-right">
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 gg col-sm-12">
+						<img src="/img/b-block-2.png" class="right" alt="sq-sample33" />
+						<figcaption class="blog-right">
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 ggg col-sm-12">
+						<img src="/img/b-block-2.png" class="right" alt="sq-sample33" />
+						<figcaption class="blog-right">
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+
+
+			</div>
+			<div class="col-sm-12 d-flex mt-5">
+				<div class="col-sm-4">
+					<figure class="snip1174 pink col-sm-12">
+						<img src="/img/b-block-1.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 teal col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-4">
+					<figure class="snip1174 black col-sm-12">
+						<img src="/img/b-block-2.png" alt="sq-sample33" />
+						<figcaption>
+							<span class="date">08.03.2019</span><br>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+							</h5>
+							<br>
+							<span class="rmore">View all <i class="fas fa-arrow-circle-right"></i></span>
+						</figcaption>
+					</figure>
+				</div>
+
+
+			</div>
+			<div class="col-sm-12 text-center">
+
+			</div>
+
+		</div>
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center mt-5">
+				<li class="page-item">
+					<a class="page-link" href="#" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+						<span class="sr-only">Previous</span>
+					</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+						<span class="sr-only">Next</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+{{!-- PUBLICATION END --}}

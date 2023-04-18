@@ -1,0 +1,43 @@
+<div class="container-fluid wde {{banner_background}}">
+    <h1 class="text-center wdet {{banner_background}}">{{page_title}}</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 mt-3">
+            <!-- <h2 class="energtext text-center">REVISED LIST OF MODELS AND MANUFACTURERS (RLMM)</h2> -->
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 ml-5 mr-5">
+            <div class="margin_boo">
+                {{#if overview}}            
+                    {{{overview}}}
+                {{/if}}
+            </div>
+        </div> 
+    </div>
+</div>
+<div class="container mb-5">
+{{#if articles}}
+    {{#each articles}}
+        <div class="row pdf ml-5 mr-5 mt-5">
+            <div class="col-sm-2 viewdoc">
+                <a href="http://10.246.24.71{{this.file.url}}" target="_blank" class="ml-5"><img class="pdfvd" src="/img/view-pdf.png"></a>
+                <br>
+                {{!-- <a class="ml-5 download_file" data-href="http://10.246.24.71{{this.file.url}}"><img class="pdfvd" src="/img/download-pdf.png"></a> --}}
+            </div>
+            <div class="col-sm-10">
+                <h4 class="guideh">{{this.title}}</h4>
+                <p>
+                    {{this.description}}
+                </p>
+            </div>
+        </div>
+    {{/each}}
+{{else}}
+<div class="row ml-5 mr-5 mt-5 mb-5"><div class="col-sm-12"><h1 class="text-center">No Documents Found</h1></div>
+{{/if}}
+</div>
+</div>

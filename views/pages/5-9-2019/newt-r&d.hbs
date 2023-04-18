@@ -1,0 +1,54 @@
+<div class="container-fluid rnd {{head_bg}}">
+    <h1 class="text-center rnd {{head_bg}}">{{page_title}}</h1>
+</div>
+<div class="filter mt-5 mb-5">
+    <div class="row filter-bc _policy_dropdown">
+        <div class="col">
+            <div class="search-option">
+                <label for="f184318d184322" class="sr-only">Format</label>
+                <select title="Format" id="f184318d184322" name="documentType_" class="form-control" onChange="window.location.href=this.value">
+                    <option title="solar" value="/research-and-development/solar">Solar</option>
+                    <option title="solar" value="/research-and-development/wind">Wind</option>
+                    <option title="solar" value="/research-and-development/small-hydro">Small Hydro</option>
+                    <option title="solar" value="/research-and-development/waste-to-energy">Waste to Energy</option>
+                    <option title="solar" value="/research-and-development/bio-energy">Bio Energy</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-5 _solar_rnd">
+    <div class="text mr-5 ml-5">
+        <div class="margin_boo">
+            {{{overview}}}
+        </div>
+    </div>
+</div>
+
+{{#if articles}}
+<h1 class="text-center py-5">
+    Documents : R&D Format
+</h1>
+<div class="pdf-view pb-5">
+    {{#each articles}}
+    <div class="row pdf ml-5 mr-5 mt-5">
+        <div class="col viewdoc">
+
+            <span class="date">&nbsp;</span>
+            <h4 class="guideh">{{this.title}}</h4>
+        </div>
+        <div class="col-sm-3">
+            <a target="_blank" href="{{this.url}}" class="ml-1">
+                <img class="pdf" src="/img/view-pdf.png" alt="view">
+            </a>
+            <a data-href="{{this.url}}" class="ml-1 download_file">
+                <img class="pdf" src="/img/download-pdf.png" alt="view">
+            </a>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+
+</div>

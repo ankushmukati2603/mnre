@@ -1,0 +1,158 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+</style>
+<section class="section is-large">
+    <div class="container">
+        <div class="title has-text-centered">
+            {{page_title}}
+        </div>
+        <div class="columns is-multiline">
+            {{#each elements}}
+            <div class="column is-6">
+                <div class="card admin_edit">
+                    <header class="card-header">
+                        <div class="card-header-title">
+                            {{this.heading}}
+                        </div>
+                    </header>
+                    <div class="card-content admin_edit_content">
+                        {{#if child}}
+			<input type="hidden" value="{{code}}" class="section_value">
+                        <ul class="editPage_section_list">
+                            {{#each this.child}}
+                            <li class="editPage_section_list-item">
+                                <div class="columns">
+                                    <div class="column is-6">
+                                        {{this.heading}}
+                                    </div>
+                                    <div class="column is-6 has-text-right">
+                                        {{#if this.class}}
+                                        <div class="">
+                                            <span class="{{this.class}} edit_button_text">
+                                                Edit
+                                            </span>
+                                        </div>
+                                        {{else}}
+                                        <div>
+                                            <span class="edit_button_text">
+                                                Edit
+                                            </span>
+                                        </div>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+<div class="modal" id="titlem">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Meta Page Title</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <div class="column is-12">
+                    <label for="title" class="label">Title</label>
+                    <input name="" id="title" class="input"></textarea>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success titlesave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="headingm">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Page Heading</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <div class="column is-12">
+                    <label for="heading" class="label">Heading</label>
+                    <input name="" id="heading" class="input"></textarea>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success headingsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="descriptionm">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Meta Page Description</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <div class="column is-12">
+                    <label for="description" class="label">Meta Description</label>
+                    <textarea class="textarea" id="description"></textarea>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success descriptionsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="keywordm">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Meta Page Keywords</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <div class="column is-12">
+                    <label for="keyword" class="label">Meta Keywords</label>
+                    <textarea class="textarea" id="keyword"></textarea>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success keywordsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="notification" id="dashboardNotification">
+    <p id="notification_message">
+        We are Legion!
+    </p>
+</div>

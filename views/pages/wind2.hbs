@@ -1,0 +1,708 @@
+<style>
+    .amcharts-Container .amcharts-Label {
+        position: relative;
+        top: 20px;
+    }
+
+    .amcharts-Sprite-group .amcharts-Container-group {
+        position: relative;
+        top: -7px;
+    }
+</style>
+
+<script src="{{site_url}}/js/amcharts/core.js"></script>
+<script src="{{site_url}}/js/amcharts/maps.js"></script>
+<script src="{{site_url}}/js/amcharts/charts.js"></script>
+<script src="{{site_url}}/js/amcharts/animated.js"></script>
+
+
+<!-- Chart code -->
+<script>
+    var base_url = '/';
+    $(document).ready(function () {
+        $('#_timeline_0').find('.timeline-year').addClass('selected');
+    })
+
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+
+    am4core.ready(function () {
+        am4core.options.commercialLicense = true;
+        am4core.options.autoSetClassName = true;
+
+        $('.image_map_right_first').hide()
+        $('.image_map_right_second').hide()
+        $('.fourth').show()
+
+        var chart = am4core.create("chartdiv", am4maps.MapChart);
+        var chart1 = am4core.create("chartdiv2", am4charts.RadarChart);
+
+
+        chart.seriesContainer.draggable = false;
+        chart.seriesContainer.resizable = false;
+        chart.chartContainer.wheelable = false;
+
+        chart.maxZoomLevel = 1;
+
+        // Set map definition
+        chart.geodataSource.url = "/data/indiaHigh.json";
+        chart.geodataSource.events.on("parseended", function (ev) {
+            $('.timeline:nth-of-type(1)').click()
+        })
+
+
+        // Set projection
+        chart.projection = new am4maps.projections.Mercator();
+
+        // Create map polygon series
+        var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+
+        //Data
+        var energy = location.pathname.split('/')[1]
+        console.log(energy)
+        var data2 = []
+        var one = []
+        var two = []
+        var three = []
+        var four = []
+        var reducer = 0
+        var totalPower = 0
+        var five = []
+        var six = []
+        console.log(energy);
+        if (energy == "solar") {
+            data2 = solarData
+        } else if (energy == "wind") {
+            // data2 = windData
+            axios.get(`${base_url}energydata?energy=Wind Energy&_limit=1000`).then(response => response.data).catch(error => console.log(error)).then(wata => {
+                if (wata) {
+                    data2 = wata
+                    one = data2.filter(d => d.year == '2016')
+                    two = data2.filter(d => d.year == '2017')
+                    three = data2.filter(d => d.year == '2018')
+                    four = data2.filter(d => d.year == '2019')
+                    five = data2.filter(d => d.year == '2020')
+                    six = data2.filter(d => d.year == '2021')
+                    reducer = four.reduce((acc, curr, indexValue, array) => {
+                        return acc + Number(curr.value);
+                    }, 0)
+                    totalPower = 60
+                    // Create chart instance
+
+                    // Add data
+                    chart1.data = [{
+                        "category": "Installed Capacity (In GW)",
+                        "value": reducer / 1000,
+                        "full": totalPower
+                    }, {
+                        "category": "Overall Target (In GW)",
+                        "value": totalPower,
+                        "full": totalPower
+                    }];
+                    valueAxis.max = totalPower;
+                }
+            })
+
+        } else if (energy == "small-hydro") {
+            //data2 = smallHydro
+            axios.get(`${base_url}energydata?energy=Small Hydro&_limit=1000`).then(response => response.data).catch(error => console.log(error)).then(wata => {
+                if (wata) {
+
+                    data2 = wata
+                    one = data2.filter(d => d.year == '2016')
+                    two = data2.filter(d => d.year == '2017')
+                    three = data2.filter(d => d.year == '2018')
+                    four = data2.filter(d => d.year == '2019')
+                    five = data2.filter(d => d.year == '2020')
+                    six = data2.filter(d => d.year == '2021')
+                    reducer = four.reduce((acc, curr, indexValue, array) => {
+                        return acc + Number(curr.value);
+                    }, 0)
+                    totalPower = 5
+                    // Create chart instance
+
+
+                    // Add data
+                    chart1.data = [{
+                        "category": "Installed Capacity (In GW)",
+                        "value": reducer / 1000,
+                        "full": totalPower
+                    }, {
+                        "category": "Overall Target (In GW)",
+                        "value": totalPower,
+                        "full": totalPower
+                    }];
+                    valueAxis.max = totalPower;
+                }
+            })
+
+        } else if (energy == "waste-to-energy") {
+            //data2 = wasteData
+            axios.get(`${base_url}energydata?energy=Waste to Energy&_limit=1000`).then(response => response.data).catch(error => console.log(error)).then(wata => {
+                if (wata) {
+
+                    data2 = wata
+                    one = data2.filter(d => d.year == '2016')
+                    two = data2.filter(d => d.year == '2017')
+                    three = data2.filter(d => d.year == '2018')
+                    four = data2.filter(d => d.year == '2019')
+                    five = data2.filter(d => d.year == '2020')
+                    six = data2.filter(d => d.year == '2021')
+                    reducer = four.reduce((acc, curr, indexValue, array) => {
+                        return acc + Number(curr.value);
+                    }, 0)
+                    totalPower = 0.5
+                    // Create chart instance
+
+
+                    // Add data
+                    chart1.data = [{
+                        "category": "Installed Capacity (In GW)",
+                        "value": reducer / 1000,
+                        "full": totalPower
+                    }, {
+                        "category": "Overall Target (In GW)",
+                        "value": totalPower,
+                        "full": totalPower
+                    }];
+                    valueAxis.max = totalPower;
+                }
+            })
+
+        } else if (energy == "bio-energy") {
+            // data2 = bioData
+            axios.get(`${base_url}energydata?energy=Bio Energy&_limit=1000`).then(response => response.data).catch(error => console.log(error)).then(wata => {
+                if (wata) {
+
+                    data2 = wata
+                    one = data2.filter(d => d.year == '2016')
+                    two = data2.filter(d => d.year == '2017')
+                    three = data2.filter(d => d.year == '2018')
+                    four = data2.filter(d => d.year == '2019')
+                    five = data2.filter(d => d.year == '2020')
+                    six = data2.filter(d => d.year == '2021')
+                    reducer = four.reduce((acc, curr, indexValue, array) => {
+                        return acc + Number(curr.value);
+                    }, 0)
+                    totalPower = 10
+                    // Create chart instance
+
+                    // Add data
+                    chart1.data = [{
+                        "category": "Installed Capacity (In GW)",
+                        "value": reducer / 1000,
+                        "full": totalPower
+                    }, {
+                        "category": "Overall Target (In GW)",
+                        "value": totalPower,
+                        "full": totalPower
+                    }];
+                    valueAxis.max = totalPower;
+                }
+            })
+        }
+
+        $('.timeline').click(function (e) {
+            var choice = $(e.currentTarget).children('.timeline-content').children('.timeline-year').text()
+            document.querySelector('._select_year span').textContent = 'As on 31st March ' + choice;
+            if (choice == '2016') {
+                var data = [];
+                reducer = one.reduce((acc, curr, indexValue, array) => {
+                    return acc + Number(curr.value);
+                }, 0)
+                chart1.data = [{
+                    "category": "Installed Capacity (In GW)",
+                    "value": reducer / 1000,
+                    "full": totalPower
+                }, {
+                    "category": "Overall Target(In GW)",
+                    "value": totalPower,
+                    "full": totalPower
+                }];
+
+                for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+                    var foundOne = one.find(function (o) {
+                        return o.code == chart["_dataSources"].geodata.data.features[i].id
+                    })
+                    if (foundOne) {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: foundOne["value"],
+                            value_2: foundOne["Target(MW)"],
+                        })
+                    } else {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: "Not Available",
+                            value_2: "Not Available",
+                        })
+                    }
+
+                }
+                polygonSeries.data = data;
+            } else if (choice == '2017') {
+                var data = [];
+                reducer = two.reduce((acc, curr, indexValue, array) => {
+                    return acc + Number(curr.value);
+                }, 0)
+                chart1.data = [{
+                    "category": "Installed Capacity (In GW)",
+                    "value": reducer / 1000,
+                    "full": totalPower
+                }, {
+                    "category": "Overall Target(In GW)",
+                    "value": totalPower,
+                    "full": totalPower
+                }];
+                for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+                    var foundOne = two.find(function (o) {
+                        return o.code == chart["_dataSources"].geodata.data.features[i].id
+                    })
+                    if (foundOne) {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: foundOne["value"],
+                            value_2: foundOne["Target(MW)"],
+                        })
+                    } else {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: "Not Available",
+                            value_2: "Not Available",
+                        })
+                    }
+
+                }
+                polygonSeries.data = data;
+            } else if (choice == '2018') {
+                var data = [];
+                reducer = three.reduce((acc, curr, indexValue, array) => {
+                    return acc + Number(curr.value);
+                }, 0)
+                chart1.data = [{
+                    "category": "Installed Capacity (In GW)",
+                    "value": reducer / 1000,
+                    "full": totalPower
+                }, {
+                    "category": "Overall Target(In GW)",
+                    "value": totalPower,
+                    "full": totalPower
+                }];
+                for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+                    var foundOne = three.find(function (o) {
+                        return o.code == chart["_dataSources"].geodata.data.features[i].id
+                    })
+                    if (foundOne) {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: foundOne["value"],
+                            value_2: foundOne["Target(MW)"]
+                        })
+                    } else {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: "Not Available",
+                            value_2: "Not Available",
+                        })
+                    }
+
+                }
+                polygonSeries.data = data;
+            } else if (choice == '2019') {
+                var data = [];
+                reducer = four.reduce((acc, curr, indexValue, array) => {
+                    return acc + Number(curr.value);
+                }, 0)
+                chart1.data = [{
+                    "category": "Installed Capacity (In GW)",
+                    "value": reducer / 1000,
+                    "full": totalPower
+                }, {
+                    "category": "Overall Target(In GW)",
+                    "value": totalPower,
+                    "full": totalPower
+                }];
+                for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+                    var foundOne = four.find(function (o) {
+                        return o.code == chart["_dataSources"].geodata.data.features[i].id
+                    })
+                    if (foundOne) {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: foundOne["value"],
+                            value_2: foundOne["Target(MW)"],
+                        })
+                    } else {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: "Not Available",
+                            value_2: "Not Available",
+                        })
+                    }
+
+                }
+                polygonSeries.data = data;
+            } else if (choice == '2020') {
+                var data = [];
+                reducer = five.reduce((acc, curr, indexValue, array) => {
+                    return acc + Number(curr.value);
+                }, 0)
+                chart1.data = [{
+                    "category": "Installed Capacity (In GW)",
+                    "value": reducer / 1000,
+                    "full": totalPower
+                }, {
+                    "category": "Overall Target(In GW)",
+                    "value": totalPower,
+                    "full": totalPower
+                }];
+                for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+                    var foundOne = five.find(function (o) {
+                        return o.code == chart["_dataSources"].geodata.data.features[i].id
+                    })
+                    if (foundOne) {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: foundOne["value"],
+                            value_2: foundOne["Target(MW)"],
+                        })
+                    } else {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: "Not Available",
+                            value_2: "Not Available",
+                        })
+                    }
+
+                }
+                polygonSeries.data = data;
+            } else if (choice == '2021') {
+                var data = [];
+                reducer = six.reduce((acc, curr, indexValue, array) => {
+                    return acc + Number(curr.value);
+                }, 0)
+                chart1.data = [{
+                    "category": "Installed Capacity (In GW)",
+                    "value": reducer / 1000,
+                    "full": totalPower
+                }, {
+                    "category": "Overall Target(In GW)",
+                    "value": totalPower,
+                    "full": totalPower
+                }];
+                for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+                    var foundOne = six.find(function (o) {
+                        return o.code == chart["_dataSources"].geodata.data.features[i].id
+                    })
+                    if (foundOne) {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: foundOne["value"],
+                            value_2: foundOne["Target(MW)"],
+                        })
+                    } else {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: "Not Available",
+                            value_2: "Not Available",
+                        })
+                    }
+
+                }
+                polygonSeries.data = data;
+            }
+        })
+
+        //Set min/max fill color for each area
+        polygonSeries.heatRules.push({
+            property: "fill",
+            target: polygonSeries.mapPolygons.template,
+            min: chart.colors.getIndex(1).brighten(1),
+            max: chart.colors.getIndex(2).brighten(-0.3)
+        });
+
+        // Make map load polygon data (state shapes and names) from GeoJSON
+        polygonSeries.useGeodata = true;
+
+        /* Set Tooltip Color */
+        polygonSeries.tooltip.getFillFromObject = false;
+        polygonSeries.tooltip.getStrokeFromObject = false;
+        polygonSeries.tooltip.background.fill = am4core.color("#fceecf");
+        polygonSeries.tooltip.fontFamily = 'Gotham-Book';
+        polygonSeries.tooltip.fontSize = '13px';
+
+        var shadow = polygonSeries.tooltip.background.filters.getIndex(0);
+        shadow.dx = 2;
+        shadow.dy = 2;
+        shadow.blur = 5;
+        shadow.color = am4core.color("#fff");
+        /* Set Tooltip Color */
+
+        // Configure series tooltip
+        var polygonTemplate = polygonSeries.mapPolygons.template;
+        // polygonTemplate.fill = am4core.color("#74B266");
+        polygonTemplate.tooltipHTML = "<div class='_tooltip_main'>" +
+            "<b class='_heading'>{name}</b>" +
+            "<p class='_text'><b>Installed Capacity :</b> {value} MW</p>"
+        polygonTemplate.nonScalingStroke = false;
+        polygonTemplate.strokeWidth = 0;
+        // Create hover state and set alternative fill color
+        var hs = polygonTemplate.states.create("hover");
+        hs.properties.fill = "#fdbf2c"
+
+        //  $('g').click(function () {
+        //    location.href = '/mp'
+        //})
+
+        polygonTemplate.events.on("hit", function (event) {
+            console.log(event)
+        });
+
+        // Make chart not full circle
+        chart1.startAngle = -90;
+        chart1.endAngle = 180;
+        chart1.innerRadius = am4core.percent(40);
+
+        // Set number format
+        chart1.numberFormatter.numberFormat = "#.#";
+
+        //var label = chart1.createChild(am4core.Label);
+        //label.text = "Overall Target & Installed Capacity";
+        //label.fontSize = 17;
+        //label.align = "center";
+
+        // Create axes
+        var categoryAxis = chart1.yAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "category";
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.grid.template.strokeOpacity = 0;
+        categoryAxis.renderer.labels.template.horizontalCenter = "right";
+        categoryAxis.renderer.labels.template.fontWeight = 500;
+        categoryAxis.renderer.labels.template.adapter.add("fill", function (fill, target) {
+            return (target.dataItem.index >= 0) ? chart1.colors.getIndex(target.dataItem.index) : fill;
+        });
+        categoryAxis.renderer.minGridDistance = 10;
+
+        var valueAxis = chart1.xAxes.push(new am4charts.ValueAxis());
+        valueAxis.renderer.grid.template.strokeOpacity = 0;
+        valueAxis.min = 0;
+
+        valueAxis.strictMinMax = true;
+
+        // Create series
+        var series1 = chart1.series.push(new am4charts.RadarColumnSeries());
+        series1.dataFields.valueX = "full";
+        series1.dataFields.categoryY = "category";
+        series1.clustered = false;
+        series1.columns.template.fill = new am4core.InterfaceColorSet().getFor("alternativeBackground");
+        series1.columns.template.fillOpacity = 0.08;
+        series1.columns.template.cornerRadiusTopLeft = 20;
+        series1.columns.template.strokeWidth = 0;
+        series1.columns.template.radarColumn.cornerRadius = 20;
+
+        var series2 = chart1.series.push(new am4charts.RadarColumnSeries());
+        series2.dataFields.valueX = "value";
+        series2.dataFields.categoryY = "category";
+        series2.clustered = false;
+        series2.columns.template.strokeWidth = 0;
+        series2.columns.template.tooltipText = "{category}: [bold]{value}[/]";
+        series2.columns.template.radarColumn.cornerRadius = 20;
+
+        series2.columns.template.adapter.add("fill", function (fill, target) {
+            return chart1.colors.getIndex(target.dataItem.index);
+        });
+
+        // Add cursor
+        chart1.cursor = new am4charts.RadarCursor();
+
+    });
+
+
+</script>
+<script>
+    am4core.ready(function () {
+        // Create chart instance
+        var chart2 = am4core.create("chartdiv3", am4charts.RadarChart);
+
+        // Add data
+        chart2.data = [{
+            "category": "Installed Capacity",
+            "value": 26.02,
+            "full": 100
+        }, {
+            "category": "Overall Target",
+            "value": 99.5,
+            "full": 100
+        }];
+
+        // Make chart not full circle
+        chart2.startAngle = -90;
+        chart2.endAngle = 180;
+        chart2.innerRadius = am4core.percent(50);
+
+        // Set number format
+        chart2.numberFormatter.numberFormat = "#.#";
+
+        // Create axes
+        var categoryAxis = chart2.yAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "category";
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.grid.template.strokeOpacity = 0;
+        categoryAxis.renderer.labels.template.horizontalCenter = "right";
+        categoryAxis.renderer.labels.template.fontWeight = 500;
+        categoryAxis.renderer.labels.template.adapter.add("fill", function (fill, target) {
+            return (target.dataItem.index >= 0) ? chart2.colors.getIndex(target.dataItem.index) : fill;
+        });
+        categoryAxis.renderer.minGridDistance = 10;
+
+        var valueAxis = chart2.xAxes.push(new am4charts.ValueAxis());
+        valueAxis.renderer.grid.template.strokeOpacity = 0;
+        valueAxis.min = 0;
+        valueAxis.max = 100;
+        valueAxis.strictMinMax = true;
+
+        // Create series
+        var series1 = chart2.series.push(new am4charts.RadarColumnSeries());
+        series1.dataFields.valueX = "full";
+        series1.dataFields.categoryY = "category";
+        series1.clustered = false;
+        series1.columns.template.fill = new am4core.InterfaceColorSet().getFor("alternativeBackground");
+        series1.columns.template.fillOpacity = 0.08;
+        series1.columns.template.cornerRadiusTopLeft = 20;
+        series1.columns.template.strokeWidth = 0;
+        series1.columns.template.radarColumn.cornerRadius = 20;
+
+        var series2 = chart2.series.push(new am4charts.RadarColumnSeries());
+        series2.dataFields.valueX = "value";
+        series2.dataFields.categoryY = "category";
+        series2.clustered = false;
+        series2.columns.template.strokeWidth = 0;
+        series2.columns.template.tooltipText = "{category}: [bold]{value}[/]";
+        series2.columns.template.radarColumn.cornerRadius = 20;
+
+        series2.columns.template.adapter.add("fill", function (fill, target) {
+            return chart2.colors.getIndex(target.dataItem.index);
+        });
+
+        // Add cursor
+        chart2.cursor = new am4charts.RadarCursor();
+
+    });
+</script>
+
+<div class="_page_head {{banner_background}}">
+    <p class="_heading">{{page_title}}</p>
+</div>
+
+<main class="_page_wrapper _overview_page">
+    <div class="_page_heading">
+        <p>Overview</p>
+    </div>
+
+    <div class="margin_boo">
+        {{{CURRENT_STATUS}}}
+    </div>
+
+    <div class="graph-top">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-sm-6">
+            </div>
+        </div>
+    </div>
+
+    <div class="_timeline_main">
+        <div class="_timeline_grid">
+            <div class="main-timeline">
+                {{#each timeline}}
+                <div class="timeline" id="_timeline_{{@index}}">
+                    <div class="timeline-content">
+                        <div class="timeline-year"><span>{{this.year}}</span></div>
+                        <div class="inner-content">
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="col">
+            <div id="chartdiv"></div>
+            <p class="_select_year"><span></span></p>
+        </div>
+
+        <div class="col-sm-4 desktop">
+            <div id="chartdiv2"></div>
+        </div>
+
+    </div>
+    <div class="mobile-circle mobile">
+        <div class="row">
+            <div class="col">
+
+                <div id="chartdiv3"></div>
+
+            </div>
+        </div>
+    </div>
+    {{#if panel}}
+    <div class="row">
+        <div class="col-sm-9 mt-5 mb-2">
+            <img src="{{site_url}}{{SECTION_TWO_IMAGE}}" width="100%" height="100%">
+        </div>
+        <div class="col-sm-3">
+            <div class="offwind">
+                <h5 class="text-center offhd">{{SECTION_TWO_TITLE}}</h5>
+                <p class="text-center">{{{SECTION_TWO_SUMMARY}}}</p>
+                <span class="visitn"> Visit Now &nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('.visitn').click(function () {
+            window.location.href = "{{site_url}}{{SECTION_TWO_LINK}}"
+        })
+    </script>
+    {{/if}}
+
+    <div class="thboxes">
+        <div class="_overview_panels">
+            <div class="_inner_panel">
+                <a class="energy_link" href="{{site_url}}{{PANE_ONE_LINK}}">
+                    <h2 class="polwindt">{{PANE_ONE_TITLE}}</h2>
+                    <div class="_img_wrapper">
+                        <img src="{{site_url}}{{PANE_ONE_IMAGE}}">
+                    </div>
+                </a>
+            </div>
+            <div class="_inner_panel">
+                <a class="energy_link" href="{{site_url}}{{PANE_TWO_LINK}}">
+                    <h2 class="scwindt">{{PANE_TWO_TITLE}}</h2>
+                    <div class="_img_wrapper">
+                        <img src="{{site_url}}{{PANE_TWO_IMAGE}}">
+                    </div>
+                </a>
+            </div>
+            <div class="_inner_panel">
+                <a class="energy_link" href="{{site_url}}/wind/manufacturers-and-quality-control">
+                    <h2 class="manwindt">{{PANE_THREE_TITLE}}</h2>
+                    <div class="_img_wrapper">
+                        <img src="{{site_url}}{{PANE_THREE_IMAGE}}">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</main>
+
+
+
+<script>
+    function do_it() {
+        location.hash = "energy_o"
+    }
+</script>

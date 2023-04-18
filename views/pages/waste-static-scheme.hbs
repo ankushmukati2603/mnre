@@ -1,0 +1,42 @@
+<div class="_page_head waste-bg">
+    <p class="_heading">Wte Schemes</p>
+</div>
+
+<div class="_main_wrapper">
+    <div class="_policy_wrapper">
+        <!-- Accordion -->
+        <div class="_policy_accordion">
+            <ul class="nav nav-tabs waste-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#home" role="tab"
+                        aria-controls="profile" aria-selected="false">Waste To Energy</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="accordion" id="accordionExample">
+                        {{#each schemes}}
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link" type="button" data-toggle="collapse"
+                                            data-target="#collapse_{{@index}}" aria-expanded="true" aria-controls="collapseOne">
+                                            {{this.title}}
+                                        </button>
+                                    </h2>
+                                </div>
+
+                                <div id="collapse_{{@index}}" class="collapse" aria-labelledby="headingOne"
+                                    data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        {{{this.content}}}                                        
+                                    </div>
+                                </div>
+                            </div>  
+                        {{/each}}  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

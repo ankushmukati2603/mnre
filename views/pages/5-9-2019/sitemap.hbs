@@ -1,0 +1,30 @@
+<style>
+    .section_handle{
+        padding: 2rem;
+        padding-top: 0;
+        margin-top: 0;
+    }
+    .section_title{
+        padding-bottom:0
+    }
+
+</style>
+<div class="container-fluid wde">
+    <h1 class="text-center wdet">SITEMAP</h1>
+</div>
+<div class="container pt-5 pl-5 ml-5">
+    <div class="list_sitemap">
+        {{#each sitemap}}
+        
+        <h3 class="section_title">{{this.section}}</h3>
+        <ul class="section_handle">
+            {{#each this.pages}}
+            <li class="single_section">
+                {{this.section}} - <a href="{{this.url}}">Link</a>
+            </li>
+            {{/each}}
+        </ul>
+        
+        {{/each}}
+    </div>
+</div>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{page_title}}</title>
+  <link rel="stylesheet" type="" href="/stylesheets/bulma.min.css">
+  <link rel="stylesheet" href="/stylesheets/bulma.css.map">
+  <link rel="stylesheet"
+    href="/js/bulma-extensions/bulma-pageloader/bulma-pageloader/dist/css/bulma-pageloader.min.css">
+  <link href="/stylesheets/filepond.css" rel="stylesheet">
+  <script defer src="/js/fontawesome/all.js"></script>
+  <link rel="stylesheet" href="/dist/ui/trumbowyg.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  <link rel="stylesheet" href="/stylesheets/admin.css">
+  <script src="/js/jquery-3.4.1.min.js"></script>
+  <script src="/js/ckeditor/ckeditor.js"></script>
+  <script>
+    history.pushState(null, document.title, location.href);
+    window.addEventListener('popstate', function (event) {
+      history.pushState(null, document.title, location.href);
+    });
+
+  </script>
+  <script>
+    var a = navigator.onLine;
+    if (a) {
+    } else {
+      alert('Please check your internet connection');
+      window.location = '/admin/logout';
+
+    } </script>
+  <script language="JavaScript" type="text/javascript">
+    javascript: window.history.forward(1);
+
+    function noBack() {
+      window.history.forward();
+    }
+  </script>
+</head>
+
+<body>
+  <div class="_admin_nav">
+    <div class="_wrapper">
+      <div class="_logo">
+        <a href="/admin">
+          <img src="/img/logo.png" alt="">
+        </a>
+      </div>
+      <div class="_language_mode">
+        <a id="EN" href="/admin/language/EN">En</a>
+        <a id="HI" href="/admin/language/HI">Hi</a>
+      </div>
+      <div class="_links">
+        <ul>
+          <li>
+            <a href="/admin">Content Admin</a>
+          </li>
+          <li>
+            <a href="/docs">Docs Admin</a>
+          </li>
+          {{!-- <li>
+            <a href="/meta">Meta Admin</a>
+          </li> --}}
+          <li>
+            <a href="/admin/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  {{{body}}}
+  <div class="pageloader is-left-to-right"><span class="title pageloader__message"></span></div>
+  <div class="_footer">
+    <p>ADMIN MNRE - This is the Admin Panel of the Ministry of New and Renewable Energy, India.</p>
+  </div>
+
+
+  <script src="/dist/trumbowyg.min.js"></script>
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+  <script src="/js/filepond.js"></script>
+  <script src="/js/axios.min.js"></script>
+  <script src="/js/admin/banners.js"></script>
+  <script src="/js/admin/banner_2.js"></script>
+  <script src="/js/admin/_actions.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('._links').find('._active').removeClass('_active');
+      let currentPage = location.pathname
+
+      if (currentPage.search('admin') != -1) {
+        $('._links').find('li').eq(0).addClass('_active');
+      } else if (currentPage.search('docs') != -1) {
+        $('._links').find('li').eq(1).addClass('_active');
+      }
+      $('.textarea').trumbowyg({
+        btns: [
+          ['viewHTML'],
+          ['undo', 'redo'], // Only supported in Blink browsers
+          ['formatting'],
+          ['strong', 'em', 'del'],
+          ['superscript', 'subscript'],
+          ['link'],
+          ['insertImage'],
+          ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+          ['unorderedList', 'orderedList'],
+          ['horizontalRule'],
+          ['removeformat'],
+          ['fullscreen']
+        ],
+        autogrow: true,
+        imageWidthModalEdit: true
+      });
+      $('#table_id').DataTable();
+    });
+    var headers = ''
+    axios.get('/admin/get-token').then(response => response.data).catch(error => console.log(error)).then(data => {
+      headers = data.headers
+      axios.defaults.headers.common['X-CSRF-TOKEN'] = headers['X-CSRF-TOKEN'];
+      axios.defaults.headers.common['Authorization'] = headers.Authorization
+    })
+  </script>
+</body>
+
+</html>

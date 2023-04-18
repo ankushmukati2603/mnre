@@ -1,0 +1,26 @@
+<div class="container newsbg">
+    <div class="_inner_wrap">
+        <h1 class="newsh">News</h1>
+    </div>    
+</div>
+<div class="container mb-5">
+    <div class="_inner_wrap">
+        <div class="row _news_detail">
+            <div class="_full_wrap">
+                <h3 class="btitle">{{article.title}}</h3>
+                <span class="_publish_date">{{article.publish_date}}</span>
+                <div class="blog-body">
+                    <p>
+                        {{{article.content}}}
+                    </p>
+                </div>
+
+            </div>
+            {{!-- <div class="sidebar _full_wrap">
+                <h4 class="relblog">Related Content</h4>
+                <div class="blog-sidebar mt-4"></div>
+            </div> --}}
+        </div>
+    </div>
+</div>
+<script src="{{site_url}}/js/recent_articles.js"></script>

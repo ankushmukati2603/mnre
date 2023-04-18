@@ -1,0 +1,1692 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+
+    ._margins {
+        margin: 40px 0;
+    }
+</style>
+
+{{> language_dom}}
+<div class="_wrapper _admin_wrapper">
+    <div class="_section_wrap _energy_list">
+        {{#each elements}}
+        <div class="_energy_wrap {{this.type}}">
+            <div class="_page_head">
+                <p>
+                    <i>
+                        <img src="{{this.icon}}" alt="" />
+                    </i>
+                    <span>{{this.heading}}</span>
+                </p>
+            </div>
+
+            <div class="_links_wrap {{this.class}}">
+                {{#if child}}
+                <ul class="_links_list">
+                    {{#each this.child}}
+                    <li>
+                        <p>{{this.heading}}</p>
+                        <div class="_action">
+                            {{#if this.class}}
+                            {{#if this.href}}
+                            <a href="{{this.href}}">Schemes</a>
+                            {{else}}
+                            <span class="{{this.class}} edit_button_text">
+                                Edit
+                            </span>
+                            {{/if}}
+                            {{else}}
+                            <span class="edit_button_text">
+                                Edit
+                            </span>
+                            {{/if}}
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<div class="modal" id="solarCurrent">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Solar Energy Current Status</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <div class="_form_field">
+                        <label for="currentStatusSummary" class="label">Current Status</label>
+                        <textarea name="currentStatusSummary" id="solarCurrentStatus" cols="30" rows="5"
+                            class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveSolarCurrentStatus">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="solarSection2">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Solar Energy Section 2</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="box">
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                        <figure class="image">
+                            <img src="" id="sectionTwoSavedImage" alt="">
+                        </figure>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="solarSectionTwoImageFileElement" class="label">
+                                    Section Two Image
+                                </label>
+                                <input type="file" name="" id="solarSectionTwoImageFileElement">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="solarSectionTwoTitle" class="label">
+                                    Section Two Title
+                                </label>
+                                <input type="text" id="solarSectionTwoTitle"
+                                    placeholder="Enter Title For Section Two Solar" class="input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="solarSectionTwoDescription" class="label">Section Two Solar
+                                    Description</label>
+                                <textarea name="" id="solarSectionTwoDescription" cols="30" rows="5"
+                                    class="textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="solarSectionTwoButtonLink" class="label">
+                                    Section Two Button Link
+                                </label>
+                                <input type="text" id="solarSectionTwoButtonLink"
+                                    placeholder="Enter Button Link For Section Two Solar" class="input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveSolarSectionTwo">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="solarPanelOne">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Solar Energy Panel One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="solarPanelOneSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="solarPaneOneImageFileElement" class="label">
+                                Panel One Image for Solar Energy<br>
+                                (Note: Use 540 x 340 image in this section.)
+                            </label>
+                            <input type="file" name="" id="solarPaneOneImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="solarPaneOneTitle" class="label">Panel One Title</label>
+                            <input type="text" placeholder="Enter Pane One Title" class="input" id="solarPaneOneTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="solarPaneOneButtonLink" class="label">Panel One Button Link</label>
+                            <input type="text" class="input" id="solarPaneOneButtonLink"
+                                placeholder="Enter Pane One Button Link">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="solarPaneOneSummary" class="label">Panel One Summary</label>
+                            <textarea name="" id="solarPaneOneSummary" cols="5" rows="5" class="textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="_button_field">
+                        <button class="button is-success solarPanelOneSubmit">
+                            Save & Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+
+<div class="modal" id="solarPanelTwo">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Solar Energy Panel Two</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="solarPanelTwoSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="solarPaneTwoImageFileElement" class="label">
+                                Panel Two Image for Solar Energy Current Status<br />
+                                (Note: Use 540 x 340 image in this section.)
+                            </label>
+                            <input type="file" name="" id="solarPaneTwoImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="solarPaneTwoTitle" class="label">Panel Two Title</label>
+                            <input type="text" placeholder="Enter Panel Two Title" class="input" id="solarPaneTwoTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="solarPaneTwoButtonLink" class="label">Panel Two Button Link</label>
+                            <input type="text" class="input" id="solarPaneTwoButtonLink"
+                                placeholder="Enter Panel Two Button Link">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="solarPaneTwoSummary" class="label">Panel Two Summary</label>
+                            <textarea id="solarPaneTwoSummary" class="textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="_button_field">
+                        <button class="button is-success solarPanelTwoSubmit">
+                            Save & Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+<div class="modal" id="solarPanelThree">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Solar Energy Panel Three</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="solarPanelThreeSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="solarPaneThreeImageFileElement" class="label">
+                                Panel Three Image for Solar Energy Current Status<br>
+                                (Note: Use 540 x 340 image in this section.)
+                            </label>
+                            <input type="file" name="" id="solarPaneThreeImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="solarPaneThreeTitle" class="label">Panel Three Title</label>
+                            <input type="text" placeholder="Enter Panel Two Title" class="input"
+                                id="solarPaneThreeTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="solarPaneThreeButtonLink" class="label">Panel Three Button Link</label>
+                            <input type="text" class="input" id="solarPaneThreeButtonLink"
+                                placeholder="Enter Panel Three Button Link">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="solarPaneThreeSummary" class="label">Panel 3 Summary</label>
+                            <textarea name="" id="solarPaneThreeSummary" cols="5" rows="5" class="textarea"
+                                placeholder="Enter Pane 3 Summary"></textarea>
+                        </div>
+                    </div>
+                    <div class="_button_field">
+                        <button class="button is-success solarPanelThreeSubmit">
+                            Save & Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+
+<div class="modal" id="windCurrent">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Wind Energy Current Status</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="windCurrentStatus" class="label">Current Status</label>
+                        <textarea name="windEnergyCurrentStatus" id="windCurrentStatus" cols="30" rows="5"
+                            class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveWindCurrentStatus">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+
+<div class="modal" id="windSectionTwo">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Wind Energy Section Two</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="windSectionTwoSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="windSectionTwoImageFileElement" class="label">Section Two Image</label>
+                            <input type="file" name="" id="windSectionTwoImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="windSectionTwoTitle" class="label">Section Two Title</label>
+                            <input type="text" id="windSectionTwoTitle" placeholder="Enter Title For Section Two Solar"
+                                class="input">
+                        </div>
+                        <div class="_form_field">
+                            <label for="windSectionTwoButtonLink" class="label">Section Two Button Link</label>
+                            <input type="text" id="windSectionTwoButtonLink"
+                                placeholder="Enter Button Link For Section Two Solar" class="input">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="windSectionTwoDescription" class="label">Section Two Solar Description</label>
+                            <textarea name="" id="windSectionTwoDescription" cols="30" rows="5"
+                                class="textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveWindSectionTwo">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="windPanelOne">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Wind Energy Panel One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="windPanelOneSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="windPaneOneImageFileElement" class="label">
+                                Panel One Image for Wind Energy<br>
+                                (Note: Use 540 x 340 image in this section.)
+                            </label>
+                            <input type="file" name="" id="windPaneOneImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="windPaneOneTitle" class="label">Panel One Title</label>
+                            <input type="text" placeholder="Enter Panel One Title" class="input" id="windPaneOneTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="windPaneOneButtonLink" class="label">Panel One Button Link</label>
+                            <input type="text" class="input" id="windPaneOneButtonLink"
+                                placeholder="Enter Pane One Button Link">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="windPaneOneSummary" class="label">Panel One Summary</label>
+                            <textarea name="" id="windPaneOneSummary" cols="5" rows="5" class="textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="_button_field">
+                        <button class="button is-success windPanelOneSubmit">
+                            Save & Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+<div class="modal" id="windPanelTwo">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Wind Energy Panel Two</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="windPanelTwoSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="windPaneTwoImageFileElement" class="label">
+                                Panel Two Image for Wind Energy Current Status<br>
+                                (Note: Use 540 x 340 image in this section.)
+                            </label>
+                            <input type="file" name="" id="windPaneTwoImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="windPaneTwoTitle" class="label">Wind Energy Panel Two Title</label>
+                            <input type="text" placeholder="Enter Panel Two Title" class="input" id="windPaneTwoTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="windPaneTwoButtonLink" class="label">Panel Two Button Link</label>
+                            <input type="text" class="input" id="windPaneTwoButtonLink"
+                                placeholder="Enter Panel Two Button Link">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="windPaneTwoSummary" class="label">Panel Two Summary</label>
+                            <textarea name="" id="windPaneTwoSummary" cols="5" rows="5" class="textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="_button_field">
+                        <button class="button is-success windPanelTwoSubmit">
+                            Save & Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+<div class="modal" id="windPanelThree">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Wind Energy Panel 3</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="windPanelThreeSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="windPaneThreeImageFileElement" class="label">
+                                Panel Three Image for Wind Energy Current Status<br>
+                                (Note: Use 540 x 340 image in this section.)
+                            </label>
+                            <input type="file" name="" id="windPaneThreeImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="windPaneThreeTitle" class="label">Panel Three Title</label>
+                            <input type="text" placeholder="Enter Panel Two Title" class="input"
+                                id="windPaneThreeTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="windPaneThreeButtonLink" class="label">Panel Three Button Link</label>
+                            <input type="text" class="input" id="windPaneThreeButtonLink"
+                                placeholder="Enter Panel Three Button Link">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="windPaneThreeSummary" class="label">Panel 3 Summary</label>
+                            <textarea name="" id="windPaneThreeSummary" cols="5" rows="5" class="textarea"
+                                placeholder="Enter Pane 3 Summary"></textarea>
+                        </div>
+                    </div>
+                    <div class="_button_field">
+                        <button class="button is-success windPanelThreeSubmit">
+                            Save & Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+
+
+<div class="modal" id="smallHydroCurrent">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Small Hydro Energy Current Status</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="smallHydroCurrentStatus" class="label">Current Status</label>
+                        <textarea name="smallHydroEnergyCurrentStatus" id="smallHydroCurrentStatus" cols="30" rows="5"
+                            class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveSmallHydroCurrentStatus">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+
+<div class="modal" id="smallHydroSectionTwo">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Small Hydro Energy Section Two</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="smallHydroSectionTwoSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="smallHydroSectionTwoImageFileElement" class="label">Section Two Image</label>
+                            <input type="file" name="" id="smallHydroSectionTwoImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="smallHydroSectionTwoTitle" class="label">Section Two Title</label>
+                            <input type="text" id="smallHydroSectionTwoTitle"
+                                placeholder="Enter Title For Section Two Solar" class="input">
+                        </div>
+                        <div class="_form_field">
+                            <label for="smallHydroSectionTwoButtonLink" class="label">Section Two Button Link</label>
+                            <input type="text" id="smallHydroSectionTwoButtonLink"
+                                placeholder="Enter Button Link For Section Two Solar" class="input">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="smallHydroSectionTwoDescription" class="label">Section Two Solar
+                                Description</label>
+                            <textarea name="" id="smallHydroSectionTwoDescription" cols="30" rows="5"
+                                class="textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveSmallHydroSectionTwo">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="smallHydroPanelOne">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Small Hydro Energy Panel One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="smallHydroPanelOneSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="smallHydroPaneOneImageFileElement" class="label">
+                                Panel One Image for Small Hydro Energy<br>
+                                (Note: Use 540 x 340 image in this section.)
+                            </label>
+                            <input type="file" name="" id="smallHydroPaneOneImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="smallHydroPaneOneTitle" class="label">Panel One Title</label>
+                            <input type="text" placeholder="Enter Panel One Title" class="input"
+                                id="smallHydroPaneOneTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="smallHydroPaneOneButtonLink" class="label">Panel One Button Link</label>
+                            <input type="text" class="input" id="smallHydroPaneOneButtonLink"
+                                placeholder="Enter Pane One Button Link">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="smallHydroPaneOneSummary" class="label">Panel One Summary</label>
+                            <textarea name="" id="smallHydroPaneOneSummary" cols="5" rows="5"
+                                class="textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="_button_field">
+                        <button class="button is-success smallHydroPanelOneSubmit">
+                            Save & Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+<div class="modal" id="smallHydroPanelTwo">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Small Hydro Energy Panel Two</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="smallHydroPanelTwoSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="smallHydroPaneTwoImageFileElement" class="label">
+                                Panel Two Image for Small Hydro Energy Current Status<br>
+                                (Note: Use 540 x 340 image in this section.)
+                            </label>
+                            <input type="file" name="" id="smallHydroPaneTwoImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="smallHydroPaneTwoTitle" class="label">Panel Two Title</label>
+                            <input type="text" placeholder="Enter Panel Two Title" class="input"
+                                id="smallHydroPaneTwoTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="smallHydroPaneTwoButtonLink" class="label">Panel Two Button Link</label>
+                            <input type="text" class="input" id="smallHydroPaneTwoButtonLink"
+                                placeholder="Enter Panel Two Button Link">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="smallHydroPaneTwoSummary" class="label">Panel Two Summary</label>
+                            <textarea name="" id="smallHydroPaneTwoSummary" cols="5" rows="5"
+                                class="textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="_button_field">
+                        <button class="button is-success smallHydroPanelTwoSubmit">
+                            Save & Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+<div class="modal" id="smallHydroPanelThree">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Small Hydro Energy Panel 3</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="smallHydroPanelThreeSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="smallHydroPaneThreeImageFileElement" class="label">
+                                Panel Three Image for Small Hydro Energy Current Status<br>
+                                (Note: Use 540 x 340 image in this section.)
+                            </label>
+                            <input type="file" name="" id="smallHydroPaneThreeImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="smallHydroPaneThreeTitle" class="label">Panel Three Title</label>
+                            <input type="text" placeholder="Enter Panel Two Title" class="input"
+                                id="smallHydroPaneThreeTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="smallHydroPaneThreeButtonLink" class="label">Panel Three Button Link</label>
+                            <input type="text" class="input" id="smallHydroPaneThreeButtonLink"
+                                placeholder="Enter Panel Three Button Link">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="smallHydroPaneThreeSummary" class="label">Panel 3 Summary</label>
+                            <textarea name="" id="smallHydroPaneThreeSummary" cols="5" rows="5" class="textarea"
+                                placeholder="Enter Pane 3 Summary"></textarea>
+                        </div>
+                    </div>
+                    <div class="_button_field">
+                        <button class="button is-success smallHydroPanelThreeSubmit">
+                            Save & Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+
+
+<div class="modal" id="wasteCurrent">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Waste To Energy Current Status</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="wasteCurrentStatus" class="label">Current Status</label>
+                        <textarea name="wasteEnergyCurrentStatus" id="wasteCurrentStatus" cols="30" rows="5"
+                            class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveWasteCurrentStatus">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+
+<div class="modal" id="wasteSectionTwo">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Waste To Energy Section Two</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="wasteSectionTwoSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="wasteSectionTwoImageFileElement" class="label">Section Two Image</label>
+                            <input type="file" name="" id="wasteSectionTwoImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="wasteSectionTwoTitle" class="label">Section Two Title</label>
+                            <input type="text" id="wasteSectionTwoTitle" placeholder="Enter Title For Section Two Solar"
+                                class="input">
+                        </div>
+                        <div class="_form_field">
+                            <label for="wasteSectionTwoButtonLink" class="label">Section Two Button Link</label>
+                            <input type="text" id="wasteSectionTwoButtonLink"
+                                placeholder="Enter Button Link For Section Two Solar" class="input">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="smallHydroSectionTwoDescription" class="label">Section Two Solar
+                                Description</label>
+                            <textarea name="" id="wasteSectionTwoDescription" cols="30" rows="5"
+                                class="textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveWasteSectionTwo">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="wastePanelOne">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Waste To Energy Panel One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="wastePanelOneSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="wastePaneOneImageFileElement" class="label">
+                                Panel One Image for Waste To Energy<br>
+                                (Note: Use 540 x 340 image in this section.)
+                            </label>
+                            <input type="file" name="" id="wastePaneOneImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="wastePaneOneTitle" class="label">Panel One Title</label>
+                            <input type="text" placeholder="Enter Panel One Title" class="input" id="wastePaneOneTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="wastePaneOneButtonLink" class="label">Panel One Button Link</label>
+                            <input type="text" class="input" id="wastePaneOneButtonLink"
+                                placeholder="Enter Pane One Button Link">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="wastePaneOneSummary" class="label">Panel One Summary</label>
+                            <textarea name="" id="wastePaneOneSummary" cols="5" rows="5" class="textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="_button_field">
+                        <button class="button is-success wastePanelOneSubmit">
+                            Save & Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+<div class="modal" id="wastePanelTwo">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Waste To Energy Panel Two</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="wastePanelTwoSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="wastePaneTwoImageFileElement" class="label">
+                                Panel Two Image for Waste To Energy<br>
+                                (Note: Use 540 x 340 image in this section.)
+                            </label>
+                            <input type="file" name="" id="wastePaneTwoImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="wastePaneTwoTitle" class="label">Panel Two Title</label>
+                            <input type="text" placeholder="Enter Panel Two Title" class="input" id="wastePaneTwoTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="wastePaneTwoButtonLink" class="label">Panel Two Button Link</label>
+                            <input type="text" class="input" id="wastePaneTwoButtonLink"
+                                placeholder="Enter Panel Two Button Link">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="wastePaneTwoSummary" class="label">Panel Two Summary</label>
+                            <textarea name="" id="wastePaneTwoSummary" cols="5" rows="5" class="textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="_button_field">
+                        <button class="button is-success wastePanelTwoSubmit">
+                            Save & Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+<div class="modal" id="wastePanelThree">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Waste To Energy Panel 3</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="wastePanelThreeSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="wastePaneThreeImageFileElement" class="label">
+                                Panel Three Image for Waste To Energy<br>
+                                (Note: Use 540 x 340 image in this section.)
+                            </label>
+                            <input type="file" name="" id="wastePaneThreeImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="wastePaneThreeTitle" class="label">Panel Three Title</label>
+                            <input type="text" placeholder="Enter Panel Two Title" class="input"
+                                id="wastePaneThreeTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="wastePaneThreeButtonLink" class="label">Panel Three Button Link</label>
+                            <input type="text" class="input" id="wastePaneThreeButtonLink"
+                                placeholder="Enter Panel Three Button Link">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="wastePaneThreeSummary" class="label">Panel 3 Summary</label>
+                            <textarea name="" id="wastePaneThreeSummary" cols="5" rows="5" class="textarea"
+                                placeholder="Enter Pane 3 Summary"></textarea>
+                        </div>
+                    </div>
+                    <div class="_button_field">
+                        <button class="button is-success wastePanelThreeSubmit">
+                            Save & Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+
+<div class="modal" id="bioCurrent">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title"> BIO Energy Current Status</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="bioCurrentStatus" class="label">Current Status</label>
+                        <textarea name="bioEnergyCurrentStatus" id="bioCurrentStatus" cols="30" rows="5"
+                            class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveBioCurrentStatus">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+
+<div class="modal" id="bioSectionTwo">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Bio Energy Section Two</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="wastebioSectionTwoSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="bioSectionTwoImageFileElement" class="label">Section Two Image</label>
+                            <input type="file" name="" id="bioSectionTwoImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="bioSectionTwoTitle" class="label">Section Two Title</label>
+                            <input type="text" id="bioSectionTwoTitle" placeholder="Enter Title For Section Two Solar"
+                                class="input">
+                        </div>
+                        <div class="_form_field">
+                            <label for="bioSectionTwoButtonLink" class="label">Section Two Button Link</label>
+                            <input type="text" id="bioSectionTwoButtonLink"
+                                placeholder="Enter Button Link For Section Two Solar" class="input">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="bioSectionTwoDescription" class="label">Section Two Solar Description</label>
+                            <textarea name="" id="bioSectionTwoDescription" cols="30" rows="5"
+                                class="textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveBioSectionTwo">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="bioPanelOne">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Bio Energy Panel One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="bioPanelOneSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="bioPaneOneImageFileElement" class="label">
+                                Panel One Image for Bio Energy<br>
+                                (Note: Use 540 x 340 image in this section.)
+                            </label>
+                            <input type="file" name="" id="bioPaneOneImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="bioPaneOneTitle" class="label">Panel One Title</label>
+                            <input type="text" placeholder="Enter Panel One Title" class="input" id="bioPaneOneTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="bioPaneOneButtonLink" class="label">Panel One Button Link</label>
+                            <input type="text" class="input" id="bioPaneOneButtonLink"
+                                placeholder="Enter Pane One Button Link">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="bioPaneOneSummary" class="label">Panel One Summary</label>
+                            <textarea name="" id="bioPaneOneSummary" cols="5" rows="5" class="textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="_button_field">
+                        <button class="button is-success bioPanelOneSubmit">
+                            Save & Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+<div class="modal" id="bioPanelTwo">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Bio Energy Panel Two</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="bioPanelTwoSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="wastePaneTwoImageFileElement" class="label">
+                                Panel Two Image for Bio Energy<br>
+                                (Note: Use 540 x 340 image in this section.)
+                            </label>
+                            <input type="file" name="" id="bioPaneTwoImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="bioPaneTwoTitle" class="label">Panel Two Title</label>
+                            <input type="text" placeholder="Enter Panel Two Title" class="input" id="bioPaneTwoTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="bioPaneTwoButtonLink" class="label">Panel Two Button Link</label>
+                            <input type="text" class="input" id="bioPaneTwoButtonLink"
+                                placeholder="Enter Panel Two Button Link">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="bioPaneTwoSummary" class="label">Panel Two Summary</label>
+                            <textarea name="" id="bioPaneTwoSummary" cols="5" rows="5" class="textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="_button_field">
+                        <button class="button is-success bioPanelTwoSubmit">
+                            Save & Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+<div class="modal" id="bioPanelThree">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Bio Energy Panel 3</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="bioPanelThreeSavedImage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="bioPaneThreeImageFileElement" class="label">
+                                Panel Three Image for Bio Energy<br>
+                                (Note: Use 540 x 340 image in this section.)
+                            </label>
+                            <input type="file" name="" id="bioPaneThreeImageFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="bioPaneThreeTitle" class="label">Panel Three Title</label>
+                            <input type="text" placeholder="Enter Panel Two Title" class="input" id="bioPaneThreeTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="bioPaneThreeButtonLink" class="label">Panel Three Button Link</label>
+                            <input type="text" class="input" id="bioPaneThreeButtonLink"
+                                placeholder="Enter Panel Three Button Link">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="bioPaneThreeSummary" class="label">Panel 3 Summary</label>
+                            <textarea name="" id="bioPaneThreeSummary" cols="5" rows="5" class="textarea"
+                                placeholder="Enter Pane 3 Summary"></textarea>
+                        </div>
+                    </div>
+                    <div class="_button_field">
+                        <button class="button is-success bioPanelThreeSubmit">
+                            Save & Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+
+<div class="modal" id="green_current">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Green Energy Corridor Introduction</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="greenIntroduction" class="label">Introduction</label>
+                        <textarea name="greenEnergyCurrentStatus" id="greenIntroduction" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveGreenIntroduction">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="offwindmodal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Offshore Wind</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _home_isa _inner_panels">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="savedoffwindimage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="offwindInputFileElement" class="label">Offshore Wind Image</label>
+                            <input type="file" name="" id="offwindInputFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field _desc_field">
+                            <label for="offwind_desc" class="label">Overview</label>
+                            <textarea id="offwind_desc" class="textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveoffwind">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="solarnewmodal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Solar On-Grid Energy</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _home_isa">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="savedsolarnewimage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="solarnewInputFileElement" class="label">Solar On-Grid Energy Image</label>
+                            <input type="file" name="" id="solarnewInputFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field _desc_field">
+                            <label for="solarnew_desc" class="label">Overview</label>
+                            <textarea id="solarnew_desc" class="textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success savesolarnew">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="solardecmodal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Solar Off-Grid</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _home_isa">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img id="savedsolardecimage" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="solardecInputFileElement" class="label">Solar Off-Grid Image</label>
+                            <input type="file" name="" id="solardecInputFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field _desc_field">
+                            <label for="solardec_desc" class="label">Overview</label>
+                            <textarea id="solardec_desc" class="textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success savesolardec">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="scoverall">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Suryamitra Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="scoveralldesc" class="label">Description</label>
+                        <textarea name="" id="scoveralldesc" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success scoverallsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="gboverall">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Standards & Specifications Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="gboveralldesc" class="label">Description</label>
+                        <textarea name="" id="gboveralldesc" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success gboverallsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="ssoverall">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Solar Schemes Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="ssoveralldesc" class="label">Description</label>
+                        <textarea name="" id="ssoveralldesc" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success ssoverallsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="wsoverall">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Wind Schemes Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="wsoveralldesc" class="label">Description</label>
+                        <textarea name="" id="wsoveralldesc" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success wsoverallsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="shsoverall">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Small Hydro Schemes Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="shsoveralldesc" class="label">Description</label>
+                        <textarea name="" id="shsoveralldesc" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success shsoverallsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="wssoverall">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Waste Energy Scheme Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="wssoveralldesc" class="label">Description</label>
+                        <textarea name="" id="wssoveralldesc" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success wssoverallsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="bsoverall">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Bio Energy Scheme Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="bsoveralldesc" class="label">Description</label>
+                        <textarea name="" id="bsoveralldesc" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success bsoverallsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="selpm">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Solar Energy Lab Policy</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="selpd" class="label">Description</label>
+                        <textarea name="" id="selpd" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success selpsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="welpm">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Wind Energy Lab Policy</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="welpd" class="label">Description</label>
+                        <textarea name="" id="welpd" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success welpsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="shelpm">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Small Hydro Energy Lab Policy</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="shelpd" class="label">Description</label>
+                        <textarea name="" id="shelpd" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success shelpsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="wtelpm">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Waste To Energy Energy Lab Policy</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="wtelpd" class="label">Description</label>
+                        <textarea name="" id="wtelpd" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success wtelpsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="belpm">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Bio Energy Lab Policy</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="belpd" class="label">Description</label>
+                        <textarea name="" id="belpd" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success belpsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="notification" id="dashboardNotification">
+    <p id="notification_message">
+        We are Legion!
+    </p>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.edit_button_text').click(function () {
+            setTimeout(function () {
+                if ($('.modal').hasClass('is-active')) {
+                    $('body, html').css('overflow', 'hidden')
+                } else {
+                    $('body, html').css('overflow-y', 'auto')
+                }
+            }, 500)
+        });
+        $('.ministryModalClose').click(function () {
+            $('body, html').css('overflow-y', 'auto')
+        })
+    })        
+</script>

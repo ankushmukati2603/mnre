@@ -1,0 +1,816 @@
+<style>
+    @media only screen and (min-width:700px) {
+        .ministry_people {
+            padding-left: 70px;
+            padding-right: 70px;
+        }
+    }
+
+    @media only screen and (max-width:1000px) {
+        .official_name {
+            font-size: 2rem
+        }
+    }
+
+    .org__read--more {
+        background-color: lightgrey color: black;
+    }
+
+    /* The Modal (background) */
+    .modal1 {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content1 {
+        background-color: #fefefe;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        width: 60%;
+        /* Could be more or less, depending on screen size */
+        border: 22px solid #bada55;
+    }
+
+    /* The Close Button */
+    .close1 {
+        color: #000;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        position: relative;
+        bottom: 0px;
+        right: 3%;
+        top: 3%;
+    }
+
+    .close1:hover,
+    .close1:focus {
+        color: grey;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .content_organogram {
+        padding: 5%
+    }
+
+    .ministry_official_footer {
+        background: transparent;
+        border-top: none;
+    }
+
+    .margin_boo {
+        font-size: 25px;
+    }
+
+    .desig_tit {
+        font-weight: 300;
+        height: 80px
+    }
+</style>
+<div class="container-fluid policies mb-5">
+    <h1 class="text-center wdet">{{page_title}}</h1>
+</div>
+<div class="container">
+    <div class="row ministry_people">
+        <div class="col-sm-12">
+            <div class="col-sm-4" style="margin:auto">
+                <div class="search-option">
+                    <label for="f184318d184322" class="sr-only">Format</label>
+                    <select id="wambam" class="form-control" onchange="FILTER(this.value)">
+                        <option value="all">View All Officials</option>
+                        <option value="Ministers">Honorable Minister</option>
+                        <option value="Secretary">Honorable Secretary</option>
+                        <option value="AS">Additional Secretary</option>
+<option value="JS">Joint Secretary</option>
+                        <option value="Scientist G DDG">Scientists G DDG</option>
+                        <option value="Economic Advisor">Economic Advisors</option>
+                        <option value="Scientist F,E,D Director DS">Scientists F,E,D Director DS</option>
+                        <option value="Under Secretary Scientist C,B">Under Secretary Scientists C,B</option>
+                        <option value="Section Officer">Section Officers</option>
+                        <option value="Web Information Manager">Web Information Manager</option>
+                    </select>
+                    {{!-- <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                        onChange="FILTER(this.value)">
+                        <option value="all">View All Officials</option>
+                        <option value="Ministers">Honorable Minister</option>
+                        <option value="Secretary">Honorable Secretary</option>
+                        <option value="AS & JS">Additional Secretaries and Joint Secretaries</option>
+                        <option value="Scientist G DDG">Scientists G DDG</option>
+                        <option value="Economic Advisor">Economic Advisors</option>
+                        <option value="Scientist F,E,D Director DS">Scientists F,E,D Director DS</option>
+                        <option value="Under Secret1ary Scientist C,B">Under Secretary Scientists C,B</option>
+                        <option value="Section Officer">Section Officers</option>
+                        <option value="Web Information Manager">Web Information Manager</option>
+                    </select> --}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="accordion" id="accordionExample">
+
+                <div class="card">
+                    <div class="card-header" id="heading-minister">
+                        <h3 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse"
+                                data-target="#collapse-minister" aria-expanded="true" aria-controls="collapse-minister">
+                                Minsiters
+                            </button>
+                        </h3>
+                    </div>
+                    <div id="collapse-minister" class="collapse show" aria-labelledby="heading-minister"
+                        data-parent="#accordionExample">
+                        <div class="card-body row">
+                            {{#each minister}}
+                            <div class="col-sm-4 pb-3 ministry_people_single" data-desig="{{this.category}}">
+                                <div class="card">
+                                    <div class="card-body text-center" style="">
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                {{#if this.image}}
+                                                <img class="img" src="http://10.246.24.71{{this.image.url}}"
+                                                    width="100%" height="400px" alt="Minister Image">
+                                                {{/if}}
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <h4 class="title pt-3 official_name">{{this.name}}</h4>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <h5 class="title desig_tit pt-3">
+                                                    {{{this.designation}}}
+                                                </h5>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <footer class="card-footer text-center ministry_official_footer">
+                                        <span class="btn btn-success org__read--more"
+                                            onclick="OPEN_ORGANOGRAM_MODAL('{{this.id}}')">View
+                                            Full Profile
+                                        </span>
+                                    </footer>
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="accordionExample2">
+
+                    <div class="card">
+                        <div class="card-header" id="heading-secretary">
+                            <h3 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                    data-target="#collapse-secretary" aria-expanded="true"
+                                    aria-controls="collapse-secretary">
+                                    Secretary
+                                </button>
+                            </h3>
+                        </div>
+                        <div id="collapse-secretary" class="collapse show" aria-labelledby="heading-secretary"
+                            data-parent="#accordionExample2">
+                            <div class="card-body row">
+                                {{#each secretary}}
+                                <div class="col-sm-4 pb-3 ministry_people_single" data-desig="{{this.category}}">
+                                    <div class="card">
+                                        <div class="card-body text-center" style="">
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    {{#if this.image}}
+                                                    <img class="img" src="http://10.246.24.71{{this.image.url}}"
+                                                        width="100%" height="400px" alt="Secretary Image">
+                                                    {{/if}}
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h4 class="title pt-3 official_name">{{this.name}}</h4>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h5 class="title desig_tit pt-3">
+                                                        {{{this.designation}}}
+                                                    </h5>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <footer class="card-footer text-center ministry_official_footer">
+                                            <span class="btn btn-success org__read--more"
+                                                onclick="OPEN_ORGANOGRAM_MODAL('{{this.id}}')">View
+                                                Full Profile
+                                            </span>
+                                        </footer>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="accordionExample3">
+
+                    <div class="card">
+                        <div class="card-header" id="heading-as">
+                            <h3 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                    data-target="#collapse-as" aria-expanded="true"
+                                    aria-controls="collapse-as">
+                                    AS & JS
+                                </button>
+                            </h3>
+                        </div>
+                        <div id="collapse-as" class="collapse show" aria-labelledby="heading-as"
+                            data-parent="#accordionExample3">
+                            <div class="card-body row">
+                                {{#each as}}
+                                <div class="col-sm-4 pb-3 ministry_people_single" data-desig="{{this.category}}">
+                                    <div class="card">
+                                        <div class="card-body text-center" style="">
+
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    {{#if this.image}}
+                                                    <img class="img" src="http://10.246.24.71{{this.image.url}}"
+                                                        width="100%" height="400px" alt="Secretary Image">
+                                                    {{/if}}
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h4 class="title pt-3 official_name">{{this.name}}</h4>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h5 class="title desig_tit pt-3">
+                                                        {{{this.designation}}}
+                                                    </h5>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <footer class="card-footer text-center ministry_official_footer">
+                                            <span class="btn btn-success org__read--more"
+                                                onclick="OPEN_ORGANOGRAM_MODAL('{{this.id}}')">View
+                                                Full Profile
+                                            </span>
+                                        </footer>
+                                    </div>
+                                </div>
+                                {{/each}}
+                                {{#each js}}
+                                <div class="col-sm-4 pb-3 ministry_people_single" data-desig="{{this.category}}">
+                                    <div class="card">
+                                        <div class="card-body text-center" style="">
+                                
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    {{#if this.image}}
+                                                    <img class="img" src="http://10.246.24.71{{this.image.url}}" width="100%" height="400px"
+                                                        alt="Secretary Image">
+                                                    {{/if}}
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h4 class="title pt-3 official_name">{{this.name}}</h4>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h5 class="title desig_tit pt-3">
+                                                        {{{this.designation}}}
+                                                    </h5>
+                                                </div>
+                                
+                                            </div>
+                                        </div>
+                                        <footer class="card-footer text-center ministry_official_footer">
+                                            <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this.id}}')">View
+                                                Full Profile
+                                            </span>
+                                        </footer>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="accordionExample4">
+                
+                    <div class="card">
+                        <div class="card-header" id="heading-as">
+                            <h3 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-scig"
+                                    aria-expanded="true" aria-controls="collapse-scig">
+                                    Scientist G DDG
+                                </button>
+                            </h3>
+                        </div>
+                        <div id="collapse-scig" class="collapse show" aria-labelledby="heading-scig" data-parent="#accordionExample4">
+                            <div class="card-body row">
+                                {{#each scig}}
+                                <div class="col-sm-4 pb-3 ministry_people_single" data-desig="{{this.category}}">
+                                    <div class="card">
+                                        <div class="card-body text-center" style="">
+                
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    {{#if this.image}}
+                                                    <img class="img" src="http://10.246.24.71{{this.image.url}}" width="100%"
+                                                        height="400px" alt="Secretary Image">
+                                                    {{/if}}
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h4 class="title pt-3 official_name">{{this.name}}</h4>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h5 class="title desig_tit pt-3">
+                                                        {{{this.designation}}}
+                                                    </h5>
+                                                </div>
+                
+                                            </div>
+                                        </div>
+                                        <footer class="card-footer text-center ministry_official_footer">
+                                            <span class="btn btn-success org__read--more"
+                                                onclick="OPEN_ORGANOGRAM_MODAL('{{this.id}}')">View
+                                                Full Profile
+                                            </span>
+                                        </footer>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="accordionExample5">
+                
+                    <div class="card">
+                        <div class="card-header" id="heading-eco">
+                            <h3 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-eco"
+                                    aria-expanded="true" aria-controls="collapse-eco">
+                                    Economic Advisor
+                                </button>
+                            </h3>
+                        </div>
+                        <div id="collapse-eco" class="collapse show" aria-labelledby="heading-eco" data-parent="#accordionExample5">
+                            <div class="card-body row">
+                                {{#each ecoadv}}
+                                <div class="col-sm-4 pb-3 ministry_people_single" data-desig="{{this.category}}">
+                                    <div class="card">
+                                        <div class="card-body text-center" style="">
+                
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    {{#if this.image}}
+                                                    <img class="img" src="http://10.246.24.71{{this.image.url}}" width="100%"
+                                                        height="400px" alt="Secretary Image">
+                                                    {{/if}}
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h4 class="title pt-3 official_name">{{this.name}}</h4>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h5 class="title desig_tit pt-3">
+                                                        {{{this.designation}}}
+                                                    </h5>
+                                                </div>
+                
+                                            </div>
+                                        </div>
+                                        <footer class="card-footer text-center ministry_official_footer">
+                                            <span class="btn btn-success org__read--more"
+                                                onclick="OPEN_ORGANOGRAM_MODAL('{{this.id}}')">View
+                                                Full Profile
+                                            </span>
+                                        </footer>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="accordionExample6">
+                
+                    <div class="card">
+                        <div class="card-header" id="heading-fed">
+                            <h3 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-fed"
+                                    aria-expanded="true" aria-controls="collapse-fed">
+                                    Scientist F,E,D Director DS
+                                </button>
+                            </h3>
+                        </div>
+                        <div id="collapse-fed" class="collapse show" aria-labelledby="heading-fed" data-parent="#accordionExample6">
+                            <div class="card-body row">
+                                {{#each scifed}}
+                                <div class="col-sm-4 pb-3 ministry_people_single" data-desig="{{this.category}}">
+                                    <div class="card">
+                                        <div class="card-body text-center" style="">
+                
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    {{#if this.image}}
+                                                    <img class="img" src="http://10.246.24.71{{this.image.url}}" width="100%"
+                                                        height="400px" alt="Secretary Image">
+                                                    {{/if}}
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h4 class="title pt-3 official_name">{{this.name}}</h4>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h5 class="title desig_tit pt-3">
+                                                        {{{this.designation}}}
+                                                    </h5>
+                                                </div>
+                
+                                            </div>
+                                        </div>
+                                        <footer class="card-footer text-center ministry_official_footer">
+                                            <span class="btn btn-success org__read--more"
+                                                onclick="OPEN_ORGANOGRAM_MODAL('{{this.id}}')">View
+                                                Full Profile
+                                            </span>
+                                        </footer>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="accordionExample7">
+                
+                    <div class="card">
+                        <div class="card-header" id="heading-und">
+                            <h3 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-und"
+                                    aria-expanded="true" aria-controls="collapse-und">
+                                    Under Secretary Scientist C,B
+                                </button>
+                            </h3>
+                        </div>
+                        <div id="collapse-und" class="collapse show" aria-labelledby="heading-und" data-parent="#accordionExample7">
+                            <div class="card-body row">
+                                {{#each under}}
+                                <div class="col-sm-4 pb-3 ministry_people_single" data-desig="{{this.category}}">
+                                    <div class="card">
+                                        <div class="card-body text-center" style="">
+                
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    {{#if this.image}}
+                                                    <img class="img" src="http://10.246.24.71{{this.image.url}}" width="100%"
+                                                        height="400px" alt="Secretary Image">
+                                                    {{/if}}
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h4 class="title pt-3 official_name">{{this.name}}</h4>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h5 class="title desig_tit pt-3">
+                                                        {{{this.designation}}}
+                                                    </h5>
+                                                </div>
+                
+                                            </div>
+                                        </div>
+                                        <footer class="card-footer text-center ministry_official_footer">
+                                            <span class="btn btn-success org__read--more"
+                                                onclick="OPEN_ORGANOGRAM_MODAL('{{this.id}}')">View
+                                                Full Profile
+                                            </span>
+                                        </footer>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="accordionExample8">
+                
+                    <div class="card">
+                        <div class="card-header" id="heading-secoff">
+                            <h3 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-secoff"
+                                    aria-expanded="true" aria-controls="collapse-secoff">
+                                    Section Officer
+                                </button>
+                            </h3>
+                        </div>
+                        <div id="collapse-secoff" class="collapse show" aria-labelledby="heading-secoff" data-parent="#accordionExample8">
+                            <div class="card-body row">
+                                {{#each secoff}}
+                                <div class="col-sm-4 pb-3 ministry_people_single" data-desig="{{this.category}}">
+                                    <div class="card">
+                                        <div class="card-body text-center" style="">
+                
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    {{#if this.image}}
+                                                    <img class="img" src="http://10.246.24.71{{this.image.url}}" width="100%"
+                                                        height="400px" alt="Secretary Image">
+                                                    {{/if}}
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h4 class="title pt-3 official_name">{{this.name}}</h4>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h5 class="title desig_tit pt-3">
+                                                        {{{this.designation}}}
+                                                    </h5>
+                                                </div>
+                
+                                            </div>
+                                        </div>
+                                        <footer class="card-footer text-center ministry_official_footer">
+                                            <span class="btn btn-success org__read--more"
+                                                onclick="OPEN_ORGANOGRAM_MODAL('{{this.id}}')">View
+                                                Full Profile
+                                            </span>
+                                        </footer>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{#if weeb}}
+                    <div class="accordion" id="accordionExample9">
+                    
+                        <div class="card">
+                            <div class="card-header" id="heading-weeb">
+                                <h3 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-weeb"
+                                        aria-expanded="true" aria-controls="collapse-weeb">
+                                        Section Officer
+                                    </button>
+                                </h3>
+                            </div>
+                            <div id="collapse-weeb" class="collapse show" aria-labelledby="heading-weeb"
+                                data-parent="#accordionExample9">
+                                <div class="card-body row">
+                                    {{#each weeb}}
+                                    <div class="col-sm-4 pb-3 ministry_people_single" data-desig="{{this.category}}">
+                                        <div class="card">
+                                            <div class="card-body text-center" style="">
+                    
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        {{#if this.image}}
+                                                        <img class="img" src="http://10.246.24.71{{this.image.url}}" width="100%"
+                                                            height="400px" alt="Secretary Image">
+                                                        {{/if}}
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <h4 class="title pt-3 official_name">{{this.name}}</h4>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <h5 class="title desig_tit pt-3">
+                                                            {{{this.designation}}}
+                                                        </h5>
+                                                    </div>
+                    
+                                                </div>
+                                            </div>
+                                            <footer class="card-footer text-center ministry_official_footer">
+                                                <span class="btn btn-success org__read--more"
+                                                    onclick="OPEN_ORGANOGRAM_MODAL('{{this.id}}')">View
+                                                    Full Profile
+                                                </span>
+                                            </footer>
+                                        </div>
+                                    </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+
+    {{!-- <div class="container">
+        <div class="row ministry_people" id="mnre_officials">
+            {{#each officials}}
+            <div class="col-sm-4 pb-3 ministry_people_single" data-desig="{{this.category}}">
+                <div class="card">
+                    <div class="card-body text-center" style="">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                {{#if this.image}}
+                                <img class="img" src="http://10.246.24.71{{this.image.url}}" width="100%" height="400px"
+                                    alt="Minister Image">
+                                {{/if}}
+                            </div>
+                            <div class="col-sm-12">
+                                <h4 class="title pt-3 official_name">{{this.name}}</h4>
+                            </div>
+                            <div class="col-sm-12">
+                                <h5 class="title desig_tit pt-3">
+                                    {{{this.designation}}}
+                                </h5>
+                            </div>
+
+                        </div>
+                    </div>
+                    <footer class="card-footer text-center ministry_official_footer">
+                        <span class="btn btn-success org__read--more"
+                            onclick="OPEN_ORGANOGRAM_MODAL('{{this.id}}')">View
+                            Full Profile
+                        </span>
+                    </footer>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div> --}}
+
+    <div id="organogram_modal" class="modal1">
+
+        <!-- Modal content -->
+        <div class="modal-content1 seci__border">
+            <span class="close1" id="close_organogram_modal"><i class="far fa-times-circle"></i></span>
+            <div class="content_organogram">
+
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var all_elements = $('.ministry_people_single')
+        const FILTER = function (value) {
+            if (value != "all") {
+                all_elements.hide()
+                $('.ministry_people_single').filter(`[data-desig="${value}"]`).show()
+            } else {
+                all_elements.show()
+            }
+
+        }
+
+        const OPEN_ORGANOGRAM_MODAL = function (id) {
+            console.log(id)
+            axios.get(`http://10.246.24.71/organograms/${id}`).then(response => response.data).catch(error => {
+                console.log(error)
+            }).then(data => {
+                console.log(data)
+                $('.content.organogram').html('')
+                if (data.image) {
+                    $('.content_organogram').html(`
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="title">${data.name}</h4>
+                    </div>
+                    <div class="col-12 off_img">
+                        <img src="http://10.246.24.71${data.image.url}" width="100%" height="400px" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-12 py-3">
+                        <h4 class="font-weight-normal">
+                            ${data.designation}
+                        </h4>
+                    </div>
+                    <div class="col-4 off_email">
+                        <label for="official_email-${data.id}" class="label">
+                            <h6>Email</h6>
+                        </label>
+                        <a id="official_email-${data.id}" href="mailto:${data.email}">
+                            <h6 class="font-weight-normal">${data.email}</h6>
+                        </a>
+                    </div>
+                    <div class="col-4 off_res">
+                        <label for="official_residence-${data.id}" class="label">
+                            <h6>Residence</h6>
+                        </label>
+                        <a id="official_residence-${data.id}" href="tel:${data.phone_residence}">
+                            <h6 class="font-weight-normal">${data.phone_residence}</h6>
+                        </a>
+                    </div>
+                    <div class="col-4 off_off">
+                        <label for="official_off-${data.id}" class="label">
+                            <h6>Office</h6>
+                        </label>
+                        <a id="official_off-${data.id}" href="tel:${data.phone_office}">
+                            <h6 class="font-weight-normal">${data.phone_office}</h6>
+                        </a>
+                    </div>
+                    <div class="col-12 off_prog">
+                        <div class="content">
+                            <div class="margin_boo">
+                                ${data.programmes}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `)
+                } else {
+                    $('.content_organogram').html(`
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="title">${data.name}</h4>
+                    </div>
+                    <div class="col-12 py-3">
+                        <h4 class="font-weight-normal">
+                            ${data.designation}
+                        </h4>
+                    </div>
+                    <div class="col-4 off_email">
+                        <label for="official_email-${data.id}" class="label">
+                            <h6>Email</h6>
+                        </label>
+                        <a id="official_email-${data.id}" href="mailto:${data.email}">
+                            <h6 class="font-weight-normal">${data.email}</h6>
+                        </a>
+                    </div>
+                    <div class="col-4 off_res">
+                        <label for="official_residence-${data.id}" class="label">
+                            <h6>Residence</h6>
+                        </label>
+                        <a id="official_residence-${data.id}" href="tel:${data.phone_residence}">
+                            <h6 class="font-weight-normal">${data.phone_residence}</h6>
+                        </a>
+                    </div>
+                    <div class="col-4 off_off">
+                        <label for="official_off-${data.id}" class="label">
+                            <h6>Office</h6>
+                        </label>
+                        <a id="official_off-${data.id}" href="tel:${data.phone_office}">
+                            <h6 class="font-weight-normal">${data.phone_office}</h6>
+                        </a>
+                    </div>
+                    <div class="col-12 off_prog">
+                        <div class="content">
+                            <div class="margin_boo">
+                                ${data.programmes}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `)
+                }
+
+
+                if (!data.email) { $('.off_email').hide() }
+
+                if (!data.phone_residence) { $('.off_res').hide() }
+
+                if (!data.phone_office) {
+                    $('.off_off').hide()
+                }
+
+                if (!data.programmes) {
+                    $('.off_prog').hide()
+                }
+
+                modal10.style.display = "block";
+            })
+
+        }
+        // Get the modal
+        var modal10 = document.getElementById('organogram_modal');
+
+        // Get the <span> element that closes the modal
+        var span10 = document.getElementById("close_organogram_modal");
+
+
+        // When the user clicks on <span> (x), close the modal
+        span10.onclick = function () {
+            modal10.style.display = "none"
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal10) {
+                modal10.style.display = "none";
+            }
+        }
+
+        $('.ministry_people_single:lt(2)').removeClass('col-sm-4')
+        $('.ministry_people_single:lt(2)').addClass('col-sm-6')
+
+        $('#wambam').val('all')
+
+    </script>

@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="/stylesheets/archived-tenders.css">
+<div class="container-fluid wde tenders_bg">
+    <h1 class="text-center wdet tenders_bg">Tenders</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 mt-3 archived__heading">
+            <h2 class="energtext text-center">Archived Tenders</h2>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3">
+
+    <div class="filter mt-5 mb-5">
+        <div class="row filter-bc _policy_dropdown">
+            <div class="col">
+                <div class="search-option">
+                    <label for="f184318d184322" class="sr-only">Format</label>
+                    <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                        onchange="window.location.href=this.value">
+                        <option title="solar" value="/tenders/archived">Archived</option>
+                        <option title="solar" value="/tenders/recent">Recent</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- Accordion -->
+        <div class="_policy_accordion">
+            <div class="accordion" id="accordionExample">
+                {{#if tenders}}
+                {{#each tenders}}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse"
+                                data-target="#collapse_{{@index}}" aria-expanded="true" aria-controls="collapseOne">
+                                {{this.title}}
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapse_{{@index}}" class="collapse" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                            <p>{{this.description}}</p>
+
+                            <div class="_pdf_links">
+                                <a target="_blank" href="http://10.246.24.71/{{this.file.url}}" class="ml-1">
+                                    <img class="pdf" src="/img/view-pdf.png" alt="view">
+                                </a>
+                                <a data-href="http://10.246.24.71/{{this.file.url}}" class="ml-1 download_file">
+                                    <img class="pdf" src="/img/download-pdf.png" alt="view">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                {{else}}
+                <div class="col-sm-12">
+                    <h1 class="text-center mt-4">No Recent Tenders</h1>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+        <!-- Accordion -->
+    </div>
+    {{!-- <div class="container mb-5">
+        {{#each tenders}}
+        <div class="row pdf ml-5 mr-5 mt-5">
+            <div class="col viewdoc">
+                <span class="date issue_date">{{this.issue_date}}</span> <span class="date" style="top: -4px;position:relative;">-</span> <span class="date issue_date">{{this.submission_date}}</span>
+                <h4 class="guideh">{{this.title}}</h4>
+            </div>
+            <div class="col-sm-3">
+                <a href="http://10.246.24.71{{this.file.url}}" target="_blank" class="ml-1"><img class="pdf"
+                        src="/img/view-pdf.png" alt="view"></a>
+                <a data-href="http://10.246.24.71{{this.file.url}}" data-file="{{title}}"
+                    class="ml-1 download_file">
+                    <img class="pdf" src="/img/download-pdf.png" alt="view">
+                </a>
+            </div>
+        </div>
+        {{/each}}
+    </div> --}}
+</div>

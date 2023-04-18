@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="{{site_url}}/stylesheets/about.css">
+<div class="_page_head about-header">
+    <p class="_heading">The Ministry</p>
+</div>
+
+<div class="_about_ministry">
+    <div class="_inner_wrap">
+        <div class="_left">
+            <p class="_title">
+                {{#each sectionTitles}}
+                    {{this.about}}
+                {{/each}}
+            </p>
+            <i class="_icon">
+                <img src="{{site_url}}/img/national_emblem.png" alt=""/>
+            </i>
+        </div>
+        <div class="_right">
+            <img src="{{site_url}}{{{JOURNEY_IMAGE_LOCATION}}}" alt="">
+            {{{JOURNEY_IMAGE_DESCRIPTION}}}
+        </div>
+    </div>
+    <div class="_inner_wrap">
+        <div class="_left">
+            <p class="_title">
+                {{#each sectionTitles}}
+                    {{this.mission}}
+                {{/each}}
+            </p>
+            <i class="_icon">
+                <img src="{{site_url}}/img/mission_icon.png" alt=""/>
+            </i>
+        </div>
+        <div class="_right">
+            {{{Ministry_Mission}}}
+        </div>
+    </div>
+    <div class="_inner_wrap">
+        <div class="_left">
+            <p class="_title">
+                {{#each sectionTitles}}
+                    {{this.vision}}
+                {{/each}}
+            </p>
+            <i class="_icon">
+                <img src="{{site_url}}/img/vision_icon.png" alt=""/>
+            </i>
+        </div>
+        <div class="_right">
+            {{{MINISTRY_VISION_DESCRIPTION}}}            
+        </div>
+    </div>
+    <div class="_inner_wrap">
+        <div class="_left">
+            <p class="_title">
+                {{#each sectionTitles}}
+                    {{this.workallocation}}
+                {{/each}}
+            </p>
+            <i class="_icon">
+                <img src="{{site_url}}/img/business_allocation.png" alt=""/>
+            </i>
+        </div>
+        <div class="_right">
+            {{{Ministry_AOB}}}
+        </div>
+    </div>
+    <div class="_inner_wrap">
+        <div class="_left">
+            <p class="_title">
+                {{#each sectionTitles}}
+                    {{this.functions}}
+                {{/each}}
+            </p>
+            <i class="_icon">
+                <img src="{{site_url}}/img/function_icon.png" alt=""/>
+            </i>
+        </div>
+        <div class="_right">
+            {{{Ministry_Function}}}
+        </div>
+    </div>
+</div>

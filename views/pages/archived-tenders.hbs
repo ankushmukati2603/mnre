@@ -1,0 +1,80 @@
+<div class="_page_head tenders_bg">
+    <p class="_heading">Archived Tenders</p>
+</div>
+
+<div class="_main_wrapper">
+    <div class="_policy_wrapper">
+        <div class="_policy_dropdown">
+            <div class="search-option">
+                <p
+                    style="font-family: 'Gotham-Bold'; right: 100px; font-size: 14px; color: #464646; position: absolute; top: 1px; left: 1px; pointer-events: none; margin: 0; background: white; bottom: 1px; padding: 9px 15px; z-index: 10;">
+                    Archived Tenders</p>
+                <label for="f184318d184322" class="sr-only">Format</label>
+                <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                    onChange="window.location.href=this.value">
+                    <option title="solar" value="{{site_url}}/tenders/archived">Archived Tenders</option>
+                    <option title="solar" value="{{site_url}}/tenders/recent">Recent Tenders</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="_documents_wrap">
+        {{#if tenders}}
+        <!-- Accordion -->
+        <div class="_policy_wrapper">
+            <div class="_policy_accordion">
+                <div class="accordion" id="accordionExample">
+                    {{#each tenders}}
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                    data-target="#collapse_{{@index}}" aria-expanded="true" aria-controls="collapseOne">
+                                    <p class="_date">Submission Date: {{ this.submission_date}}</p>
+                                    {{this.title}}
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="collapse_{{@index}}" class="collapse" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <p>{{this.description}}</p>
+                                {{#if this.thumbnail.url}}
+                                <div class="_pdf_links">
+                                    <a target="_blank" href="{{../document_path}}{{this.thumbnail.url}}" class="ml-1">
+                                        <img class="pdf" src="{{../site_url}}/img/view-pdf.png" alt="view">
+                                    </a>
+                                    <a data-href="{{../document_path}}{{this.thumbnail.url}}"
+                                        class="ml-1 download_file">
+                                        <img class="pdf" src="{{../site_url}}/img/download-pdf.png" alt="view">
+                                    </a>
+                                </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <p class="_no_documents">
+            <img src="/img/document.png" alt="" />
+            <span>No Archived Tenders</span>
+        </p>
+        {{/if}}
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('._date').each(function () {
+            var date = this.innerHTML;
+            var newDate = date.split(' ').slice(3, 6);
+            this.innerHTML = `Submission Date: ${newDate[1] + ' ' + newDate[0] + ', ' + newDate[2]}`;
+        })
+    });
+</script>

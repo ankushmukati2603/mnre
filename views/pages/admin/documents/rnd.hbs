@@ -1,0 +1,179 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+</style>
+{{> language_dom}}
+
+
+<div class="_wrapper _admin_wrapper">
+    <div class="_section_wrap _energy_list">
+        <div class="_table_listings">
+            <div class="_top">
+                <p class="_head">{{heading}}</p>
+                <a class="button" href="javascript:void(0)" onclick="_rndModal('formModal','{{form}}')">Add New
+                    Listing</a>
+            </div>
+
+            <table id="table_id" class="display">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr>
+                        <td>#</td>
+                        <td>{{this.title}}</td>
+                        <td>{{this.description}}</td>
+                        <td>{{this.category}}</td>
+                        <td>
+                            <button onclick="_getRndById('{{this._id}}','formModal')">Edit</button>
+                            <button onclick="_removeRndById('{{this._id}}')">Delete</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="formModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <button class="delete" onclick="_closeModal('formModal')" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form">
+                    <form name="_{{form}}_form" id="_{{form}}_form" class="_schemes_form">
+                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                        <input type="hidden" value="add" id="_action_mode" name="_action_mode">
+                        <div class="_form_field">
+                            <label>Title :</label>
+                            <input type="text" placeholder="Type your title here..." name="_title" class="input"
+                                id="_title"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Title (Hindi):</label>
+                            <input type="text" name="_title_hi" class="input" id="_title_hi"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Issue Date :</label>
+                            <input type="text" name="_issue_date" class="input" id="_issue_date"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Description :</label>
+                            <textarea name="_description" id="_description" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Description (Hindi):</label>
+                            <textarea name="_description_hi" id="_description_hi" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="_form_field ">
+                            <label>Meta Keywords :</label>
+                            <textarea name="_meta_keywords" id="_meta_keywords" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Category :</label>
+                            <select class="_location_drop" id="_category" name="_category">
+                                <option value="">Choose Category</option>
+                                <option value="All">All</option>
+                                <option value="Solar">Solar</option>
+                                <option value="Wind">Wind</option>
+                                <option value="Small Hydro">Small Hydro</option>
+                                <option value="Waste to Energy">Waste to Energy</option>
+                                <option value="Bio Energy">Bio Energy</option>
+                                <option value="Green Energy Corridor">Green Energy Corridor</option>
+                                <option value="Fuel Cells">Fuel Cells</option>
+                                <option value="Hydrogen Energy">Hydrogen Energy</option>
+                                <option value="Battery Operated Vehicles">Battery Operated Vehicles</option>
+                                <option value="Geo-thermal Energy">Geo-thermal Energy</option>
+                                <option value="Bio Fuels">Bio Fuels</option>
+                                <option value="Ocean Energy">Ocean Energy</option>
+                                <option value="Energy Storage">Energy Storage</option>
+                            </select>
+                        </div>
+                        <div class="_form_field">
+                            <label>Year :</label>
+                            <select class="_location_drop" id="_year" name="_year">
+                                <option value="">Choose Year</option>
+                                <option value="2010">2010</option>
+                                <option value="2011">2011</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                            </select>
+                        </div>
+                        <div class="_form_field">
+                            <label>Ordering (Default is 0):</label>
+                            <input type="text" placeholder="Default Order : 0" value="0" name="_ordering" class="input"
+                                id="_ordering" />
+                        </div>
+                        <div class="_upload_image _file">
+                            <div class="_form_field">
+                                <label for="_rndFileMain" class="label">File (English) :</label>
+                                <input type="file" id="_rndFileMain">
+                                <input type="hidden" name="_file" />
+                            </div>
+                            <div class="_show_uploaded">
+
+                            </div>
+                            {{#if (ifEquals access "super-admin")}}
+                            <div class="_reviewed_box">
+
+                            </div>
+                            {{/if}}
+                        </div>
+
+                        <div class="_upload_image _thumbnail _pdfhindi">
+                            <div class="_form_field">
+                                <label for="_rndFileThumb" class="label">File (Hindi) :</label>
+                                <input type="file" id="_rndFileThumb">
+                                <input type="hidden" name="_thumbnail" />
+                            </div>
+                            <div class="_show_uploaded">
+
+                            </div>
+                            {{#if (ifEquals access "super-admin")}}
+                            <div class="_reviewed_box">
+
+                            </div>
+                            {{/if}}
+                        </div>
+
+                        <footer class="modal-card-foot">
+                            <button class="button is-success _saveData">Save changes</button>
+                        </footer>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

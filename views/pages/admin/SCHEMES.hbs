@@ -1,0 +1,368 @@
+<style>
+    ._contact {
+        width: 100%;
+        padding: 100px 0 0;
+        margin: 20px 0 0 0;
+    }
+
+    ._contact ._inner {
+        display: flex;
+    }
+
+    ._contact ._inner {
+        width: 100%;
+    }
+
+    ._contact ._inner h4 {
+        font-size: 28px;
+        font-weight: 700;
+        width: 400px;
+        margin: 35px 0 0 0;
+    }
+
+    ._contact ._inner h4 i {
+        font-style: normal;
+        position: relative;
+    }
+
+    ._contact ._inner h4 i::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 6px;
+        background: #34e6e6;
+        left: 0;
+        bottom: 3px;
+    }
+
+    ._contact ._inner ._left p {
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 26px;
+        margin: 40px 0 0 0;
+    }
+
+    ._contact ._inner ._right {
+        flex: 1;
+        position: relative;
+        top: -100px;
+    }
+
+    ._contact ._inner ._right ._form_wrap {
+        width: 100%;
+        background: white;
+        padding: 55px 25% 75px;
+        border-radius: 5px;
+        box-shadow: 0 3px 9px 0 rgba(29, 199, 199, 0.2);
+        border: 1px solid #34e6e6;
+    }
+
+    ._contact ._inner ._right ._form_wrap p {
+        font-size: 18px;
+        font-weight: 600;
+        color: #064646;
+    }
+
+    ._contact ._inner ._right ._form_wrap form {
+        width: 100%;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 0 20px 0;
+        justify-content: space-between;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field input {
+        width: 100%;
+        font-size: 12px;
+        font-weight: 600;
+        color: #333;
+        padding: 11px 0 10px;
+        border-radius: 3px;
+        text-indent: 8px;
+        border: 1px solid #dedede;
+        margin: 8px 0 0 0;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field input:focus {
+        border-color: #34e6e6;
+        outline: none;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field span {
+        font-size: 11px;
+        width: 100%;
+        text-transform: uppercase;
+        color: #444;
+        font-weight: 500;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field ._checkbox {
+        width: 48%;
+        position: relative;
+        margin: 8px 0 0 0;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field ._checkbox:hover label {
+        border-color: #34e6e6;
+        color: #21a0a0;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field ._checkbox label {
+        width: 100%;
+        z-index: 10;
+        position: relative;
+        padding: 10px 10px 10px 36px;
+        font-size: 13px;
+        background: white;
+        border: 1px solid #dedede;
+        border-radius: 3px;
+        color: #616161;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field ._checkbox label i {
+        display: block;
+        font-size: 11px;
+        font-style: normal;
+        margin: 5px 0 0 0;
+        color: #8c8c8c;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field ._checkbox span {
+        width: 15px;
+        height: 15px;
+        z-index: 15;
+        display: inline-block;
+        position: absolute;
+        background: #ececec;
+        border-radius: 50%;
+        top: 12px;
+        left: 12px;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field ._checkbox input {
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field ._checkbox input:checked+span {
+        background: #21a0a0;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field ._checkbox input:checked~label {
+        border-color: #21a0a0;
+        color: #21a0a0;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field ._checkbox._triple {
+        width: 30.8%;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field select {
+        width: 100%;
+        font-size: 12px;
+        font-weight: 600;
+        color: #333;
+        padding: 11px 0 10px;
+        border-radius: 3px;
+        text-indent: 8px;
+        border: 1px solid #dedede;
+        margin: 8px 0 0 0;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field select:disabled {
+        background: #f3f3f3;
+        cursor: not-allowed;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field select:focus {
+        outline: none;
+        border-color: #34e6e6;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field select option {
+        padding: 15px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field textarea {
+        width: 100%;
+        font-size: 12px;
+        font-weight: 600;
+        color: #333;
+        padding: 11px 0 10px;
+        border-radius: 3px;
+        text-indent: 8px;
+        border: 1px solid #dedede;
+        margin: 8px 0 0 0;
+        min-height: 80px;
+        resize: none;
+    }
+
+    ._contact ._inner ._right ._form_wrap form ._input_field input[type="submit"] {
+        background-color: #094e4e;
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 12px 0 10px;
+        box-shadow: none;
+        border: none;
+        text-indent: 0;
+    }
+</style>
+{{> language_dom}}
+<div class="_wrapper _admin_wrapper">
+    <div class="_section_wrap _energy_list">
+        <div class="_table_listings">
+            <div class="_top">
+                <p class="_head">Schemes</p>
+                <a class="button" href="javascript:void(0)" onclick="_open_schemes_modal()">Add New Listing</a>
+            </div>
+            <table class="table is-fullwidth">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Title</th>
+                        <th>Year</th>
+                        <th>Ordering</th>
+                        <th>Category</th>
+                        <th>Added</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {{#if schemes}}
+                    {{#each schemes}}
+                    <tr>
+                        <th>{{incHelper @index}}.</th>
+                        <td>{{this.title}}</td>
+                        <td>{{this.year}}</td>
+                        <td>{{this.ordering}}</td>
+                        <td>{{categoryHelper this.category}}</td>
+                        <td>{{dateHelper this.added_on}}</td>
+                        <td>
+                            <span class="icon" data-id="{{this._id}}" onclick="_editScheme(this)">
+                                <i class="fas fa-pen"></i>
+                            </span>
+                            <span class="icon" data-id="{{this._id}}" onclick="_removeScheme(this)">
+                                <i class="fas fa-trash-alt"></i>
+                            </span>
+                        </td>
+                    </tr>
+                    {{/each}}
+                    {{else}}
+                    <tr>
+                        <td colspan="6">No Data Found</td>
+                    </tr>
+                    {{/if}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="notification" id="dashboardNotification">
+    <p id="notification_message">
+    </p>
+</div>
+
+
+
+<div class="modal" id="schemesModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Add Scheme</p>
+            <button class="delete" onclick="_close_schemes_modal()" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form">
+                    <form method="POST" name="_schemes_form" id="_schemes_form" class="_schemes_form">
+                        <input type="hidden" value="add" id="_action_mode" name="_action_mode">
+                        <input type="hidden" value="{{schemeCategory}}" id="scheme_category" name="scheme_category">
+                        <div class="_form_field">
+                            <label><b>{{heading}}</b> - Type:</label>
+                            <select class="_location_drop" required name="scheme_type" id="scheme_type">
+                                <option value="">Choose Type</option>
+                                {{#if schemeType}}
+                                {{#each schemeType}}
+                                <option value="{{this.prefix}}">{{this.type}}</option>
+                                {{/each}}
+                                {{/if}}
+                            </select>
+                        </div>
+                        <div class="_form_field">
+                            <label>Title :</label>
+                            <input type="text" placeholder="Type your title here..." name="scheme_title" class="input"
+                                id="scheme_title"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>PDF (English) Url :</label>
+                            <input type="text" placeholder="Paste url here" name="pdf_english" class="input"
+                                id="pdf_english" />
+                        </div>
+                        <div class="_form_field">
+                            <label>PDF (Hindi) Url :</label>
+                            <input type="text" placeholder="Paste url here" name="pdf_hindi" class="input"
+                                id="pdf_hindi" />
+                        </div>
+                        <div class="_form_field">
+                            <label>Ordering (Default is 0):</label>
+                            <input type="text" placeholder="Default Order : 0" value="0" name="ordering" class="input"
+                                id="ordering" />
+                        </div>
+                        <div class="_form_field">
+                            <label>Year :</label>
+                            <select class="_location_drop" id="year" name="year">
+                                <option value="">Choose Year</option>
+                                <option value="2010">2010</option>
+                                <option value="2011">2011</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                            </select>
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label>Content :</label>
+                            <textarea name="scheme_content" id="scheme_content" cols="30" rows="5"
+                                class="textarea"></textarea>
+                        </div>
+                        <div class="_form_field" style="display: none;">
+                            <input type="submit" value="Save" id="_save_schemes_action" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success" onclick="_save_schemes(this)">Save changes</button>
+            <button class="button" onclick="_close_schemes_modal()">Cancel</button>
+        </footer>
+    </div>
+</div>

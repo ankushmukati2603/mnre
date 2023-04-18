@@ -1,0 +1,82 @@
+<div class="_page_head knowledge_center_bg">
+    <p class="_heading">{{page_title}}</p>
+</div>
+
+{{#if overview}}
+<div class="container-fluid">
+    <div class="hdpart">
+        <div class="col-sm-12 mt-3 overview__text">
+            <div class="margin_boo">
+                {{{overview}}}
+            </div>
+        </div>
+
+    </div>
+</div>
+{{/if}}
+
+<div class="_policy_wrapper _knowledge_dropdown">
+    <div class="_policy_dropdown">
+        <div class="search-option">
+            <p style="font-family: 'Gotham-Bold'; right: 100px; font-size: 14px; color: #464646; position: absolute; top: 1px; left: 1px; pointer-events: none; margin: 0; background: white; bottom: 1px; padding: 9px 15px; z-index: 10;">{{page_title}}</p>
+            <label for="f184318d184322" class="sr-only">Format</label>
+            <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                onChange="window.location.href=this.value">
+                <option value="">Choose Option</option>
+                <option value="{{site_url}}/knowledge-center/reports">Reports</option>
+                <option value="{{site_url}}/knowledge-center/publication">Publications</option>
+                <option value="{{site_url}}/knowledge-center/articles">Articles</option>
+                <option value="{{site_url}}/knowledge-center/videos">Videos</option>
+                <option value="{{site_url}}/knowledge-center/images">Images</option>
+                <option value="{{site_url}}/knowledge-center/infographics">Infographics</option>
+                <option value="{{site_url}}/knowledge-center/presentations">Presentations</option>
+                {{!-- <option value="/knowledge-center/training">Training Module</option>                    
+                    <option value="/knowledge-center/case-studies">Case Studies</option>--}}
+            </select>
+        </div>
+    </div>
+
+<!-- Accordion -->
+<div class="_policy_accordion">
+    <div class="accordion" id="accordionExample">
+        {{#each articles}}
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_{{@index}}"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        {{!-- <p class="_issue_date">Date: {{this.publish_date}}</p> --}}
+                        {{this.title}}
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapse_{{@index}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <p>{{this.description}}</p>
+                    <div class="_pdf_links">
+                        <a target="_blank" href="{{../document_path}}{{this.thumbnail.url}}" class="ml-1">
+                            <img class="pdf" src="{{site_url}}/img/view-pdf.png" alt="view">
+                        </a>
+                        <a data-href="{{../document_path}}{{this.thumbnail.url}}" class="ml-1 download_file">
+                            <img class="pdf" src="{{site_url}}/img/download-pdf.png" alt="view">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+<!-- Accordion -->  
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('._issue_date').each(function(){
+            var date = this.innerHTML;
+            var newDate = date.split(' ').slice(2,5);
+            this.innerHTML = `Publish Date: ${newDate[1]+' '+newDate[0]+', '+newDate[2]}`;
+        })
+    })
+</script>

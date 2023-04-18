@@ -1,0 +1,85 @@
+<style>
+	.no_documents{
+		text-align:center;
+		margin-top: 20px;
+	}
+</style>
+<div class="container-fluid policies mb-5 knowledge_center_bg">
+    <h1 class="text-center wdet knowledge_center_bg">{{page_title}}</h1>
+
+</div>
+{{#if overview}}
+<div class="container-fluid">
+    <div class="hdpart">
+        <div class="col-sm-12 mt-3 overview__text">
+            <div class="margin_boo">
+                {{{overview}}}
+            </div>
+        </div>
+
+    </div>
+</div>
+{{/if}}
+<div class="filter mt-5 mb-5">
+    <div class="row filter-bc">
+        <div class="col">
+            <div class="search-option">
+
+                <label for="f184318d184322" class="sr-only">Format</label>
+                <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                    onChange="window.location.href=this.value">
+                    <option value="/knowledge-center/training">Training Module</option>
+                    <option value="/knowledge-center/infographics">Infographics</option>
+                    <option value="/knowledge-center/videos">Videos</option>
+                    <option value="/knowledge-center/case-studies">Case Studies</option>
+                    <option value="/knowledge-center/reports">Reports</option>
+                    <option value="/knowledge-center/articles">Articles</option>
+                    <option value="/knowledge-center/presentations">Presentations</option>
+                </select>
+            </div>
+
+        </div>
+   <!-- <div class="col">
+            <div class="search-option">
+
+                <label for="f184318d184322" class="sr-only">Format</label>
+                <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                    onchange="this.form.submit()">
+                    <option value="">Select energy</option>
+                    <option title="recency" value="recency">Solar</option>
+                    <option title="relevance" value="relevance">Wind</option>
+                    <option title="popularity" value="popularity">Small Hydro</option>
+                    <option title="popularity" value="popularity">Waste to Energy</option>
+                    <option title="popularity" value="popularity">Bio Energy</option>
+                </select>
+            </div>
+
+        </div> -->
+
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="article">
+        <div class="row grp">
+	{{#if articles}}
+            {{#each articles}}
+            <div class="col-sm-4 mt-5">
+                <div class="project">
+                    <a href="http://10.246.24.71{{this.file.url}}" data-fancybox="images">
+                        <img class="img img-fluid" src="http://10.246.24.71{{this.thumbnail.url}}" width="100%"
+                            height="100%">
+                    </a>
+                    <p class="mt-2 projects">{{this.title}}
+                    </p>
+                </div>
+            </div>
+            {{/each}}
+	{{else}}
+		<div class="col-sm-12">
+			<h1 class="no_documents">No Documents Found</h1>
+		</div>
+	{{/if}}
+        </div>
+    </div>
+</div>

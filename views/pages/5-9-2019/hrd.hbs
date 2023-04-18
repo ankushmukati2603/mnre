@@ -1,0 +1,56 @@
+﻿<style>
+    .card-body.hrd {
+    font-size: 1rem;
+}
+    main.ml-5.mr-5.hrd-text {
+    margin-left: 4rem!important;
+    margin-right: 4rem!important;
+}
+</style>
+<div class="header wde {{head_bg}}">
+    <h1 class="text-center wdet">HUMAN RESOURCE DEVELOPMENT </h1>
+</div>
+
+<div class="sub-header">
+    <div class="row">
+        <div class="col-sm-12 mt-3" style="margin:0 auto;">
+            <h2 class="energtext text-center">HRD Policy of the Ministry</h2>
+        </div>
+    </div>
+</div>
+<main class="ml-5 mr-5 hrd-text">
+<div class="margin_boo">
+    {{{OVERVIEW}}}
+</div>
+{{#if articles}}
+<div class="pdf-view pb-5">
+    {{#each articles}}
+    <div class="row pdf ml-5 mr-5 mt-5" >
+
+        <div class="col viewdoc">
+            {{#if this.issue_date}}
+            {{#if this.submission_date}}
+            <span class="date"><span class="issue_date">{{this.issue_date}}</span> - {{this.submission_date}}</span>
+            {{else}}
+            <span class="date"><span class="issue_date">{{this.issue_date}}</span></span>
+            {{/if}}
+            {{/if}}
+            <span class="date">&nbsp;</span>
+            <h4 class="guideh">{{this.title}}</h4>
+        </div>
+        <div class="col-sm-3">
+            <a target="_blank" href="http://10.246.24.71{{this.file.url}}" class="ml-1">
+                <img class="pdf img-fluid" src="/img/view-pdf.png" alt="view">
+            </a>
+            <a data-href="http://10.246.24.71{{this.file.url}}" class="ml-1 download_file">
+                <img class="pdf" src="/img/download-pdf.png" alt="view">
+            </a>
+        </div>
+    </div>
+    {{/each}}
+
+</div>
+{{else}}
+ 	<div class="col-sm-12"><h1 class="text-center mt-4">No Documents Found</h1></div>
+{{/if}}
+</main>

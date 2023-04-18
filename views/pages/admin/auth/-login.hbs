@@ -1,0 +1,81 @@
+<script>
+	/*function encrpt(){ 
+		var secretString = {{ rand }};
+		//alert(secretString);
+		var password = document.getElementById("password").value;
+		//alert(password);
+		var hash = sha512(secretString+password);
+		//alert(hash);
+		document.getElementById("password").value = hash;
+	} */
+  
+	</script>
+
+  <style>
+    .notification{
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 40px;
+    }
+  </style>
+
+<!-- Form-->
+<div class="form">
+  
+  <div class="form-toggle"></div>
+  <div class="form-panel one">
+    <div class="form-header">
+        <img src="/img/logo.png" class="logo">
+        <h3 class="title">ADMIN LOGIN</h3>
+    </div>
+    <div class="form-content">
+      <form method="POST" autocomplete="off" autocapitalize="off">
+	  <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <div class="form-group">
+          {{{user.name}}}
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group text-danger">
+          <p>
+          {{#if session.error }}
+            {{session.error}}
+          {{ else if session.success}}
+            {{session.success}}
+          
+          {{/if}}
+          </p>
+        </div>
+        <!--
+        <div class="form-group">
+          <label class="form-remember">
+            <input type="checkbox"/>Remember Me
+          </label><a class="form-recovery" href="#">Forgot Password?</a>
+        </div>
+        -->
+        <div class="form-group">
+          <button type="submit" >Log In</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+<footer>
+    <div class="content has-text-centered">
+        <p>
+            ADMIN MNRE - This is the Admin Panel of the Ministry of New and Renewable Energy, India.
+        </p>
+    </div>
+</footer>
+</div>
+<div class="notification is-danger" id="dashboardNotification">
+  <p class="error_msg" id="notification_message">
+    Success Message
+  </p>
+</div>

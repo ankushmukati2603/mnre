@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="{{site_url}}/stylesheets/feedback_page.css">
+<div class="_page_head _ohter_bg">
+  <p class="_heading">Public Grievance</p>
+</div>
+
+<main class="_page_wrapper">
+  <div class="_feedback_form">
+    <div class="_single_document">
+      <p class="_title">Public Grievances & Complaint Redressal Mechanism</p>
+      <p class="_desc">The Ministry of New and Renewable Energy has an efficient and effecve grievance redressal mechanism managed through Public Grievances Cell. The Cell is working under a Deputy Secretary( Public Grievance) of the Ministry. Economic Adviser is overall in-charge of the Public Grievance Redressal Machinery in the Ministry set up under Centralized Public Grievance Redress And Monitoring System (CPGRAMS).</p>
+      <div class="_pdf_links">
+        <a target="_blank" href="{{site_url}}/data/public_grievance.pdf" class="ml-1">
+            <img class="pdf" src="{{site_url}}/img/view-pdf.png" alt="view">
+        </a>
+        <a data-href="{{site_url}}/data/public_grievance.pdf" class="ml-1 download_file">
+            <img class="pdf" src="{{site_url}}/img/download-pdf.png" alt="view">
+        </a>
+      </div>
+    </div>
+
+    <form id="feedback_form">
+      <div class="_form_field">
+        <label for="full-name">Full Name</label>
+        <input type="text" id="full-name" placeholder="Name" required>
+      </div>
+      <div class="_form_field">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Email" required>
+      </div>
+      <div class="_form_field">
+        <label for="address">Address</label>
+        <input type="text" id="address" placeholder="Address" required>
+      </div>
+      <div class="_form_field _drop_field">
+        <label for="department">Area Of Concern</label>        
+        <select id="department" class="_department_drop">
+          <option value="">Choose Area</option>
+          <option value="Solar">Solar</option>
+          <option value="Wind">Wind</option>        
+          <option value="Waste To Energy">Waste To Energy</option>
+          <option value="Small Hydro">Small Hydro</option>
+          <option value="Bio Energy">Bio Energy</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+      <div class="_form_field _other_depart">
+        <label for="specdepartment">Specify Department</label>
+        <input type="text" id="specdepartment" placeholder="Department">
+      </div>
+      <div class="_form_field">
+        <label for="email">Grievance Detail</label>
+        <textarea id="feedback_message" placeholder="Write your feedback here..." rows="4" required></textarea>
+      </div>
+      <div class="_form_field">
+        <a type="submit" class="feedback feedback_submit">SUBMIT</a>
+      </div>
+    </form>    
+  </div>
+</main>
+
+<script src="/js/feedback.js"></script>
+<script>
+  $(document).ready(function(){
+    $('._department_drop').on('change', function(){
+      var dropVal = this.value;
+      if(dropVal == 'Others'){
+        $('._feedback_form ._other_depart').css('display', 'block')
+      } else {
+        $('._feedback_form ._other_depart').css('display', 'none')
+      }
+    })
+  })
+</script>

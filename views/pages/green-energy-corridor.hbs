@@ -1,0 +1,71 @@
+<div class="_page_head green_energy_bg">
+    <p class="_heading">Green Energy Corridors</p>
+</div>
+
+<main class="_page_wrapper">
+    <div class="margin_boo">
+        {{{overview}}}
+    </div>
+    <div class="_documents_wrap">
+        <p class="_documents_heading">
+            {{documentTitle}}
+        </p>
+
+        {{#if articles}}
+        <!-- Accordion -->
+        <div class="_policy_wrapper">
+            <div class="_policy_accordion">
+                <div class="accordion" id="accordionExample">
+                    {{#each articles}}
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link english_title" type="button" data-toggle="collapse"
+                                    data-target="#collapse_{{@index}}" aria-expanded="true" aria-controls="collapseOne">                                    
+                                        {{this.title}} 
+                                </button>
+                                <button class="btn btn-link hindi_title" type="button" data-toggle="collapse"
+                                    data-target="#collapse_{{@index}}" aria-expanded="true" aria-controls="collapseOne">                                    
+                                        {{this.title_hi}} 
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="collapse_{{@index}}" class="collapse" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <p>{{this.description}}</p>
+                                <div class="_pdf_links">
+                                    <a target="_blank" href="{{../document_path}}{{this.file.url}}" class="ml-1">
+                                        <img class="pdf" src="{{../site_url}}/img/view-pdf.png" alt="view">
+                                    </a>
+                                    <a data-href="{{../document_path}}{{this.file.url}}" class="ml-1 download_file">
+                                        <img class="pdf" src="{{../site_url}}/img/download-pdf.png" alt="view">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <p class="_no_documents">
+            <img src="{{site_url}}/img/document.png" alt="" />
+            <span>No Documents Found</span>
+        </p>
+        {{/if}}
+    </div>
+</main>
+
+<script>
+    var lang = '{{language}}';
+    if(lang === 'EN'){
+        $('.english_title').show();
+        $('.hindi_title').hide();
+    } else {
+        $('.english_title').hide();
+        $('.hindi_title').show();
+    }
+</script>

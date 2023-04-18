@@ -1,0 +1,263 @@
+<div class="container-fluid wde {{head_bg}}">
+  <h1 class="text-center wdet {{head_bg}}">{{page_title}}</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12" style="margin:0 auto;">
+
+
+
+
+      <!-- Chart code -->
+      <script>
+        am4core.ready(function () {
+
+          // Themes begin
+          // Themes end
+          am4core.options.commercialLicense = true;
+          /* Create map instance */
+          var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+
+
+          /* Set map definition */
+
+
+          /* Set projection */
+          chart.projection = new am4maps.projections.Miller();
+
+          /* Create map polygon series */
+          var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+          polygonSeries.tooltip.label.interactionsEnabled = true;
+          polygonSeries.tooltip.keepTargetHover = true;
+          polygonSeries.calculateVisualCenter = true;
+          polygonSeries.mapPolygons.template.tooltipPosition = "fixed";
+
+          polygonSeries.tooltip.label.minWidth = 250;
+
+          polygonSeries.exclude = ['AQ']
+          /* Make map load polygon (like country names) data from GeoJSON */
+          polygonSeries.useGeodata = true;
+          axios.get(`http://10.246.24.71/internationalrelations?doctype_contains={{type}}`).then(response => response.data).catch(error => {
+            console.log(error)
+          }).then(wata => {
+            var series_data = [];
+            wata.forEach(w => {
+              // found.properties.policies.push(w)
+              am4geodata_worldHigh.features.forEach(c => {
+
+                if (c.properties.name.toLowerCase() == w.country.toLowerCase()) {
+
+                  var item = null;
+                  for (var i = 0; i < series_data.length; i++) {
+                    var citem = series_data[i];
+                    if (citem !== null && citem.name.toLowerCase() === w.country.toLowerCase()) {
+                      item = citem;
+                    }
+                  }
+
+                  if (item !== null) {
+                    let mouText = '';
+                    if (w.title) {
+                      mouText = 'MoU'
+                    }
+                    item.policies.push({
+                      full_name: w.title,
+                      scroll_to: w.id,
+                      policy_id: w.file.url,
+                      policy_name: w.title,
+                      mou: mouText
+                    });
+                  } else {
+                    let mouText = '';
+                    if (w.title) {
+                      mouText = 'MoU'
+                    }
+                    item = {
+                      id: c.id,
+                      name: c.properties.name,
+                      full_name: w.title,
+                      policy_id: w.file.url,
+                      fill: am4core.color("#bada55"),
+                      policy_name: w.title,
+                      policies: [{
+                        full_name: w.title,
+                        policy_id: w.file.url,
+                        policy_name: w.title,
+                      }],
+                      list: ["Yehuda Katz",
+                        "Alan Johnson",
+                        "Charles Jolley"],
+                      scroll_to: w.id,
+                      mou: mouText
+                    }
+
+                    series_data.push(item);
+                  }
+
+                }
+              })
+            })
+            console.log(series_data);
+            polygonSeries.data = series_data;
+
+
+            chart.geodata = am4geodata_worldHigh;
+          })
+
+          /* Configure series */
+          var polygonTemplate = polygonSeries.mapPolygons.template;
+          polygonTemplate.applyOnClones = true;
+          polygonTemplate.contentWidth = 200;
+          polygonTemplate.tooltipHTML = `<div class='label_map'>
+            <a style='color:white' title='{full_name}' onclick="scrollToCountry('{scroll_to}')" href='javascript:;'>
+            <b>{name}</b><br>                                    
+            {policy_name}
+            <br>
+            {policies.length} {mou}             
+            <br>
+            </a>                      
+          </div>`;
+          polygonTemplate.nonScalingStroke = true;
+          polygonTemplate.strokeOpacity = 0.5;
+          polygonTemplate.fill = chart.colors.getIndex(2);
+          var lastSelected;
+          polygonTemplate.propertyFields.fill = "fill";
+          polygonTemplate.events.on("hit", function (ev) {
+            if (lastSelected) {
+              // This line serves multiple purposes:
+              // 1. Clicking a country twice actually de-activates, the line below
+              //    de-activates it in advance, so the toggle then re-activates, making it
+              //    appear as if it was never de-activated to begin with.
+              // 2. Previously activated countries should be de-activated.
+              lastSelected.isActive = false;
+            }
+            ev.target.series.chart.zoomToMapObject(ev.target);
+            if (lastSelected !== ev.target) {
+              lastSelected = ev.target;
+            }
+          })
+
+
+
+
+          /* Create selected and hover states and set alternative fill color */
+          var ss = polygonTemplate.states.create("active");
+          ss.properties.fill = chart.colors.getIndex(2);
+
+
+          var hs = polygonTemplate.states.create("hover");
+          hs.properties.fill = am4core.color("#bada44");
+
+          // Hide Antarctica
+
+          // Small map
+          // chart.smallMap = new am4maps.SmallMap();
+          // Re-position to top right (it defaults to bottom left)
+          // chart.smallMap.align = "right";
+          // chart.smallMap.valign = "top";
+          // chart.smallMap.series.push(polygonSeries);
+
+          // Zoom control
+          chart.zoomControl = new am4maps.ZoomControl();
+          chart.chartContainer.wheelable = false;
+
+          var homeButton = new am4core.Button();
+          homeButton.events.on("hit", function () {
+            chart.goHome();
+          });
+
+          homeButton.icon = new am4core.Sprite();
+          homeButton.padding(7, 5, 7, 5);
+          homeButton.width = 30;
+          homeButton.icon.path = "M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8";
+          homeButton.marginBottom = 10;
+          homeButton.parent = chart.zoomControl;
+          homeButton.insertBefore(chart.zoomControl.plusButton);
+
+
+
+          chart.mouseWheelBehaviour = "none"
+
+        }); // end am4core.ready()
+
+        function scrollToCountry(id) {
+          $('html, body').animate({
+            scrollTop: $(`#${id}`).offset().top - 100
+          }, 1500);
+        }
+      </script>
+      <div class="worldmap mt-5">
+        <div id="chartdiv"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 mt-3">
+      <h2 class="energtext text-center">Memorandums</h2>
+    </div>
+  </div>
+</div>
+
+<div class="_policy_accordion">
+  <div class="accordion" id="accordionExample">
+    {{#each articles}}
+    <div class="card">
+      <div class="card-header" id="{{this._id}}">
+        <h2 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_{{@index}}"
+            aria-expanded="true" aria-controls="collapseOne">
+            {{this.title}}
+          </button>
+        </h2>
+      </div>
+
+      <div id="collapse_{{@index}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>{{this.description}}</p>
+
+          <div class="_pdf_links">
+            <a target="_blank" href="http://10.246.24.71/{{this.file.url}}" class="ml-1">
+              <img class="pdf" src="/img/view-pdf.png" alt="view">
+            </a>
+            <a data-href="http://10.246.24.71/{{this.file.url}}" class="ml-1 download_file">
+              <img class="pdf" src="/img/download-pdf.png" alt="view">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+{{!-- <div class="row mt-4 mr-5 ml-5 mb-5" style="justify-content: left;">
+  {{#each articles}}
+  <div class="col-lg-4 col-sm-6 mb-4">
+    <div class="card h-100">
+      <a href="#"> <!-- <img class="card-img-top" src="/img/scheme-1.png" alt=""> --> </a>
+      <div class="card-body">
+        <span class="date">{{this.issue_date}}</span>
+        <a href="http://10.246.24.71{{this.file.url}}" target="_blank"><img class="pdfscheme" src="/img/view-pdf.png"></a>
+
+        <p class="card-text mt-2 relation_doc--title">{{this.title}}</p>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div> --}}
+
+<script>
+  var elements = $('.relation_doc--title')
+  elements.each((index, elem) => {
+    console.log(elem)
+    var text_to_format = $(elem).val()
+    var formatted = text_to_format.substr(0, 25).concat('...')
+    $(elem).attr('title', text_to_format)
+    $(elem).val(formatted)
+  })
+</script>

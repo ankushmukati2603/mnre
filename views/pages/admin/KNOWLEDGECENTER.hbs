@@ -1,0 +1,183 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+</style>
+{{> language_dom}}
+<div class="_wrapper _admin_wrapper">
+    <div class="_section_wrap _energy_list">
+        {{#each elements}}
+        <div class="_energy_wrap _single_cat">
+            <div class="_page_head">
+                <p>
+                    <i>
+                        <img src="{{this.icon}}" alt="" />
+                    </i>
+                    <span>{{this.heading}}</span>
+                </p>
+            </div>
+
+            <div class="_links_wrap {{this.class}}">
+                {{#if child}}
+                <ul class="_links_list">
+                    {{#each this.child}}
+                    <li>
+                        <p>{{this.heading}}</p>
+                        <div class="_action">
+                            {{#if this.class}}
+                            {{#if this.href}}
+                            <a href="{{this.href}}">Schemes</a>
+                            {{else}}
+                            <span class="{{this.class}} edit_button_text">
+                                Edit
+                            </span>
+                            {{/if}}
+                            {{else}}
+                            <span class="edit_button_text">
+                                Edit
+                            </span>
+                            {{/if}}
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+
+<div class="modal" id="kc_training">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Knowledge Center Training Modules Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="training_description" class="label">Training Modules Description</label>
+                        <textarea id="training_description" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success kctrainingsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="kc_infograph">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Knowledge Center Infographs Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="infograph_description" class="label">Infographs Description</label>
+                        <textarea id="infograph_description" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success kcinfographsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="kc_videos">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Knowledge Center Videos Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="videos_description" class="label">Videos Description</label>
+                        <textarea id="videos_description" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success kcvideosave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="kc_case">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Knowledge Center Case Studies Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="case_description" class="label">Case Description</label>
+                        <textarea id="case_description" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success kccasesave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="kc_akshay">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Knowledge Center Akhay Urja Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="akshay_description" class="label">Akshay Urja Description</label>
+                        <textarea id="akshay_description" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success kcakshaysave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="notification" id="dashboardNotification">
+    <p id="notification_message">
+        We are Legion!
+    </p>
+</div>

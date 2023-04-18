@@ -1,0 +1,57 @@
+
+<link rel="stylesheet" href="/stylesheets/compendium.css">
+<div class="container-fluid policies mb-5">
+    <h1 class="text-center wdet">Compendium of Regulations and Policies on Renewable Energy-2019</h1>
+</div>
+<div class="filter">
+    <div class="row filter-bc _policy_dropdown">
+        <div class="col">
+            <div class="search-option">
+
+                <label for="f184318d184322" class="sr-only">Format</label>
+                <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                    onChange="window.location.href=this.value">
+                    <option title="solar" value="/public-information/result-framework-document">RFD</option>
+                    <option title="solar" value="/public-information/policies-and-guidelines">Policies</option>
+                    <option title="solar" value="/public-information/presentations">Presentations</option>
+                    <option title="solar" value="/public-information/advertisements">Advertisements</option>
+                    <option title="solar" value="/public-information/events">Events</option>
+                    <option title="solar" value="/public-information/reports">Reports</option>
+                    <option title="solar" value="/public-information/circulars">Circulars</option>
+                    <option title="solar" value="/public-information/notifications">Notifications</option>
+                    <option title="solar" value="/public-information/accounts">Accounts</option>
+                    <option title="solar" value="/public-information/supporting-programme">Supporting Programme</option>
+                    <option title="solar" value="/public-information/designated-authority-and-nodal-officer">Designated
+                        Authority and Nodal Officer under (PIDPI)</option>
+                    <option title="solar" value="/public-information/compendium">Compendium of Regulations and Policies
+                        on RE</option>
+                </select>
+            </div>
+
+        </div>
+    </div>
+</div>
+<main class="ml-5 mr-5 mb-5 mt-5 container">
+    <div class="row px-5 mx-5">
+        {{#if articles}}
+        {{#each articles}}
+        <div class="col">
+            <div class="card rfd__card--item">
+                <div class="card-body">
+                    <h1 class="rfd__card--title">{{this.title}}</h1>
+                    <a href="{{this.url}}" class="btn btn-success external_link">
+                        Continue To Link
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <div class="col-12">
+            <h3 class="text-center">
+                No Documents Found
+            </h3>
+        </div>
+        {{/if}}
+    </div>
+</main>

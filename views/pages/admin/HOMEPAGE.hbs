@@ -1,0 +1,339 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+
+    .admin_blocks {
+        margin: 2rem
+    }
+</style>
+
+{{> language_dom}}
+
+<div class="_wrapper _admin_wrapper">
+    <div class="_section_wrap">
+        <div class="_page_head">
+            <p>
+                <i>
+                    <img src="/img/icons/admin/home.png" alt="" />
+                </i>
+                <span>Homepage</span>
+            </p>
+        </div>
+
+        <div class="_links_wrap">
+            {{#each elements}}
+            {{#if child}}
+            <ul class="_links_list">
+                {{#each this.child}}
+                <li>
+                    <p class="_homepage">{{this.heading}}</p>
+                    <div class="_action">
+                        {{#if this.class}}
+                        <span class="{{this.class}} edit_button_text">
+                            Edit
+                        </span>
+                        {{else}}
+                        <span class="edit_button_text">
+                            Edit
+                        </span>
+                        {{/if}}
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="homeBannerElement">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Home Banner</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+
+        <section class="modal-card-body">
+            <div class="_modal_form _upload_banner_form">
+                <form class="form" id="addNewHomeBanner" style="display: flex;flex-wrap:inherit">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_upload_image">
+                        <div class="_form_field">
+                            <label for="homePageBannerFileElement" class="label">Home Page Banner Image File</label>
+                            <input type="file" id="homePageBannerFileElement">
+                        </div>
+                    </div>
+                    <div class="_field_wrap">
+                        <div class="_form_field">
+                            <label for="homePageBannerTitle" class="label">Home Page Banner Title</label>
+                            <input type="text" id="homePageBannerTitle" name="homePageBannerTitle" class="input"
+                                placeholder="Enter Text">
+                        </div>
+                        <div class="_form_field">
+                            <label for="homePageBannerDescription" class="label">Home Page Banner Description</label>
+                            <input id="homePageBannerDescription" name="homePageBannerDescription" class="input"
+                                placeholder="Enter Text">
+                        </div>
+                        <div class="_form_field">
+                            <label for="homePageBannerButtonColor" class="label">Home Page Banner Button Color</label>
+                            <input type="text" id="homePageBannerButtonColor" name="homePageBannerButtonColor"
+                                class="input" placeholder="Enter Text">
+                        </div>
+                        <div class="_form_field">
+                            <label for="homePageBannerButtonText" class="label">Home Page Banner Button Text</label>
+                            <input type="text" id="homePageBannerButtonText" name="homePageBannerButtonText"
+                                class="input" placeholder="Enter Text">
+                        </div>
+                        <div class="_form_field">
+                            <label for="homePageBannerButtonLink" class="label">Home Page Banner Button Link</label>
+                            <input type="text" id="homePageBannerButtonLink" name="homePageBannerButtonLink"
+                                class="input" placeholder="Enter Text">
+                        </div>
+                        <div class="_form_field">
+                            <button class="homePageBannerSectionSave">Add Banner</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="_added_banners">
+                <p class="_heading">Already Added Banner</p>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success homePageBannerSectionSave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+
+<div class="modal" id="homeBlockOneModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Home Page Block One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="homeBlockOneText" class="label">Block One Text</label>
+                        <input type="text" id="homeBlockOneText" name="blockOneText" class="input">
+                    </div>
+                    <div class="_form_field">
+                        <label for="homeBlockOneMouseOverText" class="label">Block One Mouse Over Text</label>
+                        <input type="text" class="input" id="homeBlockOneMouseOverText">
+                    </div>
+                    <div class="_form_field">
+                        <label for="homeBlockOneFacebookLink" class="label">Block One Facebook Link</label>
+                        <input type="text" class="input" id="homeBlockOneFacebookLink">
+                    </div>
+                    <div class="_form_field">
+                        <label for="homeBlockOneTwitterLink" class="label">Block One Twitter Link</label>
+                        <input type="text" class="input" id="homeBlockOneTwitterLink">
+                    </div>
+                    <div class="_form_field">
+                        <label for="homeBlockOneLinkedInLink" class="label">Block One LinkedIn Link</label>
+                        <input type="text" class="input" id="homeBlockOneLinkedInLink">
+                    </div>
+                    <div class="_form_field">
+                        <label for="homeBlockOneWebsiteLink" class="label">Block One Website Link</label>
+                        <input type="text" class="input" id="homeBlockOneWebsiteLink">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success homeBlockOneSave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+
+<div class="modal" id="homeBlockTwoModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Home Page Block Two</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _half_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="homeBlockTwoText" class="label">Block Two Text</label>
+                        <input type="text" id="homeBlockTwoText" name="blockTwoText" class="input">
+                    </div>
+                    <div class="_form_field">
+                        <label for="homeBlockTwoMouseOverText" class="label">Block Two Mouse Over Text</label>
+                        <input type="text" class="input" id="homeBlockTwoMouseOverText">
+                    </div>
+                    <div class="_form_field">
+                        <label for="homeBlockTwoButtonLink" class="label">Block Two Button Link</label>
+                        <input type="text" class="input" id="homeBlockTwoButtonLink">
+                    </div>
+                    <div class="_form_field">
+                        <label for="homeBlockTwoButtonText" class="label">Block Two Button Text</label>
+                        <input type="text" class="input" id="homeBlockTwoButtonText">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success homeBlockTwoSave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="homeBlockThreeModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Home Page Block Three</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="homeBlockThreeText" class="label">Block Three Text</label>
+                        <input type="text" id="homeBlockThreeText" name="blockThreeText" class="input">
+                    </div>
+                    <div class="_form_field">
+                        <label for="homeBlockThreeMouseOverText" class="label">Block Three Mouse Over Text</label>
+                        <input type="text" class="input" id="homeBlockThreeMouseOverText">
+                    </div>
+                    <div class="_form_field">
+                        <label for="homeBlockThreeFacebookLink" class="label">Block Three Facebook Link</label>
+                        <input type="text" class="input" id="homeBlockThreeFacebookLink">
+                    </div>
+                    <div class="_form_field">
+                        <label for="homeBlockThreeTwitterLink" class="label">Block Three Twitter Link</label>
+                        <input type="text" class="input" id="homeBlockThreeTwitterLink">
+                    </div>
+                    <div class="_form_field">
+                        <label for="homeBlockThreeLinkedInLink" class="label">Block Three LinkedIn Link</label>
+                        <input type="text" class="input" id="homeBlockThreeLinkedInLink">
+                    </div>
+                    <div class="_form_field">
+                        <label for="homeBlockThreeWebsiteLink" class="label">Block Three Website Link</label>
+                        <input type="text" class="input" id="homeBlockThreeWebsiteLink">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success homeBlockThreeSave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="homePageIrix">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Home Page IRIX Section</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="homePageIrixDescription" class="label">Description</label>
+                        <textarea class="textarea" id="homePageIrixDescription" name="irix-description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveHomePageIrix">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="homeIsaModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Home ISA Section</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form _home_isa">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_image_field">
+                        <div class="_form_field _image">
+                            <img class="isai" width="100%">
+                        </div>
+                        <div class="_form_field">
+                            <label for="homeIsaInputFileElement" class="label">ISA Image</label>
+                            <input type="file" id="homeIsaInputFileElement">
+                        </div>
+                    </div>
+                    <div class="_image_detail">
+                        <div class="_form_field">
+                            <label for="homeIsaTitle" class="label">ISA Section Title</label>
+                            <input type="text" class="input" id="homeIsaTitle">
+                        </div>
+                        <div class="_form_field">
+                            <label for="homeIsaButtonText" class="label">ISA Button Text</label>
+                            <input type="text" class="input" id="homeIsaButtonText">
+                        </div>
+                        <div class="_form_field">
+                            <label for="homeIsaButtonLink" class="label">ISA Button Link</label>
+                            <input type="text" class="input" id="homeIsaButtonLink">
+                        </div>
+                        <div class="_form_field _desc_field">
+                            <label for="homeIsaDescription" class="label">ISA Section Description</label>
+                            <textarea type="text" class="textarea" id="homeIsaDescription"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveHomeIsa">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="notification" id="dashboardNotification">
+    <p id="notification_message">
+        We are Legion!
+    </p>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.edit_button_text').click(function () {
+            setTimeout(function () {
+                if ($('.modal').hasClass('is-active')) {
+                    $('body, html').css('overflow', 'hidden')
+                } else {
+                    $('body, html').css('overflow-y', 'auto')
+                }
+            }, 500)
+        });
+    })        
+</script>

@@ -1,0 +1,209 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+</style>
+<section class="section is-large">
+    <div class="container">
+        <div class="title has-text-centered">
+            MINISTRY PAGE
+        </div>
+        <div class="columns is-multiline">
+            {{#each elements}}
+            <div class="column">
+                <div class="card admin_edit">
+                    <div class="card-content admin_edit_content">
+                        {{#if child}}
+                        <ul class="editPage_section_list">
+                            {{#each this.child}}
+                            <li class="editPage_section_list-item">
+                                <div class="columns">
+                                    <div class="column is-6">
+                                        {{this.heading}}
+                                    </div>
+                                    <div class="column is-6 has-text-right">
+                                        {{#if this.class}}
+                                        <div class="">
+                                            <span class="{{this.class}} edit_button_text">
+                                                Edit
+                                            </span>
+                                        </div>
+                                        {{else}}
+                                        <div>
+                                            <span class="edit_button_text">
+                                                Edit
+                                            </span>
+                                        </div>
+                                        {{/if}}
+                                    </div>
+                                </div>
+
+                            </li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+
+<div class="modal" id="ministryBanner">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Ministry Banner</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <div class="column">
+                    <label for="ministry-banner-image" class="label">Ministry Banner Image</label>
+                    <div class="field">
+                        <div class="control">
+                            <input type="file" name="ministry-banner-image" id="ministryBannerFileElement">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <label for="ministry-banner-description" class="label">
+                        Ministry Banner Description
+                    </label>
+                    <textarea name="ministry-banner-description" id="ministryBannerDescription" cols="30" rows="4"
+                        class="textarea"></textarea>
+                </div>
+                <div class="column is-12">
+                    <figure class="figure image">
+                        <img src="" alt="" id="ministry_banner_image_db">
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success bannerModalSave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="ministryJourney">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Ministry Journey Section</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <div class="column">
+                    <label for="ministry-journey-image" class="label">Journey Image</label>
+                    <div class="field">
+                        <div class="control">
+                            <input name="ministry-journey-image" type="file" id="journeyImageFileElement">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <label for="ministry-journey-description" class="label">
+                        Ministry Journey Description
+                    </label>
+                    <div class="field">
+                        <div class="control">
+                            <textarea name="ministry-journey-description" id="journeyDescription" cols="30" rows="4"
+                                class="textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-12">
+                    <figure class="image">
+                        <img src="" id="journey_banner_image_db" alt="">
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success journeyModalSave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="ministryVision">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Ministry Vision Description</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <label for="ministry-vision-description" class="label">Ministry Vision Description</label>
+            <div class="field">
+                <div class="control">
+                    <textarea name="" id="ministry-vision-description" cols="30" rows="10" class="textarea"></textarea>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveMinistryVision">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="ministryAobDescription">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Ministry Allocation of Business Description</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <label for="ministry-aob-description" class="label">Ministry Allocation of Business Description</label>
+            <div class="field">
+                <div class="control">
+                    <textarea name="" id="ministry-aob-description" cols="30" rows="10" class="textarea"></textarea>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveMinistryAOB">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="ministryFunctionDescription">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Ministry Function Description</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <label for="ministry-function-description" class="label">Ministry Function Description</label>
+            <div class="field">
+                <div class="control">
+                    <textarea name="" id="ministry-function-description" cols="30" rows="10" class="textarea"></textarea>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveMinistryFunc">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="notification" id="dashboardNotification">
+    <p id="notification_message">
+        We are Legion!
+    </p>
+</div>

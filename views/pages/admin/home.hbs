@@ -1,0 +1,1435 @@
+<section class="section is-small">
+    <div class="container">
+        <div class="columns is-multiline">
+            {{#each editable_pages}}
+            <div class="column is-4">
+                <div class="card admin_edit">
+                    <div class="card-header">
+                        <div class="card-header-title">
+                            {{this.title}}
+                        </div>
+                    </div>
+                    <div class="card-content admin_edit_content">
+                        {{#if editable_sections}}
+                        <ul class="editPage_section_list">
+                            {{#each this.editable_sections}}
+                            <li class="editPage_section_list-item">
+                                <div class="is-pulled-left">
+                                    {{this.title}}
+                                </div>
+                                {{#if this.class}}
+                                <div class="is-pulled-right">
+                                    <span class="{{this.class}} edit_button_text">
+                                        Edit
+                                    </span>
+                                </div>
+                                {{else}}
+                                <div class="is-pulled-right">
+                                    <span class="edit_button_text">
+                                        Edit
+                                    </span>
+                                </div>
+                                {{/if}}
+                            </li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+
+        </div>
+    </div>
+</section>
+<div class="modal" id="sampleModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Sample Section</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success sampleSectionSave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="solarnewmodal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Solar New Energy</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <div class="column is-12">
+                    <figure class="image">
+                        <img src="" id="savedsolarnewimage" alt="">
+                    </figure>
+                </div>
+                <div class="column is-12">
+                    <div class="field">
+                        <div class="control">
+                            <label for="solarnewInputFileElement" class="label">Solar New Energy Image</label>
+                            <input type="file" name="" id="solarnewInputFileElement">
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-12">
+                    <label for="solarnew_desc" class="label">Overview</label>
+                    <textarea id="solarnew_desc" class="textarea"></textarea>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success savesolarnew">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="solardecmodal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Solar Decentralized</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <div class="column is-12">
+                    <figure class="image">
+                        <img src="" id="savedsolardecimage" alt="">
+                    </figure>
+                </div>
+                <div class="column is-12">
+                    <div class="field">
+                        <div class="control">
+                            <label for="solardecInputFileElement" class="label">Solar Decentralized Image</label>
+                            <input type="file" name="" id="solardecInputFileElement">
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-12">
+                    <label for="solardec_desc" class="label">Overview</label>
+                    <textarea id="solardec_desc" class="textarea"></textarea>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success savesolardec">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="offwindmodal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Offshore Wind</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <div class="column is-12">
+                    <figure class="image">
+                        <img src="" id="savedoffwindimage" alt="">
+                    </figure>
+                </div>
+                <div class="column is-12">
+                    <div class="field">
+                        <div class="control">
+                            <label for="offwindInputFileElement" class="label">Offshore Wind Image</label>
+                            <input type="file" name="" id="offwindInputFileElement">
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-12">
+                    <label for="offwind_desc" class="label">Overview</label>
+                    <textarea id="offwind_desc" class="textarea"></textarea>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveoffwind">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{#each GEO}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+{{#each OCEAN}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+{{#each BIOF}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+{{#each ES}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+{{#each FC}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+{{#each BOV}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+{{#each HYD_NEW}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+{{#each TENDERS}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+<div class="modal" id="isapage">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">ISA Page</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="isadesc" class="label">Overview</label>
+                <textarea id="isadesc" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success isapagesave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+{{#each IR}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+{{#each MAN}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+<div class="modal" id="reModal1">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">RE 2018</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="re2018_desc" class="label">Overview</label>
+                <textarea id="re2018_desc" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success reonesave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="reModal2">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">RE 2019</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="re2019_desc" class="label">Overview</label>
+                <textarea id="re2019_desc" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success retwosave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="irModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">IR Description</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="ir_desc" class="label">Overview</label>
+                <textarea id="ir_desc" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success irSave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="mc_recent">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Media Center Recent News Description</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="news_description" class="label">
+                    News Description
+                </label>
+                <textarea id="news_description" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success mcnewssave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="mc_speeches">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Media Center Speeches & Visits Description</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="speeches_description" class="label">
+                    Speeches & Visits Description
+                </label>
+                <textarea id="speeches_description" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success mcspeechsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="mc_ia">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Media Center Initiatives & Achievements Description</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="ia_description" class="label">
+                    Initiatives & Achievements Description
+                </label>
+                <textarea id="ia_description" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success mciasave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="kc_training">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Knowledge Center Training Modules Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="training_description" class="label">Training Modules Description</label>
+                <textarea id="training_description" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success kctrainingsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="kc_infograph">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Knowledge Center Infographs Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="infograph_description" class="label">Infographs Description</label>
+                <textarea id="infograph_description" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success kcinfographsave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="kc_videos">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Knowledge Center Videos Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="videos_description" class="label">Videos Description</label>
+                <textarea id="videos_description" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success kcvideosave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="kc_case">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Knowledge Center Case Studies Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="case_description" class="label">Case Description</label>
+                <textarea id="case_description" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success kccasesave">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="rfdOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit RFD Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="rfd_description" class="label">RFD Overview</label>
+                <textarea class="textarea" id="rfd_description"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success rfd_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="policiesOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Policies Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="policies_description" class="label">Policies Overview</label>
+                <textarea class="textarea" id="policies_description"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success policies_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="presentationOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Presentation Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="rfd_description" class="label">Presentation Overview</label>
+                <textarea class="textarea" id="presentation_description"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success presentation_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="adsOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit ADS Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="ads_description" class="label">ADS Overview</label>
+                <textarea class="textarea" id="ads_description"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success ads_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="eventOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Event Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="event_description" class="label">Event Overview</label>
+                <textarea class="textarea" id="event_description"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success event_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="reportOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Report Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="report_description" class="label">Report Overview</label>
+                <textarea class="textarea" id="report_description"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success report_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="circularOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Circular Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="circular_description" class="label">Circular Overview</label>
+                <textarea class="textarea" id="circular_description"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success circular_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="notificationOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Notification Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="notification_description" class="label">Notification Overview</label>
+                <textarea class="textarea" id="notification_description"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success notification_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="accountOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Account Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="account_description" class="label">Account Overview</label>
+                <textarea class="textarea" id="account_description"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success account_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="supOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Supporting Programmes Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="sup_description" class="label">Supporting Programmes Overview</label>
+                <textarea class="textarea" id="sup_description"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success sup_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="pidpiOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit PIDPI Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="pidpi_description" class="label">PIDPI Overview</label>
+                <textarea class="textarea" id="pidpi_description"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success pidpi_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="compOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Compendium Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="comp_description" class="label">Compendium Overview</label>
+                <textarea class="textarea" id="comp_description"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success comp_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+
+
+
+<div class="modal" id="addInstitutes">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Institutes & Agencies</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns">
+                <div class="column is-12">
+                    <button class="button is-danger is-pulled-right">
+                        ＋ Add New Institute
+                    </button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="columns">
+                    <div class="column">
+                        <label for="" class="label">
+                            Institute Name
+                        </label>
+                        <div class="field">
+                            <div class="control">
+                                <input type="text" placeholder="Enter Institute Name" class="input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <label for="" class="label">
+                            Institute Block Background Color
+                        </label>
+                        <div class="field">
+                            <div class="control">
+                                <input type="text" placeholder="Enter Institute Name" class="input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <label for="" class="label">
+                            Institute Website Link
+                        </label>
+                        <div class="field">
+                            <div class="control">
+                                <input type="text" placeholder="Enter Institute Website Link" class="input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+
+
+
+<div class="modal" id="otherCurrent">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Other Renewables Current Status</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="box">
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherCurrentStatus" class="label">
+                                    Current Status
+                                </label>
+                                <textarea name="otherEnergyCurrentStatus" id="otherCurrentStatus" cols="30" rows="5"
+                                    class="textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveOtherCurrentStatus">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+
+<div class="modal" id="otherSectionTwo">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Other Renewables Energy Section Two</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="box">
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <figure class="image">
+                            <img src="" id="otherSectionTwoSavedImage" alt="">
+                        </figure>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherSectionTwoImageFileElement" class="label">
+                                    Section Two Image
+                                </label>
+                                <input type="file" name="" id="otherSectionTwoImageFileElement">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherSectionTwoTitle" class="label">
+                                    Section Two Title
+                                </label>
+                                <input type="text" id="otherSectionTwoTitle"
+                                    placeholder="Enter Title For Section Two Solar" class="input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherSectionTwoDescription" class="label">Section Two Solar
+                                    Description</label>
+                                <textarea name="" id="otherSectionTwoDescription" cols="30" rows="5"
+                                    class="textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherSectionTwoButtonLink" class="label">
+                                    Section Two Button Link
+                                </label>
+                                <input type="text" id="otherSectionTwoButtonLink"
+                                    placeholder="Enter Button Link For Section Two Solar" class="input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveOtherSectionTwo">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="otherPanelOne">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Other Renewables Panel One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="title has-text-centered">
+                PANEL 1
+            </div>
+            <div class="box">
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <figure class="image">
+                            <img src="" id="otherPanelOneSavedImage" alt="">
+                        </figure>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherPaneOneTitle" class="label">Panel One Title</label>
+                                <input type="text" placeholder="Enter Panel One Title" class="input"
+                                    id="otherPaneOneTitle">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherPaneOneImageFileElement" class="label"></label>
+                                <input type="file" name="" id="otherPaneOneImageFileElement">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherPaneOneSummary" class="label">Panel One Summary</label>
+                                <textarea name="" id="otherPaneOneSummary" cols="5" rows="5"
+                                    class="textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherPaneOneButtonLink" class="label">Panel One Button Link</label>
+                                <input type="text" class="input" id="otherPaneOneButtonLink"
+                                    placeholder="Enter Pane One Button Link">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-12">
+                        <button class="button is-success is-fullwidth otherPanelOneSubmit">
+                            Add Panel One
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+<div class="modal" id="otherPanelTwo">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Other Renewables Panel Two</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="title has-text-centered">
+                PANEL 2
+            </div>
+            <div class="box">
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <figure class="image">
+                            <img src="" id="otherPanelTwoSavedImage" alt="">
+                        </figure>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherPaneTwoTitle" class="label">Panel Two Title</label>
+                                <input type="text" placeholder="Enter Panel Two Title" class="input"
+                                    id="otherPaneTwoTitle">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherPaneTwoImageFileElement" class="label">Panel Two Image</label>
+                                <input type="file" name="" id="otherPaneTwoImageFileElement">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherPaneTwoSummary" class="label">Panel Two Summary</label>
+                                <textarea name="" id="otherPaneTwoSummary" cols="5" rows="5"
+                                    class="textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherPaneTwoButtonLink" class="label">Panel Two Button Link</label>
+                                <input type="text" class="input" id="otherPaneTwoButtonLink"
+                                    placeholder="Enter Panel Two Button Link">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-12">
+                        <button class="button is-fullwidth is-success otherPanelTwoSubmit">
+                            Add Panel Two
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+<div class="modal" id="otherPanelThree">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Other Renewables Panel 3</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="title has-text-centered">
+                PANEL 3
+            </div>
+            <div class="box">
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <figure class="image">
+                            <img src="" id="otherPanelThreeSavedImage" alt="">
+                        </figure>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherPaneThreeTitle" class="label">Panel Three Title</label>
+                                <input type="text" placeholder="Enter Panel Two Title" class="input"
+                                    id="otherPaneThreeTitle">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherPaneThreeImageFileElement" class="label">Panel Three Image</label>
+                                <input type="file" name="" id="otherPaneThreeImageFileElement">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherPaneThreeSummary" class="label">Panel 3 Summary</label>
+                                <textarea name="" id="otherPaneThreeSummary" cols="5" rows="5" class="textarea"
+                                    placeholder="Enter Pane 3 Summary"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <label for="otherPaneThreeButtonLink" class="label">Panel Three Button Link</label>
+                                <input type="text" class="input" id="otherPaneThreeButtonLink"
+                                    placeholder="Enter Panel Three Button Link">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-12">
+                        <button class="button is-success is-fullwidth otherPanelThreeSubmit">
+                            Add Panel Three
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{!-- <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer> --}}
+    </div>
+</div>
+
+
+<div class="modal" id="fcsectionone">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Chemical Energy Fuel Cell Energy Section One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="box">
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <figure class="image">
+                            <img src="" id="fuelCellPanelSavedImage" alt="">
+                        </figure>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="fuelCellInputFileElement" class="label">Fuel Cell Energy Banner</label>
+                                <input type="file" name="" id="fuelCellInputFileElement">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="fuelCellDescription" class="label">Fuel Cell Banner Description</label>
+                                <textarea  class="textarea" id="fuelCellDescription"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveFuelCellSectionOne">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="batterysectionone">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Battery Section One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="box">
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <figure class="image">
+                            <img src="" id="batteryPanelSavedImage" alt="">
+                        </figure>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="batteryInputFileElement" class="label">Energy Storage Energy Banner</label>
+                                <input type="file" name="" id="batteryInputFileElement">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="batteryDescription" class="label">Energy Storage Banner
+                                    Dbatterycription</label>
+                                <textarea class="textarea" id="batteryDescription"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveBatterySectionOne">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="geosectionone">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Geo Thermal Energy Section One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="box">
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <figure class="image">
+                            <img src="" id="geoPanelSavedImage" alt="">
+                        </figure>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="geoInputFileElement" class="label">Energy Storage Energy Banner</label>
+                                <input type="file" name="" id="geoInputFileElement">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="geoDescription" class="label">Energy Storage Banner Description</label>
+                                <textarea class="textarea" id="geoDescription"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveGeoSectionOne">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="essectionone">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Energy Storage Energy Section One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="box">
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <figure class="image">
+                            <img src="" id="esPanelSavedImage" alt="">
+                        </figure>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="esInputFileElement" class="label">Energy Storage Energy Banner</label>
+                                <input type="file" name="" id="esInputFileElement">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="esDescription" class="label">Energy Storage Banner Description</label>
+                                <textarea class="textarea" id="esDescription"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveEsSectionOne">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="biofsectionone">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Bio Fuels Section One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="box">
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <figure class="image">
+                            <img src="" id="biofPanelSavedImage" alt="">
+                        </figure>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="biofInputFileElement" class="label">Bio Fuels Banner</label>
+                                <input type="file" name="" id="biofInputFileElement">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="biofDescription" class="label">Banner Description</label>
+                                <textarea class="textarea" id="biofDescription"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveBioFSectionOne">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="oceansectionone">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Ocean Energy Section One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="box">
+                <div class="columns is-multiline">
+                    <div class="column is-12">
+                        <figure class="image">
+                            <img src="" id="oceanPanelSavedImage" alt="">
+                        </figure>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="oceanInputFileElement" class="label">Banner</label>
+                                <input type="file" name="" id="oceanInputFileElement">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="oceanDescription" class="label">Banner Description</label>
+                                <textarea class="textarea" id="oceanDescription"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveOceanSectionOne">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+
+<div class="notification" id="dashboardNotification">
+    <p id="notification_message">
+        We are Legion!
+    </p>
+</div>
+
+<script>
+
+</script>

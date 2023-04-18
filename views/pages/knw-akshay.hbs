@@ -1,0 +1,119 @@
+<div class="container-fluid policies mb-5 knowledge_center_bg">
+    <h1 class="text-center wdet knowledge_center_bg">{{{page_title}}}</h1>
+
+</div>
+{{#if overview}}
+<div class="container-fluid">
+    <div class="hdpart">
+        <div class="col-sm-12 mt-3 overview__text">
+            <div class="margin_boo">
+                {{{overview}}}
+            </div>
+        </div>
+
+    </div>
+</div>
+{{/if}}
+{{!-- <div class="filter mt-5 mb-5">
+    <div class="row filter-bc"> --}}
+        <!-- <div class="col">
+            <div class="search-option">
+
+                <label for="f184318d184322" class="sr-only">Format</label>
+                <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                    onChange="window.location.href=this.value">
+                    <option value="/knowledge-center/training">Training Module</option>
+                    <option value="/knowledge-center/infographics">Infographics</option>
+                    <option value="/knowledge-center/videos">Videos</option>
+                    <option value="/knowledge-center/case-studies">Case Studies</option>
+                    <option value="/knowledge-center/reports">Reports</option>
+                    <option value="/knowledge-center/articles">Articles</option>
+                    <option value="/knowledge-center/presentations">Presentations</option>
+                </select>
+            </div>
+
+        </div> -->
+        <!--   <div class="col">
+            <div class="search-option">
+
+                <label for="f184318d184322" class="sr-only">Format</label>
+                <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                    onchange="this.form.submit()">
+                    <option value="">Select energy</option>
+                    <option title="recency" value="recency">Solar</option>
+                    <option title="relevance" value="relevance">Wind</option>
+                    <option title="popularity" value="popularity">Small Hydro</option>
+                    <option title="popularity" value="popularity">Waste to Energy</option>
+                    <option title="popularity" value="popularity">Bio Energy</option>
+                </select>
+            </div>
+
+        </div> -->
+        {{!-- <div class="col">
+            <div class="search-option">
+
+                <label for="f184318d184322" class="sr-only">Format</label>
+                <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                    onchange="this.form.submit()">
+                    <option title="recency" value="recency">Recency</option>
+                    <option title="relevance" value="relevance">Relevance</option>
+                    <option title="popularity" value="popularity">Popularity</option>
+                </select>
+            </div>
+
+        </div> --}}
+    {{!-- </div>
+</div> --}}
+
+<!-- Accordion -->
+{{#if articles}}
+<div class="_policy_accordion">
+    <div class="accordion" id="accordionExample">
+        {{#each articles}}
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_{{@index}}"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        {{this.title}}
+                    </button>
+                </h2>
+            </div>
+            <div id="collapse_{{@index}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <p>{{this.description}}</p>
+
+                    <div class="_pdf_links">
+                        <div class="_pdf_links_inner">
+                            <p>English</p>
+                            <a target="_blank" href="http://10.246.24.71/{{this.file.url}}" class="ml-1">
+                                <img class="pdf" src="/img/view-pdf.png" alt="view">
+                            </a>
+                            <a data-href="http://10.246.24.71/{{this.file.url}}" class="ml-1 download_file">
+                                <img class="pdf" src="/img/download-pdf.png" alt="view">
+                            </a> 
+                        </div>
+                        {{#if this.pdfhindi}}
+                        <div class="_pdf_links_inner">
+                            <p>Hindi</p>
+                            <a target="_blank" href="http://10.246.24.71/{{this.pdfhindi.url}}" class="ml-1">
+                                <img class="pdf" src="/img/view-pdf.png" alt="view">
+                            </a>
+                            <a data-href="http://10.246.24.71/{{this.pdfhindi.url}}" class="ml-1 download_file">
+                                <img class="pdf" src="/img/download-pdf.png" alt="view">
+                            </a> 
+                        </div>             
+                        {{/if}}          
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{else}}
+<div class="col-sm-12">
+    <h1 class="text-center mt-4 mb-4">No Documents Found</h1>
+</div>
+{{/if}}
+<!-- Accordion -->

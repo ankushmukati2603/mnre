@@ -1,0 +1,49 @@
+<div class="_page_head {{head_bg}}">
+    <p class="_heading">{{page_title}}</p>
+</div>
+
+<main class="_page_wrapper _small_table">
+    <div class="_page_heading">
+        <p>{{page_subtitle}}</p>
+    </div>
+    {{#if banner}}
+        <img src="{{../site_url}}{{banner}}" alt="" class="_inner_banner" />
+    {{/if}}
+    <div>
+        {{{WO.OVERVIEW}}}
+    </div>
+    {{!-- <div class="margin_boo">
+        {{{WO.OVERVIEW}}}
+    </div> --}}
+    {{!-- <div class="_documents_wrap">
+        <p class="_documents_heading">
+            Guidelines and other documents
+        </p>
+        {{#if articles}}
+        <div class="_pdf_documents">
+            <ul class="_pdf_list">
+                {{#each articles}}
+                <li>
+                    <div class="_pdf_title">
+                        {{this.title}}
+                    </div>
+                    <div class="_pdf_links">
+                        <a target="_blank" href="http://10.246.24.71{{this.file.url}}">
+                            <img class="pdf img-fluid" src="/img/view-pdf.png" alt="view">
+                        </a>
+                        <a data-href="http://10.246.24.71{{this.file.url}}" class="download_file">
+                            <img class="pdf" src="/img/download-pdf.png" alt="view">
+                        </a>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        {{else}}
+        <p class="_no_documents">
+            <img src="/img/document.png" alt=""/>
+            <span>No Documents Found</span>
+        </p>
+        {{/if}}
+    </div> --}}
+</main>

@@ -1,0 +1,71 @@
+
+<div class="container-fluid newhydro">
+  <h1 class="text-center newhydro">New Technologies</h1>
+
+</div>
+<main class="mr-5 ml-5 mb-5">
+  <div class="htitle mt-4">
+    <h2 class="energtext text-center">{{page_title}}</h2>
+  </div>
+  <!-- <div class="banner text-center">
+    <img src="{{image_src}}" width="100%">
+  </div> -->
+  <div class="page-text mt-4">
+    <p>
+      {{page_content}}
+    </p>
+  </div>
+  {{!-- <div id="accordian" class="accordion mt-5">
+    {{#each accordians}}
+    <div class="card">
+      <div class="card-header" id="{{this.headerId}}">
+        <h5 class="mb-0">
+          <button class="btn btn-link {{this.collapseClass}}" data-toggle="collapse" data-target="{{this.target}}"
+            aria-expanded="true" aria-controls="{{this.controls}}">
+            {{title}}
+          </button>
+        </h5>
+      </div>
+      <div id="{{this.contentId}}" class="collapse {{this.showClass}}" aria-labelledby="{{this.aria_label}}"
+        data-parent="{{this.parent}}">
+        <div class="card-body">
+          {{#if this.list}}
+          {{#if this.hasSub}}
+          <ol>
+            {{#each this.sub}}
+            <li>
+              <h5>{{this.title}}</h5>
+            </li>
+            <span class="font-weight-light">{{{this.content}}}</span>
+            <br>
+            <br>
+            {{/each}}
+          </ol>
+          {{else}}
+          {{#if this.listHasLink}}
+          <ul>
+            {{#each this.content}}
+            <li>
+              <a href="{{this.link}}">
+                {{this.text}}</li>
+            </a>
+            </li>
+            {{/each}}
+          </ul>
+          {{else}}
+          <ul>
+            {{#each this.content}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+          {{/if}}
+          {{/if}}
+          {{else}}
+          {{this.content}}
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div> --}}
+</main>

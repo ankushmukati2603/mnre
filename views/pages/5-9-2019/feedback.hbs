@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/stylesheets/feedback_page.css">
+<div class="hdtitle">
+    <h3>Feedback</h3>
+</div>
+<main class="mt-5 mr-5 ml-5">
+<form class="feedback" id="feedback_form">
+  <div class="form-group row">
+    <label for="first-name" class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="first-name" placeholder="First Name" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="last-name" class="col-sm-2 col-form-label">Last Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="last-name" placeholder="Last Name" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="email" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control feedback" id="email" placeholder="Email" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="feedback" class="col-sm-2 col-form-label">Feedback</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" id="feedback_message" rows="4" required></textarea>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-12 text-center">
+      <a type="submit" class="btn btn-primary feedback feedback_submit">SUBMIT</a>
+    </div>
+  </div>
+</form>
+</main>
+
+<script src="/js/feedback.js"></script>

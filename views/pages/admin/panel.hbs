@@ -1,0 +1,38 @@
+<style>
+    .inline__linking {
+        text-align: center
+    }
+
+    ._language_ {
+        width: 100%;
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 15px 10px;
+        text-align: left;
+        font-size: 12px;
+        color: #000;
+        font-weight: bold;
+    }
+</style>
+{{> language_dom}}
+<div class="_admin_home">
+    <div class="_wrapper">
+        {{#each sections}}
+        <div class="_admin_cards">
+            <p class="_card_title">
+                <i class="_icons">
+                    <img src="{{this.img}}" alt="" />
+                </i>
+                <span>{{this.title}}</span>
+            </p>
+            <a class="_card_link" href="{{this.link}}">GO TO ADMIN</a>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<div class="notification" id="dashboardNotification">
+    <p id="notification_message">
+        We are Legion!
+    </p>
+</div>

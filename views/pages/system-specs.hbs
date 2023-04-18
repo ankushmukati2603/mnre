@@ -1,0 +1,76 @@
+<main class="mb-5">
+    <div class="container-fluid policies mb-5">
+        <h1 class="text-center wdet">{{page_title}}</h1>
+    </div>
+    <div class="filter">
+        <div class="row filter-bc">
+        <div class="col">
+            <div class="search-option">
+
+                <label for="f184318d184322" class="sr-only">Format</label>
+                <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                    onChange="window.location.href=this.value">
+                    <option title="solar" value="/public-information/result-framework-document">RFD</option>
+                    <option title="solar" value="/public-information/policies-and-guidelines">Policies</option>
+                    <option title="solar" value="/public-information/presentations">Presentations</option>
+                    <option title="solar" value="/public-information/advertisements">Advertisements</option>
+                    <option title="solar" value="/public-information/events">Events</option>
+                    <option title="solar" value="/public-information/reports">Reports</option>
+                    <option title="solar" value="/public-information/circulars">Circulars</option>
+                    <option title="solar" value="/public-information/notifications">Notifications</option>
+                    <option title="solar" value="/public-information/accounts">Accounts</option>
+                    <option title="solar" value="/public-information/supporting-programme">Supporting Programme</option>
+                    <option title="solar" value="/public-information/designated-authority-and-nodal-officer">Designated Authority and Nodal Officer under (PIDPI)</option>
+                    <option title="solar" value="/public-information/compendium">Compendium of Regulations and Policies on RE</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="col">
+            <div class="search-option">
+
+                <label for="f184318d184322" class="sr-only">Format</label>
+                <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                    onchange="this.form.submit()">
+                    <option title="recency" value="recency">Recency</option>
+                    <option title="relevance" value="relevance">Relevance</option>
+                    <option title="popularity" value="popularity">Popularity</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="col">
+            <div class="search-option">
+
+                <label for="f184318d184322" class="sr-only">Format</label>
+                <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                    onchange="this.form.submit()">
+
+                    <option title="pdf" value="">PDF</option>
+
+                    <option title="image" value="image">Image</option>
+
+                    <option title="video" value="video">Video</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+    {{#each articles}}
+        <div class="pdf-view">
+            <div class="row pdf ml-5 mr-5 mt-5">
+                <div class="col viewdoc">
+                    <span class="date">{{this.issue_date}}</span>
+                    <h4 class="guideh">{{this.title}}</h4>
+        
+                </div>
+                <div class="col-sm-3">
+                    <a target="_blank"
+                        href="http://10.246.24.71{{this.url}}"
+                        class="ml-1"><img class="pdf" src="/img/view-pdf.png" alt="view"></a>
+                    <span class="ml-1"><img class="pdf" src="/img/download-pdf.png" alt="view"></span>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</main>

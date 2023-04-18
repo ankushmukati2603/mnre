@@ -1,0 +1,89 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+</style>
+{{> language_dom}}
+
+<div class="_wrapper _admin_wrapper">
+    <div class="_section_wrap _energy_list">
+        {{#each elements}}
+        <div class="_energy_wrap _single_cat">
+            <div class="_page_head">
+                <p>
+                    <i>
+                        <img src="{{this.icon}}" alt="" />
+                    </i>
+                    <span>{{this.heading}}</span>
+                </p>
+            </div>
+
+            <div class="_links_wrap {{this.class}}">
+                {{#if child}}
+                <ul class="_links_list">
+                    {{#each this.child}}
+                    <li>
+                        <p>{{this.heading}}</p>
+                        <div class="_action">
+                            {{#if this.class}}
+                            {{#if this.href}}
+                            <a href="{{this.href}}">Schemes</a>
+                            {{else}}
+                            <span class="{{this.class}} edit_button_text">
+                                Edit
+                            </span>
+                            {{/if}}
+                            {{else}}
+                            <span class="edit_button_text">
+                                Edit
+                            </span>
+                            {{/if}}
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+{{#each MAN}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="{{this.modal_id}}" class="label"></label>
+                        <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+
+<div class="notification" id="dashboardNotification">
+    <p id="notification_message">
+        We are Legion!
+    </p>
+</div>

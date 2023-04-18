@@ -1,0 +1,9 @@
+{{!-- <div class="_language_">{{languageHelper language}}</div> --}}
+
+<script>
+    var language = "{{ language }}";
+    if (language) {
+        document.getElementById('{{ language }}').classList.add('_active');
+    }
+
+</script>

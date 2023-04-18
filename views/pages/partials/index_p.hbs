@@ -1,0 +1,1138 @@
+﻿<link rel="stylesheet" href="{{site_url}}/stylesheets/home_page.css">
+<style>
+    .iframe img {
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+<script>
+    var language = "{{ language }}";
+    if (language) {
+        document.body.classList.add('{{ language }}'.toLowerCase());
+    }
+</script>
+
+<div id="carouselExampleFade1" class="carousel slide desktop" data-ride="carousel">
+    <div class="carousel-inner">
+        {{#each BANNERS}}
+        <div class="carousel-item _carousel">
+            <img src=".{{this.BANNER_IMAGE.LOCATION}}" class="d-block w-100 _carousel_image" alt="...">
+            {{#if this.BANNER_IMAGE_TITLE}}
+            <div class="header-text hidden-xs _carousel_text">
+                <div class="httext">
+                    <h4>
+                        <span>{{this.BANNER_IMAGE_TITLE}}</span>
+                    </h4>
+                    <span class="stext">{{this.BANNER_IMAGE_DESCRIPTION}}</span>
+                </div>
+                {{#if this.BANNER_BUTTON_TEXT}}
+                <div class="noone">
+                    <a class="btn btn-uni btn-sm btn-min-block _carousel_button" href="{{this.BANNER_BUTTON_LINK}}"
+                        target="_blank">{{this.BANNER_BUTTON_TEXT}}</a>
+                </div>
+                {{/if}}
+            </div>
+            {{/if}}
+        </div>
+        {{/each}}
+
+
+        <a class="carousel-control-prev" href="#carouselExampleFade1" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon carousel__nav--home" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleFade1" role="button" data-slide="next">
+            <span class="carousel-control-next-icon carousel__nav--home" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<div id="carouselExampleFade" class="carousel slide mobile" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{{site_url}}/img/mobile_slide1.png" class="d-block w-100" alt="...">
+            <div class="header-text hidden-xs">
+                <div class="container">
+                    <div class="col-sm-8 httext">
+                        <h4>
+                            <span>Harnessing Solar Power for Prosperous Rural India</span>
+                        </h4>
+                        <span class="stext">More earnings without extra expenditure on diesel</span>
+                    </div>
+                    <div class=" col-sm-4 noone ml-5 mt-3">
+                        <a class="btn btn-theme btn-sm btn-min-block" href="{{site_url}}/solar/current-status/">Discover
+                            Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{{site_url}}/img/mobile_slide2.png" class="d-block w-100" alt="...">
+            <div class="header-text hidden-xs">
+                <div class="col-sm-8 httext">
+                    <h4>
+                        <span>Solarization of Stadiums</span>
+                    </h4>
+                </div>
+                <div class="col-sm-4 noone ml-5 mt-3">
+                    <a class="btn btn-uni btn-sm btn-min-block" href="{{site_url}}/solar/current-status/">Discover
+                        Now</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{{site_url}}/img/mobile_slide3.png" class="d-block w-100" alt="...">
+            <div class="header-text hidden-xs">
+                <div class="col-sm-8 httext">
+                    <h4>
+                        <span>Harnessing Wind Power</span>
+                    </h4>
+                </div>
+                <div class="col-sm-4 noone ml-5 mt-3">
+                    <a class="btn btn-uni btn-sm btn-min-block" href="{{site_url}}/wind/current-status/">Discover
+                        Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{{site_url}}/img/mobile_slide4.png" class="d-block w-100" alt="...">
+            <div class="header-text hidden-xs">
+                <div class="col-sm-8 httext">
+                    <h4>
+                        <span>Hybridization of Solar and Wind Power</span>
+                    </h4>
+                </div>
+                <div class="col-sm-4 noone ml-5 mt-3">
+                    <a class="btn btn-uni btn-sm btn-min-block" href="{{site_url}}/Wind/policy-and-guidelines">Discover
+                        Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="{{site_url}}/img/mobile_slide5.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="{{site_url}}/img/mobile_slide6.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="{{site_url}}/img/mobile_slide7.png" class="d-block w-100" alt="...">
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon carousel__nav--home" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+            <span class="carousel-control-next-icon carousel__nav--home" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<div class="container_fluid desktop _cards">
+    <div class="_card_grid">
+        <div class="service-box">
+            <div class="service-icon modi">
+            </div>
+            <div class="service-content _card_back">
+                <div class="_inner">
+                    Shri Narendra Modi <br> Prime Minister of India
+                </div>
+                <div class="_inner">
+                    <span class="b-social">
+                        <a href="https://www.facebook.com/narendramodi/" target="_blank"><i
+                                class="fab fa-facebook"></i></a>&nbsp;
+                        <a href="https://twitter.com/narendramodi" target="_blank"><i
+                                class="fab fa-twitter-square"></i></a>&nbsp;
+                        <a href="https://in.linkedin.com/in/narendramodi" target="_blank"><i
+                                class="fab fa-linkedin"></i>&nbsp;</a>
+                        <a href="https://www.pmindia.gov.in/en/" target="_blank"><i
+                                class="fas fa-globe-asia"></i></a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="_card_grid">
+        <div class="service-box">
+            <div class="service-icon solar-card">
+            </div>
+            <div class="service-content _card_back _middle">
+                <div class="_inner">
+                    The Ministry of New and Renewable Energy (MNRE is the nodal Ministry of the
+                    Government of India for all matters relating to new and renewable energy)
+                </div>
+                <div class="_inner">
+                    <span class="b-social">
+                        <a href="{{site_url}}/the-ministry/what-does-the-ministry-do/">
+                            <button type="button" class="btn btn-primary bbtn _button">know more</button>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="_card_grid">
+        <div class="service-box">
+            <div class="service-icon rjk">
+            </div>
+            <div class="service-content _card_back">
+                <div class="_inner">
+                    Shri Raj Kumar Singh <br>Hon'ble Minister of State
+                    (IC)<br>
+                    (Power, New &amp; Renewable Energy) &amp; <br>
+                    Minister of State (Skill Development &amp; Entrepreneurship) <br>
+                    MNRE
+                </div>
+                <div class="_inner">
+                    <span class="b-social">
+                        <a href="https://www.facebook.com/RajKumarSinghIndia/" target="_blank"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/RajKSinghIndia" target="_blank"> <i
+                                class="fab fa-twitter-square"></i></a>
+                        {{!-- <a href="javascript:;"> <i class="fab fa-linkedin"></i></a> --}}
+                        {{!-- <a href="javascript:;"> <i class="fas fa-globe-asia"></i></a> --}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="home_marquee">
+    <marquee behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();" width="100%" height="40px"
+        scrollamount="6" direction="left"
+        style="background:#f57b32; display: flex; align-items: center; color: white; font-size: 15px"><a href="{{document_path}}/uploads/file_s-1583927710425.pdf" style="color: white; font-size: 15px;"
+            target="_blank">PM KUSUM and Rooftop Solar Scheme - Toll-Free Number - 1800-180-3333.</a>
+    </marquee>
+</div>
+
+<div class="container mobile _home_highlights">
+    <div class="row">
+        <div class="col-sm-12 mb-3">
+            <div class="service-icon modi">
+                <div class="front-content hbn">
+                    The world must turn to sun to power our future<br>
+                    <a href="https://www.facebook.com/narendramodi/" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/narendramodi" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 mb-3">
+            <div class="service-box">
+                <div class="service-icon solar-card">
+                    <div class="front-content hbn">
+                        The Ministry of New and Renewable Energy<br>
+                        <a href="{{site_url}}/the-ministry/what-does-the-ministry-do/"> <button type="button"
+                                class="btn btn-primary bbtn knm mt-1">know more</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 mb-3">
+            <div class="service-icon rjk">
+                <div class="front-content hbn">
+                    Raj Kumar Singh Minister of state (IC) for Power and New & Renewable Energy
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container _whats_new">
+    <div class="row px-5 pt-5">
+        <div class="col-sm-8">
+            <div class="_whats_new_left">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="knw line__height">What's New</h2>
+                    </div>
+                </div>
+                <div class="disp row pt-4 _new_section">
+                    <div class="col-sm-12 tabs">
+                        <div class="tab">
+                            <button class="tablinks active" onclick="openCity(event, 'currentnotice')" id="defaultOpen">
+                                <h3 class="knwht">Current Notices</h3>
+                            </button>
+                            {{!-- <button class="tablinks" onclick="openCity(event, 'notification')">
+                                <h3 class="knwht">Office Orders & Memorandums
+                                </h3>
+                            </button> --}}
+                            <button class="tablinks _press_release_btn">
+                                <a href="https://pib.gov.in/allRel.aspx" class="external_link tablinks">Press
+                                    Release</a>
+                            </button>
+                            <button class="tablinks" onclick="openCity(event, 'tender')">
+                                <h3 class="knwht">Tender
+                                </h3>
+                            </button>
+                            <button class="tablinks" onclick="openCity(event, 'akshay')">
+                                <h3 class="knwht">Akshay Urja Magazine</h3>
+                            </button>
+                            <button class="tablinks" onclick="openCity(event, 'annualreport')">
+                                <h3 class="knwht">Annual Report</h3>
+                            </button>
+                        </div>
+                        <div id="currentnotice" class="tabcontent">
+                            <div class="_inner">
+                                <div class="_policy_accordion">
+                                    <div class="accordion" id="accordionExample">
+                                        {{#each currentnotice}}
+                                        <div class="card">
+                                            <div class="card-header" id="headingOne">
+                                                <h2 class="mb-0">
+                                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                                        data-target="#collapse_{{@index}}" aria-expanded="true"
+                                                        aria-controls="collapseOne">
+                                                        <p class="_issue_date">{{this.issue_date}}</p>
+                                                        {{this.title}}
+                                                    </button>
+                                                </h2>
+                                            </div>
+
+                                            <div id="collapse_{{@index}}" class="collapse" aria-labelledby="headingOne"
+                                                data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <p>{{this.description}}</p>
+
+                                                    <div class="_pdf_links">
+                                                        <a target="_blank" href="{{../document_path}}{{this.file.url}}"
+                                                            class="ml-1">
+                                                            <img class="pdf" src="{{../site_url}}/img/view-pdf.png"
+                                                                alt="view">
+                                                        </a>
+                                                        <a data-href="{{../document_path}}{{this.file.url}}"
+                                                            class="ml-1 download_file">
+                                                            <img class="pdf" src="{{../site_url}}/img/download-pdf.png"
+                                                                alt="view">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                                <a href="{{site_url}}/public-information/current-notice" class="_see_all">See All</a>
+                            </div>
+                        </div>
+                        {{!-- <div id="notification" class="tabcontent">
+                            <div class="_inner">
+                                <div class="_policy_accordion">
+                                    <div class="accordion" id="accordionExample">
+                                        {{#each officememorand}}
+                                        <div class="card">
+                                            <div class="card-header" id="headingOne">
+                                                <h2 class="mb-0">
+                                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                                        data-target="#collapse_{{@index}}" aria-expanded="true"
+                                                        aria-controls="collapseOne">
+                                                        {{this.title}}
+                                                    </button>
+                                                </h2>
+                                            </div>
+
+                                            <div id="collapse_{{@index}}" class="collapse" aria-labelledby="headingOne"
+                                                data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <p>{{this.description}}</p>
+
+                                                    <div class="_pdf_links">
+                                                        <a target="_blank" href="http://10.246.24.71/{{this.file.url}}"
+                                                            class="ml-1">
+                                                            <img class="pdf" src="/img/view-pdf.png" alt="view">
+                                                        </a>
+                                                        <a data-href="http://10.246.24.71/{{this.file.url}}"
+                                                            class="ml-1 download_file">
+                                                            <img class="pdf" src="/img/download-pdf.png" alt="view">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                                <a href="/public-information/office-orders" class="_see_all">See All</a>
+                            </div>
+                        </div> --}}
+                        <div id="tender" class="tabcontent">
+                            <div class="_inner">
+                                <div class="_policy_accordion">
+                                    <div class="accordion" id="accordionExample">
+
+                                        {{#if tenders}}
+                                        {{#each tenders}}
+                                        <div class="card">
+                                            <div class="card-header" id="headingTwo">
+                                                <h2 class="mb-0">
+                                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                                        data-target="#collapse_{{@index}}1" aria-expanded="true"
+                                                        aria-controls="collapseTwo">
+                                                        {{this.title}}
+                                                    </button>
+                                                </h2>
+                                            </div>
+
+                                            <div id="collapse_{{@index}}1" class="collapse" aria-labelledby="headingTwo"
+                                                data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <p>{{this.description}}</p>
+
+                                                    <div class="_pdf_links">
+                                                        <a target="_blank" href="{{../document_path}}{{this.file.url}}"
+                                                            class="ml-1">
+                                                            <img class="pdf" src="{{../site_url}}/img/view-pdf.png"
+                                                                alt="view">
+                                                        </a>
+                                                        <a data-href="{{../document_path}}{{this.file.url}}"
+                                                            class="ml-1 download_file">
+                                                            <img class="pdf" src="{{../site_url}}/img/download-pdf.png"
+                                                                alt="view">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{/each}}
+                                        {{else}}
+                                        <p class="_no_tender">No Tenders Found</p>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                {{#if tenders}}
+                                <a href="{{site_url}}/tenders/recent" class="_see_all">See All</a>
+                                {{/if}}
+                            </div>
+                        </div>
+
+                        <div id="akshay" class="tabcontent">
+                            <div class="_inner">
+                                <div class="_policy_accordion">
+                                    <div class="accordion" id="accordionExampleAk">
+                                        {{#each akshayurja}}
+                                        <div class="card">
+                                            <div class="card-header" id="headingThree">
+                                                <h2 class="mb-0">
+                                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                                        data-target="#collapse_{{@index}}2" aria-expanded="true"
+                                                        aria-controls="collapseThree">
+                                                        {{this.title}}
+                                                    </button>
+                                                </h2>
+                                            </div>
+
+                                            <div id="collapse_{{@index}}2" class="collapse"
+                                                aria-labelledby="headingThree" data-parent="#accordionExampleAk">
+                                                <div class="card-body">
+                                                    <p>{{this.description}}</p>
+
+                                                    <div class="_pdf_links">
+                                                        <div class="_pdf_links_inner">
+                                                            <p>English</p>
+                                                            <a target="_blank"
+                                                                href="{{../document_path}}{{this.file.url}}"
+                                                                class="ml-1">
+                                                                <img class="pdf" src="{{../site_url}}/img/view-pdf.png"
+                                                                    alt="view">
+                                                            </a>
+                                                            <a data-href="{{../document_path}}{{this.file.url}}"
+                                                                class="ml-1 download_file">
+                                                                <img class="pdf"
+                                                                    src="{{../site_url}}/img/download-pdf.png"
+                                                                    alt="view">
+                                                            </a>
+                                                        </div>
+                                                        {{#if this.pdfhindi}}
+                                                        <div class="_pdf_links_inner">
+                                                            <p>Hindi</p>
+                                                            <a target="_blank"
+                                                                href="{{../document_path}}{{this.file.url}}"
+                                                                class="ml-1">
+                                                                <img class="pdf" src="{{../site_url}}/img/view-pdf.png"
+                                                                    alt="view">
+                                                            </a>
+                                                            <a data-href="{{../document_path}}{{this.file.url}}"
+                                                                class="ml-1 download_file">
+                                                                <img class="pdf"
+                                                                    src="{{../site_url}}/img/download-pdf.png"
+                                                                    alt="view">
+                                                            </a>
+                                                        </div>
+                                                        {{/if}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                                <a href="{{site_url}}/knowledge-center/publication" class="_see_all">See
+                                    All</a>
+                            </div>
+                        </div>
+
+                        <div id="annualreport" class="tabcontent">
+                            <div class="_inner">
+                                <div class="_policy_accordion">
+                                    <div class="accordion" id="accordionExample">
+                                        {{#each annualreports}}
+                                        <div class="card">
+                                            <div class="card-header" id="headingFour">
+                                                <h2 class="mb-0">
+                                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                                        data-target="#collapse_{{@index}}3" aria-expanded="true"
+                                                        aria-controls="collapseFour">
+                                                        {{this.title}}
+                                                    </button>
+                                                </h2>
+                                            </div>
+
+                                            <div id="collapse_{{@index}}3" class="collapse"
+                                                aria-labelledby="headingFour" data-parent="#accordionExample">
+                                                <div class="card-body">
+                                <p>{{this.description}}</p>
+
+                                <div class="_pdf_links">
+                                    <div class="_pdf_links_inner">
+                                        <p>English</p>
+                                        <a target="_blank" href="{{../document_path}}{{this.file.url}}" class="ml-1">
+                                            <img class="pdf" src="{{../site_url}}/img/view-pdf.png" alt="view">
+                                        </a>
+                                        <a data-href="{{../document_path}}{{this.file.url}}" class="ml-1 download_file">
+                                            <img class="pdf" src="{{../site_url}}/img/download-pdf.png" alt="view">
+                                        </a>
+                                    </div>
+                                    {{#if this.pdfhindi}}
+                                    <div class="_pdf_links_inner">
+                                        <p>Hindi</p>
+                                        <a target="_blank" href="{{../document_path}}{{this.pdfhindi.url}}"
+                                            class="ml-1">
+                                            <img class="pdf" src="{{../site_url}}/img/view-pdf.png" alt="view">
+                                        </a>
+                                        <a data-href="{{../document_path}}{{this.pdfhindi.url}}"
+                                            class="ml-1 download_file">
+                                            <img class="pdf" src="{{../site_url}}/img/download-pdf.png" alt="view">
+                                        </a>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                                             </div>
+                                            </div>
+                                        </div>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                                <a href="{{site_url}}/knowledge-center/publication" class="_see_all">See
+                                    All</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- IRIX Section -->
+        <div class="col-sm-4">
+            <div class="_idea_exchange">
+                <h2 class="idea line__height">Idea Exchange</h2>
+
+                <a class="external_link" href="http://irix.gov.in/" target="_blank">
+                    <img class="img img-fluid pt-4 irix__width" src="/img/irix.jpg">
+                </a>
+                <div class="d-flex flex-row bd-highlight idea_exchange_justify pt-2 irix__width _irix_button_grid">
+                    <div class="p-2 bd-highlight">
+                        <a class="btn btn-id btn-sm external_link" href="http://irix.gov.in/ideate" target="_blank">
+                            ideate
+                        </a>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <a class="btn btn-in btn-sm external_link" href="http://irix.gov.in/innovate" target="_blank">
+                            innovate
+                        </a>
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <a class="btn btn-inc btn-sm external_link" href="http://irix.gov.in/incubate" target="_blank">
+                            incubate
+                        </a>
+                    </div>
+                </div>
+                <div class="_irix_content">
+                    iRiX is a real-time idea exchange platform for the Global RE community to ideate, innovate and
+                    incubate in the renewable energy sector.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row px-5 pt-3 _home_videos">
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="container">
+                    <div class="row mt-4 mb-4">
+                        <div class="col-sm-12">
+                            <h2 class="videos">
+                                Videos <span></span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    {{#each videos}}
+                                    <div class="carousel-item">
+                                        <video
+                                            style="width: 100%; height: 450px; background: black url({{../document_path}}{{this.thumbnail.url}}) no-repeat center center; background-size: cover;"
+                                            controls poster="{{../document_path}}{{this.thumbnail.url}}" muted
+                                            preload="none" class="homeVideo">
+                                            <source src="{{../document_path}}{{this.file.url}}">
+                                        </video>
+                                    </div>
+                                    {{/each}}
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                    data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                    data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <hr class="mbar red__border">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <h2 class="social mb-3 mt-4 _social_heading">
+                Social <span></span>
+            </h2>
+            <div class="_social_links">
+                <a href="https://www.facebook.com/pages/MNRE/488573947894457?ref_type=bookmark" class="external_link">
+                    <img src="{{site_url}}/img/icons/fb.png" alt="" />
+                </a>
+                <a href="https://www.linkedin.com/company/ministry-of-new-and-renewable-energy/?originalSubdomain=in"
+                    class="external_link">
+                    <img src="{{site_url}}/img/icons/ln.png" alt="" />
+                </a>
+                <a href="https://twitter.com/@mnreindia" class="external_link">
+                    <img src="{{site_url}}/img/icons/tw.png" alt="" />
+                </a>
+                <a href="https://www.youtube.com/channel/UClk55sdIRCrxHtJe17bicCg" class="external_link">
+                    <img src="{{site_url}}/img/icons/yt.png" alt="" />
+                </a>
+            </div>
+            {{!-- <div class="text-center"><img class="img-fluid" src="/img/fb.png" width="50%"></div> --}}
+            {{!-- <img class="flexible mt-4" src="http://placehold.it/400x300" alt="Placehold.it" width="100%" /> --}}
+            <div style="margin-top: 20px;">
+                <a class="twitter-timeline" data-width="100%" data-height="394" data-theme="dark"
+                    href="https://twitter.com/mnreindia?ref_src=twsrc%5Etfw">Tweets by mnreindia</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+            <hr class="mt-5 blue__border" style="margin-top: 16px !important;">
+        </div>
+    </div>
+</div>
+
+<div class="container intbg _initiative_achivement">
+    <div class="_init_head">
+        <div class="text-center">
+            <div>
+                <h1 class="init">Initiatives & Achievements</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 padding-t__40">
+        <div class="row">
+            {{#each initiativeAchi}}
+            <div class="col-sm-{{this.column}} initbg _inner_achiv">
+                <p class="initc">
+                    {{{this.title}}}
+                </p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<div class="container isa">
+    <div class="row py-4">
+        <div class="col-sm-6 pl-5">
+            <h3 class="isah">International Solar Alliance</h2>
+                <div class="content">
+                    <span class="isab">
+                        A treaty-based international intergovernmental organization, International Solar Alliance (ISA),
+                        aims at mobilizing more than USD 1000 billion of investment needed by 2030 for the massive
+                        deployment of solar energy. Established by Prime Minister Narendra Modi and President of France
+                        Francois Hollande on November 30, 2015, ISA’s objective is to scale up solar energy, reduce the
+                        cost
+                        of solar power generation through aggregation of demand for solar finance, technologies,
+                        innovation,
+                        research and development, and capacity building.
+                    </span><br><br>
+                    <a class="btn btn-isa btn-sm external_link" href="http://isolaralliance.org/">read more</a>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="disp container _institue_agency">
+    <div class="row py-5 justify__center">
+        <div class="col-sm-6 margin-t__10">
+            <div class="text-center">
+                <div>
+                    <h1 class="initi">INSTITUTES & Agencies</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="_home_institues">
+        <div class="item">
+            <div class="item_inner nise nise__bg" id="NISE">
+                <span class="_heading">National Institute of Solar Energy</span>
+                <div class="vtex">
+                    VISIT NOW <i class="fas fa-arrow-circle-right"></i>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item_inner niwe niwe__bg" id="NIWE">
+                <span class="_heading">National Institute of Wind Energy</span>
+                <div class="vtex">
+                    VISIT NOW <i class="fas fa-arrow-circle-right"></i>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item_inner nire nire__bg" id="NIRE">
+                <span class="_heading">SSS National Institute of Renewable Energy</span>
+                <div class="vtex">
+                    VISIT NOW <i class="fas fa-arrow-circle-right"></i>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item_inner tireda tireda__bg" id="TIREDA">
+                <span class="_heading">The Indian Renewable Energy Development Agency</span>
+                <div class="vtex">
+                    VISIT NOW <i class="fas fa-arrow-circle-right"></i>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item_inner seci seci__bg" id="SECI">
+                <span class="_heading">Solar Energy Corporation of India</span>
+                <div class="vtex">
+                    VISIT NOW <i class="fas fa-arrow-circle-right"></i>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item_inner tireda hydro-bg" id="AREAS">
+                <span class="_heading">Association of Renewable Energy Agencies of States (AREAS)</span>
+                <div class="vtex">
+                    <a class="ntd" href="{{site_url}}/areas">READ MORE</a>
+                    <i class="fas fa-arrow-circle-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mobile py-5 justify__center">
+        <div class="col-sm-6 margin-t__10">
+            <div class="text-center">
+                <div>
+                    <h1 class="initi">INSTITUTES & Agencies</h1>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="row px-3 py-5">
+                <div class="col-sm-12 initib mx-2 nise nise__bg" id="NISE1">
+                    <span class="initc carousel__title">National Institute of Solar Energy</span><br><br>
+                    <div class="vtex">
+                        VISIT NOW <i class="fas fa-arrow-circle-right"></i>
+                    </div>
+                </div>
+                <div class="col-sm-12 initib mx-2 niwe niwe__bg" id="NIWE1">
+                    <span class="initc carousel__title">National Institute of Wind Energy</span><br><br>
+                    <div class="vtex">
+                        VISIT NOW <i class="fas fa-arrow-circle-right"></i>
+                    </div>
+                </div>
+                <div class="col-sm-12 initib mx-2 nire nire__bg" id="NIRE1">
+                    <span class="initc carousel__title">
+                        SSS National Institute of Renewable Energy
+                    </span>
+                    <br><br>
+                    <div class="vtex">VISIT NOW <i class="fas fa-arrow-circle-right"></i>
+                    </div>
+                </div>
+                <div class="col-sm-12 initib mx-2 tireda tireda__bg" id="TIREDA1"><span
+                        class="initc carousel__title">The Indian
+                        Renewable Energy
+                        Development
+                        Agency</span><br><br>
+                    <div class="vtex">VISIT NOW <i class="fas fa-arrow-circle-right"></i>
+                    </div>
+                </div>
+                <div class="col-sm-12 initib mx-2 seci seci__bg" id="SECI1"><span class="initc carousel__title">Solar
+                        Energy
+                        Corporation of
+                        India</span><br><br>
+                    <div class="vtex">VISIT NOW <i class="fas fa-arrow-circle-right"></i>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="disp">
+    <div class="container bx _home_resources">
+        <div class="row px-5 py-5 justify__center">
+            <div class="col-sm-6 margin-t__10">
+                <div class="text-center">
+                    <div>
+                        <h1 class="initir">RESOURCES</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="_home_resources_inner">
+                <div class="shadow col-sm bxx mx-3 _resources_wrap">
+                    <a class="tools_services" href="{{site_url}}/public-grievance">
+                        <div class="text-center">
+                            <img src="{{site_url}}/img/public.png" style="width: 35px;">
+                            <h5 class="bxh">Public Grievances & Complaint Redressal Mechanism</h5>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="shadow col-sm bxx mx-3 _resources_wrap">
+                    <a target="_blank" class="tools_services external_link"
+                        href="https://solarrooftop.gov.in/rooftop_calculator">
+                        <div class="text-center">
+                            <img src="{{site_url}}/img/calculator.png">
+                            <h5 class="bxh">Solar Rooftop<br>
+                                Financial Calculator</h5>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="shadow col-sm bxx mx-3 _resources_wrap">
+
+                    <div class="text-center">
+                        <img src="{{site_url}}/img/feedback.png">
+                        <a class="fdback tools_services" href="{{site_url}}/feedback">
+                            <h5 class="bxh">Feedback</h5>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="shadow col-sm bxx mx-3 _resources_wrap">
+                    <a class="tools_services external_link" target="_blank"
+                        href="https://solarrooftop.gov.in/agency_list_report/view">
+                        <div class="text-center">
+                            <img src="{{site_url}}/img/solar.png">
+                            <h5 class="bxh">List Of Solar<br>
+                                Rooftop Agencies</h5>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="shadow col-sm bxx mx-3 _resources_wrap">
+                    <a class="tools_services"
+                        href="{{site_url}}/hindirajbhasha">
+                        <div class="text-center">
+                            <img src="{{site_url}}/img/rajbhasha.png">
+                            <h5 class="bxh">Hindi Rajbhasha</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{!-- <div class="iframe">
+    {{#if iframe}}
+    {{#each iframe}}
+    {{{this.path}}}
+    {{/each}}
+    {{/if}}
+</div> --}}
+
+
+<!-- Institutes Modals -->
+<div id="NIWEModal" class="modal1">
+    <!-- Modal content -->
+    <div class="modal-content1 wind__border wind_modal_content overlay_black">
+        <span class="close1" id="close_niwe"><i class="far fa-times-circle"></i></span>
+        <h1 class="institutes__title--style wind__background--color">
+            NATIONAL INSTITUTE OF WIND ENERGY
+        </h1>
+        <div class="_modal_inner">
+            <p class="institutes__description--style">
+                National Institute of Wind Energy (NIWE) established in Chennai in 1998 by the Ministry of
+                New and Renewable Energy (MNRE), Government of India is an autonomous research and
+                development institution. It is a knowledge-based institution of high quality and dedication,
+                offers services and seeks to find complete solutions for the kinds of difficulties and
+                improvements in the entire spectrum of the wind energy sector by carrying out further
+                research.
+            </p>
+            <a href="http://niwe.res.in/" target="_blank"
+                class="btn btn-dark institutes__button--style external_link">Visit Now</a>
+        </div>
+    </div>
+
+</div>
+<div id="NISEModal" class="modal1">
+
+    <!-- Modal content -->
+    <div class="modal-content1 solar__border">
+        <span class="close1" id="close_nise"><i class="far fa-times-circle"></i></span>
+        <h1 class="institutes__title--style solar__background--color">
+            NATIONAL INSTITUTE OF SOLAR ENERGY
+        </h1>
+        <div class="_modal_inner">
+            <p class="institutes__description--style">
+                National Institute of Solar Energy, an autonomous institution of Ministry of New and
+                Renewable (MNRE), is the apex institute for research and development in the field Solar
+                Energy. The Government of India converted 25-year-old Solar Energy Centre (SEC) to an
+                autonomous institution in September 2013 to assist the MNRE in implementing the National
+                Solar Mission and coordinate in research, technology, and other related works.
+            </p>
+            <a href="https://nise.res.in/" target="_blank"
+                class="btn btn-dark institutes__button--style external_link">Visit Now</a>
+        </div>
+    </div>
+
+</div>
+<div id="NIREModal" class="modal1">
+
+    <!-- Modal content -->
+    <div class="modal-content1 re__border">
+        <span class="close1" id="close_nire"><i class="far fa-times-circle"></i></span>
+        <h1 class="institutes__title--style re__background--color">
+            SARDAR SWARAN SINGH <br> NATIONAL INSTITUTE OF RENEWABLE ENERGY
+        </h1>
+        <div class="_modal_inner">
+            <p class="institutes__description--style">
+                Sardar Swaran Singh National Institute of Renewable Energy (SSS-NIRE), Kapurthala
+                (Punjab) is an autonomous Institution of the Ministry of New and Renewable Energy. Govt.
+                of India. The aim of the Institute is to carry out and facilitate research, design, development,
+                testing, standardization &amp; technology demonstration. It will eventually lead to
+                commercialization of R&amp;D output with a focus on bioenergy, biofuels &amp; synthetic fuels in
+                solid, liquid &amp; gaseous forms for transportation, portable &amp; stationary applications,
+                development of hybrid / integrated energy systems.
+            </p>
+            <a href="http://www.nibe.res.in/" target="_blank"
+                class="btn btn-dark institutes__button--style external_link">Visit Now</a>
+        </div>
+    </div>
+
+</div>
+<div id="TIREDAModal" class="modal1">
+
+    <!-- Modal content -->
+    <div class="modal-content1 tireda__border">
+        <span class="close1" id="close_tireda"><i class="far fa-times-circle"></i></span>
+        <h1 class="institutes__title--style tireda__background--color">
+            INDIAN RENEWABLE ENERGY <br> DEVELOPMENT AGENCY LIMITED (IREDA)
+
+        </h1>
+        <div class="_modal_inner">
+            <p class="institutes__description--style">
+                Indian Renewable Energy Development Agency Limited (IREDA) is a Mini Ratna (Category–I) non-banking
+                financial institution under the administrative control of Ministry of New and Renewable Energy (MNRE).
+                IREDA
+                is primarily engaged in promoting, developing and extending financial assistance for setting up projects
+                relating to new and renewable sources of energy and energy efficiency/conservation with the motto
+                'ENERGY
+                FOR EVER'. IREDA is the single largest “Green Financier” in the country. It caters to all technologies
+                of
+                the RE sector and predominantly provides financing for sector.
+
+            </p>
+            <a href="https://www.ireda.in/" target="_blank"
+                class="btn btn-dark institutes__button--style external_link">Visit Now</a>
+        </div>
+    </div>
+
+</div>
+<div id="SECIModal" class="modal1">
+
+    <!-- Modal content -->
+    <div class="modal-content1 seci__border">
+        <span class="close1" id="close_seci"><i class="far fa-times-circle"></i></span>
+        <h1 class="institutes__title--style seci__background--color">
+            SOLAR ENERGY CORPORATION OF INDIA (SECI)
+
+        </h1>
+        <div class="_modal_inner">
+            <p class="institutes__description--style">
+                Indian Renewable Energy Development Agency Limited (IREDA) is a Mini Ratna (Category–I) non-banking
+                financial institution under the administrative control of Ministry of New and Renewable Energy (MNRE).
+                IREDA
+                is primarily engaged in promoting, developing and extending financial assistance for setting up projects
+                relating to new and renewable sources of energy and energy efficiency/conservation with the motto
+                'ENERGY
+                FOR EVER'. IREDA is the single largest “Green Financier” in the country. It caters to all technologies
+                of
+                the RE sector and predominantly provides financing for sector.
+
+            </p>
+            <a href="http://seci.co.in/" target="_blank"
+                class="btn btn-dark institutes__button--style external_link">Visit Now</a>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Mobile popups -->
+<div id="NISEModal1" class="modal1">
+
+    <!-- Modal content -->
+    <div class="modal-content1 solar__border1">
+        <span class="close1" id="close_nise1"><i class="far fa-times-circle"></i></span>
+        <h1 class="institutes__title--style solar__background--color">
+            NATIONAL INSTITUTE OF SOLAR ENERGY
+        </h1>
+        <div class="_modal_inner">
+            <p class="institutes__description--style">
+                National Institute of Solar Energy, an autonomous institution of Ministry of New and
+                Renewable (MNRE), is the apex institute for research and development in the field Solar
+                Energy. The Government of India converted 25-year-old Solar Energy Centre (SEC) to an
+                autonomous institution in September 2013 to assist the MNRE in implementing the National
+                Solar Mission and coordinate in research, technology, and other related works.
+            </p>
+            <a href="https://nise.res.in/" target="_blank"
+                class="btn btn-dark institutes__button--style external_link">Visit Now</a>
+        </div>
+    </div>
+
+</div>
+<div id="NIREModal1" class="modal1">
+
+    <!-- Modal content -->
+    <div class="modal-content1 re__border1">
+        <span class="close1" id="close_nire1"><i class="far fa-times-circle"></i></span>
+        <h1 class="institutes__title--style re__background--color">
+            SARDAR SWARAN SINGH <br> NATIONAL INSTITUTE OF RENEWABLE ENERGY
+        </h1>
+        <div class="_modal_inner">
+            <p class="institutes__description--style">
+                Sardar Swaran Singh National Institute of Renewable Energy (SSS-NIRE), Kapurthala
+                (Punjab) is an autonomous Institution of the Ministry of New and Renewable Energy. Govt.
+                of India. The aim of the Institute is to carry out and facilitate research, design, development,
+                testing, standardization &amp; technology demonstration. It will eventually lead to
+                commercialization of R&amp;D output with a focus on bioenergy, biofuels &amp; synthetic fuels in
+                solid, liquid &amp; gaseous forms for transportation, portable &amp; stationary applications,
+                development of hybrid / integrated energy systems.
+            </p>
+            <a href="http://www.nibe.res.in/" target="_blank"
+                class="btn btn-dark institutes__button--style external_link">Visit Now</a>
+        </div>
+    </div>
+
+</div>
+<div id="TIREDAModal1" class="modal1">
+
+    <!-- Modal content -->
+    <div class="modal-content1 tireda__border">
+        <span class="close1" id="close_tireda1"><i class="far fa-times-circle"></i></span>
+        <h1 class="institutes__title--style tireda__background--color">
+            INDIAN RENEWABLE ENERGY <br> DEVELOPMENT AGENCY LIMITED (IREDA)
+
+        </h1>
+        <div class="_modal_inner">
+            <p class="institutes__description--style">
+                Indian Renewable Energy Development Agency Limited (IREDA) is a Mini Ratna (Category–I) non-banking
+                financial institution under the administrative control of Ministry of New and Renewable Energy (MNRE).
+                IREDA
+                is primarily engaged in promoting, developing and extending financial assistance for setting up projects
+                relating to new and renewable sources of energy and energy efficiency/conservation with the motto
+                'ENERGY
+                FOR EVER'. IREDA is the single largest “Green Financier” in the country. It caters to all technologies
+                of
+                the RE sector and predominantly provides financing for sector.
+
+            </p>
+            <a href="https://www.ireda.in/" target="_blank"
+                class="btn btn-dark institutes__button--style external_link">Visit Now</a>
+        </div>
+    </div>
+
+</div>
+<div id="SECIModal1" class="modal1">
+
+    <!-- Modal content -->
+    <div class="modal-content1 seci__border">
+        <span class="close1" id="close_seci1"><i class="far fa-times-circle"></i></span>
+        <h1 class="institutes__title--style seci__background--color">
+            SOLAR ENERGY CORPORATION OF INDIA (SECI)
+        </h1>
+        <div class="_modal_inner">
+            <p class="institutes__description--style">
+                Indian Renewable Energy Development Agency Limited (IREDA) is a Mini Ratna (Category–I) non-banking
+                financial institution under the administrative control of Ministry of New and Renewable Energy (MNRE).
+                IREDA
+                is primarily engaged in promoting, developing and extending financial assistance for setting up projects
+                relating to new and renewable sources of energy and energy efficiency/conservation with the motto
+                'ENERGY
+                FOR EVER'. IREDA is the single largest “Green Financier” in the country. It caters to all technologies
+                of
+                the RE sector and predominantly provides financing for sector.
+            </p>
+            <a href="http://seci.co.in/" target="_blank"
+                class="btn btn-dark institutes__button--style external_link">Visit Now</a>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{{site_url}}/js/home_page.js"></script>
+<script src="https://mib.gov.in/sites/all/themes/mib/js/mib-banner.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.carousel-item:first-child').addClass('active');
+
+        $('._issue_date').each(function () {
+            var date = this.innerHTML;
+            var newDate = date.split(' ').splice(1, 3).join('-')
+            this.innerHTML = newDate;
+        })
+
+        setTimeout(() => {
+            addElement();
+        }, 1000)
+
+    })
+</script>

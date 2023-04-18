@@ -1,0 +1,89 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+</style>
+<section class="section is-large">
+    <div class="container">
+        <div class="title has-text-centered">
+            New Energy Sections
+        </div>
+        <div class="columns is-multiline">
+            {{#each elements}}
+            <div class="column is-6">
+                <div class="card admin_edit">
+                    <header class="card-header">
+                        <div class="card-header-title">
+                            {{this.heading}}
+                        </div>
+                    </header>
+                    <div class="card-content admin_edit_content">
+                        {{#if child}}
+                        <ul class="editPage_section_list">
+                            {{#each this.child}}
+                            <li class="editPage_section_list-item">
+                                <div class="columns">
+                                    <div class="column is-6">
+                                        {{this.heading}}
+                                    </div>
+                                    <div class="column is-6 has-text-right">
+                                        {{#if this.class}}
+                                        <div class="">
+                                            <span class="{{this.class}} edit_button_text">
+                                                Edit
+                                            </span>
+                                        </div>
+                                        {{else}}
+                                        <div>
+                                            <span class="edit_button_text">
+                                                Edit
+                                            </span>
+                                        </div>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+{{#each TENDERS}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+
+<div class="notification" id="dashboardNotification">
+    <p id="notification_message">
+        We are Legion!
+    </p>
+</div>

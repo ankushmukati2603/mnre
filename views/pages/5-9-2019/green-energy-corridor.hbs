@@ -1,0 +1,41 @@
+<div class="container-fluid gcor green_energy_bg">
+    <h1 class="text-center wdet green_energy_bg">Green Energy Corridors</h1>
+
+</div>
+<main class="mt-5 ml-5 mr-5 mb-5">
+    <div class="text-center">
+	<div class="margin_boo">
+        	{{{overview}}}
+	</div>
+    </div>
+    <h1 class="text-center wdet my-4">
+        DOCUMENTS
+    </h1>
+    {{#if articles}}
+        {{#each articles}}
+            <div class="pdf mb-5 mt-5">
+                <div class="row pdf ml-5 mr-5">
+                    <div class="col viewdoc">
+                        <span class="date"></span>
+                        <h4 class="guideh">{{this.title}}</h4>
+                        <p>
+                            {{this.description}}
+                        </p>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="http://10.246.24.71{{this.file.url}}" target="_blank" class="ml-1">
+                            <img class="pdf" src="/img/view-pdf.png" alt="view">
+                        </a>
+                        <a href="http://10.246.24.71{{this.file.url}}" target="_blank" class="ml-1">
+                            <img class="pdf" src="/img/download-pdf.png" alt="download">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    {{else}}
+        <div class="text-center my-4 py-5">
+            No Documents Found
+        </div>
+    {{/if}}
+</main>

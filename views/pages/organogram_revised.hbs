@@ -1,0 +1,1232 @@
+<style>
+    ._organogram_tab {
+        max-width: 1200px;
+    }
+
+    ._organogram_tab li a {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+
+    @media only screen and (min-width:700px) {
+        .ministry_people {
+            padding-left: 70px;
+            padding-right: 70px;
+        }
+    }
+
+    @media only screen and (max-width:1000px) {
+        .official_name {
+            font-size: 2rem
+        }
+    }
+
+    .org__read--more {
+        background-color: lightgrey color: black;
+    }
+
+    /* The Modal (background) */
+    .modal1 {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content1 {
+        background-color: #fefefe;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        width: 60%;
+        /* Could be more or less, depending on screen size */
+        border: 22px solid #bada55;
+    }
+
+    /* The Close Button */
+    .close1 {
+        color: #000;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        position: relative;
+        bottom: 0px;
+        right: 3%;
+        top: 3%;
+    }
+
+    .close1:hover,
+    .close1:focus {
+        color: grey;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .content_organogram {
+        padding: 5%
+    }
+
+    .ministry_official_footer {
+        background: transparent;
+        border-top: none;
+    }
+
+    .margin_boo {
+        font-size: 25px;
+    }
+
+    .desig_tit {
+        font-weight: 300;
+        height: 80px
+    }
+</style>
+
+<div class="_page_head {{head_bg}}">
+    {{#ifCond language 'EN'}}
+    <p class="_heading">{{page_title}}</p>
+    {{else}}
+    <p class="_heading">कौन क्या है</p>
+    {{/ifCond}}
+</div>
+
+<ul class="nav nav-tabs _organogram_tab {{page_color}}" id="myTab" role="tablist">
+    <li class="nav-item">
+        {{#ifCond language 'EN'}}
+        <a class="nav-link active" data-toggle="tab" href="#cabinet" role="tab" aria-controls="cabinet"
+            aria-selected="true">Hon'ble<br />Minister</a>
+        {{else}}
+        <a class="nav-link active" data-toggle="tab" href="#cabinet" role="tab" aria-controls="cabinet"
+            aria-selected="true">Hon'ble<br />Minister</a>
+        {{/ifCond}}
+    </li>
+
+    <li class="nav-item">
+        {{#ifCond language 'EN'}}
+        <a class="nav-link" data-toggle="tab" href="#ministers" role="tab" aria-controls="ministers"
+            aria-selected="true">Hon'ble<br />Minister of State</a>
+        {{else}}
+        <a class="nav-link" data-toggle="tab" href="#ministers" role="tab" aria-controls="ministers"
+            aria-selected="true">माननीय <br /> Minister of State</a>
+        {{/ifCond}}
+    </li>
+    <li class="nav-item">
+        {{#ifCond language 'EN'}}
+        <a class="nav-link" data-toggle="tab" href="#secretary" role="tab" aria-controls="secretary"
+            aria-selected="false">Secretary</a>
+        {{else}}
+        <a class="nav-link" data-toggle="tab" href="#secretary" role="tab" aria-controls="secretary"
+            aria-selected="false">सचिव</a>
+        {{/ifCond}}
+    </li>
+    {{!-- <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#spcse" role="tab" aria-controls="spcse"
+            aria-selected="false">Special<br />Secretary</a>
+    </li> --}}
+    <li class="nav-item">
+        {{#ifCond language 'EN'}}
+        <a class="nav-link" data-toggle="tab" href="#as" role="tab" aria-controls="as"
+            aria-selected="false">Additional<br />Secretary</a>
+        {{else}}
+        <a class="nav-link" data-toggle="tab" href="#as" role="tab" aria-controls="as" aria-selected="false">अपर<br />
+            सचिव</a>
+        {{/ifCond}}
+    </li>
+    <li class="nav-item">
+        {{#ifCond language 'EN'}}
+        <a class="nav-link" data-toggle="tab" href="#js" role="tab" aria-controls="js"
+            aria-selected="false">Joint<br />Secretary</a>
+        {{else}}
+        <a class="nav-link" data-toggle="tab" href="#js" role="tab" aria-controls="js"
+            aria-selected="false">संयुक्त<br /> सचिव</a>
+        {{/ifCond}}
+    </li>
+
+    <li class="nav-item">
+        {{#ifCond language 'EN'}}
+        <a class="nav-link" data-toggle="tab" href="#econimicad" role="tab" aria-controls="econimicad"
+            aria-selected="false">EA/CCA</a>
+        {{else}}
+        <a class="nav-link" data-toggle="tab" href="#econimicad" role="tab" aria-controls="econimicad"
+            aria-selected="false">आर्थिक<br /> सलाहकार</a>
+        {{/ifCond}}
+    </li>
+
+    <li class="nav-item">
+        {{#ifCond language 'EN'}}
+        <a class="nav-link" data-toggle="tab" href="#scientistg" role="tab" aria-controls="scientistg"
+            aria-selected="false">Scientists G</a>
+        {{else}}
+        <a class="nav-link" data-toggle="tab" href="#scientistg" role="tab" aria-controls="scientistg"
+            aria-selected="false">वैज्ञानिक-जी/</a>
+        {{/ifCond}}
+    </li>
+
+    <li class="nav-item">
+        {{#ifCond language 'EN'}}
+        <a class="nav-link" data-toggle="tab" href="#scientistfe" role="tab" aria-controls="scientistfe"
+            aria-selected="false">Scientists F/E/D</a>
+        {{else}}
+        <a class="nav-link" data-toggle="tab" href="#scientistfe" role="tab" aria-controls="scientistfe"
+            aria-selected="false">वैज्ञानिक-एफ/ई/डी </a>
+        {{/ifCond}}
+    </li>
+
+    <li class="nav-item">
+        {{#ifCond language 'EN'}}
+        <a class="nav-link" data-toggle="tab" href="#directorDs" role="tab" aria-controls="directorDs"
+            aria-selected="false">Director/DS</a>
+        {{else}}
+        <a class="nav-link" data-toggle="tab" href="#directorDs" role="tab" aria-controls="directorDs"
+            aria-selected="false">निदेशक/उप सचिव</a>
+        {{/ifCond}}
+    </li>
+
+    <li class="nav-item">
+        {{#ifCond language 'EN'}}
+        <a class="nav-link" data-toggle="tab" href="#scientistCB" role="tab" aria-controls="scientistCB"
+            aria-selected="false">Scientists C/B</a>
+        {{else}}
+        <a class="nav-link" data-toggle="tab" href="#scientistCB" role="tab" aria-controls="scientistCB"
+            aria-selected="false">वैज्ञानिक-सी/बी</a>
+        {{/ifCond}}
+    </li>
+    <li class="nav-item">
+        {{#ifCond language 'EN'}}
+        <a class="nav-link" data-toggle="tab" href="#sectionoff" role="tab" aria-controls="sectionoff"
+            aria-selected="false">US/DD</a>
+        {{else}}
+        <a class="nav-link" data-toggle="tab" href="#sectionoff" role="tab" aria-controls="sectionoff"
+            aria-selected="false">US/DD</a>
+        {{/ifCond}}
+    </li>
+    <li class="nav-item">
+        {{#ifCond language 'EN'}}
+        <a class="nav-link" data-toggle="tab" href="#sectionoffad" role="tab" aria-controls="sectionoffad"
+            aria-selected="false">SO/AD</a>
+        {{else}}
+        <a class="nav-link" data-toggle="tab" href="#sectionoffad" role="tab" aria-controls="sectionoffad"
+            aria-selected="false">SO/AD</a>
+        {{/ifCond}}
+    </li>
+</ul>
+
+<div class="tab-content _organogram_tab_content {{page_color}}">
+
+    <div id="cabinet" class="tab-pane fade show active">
+        {{#each minister}}
+        <div class="_single_minister">
+            <div class="_img">
+                {{#if this.image}}
+                <img class="img" src="https://mnre.gov.in/img/documents{{this.image.url}}" alt="Minister Image">
+                {{/if}}
+            </div>
+            <div class="_description">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{this.designation}}
+                </h5>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div id="ministers" class="tab-pane fade">
+        {{#each mos}}
+        <div class="_single_minister">
+            <div class="_img">
+                {{#if this.image}}
+                <img class="img" src="https://mnre.gov.in/img/documents{{this.image.url}}" alt="Minister Image">
+                {{/if}}
+            </div>
+            <div class="_description">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{this.designation}}
+                </h5>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div id="secretary" class="tab-pane fade">
+        {{#each secretary}}
+        <div class="_single_minister">
+            <div class="_img">
+                {{#if this.image}}
+                <img class="img" src="{{../document_path}}{{this.image.url}}" alt="Minister Image">
+                {{/if}}
+            </div>
+            <div class="_description">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+
+    <div id="spcse" class="tab-pane fade">
+        <div class="_single_minister _multiple">
+            {{#each spcse}}
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div id="as" class="tab-pane fade">
+        {{#ifCond language 'EN'}}
+        <div class="_single_minister _multiple">
+            {{#each as}}
+            {{!-- <div class="col-sm-4 pb-3 ministry_people_single" data-desig="{{this.category}}"> --}}
+                {{!-- <div class="_img">
+                    {{#if this.image}}
+                    <img class="img" src="http://10.246.24.71{{this.image.url}}" alt="Minister Image">
+                    {{/if}}
+                </div> --}}
+                <div class="_description {{this.department}}">
+                    <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                    <hr />
+                    <h5 class="_designation">
+                        {{{this.designation}}}
+                    </h5>
+                    <span class="btn btn-success org__read--more"
+                        onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact details & Work Profile</span>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{else}}
+        <div class="_single_minister _multiple">
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री अनिरुद्ध कुमार</h4>
+                <hr />
+                <h5 class="_designation">
+                    अपर सचिव
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">संपर्क
+                    विववरण और वर्क प्रोफाइल</span>
+            </div>
+        </div>
+    </div>
+    {{/ifCond}}
+
+
+
+    <div id="js" class="tab-pane fade">
+        <div class="_single_minister _multiple">
+            {{#each js}}
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+
+    <div id="scientistg" class="tab-pane fade">
+        <div class="_single_minister _multiple">
+            {{#each scig}}
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+
+    <div id="econimicad" class="tab-pane fade">
+        <div class="_single_minister _multiple">
+            {{#each ecoadv}}
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="_single_minister _multiple">
+            {{#each caaDocs}}
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+
+    <div id="scientistfe" class="tab-pane fade">
+        <div class="_single_minister _multiple">
+            {{#each f}}
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+        <div class="_single_minister _multiple">
+            {{#each e}}
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+        <div class="_single_minister _multiple">
+            {{#each d}}
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+
+    <div id="directorDs" class="tab-pane fade">
+        <div class="_single_minister _multiple">
+            {{#each director}}
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+        <div class="_single_minister _multiple">
+            {{#each ds}}
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+
+    <div id="scientistCB" class="tab-pane fade">
+        <div class="_single_minister _multiple">
+            {{#each c}}
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+        <div class="_single_minister _multiple">
+            {{#each b}}
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+
+
+    <div id="undersec" class="tab-pane fade">
+        <div class="_division_drop_wrap">
+            <select class="_division_drop">
+                <option value="All">All</option>
+                <option value="admin">Administration</option>
+                <option value="solar">Solar</option>
+                <option value="wind">Wind</option>
+                <option value="bio">Bio</option>
+                <option value="hydro">Small Hydro</option>
+                <option value="wasteenergy">Waste To Energy</option>
+                <option value="gec">Green Energy Corridor</option>
+                <option value="newtech">New Technology</option>
+                <option value="r&d">Research And Development</option>
+                <option value="others">Others</option>
+            </select>
+        </div>
+
+
+        {{#ifCond language 'EN'}}
+        <div class="_single_minister _multiple">
+            {{#each under}}
+            {{!-- <div class="col-sm-4 pb-3 ministry_people_single" data-desig="{{this.category}}"> --}}
+                {{!-- <div class="_img">
+                    {{#if this.image}}
+                    <img class="img" src="http://10.246.24.71{{this.image.url}}" alt="Minister Image">
+                    {{/if}}
+                </div> --}}
+                <div class="_description {{this.department}}">
+                    <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                    <hr />
+                    <h5 class="_designation">
+                        {{{this.designation}}}
+                    </h5>
+                    <span class="btn btn-success org__read--more"
+                        onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                        details & Work Profile</span>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{else}}
+
+        <div class="_single_minister _multiple">
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">सुश्री वैशाली शर्मा </h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक बी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('60473e0ca4ff962c93328c33')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री तरुण वलेचा </h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक बी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('60473df7a4ff962c93328c32')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री सचिन मीना </h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक बी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('60473de3a4ff962c93328c31')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री ऋषिकेश वैष्णव </h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक बी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('60473dcfa4ff962c93328c30')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री प्रशांत द्विवेदी </h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक बी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('60473db8a4ff962c93328c2f')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री विकास कुमार उपाध्याय </h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक बी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('60473da6a4ff962c93328c2e')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री आयुष गुप्ता </h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक बी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('60473d6da4ff962c93328c2d')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री अरुण कुमार चौधरी </h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक बी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('60473d50a4ff962c93328c2c')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री आदित्य गंगवार </h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक बी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('60473ce4a4ff962c93328c2b')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री माला राम सोनवाली </h4>
+                <hr />
+                <h5 class="_designation">
+                    उप निदेशक
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5ffc056d1b70f7633edda2c3')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">सुश्री हिमानी मेहता </h4>
+                <hr />
+                <h5 class="_designation">
+                    सहायक निदेशक
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5ffc05491b70f7633edda2c2')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री परमानंद </h4>
+                <hr />
+                <h5 class="_designation">
+                    सहायक निदेशक
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5ff43c6783a7e70b838169c2')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री नंदन सिंह दुगताली </h4>
+                <hr />
+                <h5 class="_designation">
+                    सहायक निदेशक
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5ff43bc383a7e70b838169c1')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री अभिमन्यु कुमार मनीष </h4>
+                <hr />
+                <h5 class="_designation">
+                    उप सचिव
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5fd1d3e483a7e70b83816827')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री किशोर कुमार </h4>
+                <hr />
+                <h5 class="_designation">
+                    उप निदेशक
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5f59cf9d747a4c7b3c02fd2c')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री शिव सुमन </h4>
+                <hr />
+                <h5 class="_designation">
+                    उप निदेशक
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5f59cf79747a4c7b3c02fd2b')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री वीपिन कुमार </h4>
+                <hr />
+                <h5 class="_designation">
+                    उप निदेशक
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5f59cf1d747a4c7b3c02fd2a')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री कैलाश चन्द </h4>
+                <hr />
+                <h5 class="_designation">
+                    उप सचिव
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5db2baf159980907b33f97a7')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री मो. अजमल मंसूरी </h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक बी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5db2ba7e59980907b33f97a6')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री पी वी तरुण साकेत </h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक बी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5db2ba5059980907b33f97a5')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री वेलीवेला श्री साई चैतन्य </h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक बी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5db2b94b59980907b33f97a4')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री आदित्य नारायण प्रजापति </h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक बी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5d9c5c06159b2e5f32086dc1')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री योगिन्द्र सिंह</h4>
+                <hr />
+                <h5 class="_designation">
+                    उप सचिव
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5d9c546f159b2e5f32086dbe')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री एन पी शुक्ला</h4>
+                <hr />
+                <h5 class="_designation">
+                    उप सचिव
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5d9c5386159b2e5f32086dbd')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री डी के पांडे </h4>
+                <hr />
+                <h5 class="_designation">
+                    उप सचिव
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5d9c52b5159b2e5f32086dbc')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">सुश्री सुनीता साजवान</h4>
+                <hr />
+                <h5 class="_designation">
+                    उप सचिव
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5d48119a1ddd3a921b2389d8')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">सुश्री सुनीता धेवाल</h4>
+                <hr />
+                <h5 class="_designation">
+                    उप सचिव
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2ee9af598867b884cd2a')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री देवेन्द्र सिंह</h4>
+                <hr />
+                <h5 class="_designation">
+                    उप सचिव
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2eb4af598867b884cd29')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री के जी सुरेश कुमार</h4>
+                <hr />
+                <h5 class="_designation">
+                    उप सचिव
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2e80af598867b884cd28')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री अरविंद पोखरियाल</h4>
+                <hr />
+                <h5 class="_designation">
+                    उप सचिव
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2e55af598867b884cd27')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री अशोक कुमार सिंह</h4>
+                <hr />
+                <h5 class="_designation">
+                    उप सचिव
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2db2af598867b884cd24')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री संदीप कुमार खुराना</h4>
+                <hr />
+                <h5 class="_designation">
+                    उप सचिव
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2d8caf598867b884cd23')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री अरविंद एमए</h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक सी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2d27af598867b884cd22')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री विजय कुमार भारती</h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक सी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2d0baf598867b884cd21')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">डॉ राहुल रावत</h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक सी
+
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2cecaf598867b884cd20')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री पबित्र मोहन बारिक</h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक सी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2ccdaf598867b884cd1f')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री दीपेश फेरवानी</h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक सी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2ca1af598867b884cd1e')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री विक्रम ढ़ाका</h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक सी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2c7aaf598867b884cd1d')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री अनुभव उप्पल</h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक सी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2c59af598867b884cd1c')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री मनीष सिंह बिष्ट</h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक सी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2c38af598867b884cd1b')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+
+
+
+
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री रोहित ठकवानी</h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक सी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2bf2af598867b884cd19')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री निखिल गक्खर</h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक सी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2bd0af598867b884cd18')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">श्री संजय प्रकाश भगत</h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक सी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2a0aaf598867b884cd0c')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+            <div class="_description {{this.department}}">
+                <h4 class="_title">सुश्री प्रिया</h4>
+                <hr />
+                <h5 class="_designation">
+                    वैज्ञानिक सी
+                </h5>
+                <span class="btn btn-success org__read--more"
+                    onclick="OPEN_ORGANOGRAM_MODAL('5cee2c11af598867b884cd1a')">संपर्क विववरण और वर्क प्रोफाइल</span>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+    {{/ifCond}}
+
+    <div id="sectionoff" class="tab-pane fade">
+        <div class="_single_minister _multiple">
+            {{#each under}}
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+
+
+        <div class="_single_minister _multiple">
+            {{#each deputyDirector}}
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+
+
+    </div>
+
+    <div id="sectionoffad" class="tab-pane fade">
+
+        <div class="_single_minister _multiple">
+            {{#each secoff}}
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+
+
+        <div class="_single_minister _multiple">
+            {{#each ad}}
+            <div class="_description {{this.department}}">
+                <h4 class="_title">{{this.prefix}} {{this.name}}</h4>
+                <hr />
+                <h5 class="_designation">
+                    {{{this.designation}}}
+                </h5>
+                <span class="btn btn-success org__read--more" onclick="OPEN_ORGANOGRAM_MODAL('{{this._id}}')">Contact
+                    details & Work Profile</span>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+<div class="container">
+    <div id="organogram_modal" class="modal1 _organogram_modal">
+        <div class="modal-content1 seci__border">
+            <span class="close1" id="close_organogram_modal"><i class="far fa-times-circle"></i></span>
+            <div class="content_organogram"></div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(document).ready(function () {
+        $('._organogram_tab .nav-item').click(function () {
+            $(`._description`).css('display', 'block');
+            $('._division_drop').val('All').trigger('change');
+        });
+
+        $('._division_drop').on('change', function () {
+            var selectVal = this.value;
+            console.log(`.${selectVal}`);
+            if (selectVal == 'All') {
+                $(`._description`).css('display', 'block');
+            } else {
+                $(`._description`).css('display', 'none');
+                $(`._description.${selectVal}`).css('display', 'block');
+            }
+        });
+    });
+
+    var all_elements = $('.ministry_people_single')
+    const FILTER = function (value) {
+        if (value != "all") {
+            all_elements.hide()
+            $('.ministry_people_single').filter(`[data-desig="${value}"]`).show()
+        } else {
+            all_elements.show()
+        }
+
+    }
+
+    const OPEN_ORGANOGRAM_MODAL = function (id) {
+        axios.get(`/organogram/${id}`).then(response => response.data).catch(error => {
+            console.log(error)
+        }).then(data => {
+            $('.content.organogram').html('')
+            if (data.image) {
+                $('.content_organogram').html(`
+                <div class="_modal_inner organo_modal_image">
+                    <div class="organo_img_wrap">
+                        <img src="http://164.100.77.194/img/documents${data.image.url}">
+                    </div>
+                    <div class="organo_content_wrap">
+                        <h2 class="_name">${data.name}</h4>
+                        <p class="_designation">${data.designation}</p>
+                        <ul>
+                            <li>
+                                <span>Email:</span>
+                                <a id="official_email-${data.id}" href="mailto:${data.email}">
+                                    ${data.email}
+                                </a>
+                            </li>                            
+                            <li>
+                                <span>Office:</span>
+                                <a id="official_off-${data.id}" href="tel:${data.phone_office}">
+                                    ${data.phone_office}
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="_departments">
+                            ${data.programmes}
+                        </div>
+                    </div>
+                </div>
+            `)
+            } else {
+                $('.content_organogram').html(`
+                    <div class="_modal_inner">
+                        <h2 class="_name">${data.name}</h4>
+                        <p class="_designation">${data.designation}</p>
+                        <ul>
+                            <li>
+                                <span>Email:</span>
+                                <a id="official_email-${data.id}" href="mailto:${data.email}">
+                                    ${data.email}
+                                </a>
+                            </li>                            
+                            <li>
+                                <span>Office:</span>
+                                <a id="official_off-${data.id}" href="tel:${data.phone_office}">
+                                    ${data.phone_office}
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="_departments">
+                            ${data.programmes}
+                        </div>
+                    </div>
+            `)
+            }
+
+
+            if (!data.email) { $('.off_email').hide() }
+
+            if (!data.phone_residence) { $('.off_res').hide() }
+
+            if (!data.phone_office) {
+                $('.off_off').hide()
+            }
+
+            if (!data.programmes) {
+                $('.off_prog').hide()
+            }
+
+            modal10.style.display = "block";
+        })
+
+    }
+    // Get the modal
+    var modal10 = document.getElementById('organogram_modal');
+
+    // Get the <span> element that closes the modal
+    var span10 = document.getElementById("close_organogram_modal");
+
+
+    // When the user clicks on <span> (x), close the modal
+    span10.onclick = function () {
+        modal10.style.display = "none"
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal10) {
+            modal10.style.display = "none";
+        }
+    }
+
+    $('.ministry_people_single:lt(2)').removeClass('col-sm-4')
+    $('.ministry_people_single:lt(2)').addClass('col-sm-6')
+
+    $('#wambam').val('all')
+
+</script>

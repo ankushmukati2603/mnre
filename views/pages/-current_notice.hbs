@@ -1,0 +1,98 @@
+<div class="_page_head policies">
+    <p class="_heading">{{page_title}}</p>
+</div>
+
+{{#if overview}}
+<div class="container-fluid px-4">
+    <div class="hdpart">
+        <div class="col-sm-12 mt-3 overview__text">
+            <div class="margin_boo">
+                {{{overview}}}
+            </div>
+        </div>
+
+    </div>
+</div>
+{{/if}}
+<div class="filter">
+    <div class="_policy_wrapper _knowledge_dropdown">
+        <div class="_policy_dropdown">
+			<div class="search-option">
+                <p style="font-family: 'Gotham-Bold'; right: 100px; font-size: 14px; color: #464646; position: absolute; top: 1px; left: 1px; pointer-events: none; margin: 0; background: white; bottom: 1px; padding: 9px 15px; z-index: 10;">{{page_title}}</p>
+				<label for="f184318d184322" class="sr-only">Format</label>
+				<select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+					onChange="window.location.href=this.value" value="window.location.href">
+					<option value="">Select a section</option>
+					<option title="Recent News" value="{{site_url}}/public-information/news">Recent News</option>
+					<option title="Events" value="{{site_url}}/public-information/events">Events</option>
+                    <option title="Current Notice" value="{{site_url}}/public-information/current-notice">Current Notice</option>
+					<option title="Office Orders" value="{{site_url}}/public-information/office-orders">Office Orders & Memorandums
+					</option>
+					<option title="Circulars" value="{{site_url}}/public-information/circulars">Circulars</option>
+					<option title="Notifications" value="{{site_url}}/public-information/notifications">Notifications</option>
+					<option title="Recruitment Rules" value="{{site_url}}/public-information/recrutiment-rules">Recruitment Rules</option>
+					<option title="Citizen Charter" value="{{site_url}}/public-information/citizen-charter">Citizen Charter</option>
+					<option title="designated-authority-and-nodal-officer" value="{{site_url}}/public-information/designated-authority-and-nodal-officer/">Designated Authority and Nodal Officer under (PIDPI)</option>					
+				</select>
+			</div>
+		</div>
+
+        <!-- Accordion -->
+        <div class="_policy_accordion">
+            <div class="accordion" id="accordionExample">
+                {{#if articles}}
+                {{#each articles}}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">                            
+                            <button class="btn btn-link" type="button" data-toggle="collapse"
+                                data-target="#collapse_{{@index}}" aria-expanded="true" aria-controls="collapseOne">
+                                <p class="_issue_date">Date: {{this.issue_date}}</p>
+                                {{this.title}}
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapse_{{@index}}" class="collapse" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                            <p>{{this.description}}</p>
+                            <div class="_pdf_links">
+                                <a target="_blank" href="{{../document_path}}{{this.file.url}}" class="ml-1">
+                                    <img class="pdf" src="{{../site_url}}/img/view-pdf.png" alt="view">
+                                </a>
+                                <a data-href="{{../document_path}}{{this.file.url}}" class="ml-1 download_file">
+                                    <img class="pdf" src="{{../site_url}}/img/download-pdf.png" alt="view">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                {{else}}
+                <div class="col-sm-12">
+                    <h1 class="text-center mt-4">No Documents Found</h1>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+        <!-- Accordion -->
+    </div>
+</div>
+<script>
+    $(document).ready(function(){    
+        $('._issue_date').each(function(){
+          var date = this.innerHTML;
+            var newDate = date.split(' ').slice(2,5);
+            this.innerHTML = `Publish Date: ${newDate[1]+' '+newDate[0]+', '+newDate[2]}`;
+      })        
+    });
+
+    $('.option').not('.option:nth-child(1)').on('click', function (e) {
+        var target = $(e.currentTarget).data('value')
+        if (target == location.pathname) {
+            console.log("currently on the same page")
+        } else {
+            location.href = target
+        }
+    })
+</script>

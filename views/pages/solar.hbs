@@ -1,0 +1,1883 @@
+<style>
+  #chartdiv {
+    width: 90%;
+    height: 600px
+  }
+
+  #chartdiv2 {
+    width: 408px;
+    height: 217px;
+    position: relative;
+    left: -222px;
+    top: -29px;
+    font-size: 12px;
+  }
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/maps.js"></script>
+<script src="//www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+
+<!-- Chart code -->
+<script>
+  //Data
+  var data = [
+    {
+      "State": "Andhra Pradesh",
+      "Potential (GW)": 38,
+      "Target (MW)": 9834,
+      "Installed (MW)": 357.34,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-AP"
+    },
+    {
+      "State": "Andhra Pradesh",
+      "Potential (GW)": 38,
+      "Target (MW)": 9834,
+      "Installed (MW)": 979.65,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-AP"
+    },
+    {
+      "State": "Andhra Pradesh",
+      "Potential (GW)": 38,
+      "Target (MW)": 9834,
+      "Installed (MW)": 2165.21,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-AP"
+    },
+    {
+      "State": "Andhra Pradesh",
+      "Potential (GW)": 38,
+      "Target (MW)": 9834,
+      "Installed (MW)": 2889.29,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-AP"
+    },
+    {
+      "State": "Arunachal Pradesh",
+      "Potential (GW)": 9,
+      "Target (MW)": 39,
+      "Installed (MW)": 0.27,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-AR"
+    },
+    {
+      "State": "Arunachal Pradesh",
+      "Potential (GW)": 9,
+      "Target (MW)": 39,
+      "Installed (MW)": 0.27,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-AR"
+    },
+    {
+      "State": "Arunachal Pradesh",
+      "Potential (GW)": 9,
+      "Target (MW)": 39,
+      "Installed (MW)": 4.39,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-AR"
+    },
+    {
+      "State": "Arunachal Pradesh",
+      "Potential (GW)": 9,
+      "Target (MW)": 39,
+      "Installed (MW)": 5.39,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-AR"
+    },
+    {
+      "State": "Assam",
+      "Potential (GW)": 14,
+      "Target (MW)": 663,
+      "Installed (MW)": 0,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-AS"
+    },
+    {
+      "State": "Assam",
+      "Potential (GW)": 14,
+      "Target (MW)": 663,
+      "Installed (MW)": 11.18,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-AS"
+    },
+    {
+      "State": "Assam",
+      "Potential (GW)": 14,
+      "Target (MW)": 663,
+      "Installed (MW)": 11.78,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-AS"
+    },
+    {
+      "State": "Assam",
+      "Potential (GW)": 14,
+      "Target (MW)": 663,
+      "Installed (MW)": 18.65,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-AS"
+    },
+    {
+      "State": "Bihar",
+      "Potential (GW)": 11,
+      "Target (MW)": 2493,
+      "Installed (MW)": 0,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-BR"
+    },
+    {
+      "State": "Bihar",
+      "Potential (GW)": 11,
+      "Target (MW)": 2493,
+      "Installed (MW)": 95.91,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-BR"
+    },
+    {
+      "State": "Bihar",
+      "Potential (GW)": 11,
+      "Target (MW)": 2493,
+      "Installed (MW)": 141.52,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-BR"
+    },
+    {
+      "State": "Bihar",
+      "Potential (GW)": 11,
+      "Target (MW)": 2493,
+      "Installed (MW)": 142.45,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-BR"
+    },
+    {
+      "State": "Chhattisgarh",
+      "Potential (GW)": 18,
+      "Target (MW)": 1783,
+      "Installed (MW)": 73.58,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-CT"
+    },
+    {
+      "State": "Chhattisgarh",
+      "Potential (GW)": 18,
+      "Target (MW)": 1783,
+      "Installed (MW)": 135.19,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-CT"
+    },
+    {
+      "State": "Chhattisgarh",
+      "Potential (GW)": 18,
+      "Target (MW)": 1783,
+      "Installed (MW)": 179.38,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-CT"
+    },
+    {
+      "State": "Chhattisgarh",
+      "Potential (GW)": 18,
+      "Target (MW)": 1783,
+      "Installed (MW)": 231.35,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-CT"
+    },
+    {
+      "State": "Goa",
+      "Potential (GW)": 1,
+      "Target (MW)": 358,
+      "Installed (MW)": 0,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-GA"
+    },
+    {
+      "State": "Goa",
+      "Potential (GW)": 1,
+      "Target (MW)": 358,
+      "Installed (MW)": 0.05,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-GA"
+    },
+    {
+      "State": "Goa",
+      "Potential (GW)": 1,
+      "Target (MW)": 358,
+      "Installed (MW)": 0.71,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-GA"
+    },
+    {
+      "State": "Goa",
+      "Potential (GW)": 1,
+      "Target (MW)": 358,
+      "Installed (MW)": 1.69,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-GA"
+    },
+    {
+      "State": "Gujarat",
+      "Potential (GW)": 36,
+      "Target (MW)": 8020,
+      "Installed (MW)": 1000.05,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-GJ"
+    },
+    {
+      "State": "Gujarat",
+      "Potential (GW)": 36,
+      "Target (MW)": 8020,
+      "Installed (MW)": 1158.5,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-GJ"
+    },
+    {
+      "State": "Gujarat",
+      "Potential (GW)": 36,
+      "Target (MW)": 8020,
+      "Installed (MW)": 1344.69,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-GJ"
+    },
+    {
+      "State": "Gujarat",
+      "Potential (GW)": 36,
+      "Target (MW)": 8020,
+      "Installed (MW)": 2003.03,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-GJ"
+    },
+    {
+      "State": "Haryana",
+      "Potential (GW)": 5,
+      "Target (MW)": 4142,
+      "Installed (MW)": 12.8,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-HR"
+    },
+    {
+      "State": "Haryana",
+      "Potential (GW)": 5,
+      "Target (MW)": 4142,
+      "Installed (MW)": 53.27,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-HR"
+    },
+    {
+      "State": "Haryana",
+      "Potential (GW)": 5,
+      "Target (MW)": 4142,
+      "Installed (MW)": 203.85,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-HR"
+    },
+    {
+      "State": "Haryana",
+      "Potential (GW)": 5,
+      "Target (MW)": 4142,
+      "Installed (MW)": 219.59,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-HR"
+    },
+    {
+      "State": "Himachal Pradesh",
+      "Potential (GW)": 34,
+      "Target (MW)": 776,
+      "Installed (MW)": 0,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-HP"
+    },
+    {
+      "State": "Himachal Pradesh",
+      "Potential (GW)": 34,
+      "Target (MW)": 776,
+      "Installed (MW)": 0.33,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-HP"
+    },
+    {
+      "State": "Himachal Pradesh",
+      "Potential (GW)": 34,
+      "Target (MW)": 776,
+      "Installed (MW)": 1.48,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-HP"
+    },
+    {
+      "State": "Himachal Pradesh",
+      "Potential (GW)": 34,
+      "Target (MW)": 776,
+      "Installed (MW)": 4.5,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-HP"
+    },
+    {
+      "State": "Jammu & Kashmir",
+      "Potential (GW)": 111,
+      "Target (MW)": 1155,
+      "Installed (MW)": 0,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-JK"
+    },
+    {
+      "State": "Jammu & Kashmir",
+      "Potential (GW)": 111,
+      "Target (MW)": 1155,
+      "Installed (MW)": 1,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-JK"
+    },
+    {
+      "State": "Jammu & Kashmir",
+      "Potential (GW)": 111,
+      "Target (MW)": 1155,
+      "Installed (MW)": 2.36,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-JK"
+    },
+    {
+      "State": "Jammu & Kashmir",
+      "Potential (GW)": 111,
+      "Target (MW)": 1155,
+      "Installed (MW)": 14.38,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-JK"
+    },
+    {
+      "State": "Jharkhand",
+      "Potential (GW)": 18,
+      "Target (MW)": 1995,
+      "Installed (MW)": 16,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-JH"
+    },
+    {
+      "State": "Jharkhand",
+      "Potential (GW)": 18,
+      "Target (MW)": 1995,
+      "Installed (MW)": 17.51,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-JH"
+    },
+    {
+      "State": "Jharkhand",
+      "Potential (GW)": 18,
+      "Target (MW)": 1995,
+      "Installed (MW)": 23.27,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-JH"
+    },
+    {
+      "State": "Jharkhand",
+      "Potential (GW)": 18,
+      "Target (MW)": 1995,
+      "Installed (MW)": 32.41,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-JH"
+    },
+    {
+      "State": "Karnataka",
+      "Potential (GW)": 25,
+      "Target (MW)": 5697,
+      "Installed (MW)": 104.22,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-KA"
+    },
+    {
+      "State": "Karnataka",
+      "Potential (GW)": 25,
+      "Target (MW)": 5697,
+      "Installed (MW)": 327.53,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-KA"
+    },
+    {
+      "State": "Karnataka",
+      "Potential (GW)": 25,
+      "Target (MW)": 5697,
+      "Installed (MW)": 1800.85,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-KA"
+    },
+    {
+      "State": "Karnataka",
+      "Potential (GW)": 25,
+      "Target (MW)": 5697,
+      "Installed (MW)": 5328.81,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-KA"
+    },
+    {
+      "State": "Kerala",
+      "Potential (GW)": 6,
+      "Target (MW)": 1870,
+      "Installed (MW)": 12.025,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-KL"
+    },
+    {
+      "State": "Kerala",
+      "Potential (GW)": 6,
+      "Target (MW)": 1870,
+      "Installed (MW)": 15.86,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-KL"
+    },
+    {
+      "State": "Kerala",
+      "Potential (GW)": 6,
+      "Target (MW)": 1870,
+      "Installed (MW)": 88.2,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-KL"
+    },
+    {
+      "State": "Kerala",
+      "Potential (GW)": 6,
+      "Target (MW)": 1870,
+      "Installed (MW)": 138.49,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-KL"
+    },
+    {
+      "State": "Madhya Pradesh",
+      "Potential (GW)": 62,
+      "Target (MW)": 5675,
+      "Installed (MW)": 673.58,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-MP"
+    },
+    {
+      "State": "Madhya Pradesh",
+      "Potential (GW)": 62,
+      "Target (MW)": 5675,
+      "Installed (MW)": 840.35,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-MP"
+    },
+    {
+      "State": "Madhya Pradesh",
+      "Potential (GW)": 62,
+      "Target (MW)": 5675,
+      "Installed (MW)": 1210.11,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-MP"
+    },
+    {
+      "State": "Madhya Pradesh",
+      "Potential (GW)": 62,
+      "Target (MW)": 5675,
+      "Installed (MW)": 1649.89,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-MP"
+    },
+    {
+      "State": "Maharashtra",
+      "Potential (GW)": 64,
+      "Target (MW)": 11926,
+      "Installed (MW)": 378.7,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-MH"
+    },
+    {
+      "State": "Maharashtra",
+      "Potential (GW)": 64,
+      "Target (MW)": 11926,
+      "Installed (MW)": 430.46,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-MH"
+    },
+    {
+      "State": "Maharashtra",
+      "Potential (GW)": 64,
+      "Target (MW)": 11926,
+      "Installed (MW)": 763.08,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-MH"
+    },
+    {
+      "State": "Maharashtra",
+      "Potential (GW)": 64,
+      "Target (MW)": 11926,
+      "Installed (MW)": 1619.56,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-MH"
+    },
+    {
+      "State": "Manipur",
+      "Potential (GW)": 11,
+      "Target (MW)": 105,
+      "Installed (MW)": 0,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-MN"
+    },
+    {
+      "State": "Manipur",
+      "Potential (GW)": 11,
+      "Target (MW)": 105,
+      "Installed (MW)": 0.01,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-MN"
+    },
+    {
+      "State": "Manipur",
+      "Potential (GW)": 11,
+      "Target (MW)": 105,
+      "Installed (MW)": 1.33,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-MN"
+    },
+    {
+      "State": "Manipur",
+      "Potential (GW)": 11,
+      "Target (MW)": 105,
+      "Installed (MW)": 3.23,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-MN"
+    },
+    {
+      "State": "Meghalaya",
+      "Potential (GW)": 6,
+      "Target (MW)": 161,
+      "Installed (MW)": 0,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-ML"
+    },
+    {
+      "State": "Meghalaya",
+      "Potential (GW)": 6,
+      "Target (MW)": 161,
+      "Installed (MW)": 0.01,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-ML"
+    },
+    {
+      "State": "Meghalaya",
+      "Potential (GW)": 6,
+      "Target (MW)": 161,
+      "Installed (MW)": 0.06,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-ML"
+    },
+    {
+      "State": "Meghalaya",
+      "Potential (GW)": 6,
+      "Target (MW)": 161,
+      "Installed (MW)": 0.12,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-ML"
+    },
+    {
+      "State": "Mizoram",
+      "Potential (GW)": 9,
+      "Target (MW)": 72,
+      "Installed (MW)": 0,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-MZ"
+    },
+    {
+      "State": "Mizoram",
+      "Potential (GW)": 9,
+      "Target (MW)": 72,
+      "Installed (MW)": 0.1,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-MZ"
+    },
+    {
+      "State": "Mizoram",
+      "Potential (GW)": 9,
+      "Target (MW)": 72,
+      "Installed (MW)": 0.2,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-MZ"
+    },
+    {
+      "State": "Mizoram",
+      "Potential (GW)": 9,
+      "Target (MW)": 72,
+      "Installed (MW)": 0.5,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-MZ"
+    },
+    {
+      "State": "Nagaland",
+      "Potential (GW)": 7,
+      "Target (MW)": 61,
+      "Installed (MW)": 0,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-NL"
+    },
+    {
+      "State": "Nagaland",
+      "Potential (GW)": 7,
+      "Target (MW)": 61,
+      "Installed (MW)": 0.5,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-NL"
+    },
+    {
+      "State": "Nagaland",
+      "Potential (GW)": 7,
+      "Target (MW)": 61,
+      "Installed (MW)": 0.5,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-NL"
+    },
+    {
+      "State": "Nagaland",
+      "Potential (GW)": 7,
+      "Target (MW)": 61,
+      "Installed (MW)": 1,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-NL"
+    },
+    {
+      "State": "Odisha",
+      "Potential (GW)": 26,
+      "Target (MW)": 2377,
+      "Installed (MW)": 56.92,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-OR"
+    },
+    {
+      "State": "Odisha",
+      "Potential (GW)": 26,
+      "Target (MW)": 2377,
+      "Installed (MW)": 77.64,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-OR"
+    },
+    {
+      "State": "Odisha",
+      "Potential (GW)": 26,
+      "Target (MW)": 2377,
+      "Installed (MW)": 79.51,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-OR"
+    },
+    {
+      "State": "Odisha",
+      "Potential (GW)": 26,
+      "Target (MW)": 2377,
+      "Installed (MW)": 390.27,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-OR"
+    },
+    {
+      "State": "Punjab",
+      "Potential (GW)": 3,
+      "Target (MW)": 4772,
+      "Installed (MW)": 200.32,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-PB"
+    },
+    {
+      "State": "Punjab",
+      "Potential (GW)": 3,
+      "Target (MW)": 4772,
+      "Installed (MW)": 545.43,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-PB"
+    },
+    {
+      "State": "Punjab",
+      "Potential (GW)": 3,
+      "Target (MW)": 4772,
+      "Installed (MW)": 905.64,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-PB"
+    },
+    {
+      "State": "Punjab",
+      "Potential (GW)": 3,
+      "Target (MW)": 4772,
+      "Installed (MW)": 905.62,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-PB"
+    },
+    {
+      "State": "Rajasthan",
+      "Potential (GW)": 142,
+      "Target (MW)": 5762,
+      "Installed (MW)": 1199.7,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-RJ"
+    },
+    {
+      "State": "Rajasthan",
+      "Potential (GW)": 142,
+      "Target (MW)": 5762,
+      "Installed (MW)": 1317.64,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-RJ"
+    },
+    {
+      "State": "Rajasthan",
+      "Potential (GW)": 142,
+      "Target (MW)": 5762,
+      "Installed (MW)": 2310.46,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-RJ"
+    },
+    {
+      "State": "Rajasthan",
+      "Potential (GW)": 142,
+      "Target (MW)": 5762,
+      "Installed (MW)": 3141.89,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-RJ"
+    },
+    {
+      "State": "Sikkim",
+      "Potential (GW)": 5,
+      "Target (MW)": 36,
+      "Installed (MW)": 0,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-SK"
+    },
+    {
+      "State": "Sikkim",
+      "Potential (GW)": 5,
+      "Target (MW)": 36,
+      "Installed (MW)": 0.01,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-SK"
+    },
+    {
+      "State": "Sikkim",
+      "Potential (GW)": 5,
+      "Target (MW)": 36,
+      "Installed (MW)": 0.01,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-SK"
+    },
+    {
+      "State": "Sikkim",
+      "Potential (GW)": 5,
+      "Target (MW)": 36,
+      "Installed (MW)": 0.01,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-SK"
+    },
+    {
+      "State": "Tamil Nadu",
+      "Potential (GW)": 18,
+      "Target (MW)": 8884,
+      "Installed (MW)": 157.98,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-TN"
+    },
+    {
+      "State": "Tamil Nadu",
+      "Potential (GW)": 18,
+      "Target (MW)": 8884,
+      "Installed (MW)": 1590.97,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-TN"
+    },
+    {
+      "State": "Tamil Nadu",
+      "Potential (GW)": 18,
+      "Target (MW)": 8884,
+      "Installed (MW)": 1819.42,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-TN"
+    },
+    {
+      "State": "Tamil Nadu",
+      "Potential (GW)": 18,
+      "Target (MW)": 8884,
+      "Installed (MW)": 2233.34,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-TN"
+    },
+    {
+      "State": "Telangana",
+      "Potential (GW)": 20,
+      "Target (MW)": "Not Available",
+      "Installed (MW)": 72.25,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-TG"
+    },
+    {
+      "State": "Telangana",
+      "Potential (GW)": 20,
+      "Target (MW)": "Not Available",
+      "Installed (MW)": 973.41,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-TG"
+    },
+    {
+      "State": "Telangana",
+      "Potential (GW)": 20,
+      "Target (MW)": "Not Available",
+      "Installed (MW)": 2990.07,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-TG"
+    },
+    {
+      "State": "Telangana",
+      "Potential (GW)": 20,
+      "Target (MW)": "Not Available",
+      "Installed (MW)": 3583.61,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-TG"
+    },
+    {
+      "State": "Tripura",
+      "Potential (GW)": 2,
+      "Target (MW)": 105,
+      "Installed (MW)": 5,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-TR"
+    },
+    {
+      "State": "Tripura",
+      "Potential (GW)": 2,
+      "Target (MW)": 105,
+      "Installed (MW)": 5.02,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-TR"
+    },
+    {
+      "State": "Tripura",
+      "Potential (GW)": 2,
+      "Target (MW)": 105,
+      "Installed (MW)": 5.09,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-TR"
+    },
+    {
+      "State": "Tripura",
+      "Potential (GW)": 2,
+      "Target (MW)": 105,
+      "Installed (MW)": 5.09,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-TR"
+    },
+    {
+      "State": "Uttar Pradesh",
+      "Potential (GW)": 23,
+      "Target (MW)": 10697,
+      "Installed (MW)": 71.26,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-UP"
+    },
+    {
+      "State": "Uttar Pradesh",
+      "Potential (GW)": 23,
+      "Target (MW)": 10697,
+      "Installed (MW)": 239.26,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-UP"
+    },
+    {
+      "State": "Uttar Pradesh",
+      "Potential (GW)": 23,
+      "Target (MW)": 10697,
+      "Installed (MW)": 550.38,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-UP"
+    },
+    {
+      "State": "Uttar Pradesh",
+      "Potential (GW)": 23,
+      "Target (MW)": 10697,
+      "Installed (MW)": 902.33,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-UP"
+    },
+    {
+      "State": "Uttarakhand",
+      "Potential (GW)": 17,
+      "Target (MW)": 900,
+      "Installed (MW)": 5,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-UT"
+    },
+    {
+      "State": "Uttarakhand",
+      "Potential (GW)": 17,
+      "Target (MW)": 900,
+      "Installed (MW)": 45.1,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-UT"
+    },
+    {
+      "State": "Uttarakhand",
+      "Potential (GW)": 17,
+      "Target (MW)": 900,
+      "Installed (MW)": 246.89,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-UT"
+    },
+    {
+      "State": "Uttarakhand",
+      "Potential (GW)": 17,
+      "Target (MW)": 900,
+      "Installed (MW)": 304.27,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-UT"
+    },
+    {
+      "State": "West Bengal",
+      "Potential (GW)": 6,
+      "Target (MW)": 5336,
+      "Installed (MW)": 7.21,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-WB"
+    },
+    {
+      "State": "West Bengal",
+      "Potential (GW)": 6,
+      "Target (MW)": 5336,
+      "Installed (MW)": 23.07,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-WB"
+    },
+    {
+      "State": "West Bengal",
+      "Potential (GW)": 6,
+      "Target (MW)": 5336,
+      "Installed (MW)": 39.84,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-WB"
+    },
+    {
+      "State": "West Bengal",
+      "Potential (GW)": 6,
+      "Target (MW)": 5336,
+      "Installed (MW)": 69.56,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-WB"
+    },
+    {
+      "State": "Delhi",
+      "Potential (GW)": 2,
+      "Target (MW)": 2762,
+      "Installed (MW)": 6.71,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-DL"
+    },
+    {
+      "State": "Delhi",
+      "Potential (GW)": 2,
+      "Target (MW)": 2762,
+      "Installed (MW)": 38.78,
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-DL"
+    },
+    {
+      "State": "Delhi",
+      "Potential (GW)": 2,
+      "Target (MW)": 2762,
+      "Installed (MW)": 58.02,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-DL"
+    },
+    {
+      "State": "Delhi",
+      "Potential (GW)": 2,
+      "Target (MW)": 2762,
+      "Installed (MW)": 124.21,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-DL"
+    },
+    {
+      "State": "Chandigarh",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 153,
+      "Installed (MW)": 5.04,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-CH"
+    },
+    {
+      "State": "Chandigarh",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 153,
+      "Installed (MW)": "Not Available",
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-CH"
+    },
+    {
+      "State": "Chandigarh",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 153,
+      "Installed (MW)": 18.89,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-CH"
+    },
+    {
+      "State": "Chandigarh",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 153,
+      "Installed (MW)": 32.4,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-CH"
+    },
+    {
+      "State": "Dadar & Nagar Haveli",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 449,
+      "Installed (MW)": 0,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-DN"
+    },
+    {
+      "State": "Dadar & Nagar Haveli",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 449,
+      "Installed (MW)": "Not Available",
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-DN"
+    },
+    {
+      "State": "Dadar & Nagar Haveli",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 449,
+      "Installed (MW)": 2.97,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-DN"
+    },
+    {
+      "State": "Dadar & Nagar Haveli",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 449,
+      "Installed (MW)": 5.46,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-DN"
+    },
+    {
+      "State": "Daman & Diu",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 199,
+      "Installed (MW)": 2.5,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-DD"
+    },
+    {
+      "State": "Daman & Diu",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 199,
+      "Installed (MW)": "Not Available",
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-DD"
+    },
+    {
+      "State": "Daman & Diu",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 199,
+      "Installed (MW)": 10.46,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-DD"
+    },
+    {
+      "State": "Daman & Diu",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 199,
+      "Installed (MW)": 14.47,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-DD"
+    },
+    {
+      "State": "Lakshwadeep",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 4,
+      "Installed (MW)": 0.75,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-LD"
+    },
+    {
+      "State": "Lakshwadeep",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 4,
+      "Installed (MW)": "Not Available",
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-LD"
+    },
+    {
+      "State": "Lakshwadeep",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 4,
+      "Installed (MW)": 0.75,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-LD"
+    },
+    {
+      "State": "Lakshwadeep",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 4,
+      "Installed (MW)": 0.75,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-LD"
+    },
+    {
+      "State": "Puducherry",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 246,
+      "Installed (MW)": 0.025,
+      "Year": 2015,
+      "Energy": "Solar",
+      "CODE": "IN-PY"
+    },
+    {
+      "State": "Puducherry",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 246,
+      "Installed (MW)": "Not Available",
+      "Year": 2016,
+      "Energy": "Solar",
+      "CODE": "IN-PY"
+    },
+    {
+      "State": "Puducherry",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 246,
+      "Installed (MW)": 0.11,
+      "Year": 2017,
+      "Energy": "Solar",
+      "CODE": "IN-PY"
+    },
+    {
+      "State": "Puducherry",
+      "Potential (GW)": "Not Available",
+      "Target (MW)": 246,
+      "Installed (MW)": 1.8,
+      "Year": 2018,
+      "Energy": "Solar",
+      "CODE": "IN-PY"
+    }
+  ]
+
+  var one = data.filter(d => d.Year == '2015')
+  var two = data.filter(d => d.Year == '2016')
+  var three = data.filter(d => d.Year == '2017')
+  var four = data.filter(d => d.Year == '2018')
+  am4core.options.commercialLicense = true;
+  // Themes begin
+  am4core.useTheme(am4themes_animated);
+  // Themes end
+
+  window.onload = function () {
+    $('.image_map_right_first').hide()
+    $('.image_map_right_second').hide()
+    $('.fourth').show()
+
+    var currentMap = 'indiaHigh'
+    var title = ''
+
+    var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+    chart.seriesContainer.draggable = false;
+    chart.seriesContainer.resizable = false;
+
+    chart.maxZoomLevel = 1;
+    // Set map definition
+    chart.geodataSource.url = "https://www.amcharts.com/lib/4/geodata/json/" + currentMap + ".json";
+    chart.geodataSource.events.on("parseended", function (ev) {
+      /*var data = [];
+      for (var i = 0; i < ev.target.data.features.length; i++) {
+          var foundOne = one.find(function (o) {
+              return o.CODE == ev.target.data.features[i].id
+          })
+          if (foundOne) {
+              data.push({
+                  id: ev.target.data.features[i].id,
+                  value: foundOne["Installed (MW)"],
+                  value_2: foundOne["Target (MW)"],
+              })
+          } else {
+              data.push({
+                  id: ev.target.data.features[i].id,
+                  value: "Not Available",
+                  value_2: "Not Available",
+              })
+          }
+
+      }
+      polygonSeries.data = data; */
+      $('.dot:nth-of-type(4)').click()
+      $('.dot:nth-of-type(4) span').css('background', '#96CA3E')
+
+    })
+
+    $('.dot').click(function (e) {
+      var choice = $(e.currentTarget).children('date').text()
+      if (choice == '2015') {
+        $('.image_map_right_first').hide()
+        $('.image_map_right_second').hide()
+        $('.first').show()
+        var data = [];
+        for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+          console.log(chart["_dataSources"].geodata.data.features[i])
+          var foundOne = one.find(function (o) {
+            return o.CODE == chart["_dataSources"].geodata.data.features[i].id
+          })
+          if (foundOne) {
+            data.push({
+              id: chart["_dataSources"].geodata.data.features[i].id,
+              value: foundOne["Installed (MW)"],
+              value_2: foundOne["Target (MW)"],
+            })
+          } else {
+            data.push({
+              id: chart["_dataSources"].geodata.data.features[i].id,
+              value: "Not Available",
+              value_2: "Not Available",
+            })
+          }
+
+        }
+        polygonSeries.data = data;
+      } else if (choice == '2016') {
+        $('.image_map_right_first').hide()
+        $('.image_map_right_second').hide()
+        $('.second').show()
+        var data = [];
+        for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+          var foundOne = two.find(function (o) {
+            return o.CODE == chart["_dataSources"].geodata.data.features[i].id
+          })
+          if (foundOne) {
+            data.push({
+              id: chart["_dataSources"].geodata.data.features[i].id,
+              value: foundOne["Installed (MW)"],
+              value_2: foundOne["Target (MW)"],
+            })
+          } else {
+            data.push({
+              id: chart["_dataSources"].geodata.data.features[i].id,
+              value: "Not Available",
+              value_2: "Not Available",
+            })
+          }
+
+        }
+        polygonSeries.data = data;
+      } else if (choice == '2017') {
+        $('.image_map_right_first').hide()
+        $('.image_map_right_second').hide()
+        $('.third').show()
+        var data = [];
+        for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+          var foundOne = three.find(function (o) {
+            return o.CODE == chart["_dataSources"].geodata.data.features[i].id
+          })
+          if (foundOne) {
+            data.push({
+              id: chart["_dataSources"].geodata.data.features[i].id,
+              value: foundOne["Installed (MW)"],
+              value_2: foundOne["Target (MW)"]
+            })
+          } else {
+            data.push({
+              id: chart["_dataSources"].geodata.data.features[i].id,
+              value: "Not Available",
+              value_2: "Not Available",
+            })
+          }
+
+        }
+        polygonSeries.data = data;
+      } else if (choice == '2018') {
+        $('.image_map_right_first').hide()
+        $('.image_map_right_second').hide()
+        $('.fourth').show()
+        var data = [];
+        for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+          var foundOne = four.find(function (o) {
+            return o.CODE == chart["_dataSources"].geodata.data.features[i].id
+          })
+          if (foundOne) {
+            data.push({
+              id: chart["_dataSources"].geodata.data.features[i].id,
+              value: foundOne["Installed (MW)"],
+              value_2: foundOne["Target (MW)"],
+            })
+          } else {
+            data.push({
+              id: chart["_dataSources"].geodata.data.features[i].id,
+              value: "Not Available",
+              value_2: "Not Available",
+            })
+          }
+
+        }
+        polygonSeries.data = data;
+      }
+    })
+    // Set projection
+    chart.projection = new am4maps.projections.Mercator();
+
+    // Create map polygon series
+    var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+    //Set min/max fill color for each area
+    polygonSeries.heatRules.push({
+      property: "fill",
+      target: polygonSeries.mapPolygons.template,
+      min: chart.colors.getIndex(1).brighten(1),
+      max: chart.colors.getIndex(2).brighten(-0.3)
+    });
+
+    // Make map load polygon data (state shapes and names) from GeoJSON
+    polygonSeries.useGeodata = true;
+
+    // Configure series tooltip
+    var polygonTemplate = polygonSeries.mapPolygons.template;
+
+    polygonTemplate.tooltipText = "{name} \n" +
+      "Total Potential : {value} MW \n" +
+      "Overall Target : {value_2} MW"
+    polygonTemplate.nonScalingStroke = true;
+    polygonTemplate.strokeWidth = 0.5;
+    console.log(polygonTemplate)
+
+    // Create hover state and set alternative fill color
+    var hs = polygonTemplate.states.create("hover");
+    // hs.properties.fill = chart.colors.getIndex(9).brighten(-0.5);
+
+    hs.properties.fill = ("#FFC000")
+
+    //  $('g').click(function () {
+    //    location.href = '/mp'
+    //})
+
+    polygonTemplate.events.on("hit", function (event) {
+      console.log(event)
+    });
+
+    function changeBackgoundofDots() {
+      $('.dot span').css('background', '#fff')
+    }
+
+    $('.dot:nth-of-type(1)').click(function () {
+      var clickedDot = $(this)
+      changeBackgoundofDots()
+      $(clickedDot[0].children[0]).css('background', '#D62031')
+    })
+    $('.dot:nth-of-type(2)').click(function () {
+      var clickedDot = $(this)
+      changeBackgoundofDots()
+      $(clickedDot[0].children[0]).css('background', '#13ABD9')
+    })
+    $('.dot:nth-of-type(3)').click(function () {
+      var clickedDot = $(this)
+      changeBackgoundofDots()
+      $(clickedDot[0].children[0]).css('background', '#D6158A')
+    })
+    $('.dot:nth-of-type(4)').click(function () {
+      var clickedDot = $(this)
+      changeBackgoundofDots()
+      $(clickedDot[0].children[0]).css('background', '#96CA3E')
+    })
+    $('.bd-solar').click(function () {
+      $('.border_orage_tabs').css('border-bottom', '9px #fdbf2c solid')
+    })
+    $('.bd-wind').click(function () {
+      $('.border_orage_tabs').css('border-bottom', '9px #1796cd solid')
+    })
+    $('.bd-bmp').click(function () {
+      $('.border_orage_tabs').css('border-bottom', '9px #3d6325 solid')
+    })
+    $('.bd-gas').click(function () {
+      $('.border_orage_tabs').css('border-bottom', '9px #516a9e solid')
+    })
+    $('.bd-bgp').click(function () {
+      $('.border_orage_tabs').css('border-bottom', '9px #88a339 solid')
+    })
+    $('.bd-hydro').click(function () {
+      $('.border_orage_tabs').css('border-bottom', '9px #179ba3 solid')
+    })
+    $('.bd-we').click(function () {
+      $('.border_orage_tabs').css('border-bottom', '9px #c7721f solid')
+    })
+  };
+
+
+  am4core.ready(function () {
+
+
+
+    // Create chart instance
+    var chart1 = am4core.create("chartdiv2", am4charts.RadarChart);
+
+    // Add data
+    chart1.data = [{
+      "category": "Installed Capacity",
+      "value": 26.02,
+      "full": 749
+    }, {
+      "category": "Overall Target",
+      "value": 99.5,
+      "full": 749
+    }, {
+      "category": "Total Potential",
+      "value": 749,
+      "full": 749
+    }];
+
+    // Make chart not full circle
+    chart1.startAngle = -90;
+    chart1.endAngle = 180;
+    chart1.innerRadius = am4core.percent(20);
+
+    // Set number format
+    chart1.numberFormatter.numberFormat = "#.#";
+
+    // Create axes
+    var categoryAxis = chart1.yAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "category";
+    categoryAxis.renderer.grid.template.location = 0;
+    categoryAxis.renderer.grid.template.strokeOpacity = 0;
+    categoryAxis.renderer.labels.template.horizontalCenter = "right";
+    categoryAxis.renderer.labels.template.fontWeight = 500;
+    categoryAxis.renderer.labels.template.adapter.add("fill", function (fill, target) {
+      return (target.dataItem.index >= 0) ? chart1.colors.getIndex(target.dataItem.index) : fill;
+    });
+    categoryAxis.renderer.minGridDistance = 10;
+
+    var valueAxis = chart1.xAxes.push(new am4charts.ValueAxis());
+    valueAxis.renderer.grid.template.strokeOpacity = 0;
+    valueAxis.min = 0;
+    valueAxis.max = 749;
+    valueAxis.strictMinMax = true;
+
+    // Create series
+    var series1 = chart1.series.push(new am4charts.RadarColumnSeries());
+    series1.dataFields.valueX = "full";
+    series1.dataFields.categoryY = "category";
+    series1.clustered = false;
+    series1.columns.template.fill = new am4core.InterfaceColorSet().getFor("alternativeBackground");
+    series1.columns.template.fillOpacity = 0.08;
+    series1.columns.template.cornerRadiusTopLeft = 20;
+    series1.columns.template.strokeWidth = 0;
+    series1.columns.template.radarColumn.cornerRadius = 20;
+
+    var series2 = chart1.series.push(new am4charts.RadarColumnSeries());
+    series2.dataFields.valueX = "value";
+    series2.dataFields.categoryY = "category";
+    series2.clustered = false;
+    series2.columns.template.strokeWidth = 0;
+    series2.columns.template.tooltipText = "{category}: [bold]{value}[/]";
+    series2.columns.template.radarColumn.cornerRadius = 20;
+
+    series2.columns.template.adapter.add("fill", function (fill, target) {
+      return chart1.colors.getIndex(target.dataItem.index);
+    });
+
+    // Add cursor
+    chart1.cursor = new am4charts.RadarCursor();
+
+  });
+
+
+</script>
+<style>
+  .active_tabs {
+    display: inherit;
+    border-bottom: 9px #fdbf2c solid;
+  }
+
+  h4 {
+    font-size: 14px;
+  }
+</style>
+<div id="carouselExampleFade" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/img/slider-2.jpg" class="d-block w-100" alt="...">
+      <div class="header-text-energies hidden-xs">
+        <div class="col-md-12 text-left">
+
+
+          <span class="engtext">
+            chinnaswamy stadium, chennai
+          </span>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container energies">
+  <div class="d-flex justify-content-center">
+    <div class="active_tabs">
+      <a href="/energy/solar">
+        <div class="p-4  bd-solar">Solar Power</div>
+      </a>
+      <a href="/energy/wind">
+        <div class="p-4  bd-wind">Wind Power</div>
+      </a>
+      <a href="/energy/biogas">
+        <div class="p-4 bd-bmp">Bio Energy</div>
+      </a>
+      <a href="/energy/hydro">
+        <div class="p-4  bd-hydro">Small Hydro</div>
+      </a>
+      <a href="/energy/waste">
+        <div class="p-4 bd-we">Waste to Energy</div>
+      </a>
+      <a href="#">
+        <div class="p-4 bd-bgp">Emerging Technologies</div>
+      </a>
+    </div>
+
+
+  </div>
+</div>
+
+<div class="container newsbg">
+  <h1 class="solar-head ml-4 pt-4">SOLAR POWER</h1>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb pl-4 ml-1" style="background-color:#f2f2f2">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href="/energy/solar">Energies</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Solar</li>
+    </ol>
+  </nav>
+</div>
+
+<div class="container px-5 py-5">
+  <div class="row">
+    <div class="col-sm-8">
+
+      <p>
+        India is endowed with vast solar energy potential. About 5,000 trillion kWh per year energy is
+        incident over India's land area with most parts receiving 4-7 kWh per sq. m per day. The country
+        currently has the fifth highest solar installed capacity in the world with a total installed
+        capacity of 24.33 GW as on October 2018 against a target of 100 GW by 2022. Further, 22.8 GW
+        capacity is under implementation or have been tendered out. Government has revised the target of
+        Grid Connected Solar Power Projects from 20,000 MW by the year 2021-22 to 100,000 MW by the year
+        2021-22 under the National Solar Mission.
+      </p>
+      <p class="checkcaption" style="display:none">no modal boxes?</p>
+      <div class="check" style="display:none">
+        <input type="checkbox" id="switch1" name="switch1" class="switch" checked hidden />
+        <label for="switch1"></label>
+      </div>
+      <div id="timeline">
+        <div class="dot" id="one">
+          <span></span>
+          <date>2015</date>
+        </div>
+        <div class="dot" id="two">
+          <span></span>
+          <date>2016</date>
+        </div>
+        <div class="dot" id="three">
+          <span></span>
+          <date>2017</date>
+        </div>
+        <div class="dot" id="four">
+          <span></span>
+          <date>2018</date>
+        </div>
+        <div class="inside"></div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8">
+            <div id="chartdiv"></div>
+          </div>
+          <div class="col-sm-4">
+            {{!-- <img src="/img/circle0-1.png" class="image_map_right_first first" alt="">
+            <img src="/img/circle-2.png" class="image_map_right_first second" alt="">
+            <img src="/img/circle-3.png" class="image_map_right_first third" alt="">
+            <img src="/img/circle-4.png" class="image_map_right_first fourth" alt=""> --}}
+            <div id="chartdiv2"></div>
+
+            <img src="/img/2015-16.png" class="image_map_right_second first" alt="">
+            <img src="/img/2016-17.png" class="image_map_right_second second" alt="">
+            <img src="/img/2017-18.png" class="image_map_right_second third" alt="">
+            <img src="/img/2018-19.png" class="image_map_right_second fourth" alt="">
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+      <div class="policy px-4 policy__container--width">
+        <div class="card policy__card--background" style="height:450px;width:350px">
+          <div class="card-body">
+            <div class="card-title">
+
+              <h3 class="float-left policy__card--title">Policies to Support Solar</h3>
+              <div class="float-right"><img src="/img/policyrhs_icon.png" alt=""
+                  class="img img-fluid policy__icon--sizing"></div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="card-text">
+              <img src="/img/policycircle.png" alt="" class="img img-fluid policy__image--positioning">
+              <div class="owl-carousel policy__carousel--positioning">
+                <div class="text-center policy__item--text-color">
+                  <h4 data-toggle="modal" data-target="#exampleModal">
+                    Strategic Plan for <br> New and Renewable Energy</h4>
+                  {{!-- <p class="policy__item-description--positioning">Encourages participation of private
+                    sector to
+                    set up solar power based projects
+                    in the state</p> --}}
+                  <p class="mt-3"><i class="fas fa-angle-double-right policy__item-icon--font"></i>
+                  </p>
+                </div>
+                <div class="text-center policy__item--text-color">
+                  <h4 data-toggle="modal" data-target="#exampleModal">National Solar Mission</h4>
+                  {{!-- <p class="policy__item-description--positioning">Encourages participation of private
+                    sector to
+                    set up solar power based projects
+                    in the state</p> --}}
+                  <p class="mt-3"><i class="fas fa-angle-double-right policy__item-icon--font"></i>
+                  </p>
+                </div>
+                <div class="text-center policy__item--text-color">
+                  <h4 data-toggle="modal" data-target="#exampleModal">SAUBHAGYA</h4>
+                  {{!-- <p class="policy__item-description--positioning">Encourages participation of private
+                    sector to
+                    set up solar power based projects
+                    in the state</p> --}}
+                  <p class="mt-3"><i class="fas fa-angle-double-right policy__item-icon--font"></i>
+                  </p>
+                </div>
+                <div class="text-center policy__item--text-color">
+                  <h4 data-toggle="modal" data-target="#exampleModal">National Tariff Policy</h4>
+                  {{!-- <p class="policy__item-description--positioning">Encourages participation of private
+                    sector to
+                    set up solar power based projects
+                    in the state</p> --}}
+                  <p class="mt-3"><i class="fas fa-angle-double-right policy__item-icon--font"></i>
+                  </p>
+                </div>
+                <div class="text-center policy__item--text-color">
+                  <h4 data-toggle="modal" data-target="#exampleModal">National Electricity Plan</h4>
+                  {{!-- <p class="policy__item-description--positioning">Encourages participation of private
+                    sector to
+                    set up solar power based projects
+                    in the state</p> --}}
+                  <p class="mt-3"><i class="fas fa-angle-double-right policy__item-icon--font"></i>
+                  </p>
+                </div>
+                <div class="text-center policy__item--text-color">
+                  <h4 data-toggle="modal" data-target="#exampleModal">KUSUM Scheme</h4>
+                  {{!-- <p class="policy__item-description--positioning">Encourages participation of private
+                    sector to
+                    set up solar power based projects
+                    in the state</p> --}}
+                  <p class="mt-3"><i class="fas fa-angle-double-right policy__item-icon--font"></i>
+                  </p>
+                </div>
+                <div class="text-center policy__item--text-color">
+                  <h4 data-toggle="modal" data-target="#exampleModal">Safeguard Duty on <br> Imports</h4>
+                  {{!-- <p class="policy__item-description--positioning">Encourages participation of private
+                    sector to
+                    set up solar power based projects
+                    in the state</p> --}}
+                  <p class="mt-3"><i class="fas fa-angle-double-right policy__item-icon--font"></i>
+                  </p>
+                </div>
+              </div>
+              <div class="text-center policy__item--text-color">
+                <h4 data-toggle="modal" data-target="#exampleModal">National Wind-Solar <br> Hybrid Policy </h4>
+                {{!-- <p class="policy__item-description--positioning">Encourages participation of private
+                    sector to
+                    set up solar power based projects
+                    in the state</p> --}}
+                <p class="mt-3"><i class="fas fa-angle-double-right policy__item-icon--font"></i>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="otherdiv policy__division--positioning">
+      <div class="hdiv">
+        <h2 class="purple-head" style="line-height:1">Other Links</h2>
+      </div>
+      <div class="box_content px-3 py-2 pt-5">
+        <ol class="rounded-list">
+          <li>
+            <ol>
+              <li><a href="#" target="_blank">Grid Connected Power</a></li>
+              <li><a href="#" target="_blank">Off Grid </a></li>
+              <li><a href="#" target="_blank">Decentralized System </a></li>
+              <li><a href="#" target="_blank">Scheme</a></li>
+              <li><a href="#" target="_blank">R&D</a></li>
+              <li><a href="#" target="_blank">Standard and Quality</a></li>
+              <li><a href="#" target="_blank">Solar Green Cities</a></li>
+              <li><a href="#" target="_blank">Case Study</a></li>
+              <li><a href="#" target="_blank">Videos</a></li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 mb-5">
+      <img src="/img/nsm.png" width="100%" height:"100%">
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+
+    <div class="modal-content">
+      <div class="modal-body mt-2">
+        The International Energy Agency (IEA) forecasts that world primary energy
+        demand between now and 2030 will increase by 1.5% per year from just over 12,000
+        million tonnes of oil equivalent (Mtoe) to 16,800 Mtoe- an overall increase of 40%.
+        Developing Asian countries are the main drivers of this growth, followed by Middle
+        East.<br><br>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

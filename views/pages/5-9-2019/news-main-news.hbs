@@ -1,0 +1,73 @@
+<div class="container-fluid wde policies">
+	<h1 class="text-center wdet policies" style="padding-bottom: 0;">Recent News</h1>
+</div>
+
+{{#if overview}}
+<div class="container-fluid">
+	<div class="hdpart">
+		<div class="col-sm-12 mt-3 newsmtext">
+			<div class="margin_boo">
+				{{{overview}}}
+			</div>
+		</div>
+
+	</div>
+</div>
+{{/if}}
+<div id="carouselExampleFade" class="carousel slide mobile" data-ride="carousel">
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img src="/img/mobile-mobile-news-banner.jpg" class="d-block w-100" alt="...">
+		</div>
+	</div>
+</div>
+
+
+<div class="filter mt-5 mb-5">
+	<div class="row filter-bc _policy_dropdown">
+		<div class="col">
+			<div class="search-option">
+				<label for="f184318d184322" class="sr-only">Format</label>
+				<select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+					onChange="window.location.href=this.value">
+					<option title="solar" value="/media-center/news">Recent News</option>
+					<option title="solar" value="/media-center/speeches-and-visits">Speeches & Visits</option>
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{{!-- NEWS SECTION START --}}
+
+<div class="news_block media_section">
+
+	<div class="container">
+		<div class="article">
+			<div class="row grp pb-4 px-5">
+				
+				{{#each articles}}
+				<div class="col-sm-4 mt-5">
+					<div class="project">
+						<div class="_news_image">
+							{{#if this.thumbnail.url}}
+							<img src="http://10.246.24.71{{this.thumbnail.url}}" width="100%">
+							{{else}}
+							<img src="/img/news5.jpg" width="100%">
+							{{/if}}
+						</div>
+						<p class="mt-2 projects">{{this.title}}</p>
+						<a href="/news/{{this._id}}" class="mt-3 news_link">Read More &nbsp;&nbsp;<i
+								class="fas fa-arrow-circle-right"></i></a>
+					</div>
+				</div>
+				{{/each}}
+
+
+			</div>
+		</div>
+		
+	</div>
+</div>
+{{!-- NEWS SECTION END --}}

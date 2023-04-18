@@ -1,0 +1,238 @@
+<div class="container-fluid policies">
+  <h1 class="text-center wdet">Policies and Guidelines</h1>
+
+</div>
+<div class="main gutter">
+
+  <div class="filter mt-5 mb-4">
+    <div class="row filter-bc">
+      <div class="col">
+        <div class="search-option">
+
+          <label for="f184318d184322" class="sr-only">Format</label>
+          <select title="Format" id="f184318d184322d" name="documentType_" class="form-control"
+            onChange="window.location.href=this.value">
+            <option title="solar" value="/knowledge-center/training">All Sections</option>
+            <option title="solar" value="/public-information/result-framework-document">RFD</option>
+            <option title="solar" value="/public-information/policies-and-guidelines">Policies</option>
+            <option title="solar" value="/public-information/presentations">Presentations</option>
+            <option title="solar" value="/public-information/advertisements">Advertisements</option>
+            <option title="solar" value="/public-information/events">Events</option>
+            <option title="solar" value="/public-information/reports">Reports</option>
+            <option title="solar" value="/public-information/circulars">Circulars</option>
+            <option title="solar" value="/public-information/notifications">Notifications</option>
+            <option title="solar" value="/public-information/accounts">Accounts</option>
+            <option title="solar" value="/public-information/supporting-programme">Supporting Programme</option>
+            <option title="solar" value="/public-information/designated-authority-and-nodal-officer">Designated
+              Authority and Nodal Officer under (PIDPI)</option>
+            <option title="solar" value="/public-information/compendium">Compendium of Regulations and Policies on RE
+            </option>
+          </select>
+        </div>
+
+
+      </div>
+      <div class="col">
+        <div class="search-option">
+
+          <label for="" class="sr-only">Format</label>
+          <select title="Format" id="f184318d184322w" name="documentType_" class="form-control"
+            onChange="window.location.href=this.value">
+            <option title="solar" value="">All Energies</option>
+            <option title="energy-policy" value="/Solar/policy-and-guidelines">Solar</option>
+            <option title="energy-policy" value="/Wind/policy-and-guidelines">Wind</option>
+            <option title="popularity" value="/Small Hydro/policy-and-guidelines">Small Hydro</option>
+            <option title="popularity" value="/Waste To Energy/policy-and-guidelines">Waste to Energy</option>
+            <option title="popularity" value="/Bio Energy/policy-and-guidelines">Bio Energy</option>
+          </select>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<!-- Resources -->
+<script src="/js/amcharts/core.js"></script>
+<script src="/js/amcharts/charts.js"></script>
+<script src="/js/amcharts/forceDirected.js"></script>
+<script src="/js/amcharts/animated.js"></script>
+
+<!-- Chart code -->
+<script>
+  am4core.ready(function () {
+am4core.options.commercialLicense = true;
+
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+
+
+
+    var chart = am4core.create("chartdiv7", am4plugins_forceDirected.ForceDirectedTree);
+    chart.legend = new am4charts.Legend();
+
+    var networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
+
+    axios.get(`http://10.246.24.71/policydocuments`).then(response => response.data).catch(error => {
+      console.log(error)
+    }).then(wata => {
+      console.log(wata)
+      var sampleDataArray = [{
+        name: "Solar Energy",
+        value: 5,
+        collapsed: true,
+        children: [],
+        url: '/Solar/policy-and-guidelines'
+      }, {
+        name: "Wind Energy",
+        value: 5,
+        collapsed: true,
+        children: [],
+        url: '/Wind Energy/policy-and-guidelines'
+      }, {
+        name: "Small Hydro",
+        value: 5,
+        collapsed: true,
+        children: [],
+        url: '/Small Hydro/policy-and-guidelines'
+      }, {
+        name: "Waste To Energy",
+        value: 5,
+        collapsed: true,
+        children: [],
+        url: '/Waste To Energy/policy-and-guidelines'
+      }, {
+        name: "Bio Energy",
+        value: 5,
+        collapsed: true,
+        children: [],
+        url: '/Bio Energy/policy-and-guidelines'
+      }]
+      var solar = wata.filter(w => w.solar == true)
+      solar.forEach(s => {
+        sampleDataArray[0].children.push({
+          name: s.title,
+          url: `/policy/${s._id}`,
+          value: 3
+        })
+      })
+      var wind = wata.filter(w => w.wind == true)
+      wind.forEach(s => {
+        sampleDataArray[1].children.push({
+          name: s.title,
+          url: `/policy/${s._id}`,
+          value: 3
+        })
+      })
+      var small_hydro = wata.filter(w => w.small_hydro == true)
+      small_hydro.forEach(s => {
+        sampleDataArray[2].children.push({
+          name: s.title,
+          url: `/policy/${s._id}`,
+          value: 3
+        })
+      })
+      var waste = wata.filter(w => w.waste == true)
+      waste.forEach(s => {
+        sampleDataArray[3].children.push({
+          name: s.title,
+          url: `/policy/${s._id}`,
+          value: 3
+        })
+      })
+      var bio = wata.filter(w => w.bio_energy == true)
+      bio.forEach(s => {
+        sampleDataArray[4].children.push({
+          name: s.title,
+          url: `/policy/${s._id}`,
+          value: 3
+        })
+      })
+      console.log(sampleDataArray)
+      networkSeries.data = sampleDataArray
+      console.log(networkSeries)
+    })
+
+
+
+    networkSeries.dataFields.linkWith = "linkWith";
+    networkSeries.dataFields.name = "name";
+    networkSeries.dataFields.id = "name";
+    networkSeries.dataFields.value = "value";
+    networkSeries.dataFields.children = "children";
+    networkSeries.dataFields.collapsed = "collapsed";
+
+    networkSeries.nodes.template.tooltipHTML = `<b>{name}</b><br><a style="color: white" href="{url}">More info</a>`;
+    networkSeries.nodes.template.fillOpacity = 1;
+
+    networkSeries.tooltip.pointerOrientation = "vertical";
+    networkSeries.tooltip.label.interactionsEnabled = true;
+    networkSeries.tooltip.keepTargetHover = true;
+    //networkSeries.nodes.template.tooltipHTML = '<b>{name}</b><br><a href="{url}">More info</a>';
+
+    networkSeries.nodes.template.label.text = "{name}"
+    networkSeries.fontSize = 12;
+    networkSeries.maxLevels = 3;
+    networkSeries.maxRadius = am4core.percent(5);
+    networkSeries.manyBodyStrength = -20;
+    networkSeries.nodes.template.label.hideOversized = true;
+    networkSeries.nodes.template.label.truncate = true;
+
+    chart.cursor = new am4charts.XYCursor();
+    console.log(chart.cursor)
+
+  }); // end am4core.ready() 
+</script>
+
+<!-- HTML -->
+<div id="chartdiv7"></div>
+
+{{#if articles}}
+<h1 class="text-center py-5">
+  Documents
+</h1>
+<div class="pdf-view pb-5">
+  {{#each articles}}
+  <div class="row pdf ml-5 mr-5 mt-5" >
+    <div class="col viewdoc">
+      {{#if this.issue_date}}
+      {{#if this.submission_date}}
+      <span class="date"><span class="issue_date">{{this.issue_date}}</span> - {{this.submission_date}}</span>
+      {{else}}
+      <span class="date"><span class="issue_date">{{this.issue_date}}</span></span>
+      {{/if}}
+      {{/if}}
+      <span class="date">&nbsp;</span>
+      <h4 class="guideh">{{this.title}}</h4>
+    </div>
+    <div class="col-sm-3">
+      <a target="_blank" href="http://10.246.24.71{{this.file.url}}" class="ml-1">
+        <img class="pdf" src="/img/view-pdf.png" alt="view">
+      </a>
+      <a data-href="http://10.246.24.71{{this.file.url}}" data-file="{{title}}" class="ml-1 download_file">
+        <img class="pdf" src="/img/download-pdf.png" alt="view">
+      </a>
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{/if}}
+
+<script>
+  $('.option').not('.option:nth-child(1)').on('click', function (e) {
+    var target = $(e.currentTarget).data('value')
+    if (target == location.pathname) {
+      console.log("currently on the same page")
+    } else {
+      location.href = target
+    }
+  })
+
+  
+</script>

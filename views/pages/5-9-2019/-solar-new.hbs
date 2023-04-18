@@ -1,0 +1,558 @@
+<style>
+    .pane_image_solar {
+        height: 330px
+    }
+</style>
+
+
+<!-- Chart code -->
+<script>
+    //Data
+    var data = solarData
+    var one = data.filter(d => d.Year == '2016')
+    var two = data.filter(d => d.Year == '2017')
+    var three = data.filter(d => d.Year == '2018')
+    var four = data.filter(d => d.Year == '2019')
+    am4core.options.commercialLicense = true;
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+
+    window.onload = function () {
+
+
+        $('.bd-solar').click(function () {
+            $('.border_orage_tabs').css('border-bottom', '9px #fdbf2c solid')
+        })
+        $('.bd-wind').click(function () {
+            $('.border_orage_tabs').css('border-bottom', '9px #1796cd solid')
+        })
+        $('.bd-bmp').click(function () {
+            $('.border_orage_tabs').css('border-bottom', '9px #3d6325 solid')
+        })
+        $('.bd-gas').click(function () {
+            $('.border_orage_tabs').css('border-bottom', '9px #516a9e solid')
+        })
+        $('.bd-bgp').click(function () {
+            $('.border_orage_tabs').css('border-bottom', '9px #88a339 solid')
+        })
+        $('.bd-hydro').click(function () {
+            $('.border_orage_tabs').css('border-bottom', '9px #179ba3 solid')
+        })
+        $('.bd-we').click(function () {
+            $('.border_orage_tabs').css('border-bottom', '9px #c7721f solid')
+        })
+    };
+
+
+    am4core.ready(function () {
+        am4core.options.commercialLicense = true;
+
+        $('.image_map_right_first').hide()
+        $('.image_map_right_second').hide()
+        $('.fourth').show()
+
+        var currentMap = 'indiaHigh'
+        var title = ''
+
+        var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+        chart.seriesContainer.draggable = false;
+        chart.seriesContainer.resizable = false;
+        chart.chartContainer.wheelable = false;
+
+        chart.maxZoomLevel = 1;
+
+        // Set map definition
+        chart.geodataSource.url = "/data/" + currentMap + ".json";
+        chart.geodataSource.events.on("parseended", function (ev) {
+            /*var data = [];
+            for (var i = 0; i < ev.target.data.features.length; i++) {
+                var foundOne = one.find(function (o) {
+                    return o.CODE == ev.target.data.features[i].id
+                })
+                if (foundOne) {
+                    data.push({
+                        id: ev.target.data.features[i].id,
+                        value: foundOne["Installed (MW)"],
+                        value_2: foundOne["Target (MW)"],
+                    })
+                } else {
+                    data.push({
+                        id: ev.target.data.features[i].id,
+                        value: "Not Available",
+                        value_2: "Not Available",
+                    })
+                }
+      
+            }
+            polygonSeries.data = data; */
+            $('.timeline:nth-of-type(1)').click()
+
+        })
+
+        $('.timeline').click(function (e) {
+            var choice = $(e.currentTarget).children('.timeline-content').children('.timeline-year').text();
+            document.querySelector('._select_year span').textContent = 'As on 31st March ' + choice;
+            if (choice == '2016') {
+                $('.image_map_right_first').hide()
+                $('.image_map_right_second').hide()
+                $('.first').show()
+                var data = [];
+                for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+                    console.log(chart["_dataSources"].geodata.data.features[i])
+                    var foundOne = one.find(function (o) {
+                        return o.CODE == chart["_dataSources"].geodata.data.features[i].id
+                    })
+                    if (foundOne) {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: foundOne["Installed (MW)"],
+                        })
+                    } else {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: "Not Available",
+                            value_2: "Not Available",
+                        })
+                    }
+
+                }
+                polygonSeries.data = data;
+            } else if (choice == '2017') {
+                $('.image_map_right_first').hide()
+                $('.image_map_right_second').hide()
+                $('.second').show()
+                var data = [];
+                for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+                    var foundOne = two.find(function (o) {
+                        return o.CODE == chart["_dataSources"].geodata.data.features[i].id
+                    })
+                    if (foundOne) {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: foundOne["Installed (MW)"],
+                        })
+                    } else {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: "Not Available",
+                            value_2: "Not Available",
+                        })
+                    }
+
+                }
+                polygonSeries.data = data;
+            } else if (choice == '2018') {
+                $('.image_map_right_first').hide()
+                $('.image_map_right_second').hide()
+                $('.third').show()
+                var data = [];
+                for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+                    var foundOne = three.find(function (o) {
+                        return o.CODE == chart["_dataSources"].geodata.data.features[i].id
+                    })
+                    if (foundOne) {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: foundOne["Installed (MW)"]
+                        })
+                    } else {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: "Not Available",
+                            value_2: "Not Available",
+                        })
+                    }
+
+                }
+                polygonSeries.data = data;
+            } else if (choice == '2019') {
+                $('.image_map_right_first').hide()
+                $('.image_map_right_second').hide()
+                $('.fourth').show()
+                var data = [];
+                for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+                    var foundOne = four.find(function (o) {
+                        return o.CODE == chart["_dataSources"].geodata.data.features[i].id
+                    })
+                    if (foundOne) {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: foundOne["Installed (MW)"]
+                        })
+                    } else {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: "Not Available",
+                            value_2: "Not Available",
+                        })
+                    }
+
+                }
+                polygonSeries.data = data;
+            }
+        })
+        // Set projection
+        chart.projection = new am4maps.projections.Mercator();
+
+        // Create map polygon series
+        var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+        //Set min/max fill color for each area
+        polygonSeries.heatRules.push({
+            property: "fill",
+            target: polygonSeries.mapPolygons.template,
+            min: chart.colors.getIndex(1).brighten(1),
+            max: chart.colors.getIndex(2).brighten(-0.3)
+        });
+
+        // Make map load polygon data (state shapes and names) from GeoJSON
+        polygonSeries.useGeodata = true;
+
+        // Configure series tooltip
+        var polygonTemplate = polygonSeries.mapPolygons.template;
+
+        polygonTemplate.tooltipText = "{name} \n" +
+            "Installed Capacity : {value} MW \n"
+        polygonTemplate.nonScalingStroke = true;
+        polygonTemplate.strokeWidth = 0.5;
+        console.log(polygonTemplate)
+
+        // Create hover state and set alternative fill color
+        var hs = polygonTemplate.states.create("hover");
+        // hs.properties.fill = chart.colors.getIndex(9).brighten(-0.5);
+
+        hs.properties.fill = ("#FFC000")
+
+        //  $('g').click(function () {
+        //    location.href = '/mp'
+        //})
+
+        polygonTemplate.events.on("hit", function (event) {
+            console.log(event)
+        });
+
+        // Create chart instance
+        var chart1 = am4core.create("chartdiv2", am4charts.RadarChart);
+
+        // Add data
+        chart1.data = [{
+            "category": "Installed Capacity",
+            "value": 26.02,
+            "full": 100
+        }, {
+            "category": "Overall Target",
+            "value": 99.5,
+            "full": 100
+        }];
+
+        // Make chart not full circle
+        chart1.startAngle = -90;
+        chart1.endAngle = 180;
+        chart1.innerRadius = am4core.percent(20);
+
+        // Set number format
+        chart1.numberFormatter.numberFormat = "#.#";
+
+        // Create axes
+        var categoryAxis = chart1.yAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "category";
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.grid.template.strokeOpacity = 0;
+        categoryAxis.renderer.labels.template.horizontalCenter = "right";
+        categoryAxis.renderer.labels.template.fontWeight = 500;
+        categoryAxis.renderer.labels.template.adapter.add("fill", function (fill, target) {
+            return (target.dataItem.index >= 0) ? chart1.colors.getIndex(target.dataItem.index) : fill;
+        });
+        categoryAxis.renderer.minGridDistance = 10;
+
+        var valueAxis = chart1.xAxes.push(new am4charts.ValueAxis());
+        valueAxis.renderer.grid.template.strokeOpacity = 0;
+        valueAxis.min = 0;
+        valueAxis.max = 100;
+        valueAxis.strictMinMax = true;
+
+        // Create series
+        var series1 = chart1.series.push(new am4charts.RadarColumnSeries());
+        series1.dataFields.valueX = "full";
+        series1.dataFields.categoryY = "category";
+        series1.clustered = false;
+        series1.columns.template.fill = new am4core.InterfaceColorSet().getFor("alternativeBackground");
+        series1.columns.template.fillOpacity = 0.08;
+        series1.columns.template.cornerRadiusTopLeft = 20;
+        series1.columns.template.strokeWidth = 0;
+        series1.columns.template.radarColumn.cornerRadius = 20;
+
+        var series2 = chart1.series.push(new am4charts.RadarColumnSeries());
+        series2.dataFields.valueX = "value";
+        series2.dataFields.categoryY = "category";
+        series2.clustered = false;
+        series2.columns.template.strokeWidth = 0;
+        series2.columns.template.tooltipText = "{category}: [bold]{value}[/]";
+        series2.columns.template.radarColumn.cornerRadius = 20;
+
+        series2.columns.template.adapter.add("fill", function (fill, target) {
+            return chart1.colors.getIndex(target.dataItem.index);
+        });
+
+        // Add cursor
+        chart1.cursor = new am4charts.RadarCursor();
+
+    });
+
+</script>
+<style>
+    .energy_link {
+        color: black;
+        text-decoration: none;
+    }
+
+    .energy_link:hover {
+        color: black;
+        text-decoration: underline;
+        transition: 0.9ms ease-in;
+    }
+
+    .summary__energy {
+        height: 55px;
+    }
+</style>
+<div class="container wde {{banner_background}}">
+    <h1 class="text-center wdet {{banner_background}}">
+        {{page_title}}
+    </h1>
+</div>
+<main class="mr-5 ml-5">
+    <div class="hdpart">
+        <div class="col-sm-12 mt-3">
+            <h2 class="energtext text-center">Overview</h2>
+            <div class="margin_boo">
+                {{{CURRENT_STATUS}}}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="graph-top">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-sm-6">
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col timem">
+            <div class="main-timeline">
+                <div class="timeline" id="one">
+                    <div class="timeline-content">
+
+                        <div class="timeline-year">2019</div>
+                        <div class="inner-content">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline" id="two">
+                    <div class="timeline-content">
+
+                        <div class="timeline-year">2018</div>
+                        <div class="inner-content">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline" id="three">
+                    <div class="timeline-content">
+
+                        <div class="timeline-year">2017</div>
+                        <div class="inner-content">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline" id="four">
+                    <div class="timeline-content">
+
+                        <div class="timeline-year">2016</div>
+                        <div class="inner-content">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div id="chartdiv"></div>
+            <p class="_select_year"><span></span></p>
+        </div>
+
+        <div class="col-sm-4 desktop">
+
+            <div id="chartdiv2"></div>
+
+            {{#if graph_two}}
+            <div class="testdt">
+                <img src="/img/2015-16.png" class="image_map_right_second first" alt="">
+                <img src="/img/2016-17.png" class="image_map_right_second second" alt="">
+                <img src="/img/2017-18.png" class="image_map_right_second third" alt="">
+                <img src="/img/2018-19.png" class="image_map_right_second fourth" alt="">
+            </div>
+            {{/if}}
+        </div>
+
+
+    </div>
+    <div class="mobile-circle mobile">
+        <div class="row">
+            <div class="col">
+
+                <div id="chartdiv3"></div>
+
+            </div>
+
+            <div class="col">
+                {{#if graph_two}}
+                <div class="testdt">
+                    <img src="/img/2015-16.png" class="image_map_right_second first" alt="">
+                    <img src="/img/2016-17.png" class="image_map_right_second second" alt="">
+                    <img src="/img/2017-18.png" class="image_map_right_second third" alt="">
+                    <img src="/img/2018-19.png" class="image_map_right_second fourth" alt="">
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    {{#if panel}}
+    <div class="">
+        <div class="card-deck">
+            <div class="card">
+                <div class="card-img-top">
+                    <img src="/img/solar/solar_offgrid.jpg" class="card-img-top" alt="...">
+                </div>
+
+                <div class="card-body" style="padding-left:0">
+                    <h5 class="card-title">Off-Grid</h5>
+                    <!-- <p class="card-text">{{CARD_ONE.SUMMARY}}</p> -->
+                    <a href="/solar/solar-offgrid" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-top">
+                    <img src="/img/solar/solar_ongrid.jpg" class="card-img-top" alt="...">
+                </div>
+
+                <div class="card-body" style="padding-left:0">
+                    <h5 class="card-title">Grid Connected</h5>
+                    <!-- <p class="card-text">{{CARD_TWO.SUMMARY}}</p> -->
+                    <a href="/solar/solar-ongrid" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    <div class="thboxes">
+        <div class="row">
+            <div class="col-sm-4 mt-5">
+                <h2 class="polwindt">{{PANE_ONE_TITLE}}</h2>
+                <div class="polwind">
+                    <img class="pane_image_solar" src="{{PANE_ONE_IMAGE}}" width="100%">
+                    <p class="text-center mt-2 summary__energy">
+                        {{{PANE_ONE_SUMMARY}}}
+                    </p>
+                    <p class="text-center mt-2"><a class="energy_link" href="{{PANE_ONE_LINK}}">View
+                            all</a>&nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i></p>
+                    <hr class="polwhr">
+                </div>
+            </div>
+            <div class="col-sm-4 mt-5 ">
+                <h2 class="scwindt">{{PANE_TWO_TITLE}}</h2>
+                <div class="polwind">
+                    <img class="pane_image_solar" src="{{PANE_TWO_IMAGE}}" width="100%">
+                    <p class="text-center mt-2 summary__energy">
+                        {{{PANE_TWO_SUMMARY}}}
+                    </p>
+                    <p class="text-center mt-2"><a class="energy_link" href="{{PANE_TWO_LINK}}">View All</a>
+                        &nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i></p>
+                    <hr class="schwhr">
+                </div>
+            </div>
+            <div class="col-sm-4 mt-5 ">
+                <h2 class="manwindt">{{PANE_THREE_TITLE}}</h2>
+                <div class="manwind">
+                    <img class="pane_image_solar" src="{{PANE_THREE_IMAGE}}" width="100%">
+                    <p class="text-center mt-2 summary__energy">
+                        {{{PANE_THREE_SUMMARY}}}
+                    </p>
+                    <p class="text-center mt-2"><a class="energy_link" href="{{PANE_THREE_LINK}}">View All</a>
+                        &nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i></p>
+                    <hr class="manwhr">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    </div>
+
+
+    <!-- <div class="art-header mt-5">
+        <h2 class="eneh2 text-center">Projects</h2>
+    </div>
+    <div class="article">
+        <div class="row grp">
+            <div class="col-sm-4 mt-5">
+                <div class="project">
+                    <img src="{{project_1}}" width="100%">
+                    <p class="mt-2 projects">"Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    </p>
+                    <p class="mt-3">View all &nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i></p>
+                </div>
+            </div>
+            <div class="col-sm-4 mt-5">
+                <div class="project">
+                    <img src="{{project_2}}" width="100%">
+                    <p class="mt-2 projects">"Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    </p>
+                    <p class="mt-3">View all &nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i></p>
+                </div>
+            </div>
+            <div class="col-sm-4 mt-5">
+                <div class="project">
+                    <img src="{{project_3}}" width="100%">
+                    <p class="mt-2 projects">"Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    </p>
+                    <p class="mt-3">View all &nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i></p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    {{!-- <div class="knw-reading ">
+
+        <div class="row grp justify-content-center">
+            <div class="col-sm-4 mt-5">
+                <div class="project">
+                    <img src="/img/lab_policy.jpg" width="100%">
+                    <p class="mt-2 projects">LAB POLICY</p>
+                    <a href="/{{short_code}}/lab-policies">
+                        <p class="mt-3">View all &nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i></p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4 mt-5">
+                <div class="project">
+                    <img src="/img/akshay_urja.jpg" width="100%">
+                    <p class="mt-2 projects">Akshay Urja</p>
+                    <a href="/knowledge-center/akshay-urja">
+                        <p class="mt-3">View all &nbsp;&nbsp;<i class="fas fa-arrow-circle-right"></i></p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div> --}}
+</main>

@@ -1,0 +1,351 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+</style>
+{{> language_dom}}
+<div class="_wrapper _admin_wrapper">
+    <div class="_section_wrap _energy_list">
+        {{#each elements}}
+        <div class="_energy_wrap _single_cat">
+            <div class="_page_head">
+                <p>
+                    <i>
+                        <img src="{{this.icon}}" alt="" />
+                    </i>
+                    <span>{{this.heading}}</span>
+                </p>
+            </div>
+
+            <div class="_links_wrap {{this.class}}">
+                {{#if child}}
+                <ul class="_links_list">
+                    {{#each this.child}}
+                    <li>
+                        <p>{{this.heading}}</p>
+                        <div class="_action">
+                            {{#if this.class}}
+                            {{#if this.href}}
+                            <a href="{{this.href}}">Schemes</a>
+                            {{else}}
+                            <span class="{{this.class}} edit_button_text">
+                                Edit
+                            </span>
+                            {{/if}}
+                            {{else}}
+                            <span class="edit_button_text">
+                                Edit
+                            </span>
+                            {{/if}}
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+
+<div class="modal" id="rfdOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit RFD Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="rfd_description" class="label">RFD Overview</label>
+                        <textarea class="textarea" id="rfd_description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success rfd_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="policiesOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Policies Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="policies_description" class="label">Policies Overview</label>
+                        <textarea class="textarea" id="policies_description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success policies_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="presentationOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Presentation Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="rfd_description" class="label">Presentation Overview</label>
+                        <textarea class="textarea" id="presentation_description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success presentation_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="adsOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit ADS Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="ads_description" class="label">ADS Overview</label>
+                        <textarea class="textarea" id="ads_description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success ads_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="eventOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Event Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="event_description" class="label">Event Overview</label>
+                        <textarea class="textarea" id="event_description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success event_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="reportOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Report Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="report_description" class="label">Report Overview</label>
+                        <textarea class="textarea" id="report_description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success report_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="circularOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Circular Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="circular_description" class="label">Circular Overview</label>
+                        <textarea class="textarea" id="circular_description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success circular_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="notificationOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Notification Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="notification_description" class="label">Notification Overview</label>
+                        <textarea class="textarea" id="notification_description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success notification_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="accountOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Account Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="account_description" class="label">Account Overview</label>
+                        <textarea class="textarea" id="account_description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success account_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="supOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Supporting Programmes Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="sup_description" class="label">Supporting Programmes Overview</label>
+                        <textarea class="textarea" id="sup_description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success sup_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="pidpiOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit PIDPI Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="pidpi_description" class="label">PIDPI Overview</label>
+                        <textarea class="textarea" id="pidpi_description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success pidpi_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="compOverviewModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Edit Compendium Overview</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="comp_description" class="label">Compendium Overview</label>
+                        <textarea class="textarea" id="comp_description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success comp_overview_save">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="notification" id="dashboardNotification">
+    <p id="notification_message">
+        We are Legion!
+    </p>
+</div>

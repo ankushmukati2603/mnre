@@ -1,0 +1,38 @@
+
+<div class="container-fluid policies">
+    <h1 class="text-center wdet">{{page_title}}</h1>
+</div>
+<main class="mx-5">
+    <div class="container">
+        <div class="row policy__section">
+            <div class="col-sm">
+                <div class="body-text">
+                    <h1>
+                        {{article.title}}
+                    </h1>
+                    <p>{{article.description}}</p>
+                    <div class="file__description">
+                        {{#if hasissue}}
+                            <p class="file__description--item"><span class="font-weight-bold">Issue Date : </span>{{article.issue_date}}</p>
+                            <p class="file__description--item"><span class="font-weight-bold">Effective Date : </span>{{article.effective_date}}</p>
+                            <p class="file__description--item"><span class="font-weight-bold">File Type : </span>{{article.file.mime}}</p>
+                            
+                        {{/if}}
+                    </div>
+                   
+
+                    <a class="btn download_file--button" target="_blank" href="http://10.246.24.71{{article.file.url}}">{{download_button_text}}</a>
+                </div>
+            </div>
+            <div class="col-sm">
+                {{#if article.thumbnail}}
+                    <img src="http://10.246.24.71{{article.thumbnail.url}}" alt="" class="img img-fluid">
+                {{else}}
+                    <img src="https://via.placeholder.com/600x400" alt="" class="img img-fluid">
+                {{/if}}
+                
+            </div>
+        </div>
+    </div>
+    
+</main>

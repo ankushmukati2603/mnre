@@ -1,0 +1,93 @@
+<div class="container-fluid policies mb-5 knowledge_center_bg">
+    <h1 class="text-center wdet knowledge_center_bg">{{{page_title}}}</h1>
+
+</div>
+{{#if overview}}
+<div class="container-fluid">
+    <div class="hdpart">
+        <div class="col-sm-12 mt-3 overview__text">
+            <div class="margin_boo">
+                {{{overview}}}
+            </div>
+        </div>
+
+    </div>
+</div>
+{{/if}}
+<div class="filter mt-5 mb-5">
+    <div class="row filter-bc _policy_dropdown">
+        <div class="col">
+            <div class="search-option">
+                <label for="f184318d184322" class="sr-only">Format</label>
+                <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                    onChange="window.location.href=this.value">
+                    <option value="/knowledge-center/training">Training Module</option>
+                    <option value="/knowledge-center/infographics">Infographics</option>
+                    <option value="/knowledge-center/videos">Videos</option>
+                    <option value="/knowledge-center/case-studies">Case Studies</option>
+                    <option value="/knowledge-center/reports">Reports</option>
+                    <option value="/knowledge-center/articles">Articles</option>
+                    <option value="/knowledge-center/presentations">Presentations</option>
+                </select>
+            </div>
+        </div> 
+    </div>
+</div>
+
+<!-- Accordion -->
+<div class="_policy_accordion">
+    <div class="accordion" id="accordionExample">
+        {{#each articles}}
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_{{@index}}"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        {{this.title}}
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapse_{{@index}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <p>{{this.description}}</p>
+                    <div class="_pdf_links">
+                        <a target="_blank" href="http://10.246.24.71/{{this.file.url}}" class="ml-1">
+                            <img class="pdf" src="/img/view-pdf.png" alt="view">
+                        </a>
+                        <a data-href="http://10.246.24.71/{{this.file.url}}" class="ml-1 download_file">
+                            <img class="pdf" src="/img/download-pdf.png" alt="view">
+                        </a>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+<!-- Accordion --> 
+
+{{!-- {{#if articles}}
+{{#each articles}}
+<div class="pdf-view pb-5">
+    <div class="row pdf ml-5 mr-5 mt-5">
+        <div class="col viewdoc">
+            <span class="date"><span class="issue_date">{{this.issue_date}}</span> - {{this.submission_date}}</span>
+            <span class="date">&nbsp;</span>
+            <h4 class="guideh">{{this.title}}</h4>
+        </div>
+        <div class="col-sm-3">
+            <a target="_blank" href="http://10.246.24.71{{this.file.url}}" class="ml-1">
+                <img class="pdf" src="/img/view-pdf.png" alt="view">
+            </a>
+            <a data-href="http://10.246.24.71{{this.file.url}}" data-file="{{title}}" class="ml-1 download_file">
+                <img class="pdf" src="/img/download-pdf.png" alt="view">
+            </a>
+        </div>
+    </div>
+
+</div>
+{{/each}}
+{{else}}
+ 	<div class="col-sm-12"><h1 class="text-center mt-4">No Documents Found</h1></div>
+{{/if}} --}}

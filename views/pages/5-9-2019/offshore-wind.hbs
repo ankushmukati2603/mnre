@@ -1,0 +1,51 @@
+<div class="container-fluid wde {{head_bg}}">
+    <h1 class="text-center wdet">{{page_title}}</h1>
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 mt-3">
+            <h2 class="energtext text-center">{{page_subtitle}}</h2>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <img src="{{banner}}">
+        </div>
+        <div class="col-sm-12 ml-4 mr-4 mt-5 mb-5 pr-5 pl-5">
+            <div class="margin_boo">
+                {{{WO.OVERVIEW}}}
+            </div>
+        </div>
+    </div>
+</div>
+{{#if articles}}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 mt-5">
+            <h2 class="guidelines mr-5 ml-5">Guidelines and other documents</h2>
+        </div>
+    </div>
+</div>
+<div class="container mb-5">
+    {{#each articles}}
+    <div class="row pdf ml-5 mr-5 mt-5">
+        <div class="col-sm-2 viewdoc">
+            <a class="ml-5" href="http://10.246.24.71{{this.file.url}}" target="_blank"><img class="pdfvd"
+                    src="/img/view-pdf.png"></a>
+            <br><a data-href="http://10.246.24.71{{this.file.url}}" class="ml-5 download_file"><img class="pdfvd"
+                    rc="/img/download-pdf.png"></a>
+        </div>
+        <div class="col-sm-10">
+            <span class="date">{{this.issue_date}}</span>
+            <h4 class="guideh">{{this.title}}</h4>
+            <p>
+                {{this.description}}
+            </p>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}

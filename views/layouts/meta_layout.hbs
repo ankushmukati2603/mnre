@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{page_title}}</title>
+    <link rel="stylesheet" type="" href="/stylesheets/bulma.min.css">
+    <link rel="stylesheet" href="/stylesheets/bulma.css.map">
+    <link rel="stylesheet" href="/js/bulma-extensions/bulma-pageloader/bulma-pageloader/dist/css/bulma-pageloader.min.css">
+    <link href="/stylesheets/filepond.css" rel="stylesheet">
+    <script defer src="/js/fontawesome/all.js"></script>
+    <link rel="stylesheet" href="/dist/ui/trumbowyg.min.css">
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script>
+        history.pushState(null, document.title, location.href);
+        window.addEventListener('popstate', function (event) {
+            history.pushState(null, document.title, location.href);
+        });
+		
+    </script>
+	<script>
+	 var a=navigator.onLine;
+	 if(a){
+	  }else{
+	  alert('Please check your internet connection');
+	  window.location='/admin/logout'; 
+	  
+	  } </script>
+	<script language="JavaScript" type="text/javascript">
+		javascript: window.history.forward(1);
+
+		function noBack() {
+		window.history.forward();
+		}
+	</script>
+</head>
+
+<body>
+	<nav class="navbar navbar_1" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/admin">
+                <img src="/img/logo.png" width="160" height="40">
+            </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/admin">
+        Content Admin
+      </a>
+
+      <a class="navbar-item" href="/meta">
+        Meta Admin
+      </a>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary" href="/admin/logout">
+            <strong>Logout</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+    
+    {{{body}}}
+    <div class="pageloader is-left-to-right"><span class="title pageloader__message"></span></div>
+    <footer class="footer admin_footer">
+        <div class="content has-text-centered">
+            <p>
+                ADMIN MNRE - This is the Admin Panel of the Ministry of New and Renewable Energy, India.
+            </p>
+        </div>
+    </footer>
+
+    
+    <script src="/dist/trumbowyg.min.js"></script>
+    <script src="/js/filepond.js"></script>
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/admin/banners.js"></script>
+    <script src="/js/admin/banner_2.js"></script>
+    <script src="/js/admin/meta.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.textarea').trumbowyg({
+                btns: [
+                    ['viewHTML'],
+                    ['undo', 'redo'],
+                    ['removeformat'],
+                    ['fullscreen']
+                ],
+                autogrow: true,
+		removeformatPasted: true
+            });
+        });
+
+        var headers = ''
+            axios.get('/admin/get-token').then(response => response.data).catch(error => console.log(error)).then(data => {
+                headers = data.headers
+                axios.defaults.headers.common['X-CSRF-TOKEN'] = headers['X-CSRF-TOKEN'];
+                axios.defaults.headers.common['Authorization'] = headers.Authorization
+            })
+    </script>
+</body>
+
+</html>

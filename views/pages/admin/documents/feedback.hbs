@@ -1,0 +1,50 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+</style>
+{{> language_dom}}
+
+
+<div class="_wrapper _admin_wrapper">
+    <div class="_section_wrap _energy_list">
+        <div class="_table_listings">
+            <div class="_top">
+                <p class="_head">{{heading}}</p>
+            </div>
+
+            <table id="table_id" class="display">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>createdAt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr>
+                        <td>#</td>
+                        <td>{{this.firstName}}</td>
+                        <td>{{this.lastName}}</td>
+                        <td>{{this.email}}</td>
+                        <td>{{this.subject}}</td>
+                        <td>{{this.message}}</td>
+                        <td>{{this.createdAt}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

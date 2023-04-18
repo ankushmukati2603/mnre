@@ -1,0 +1,2176 @@
+<style>
+    .grid-layout {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 0px;
+        grid-auto-rows: 145px;
+        grid-auto-flow: dense;
+        padding: 10px;
+        display: grid;
+        justify-items: center;
+        width: 100%;
+    }
+
+    .morphsearch-parent {
+        position: relative;
+        background: white;
+        width: auto;
+    }
+
+
+    .grid-item {
+        padding: 1rem;
+        font-size: 14px;
+        font-weight: bold;
+        /*text-transform: uppercase;*/
+        color: #ffffff;
+        white-space: pre-line;
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1em;
+        text-align: center;
+        -webkit-animation: fadein 0.4s;
+        /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: fadein 0.4s;
+        /* Firefox < 16 */
+        -ms-animation: fadein 0.4s;
+        /* Internet Explorer */
+        -o-animation: fadein 0.4s;
+        /* Opera < 12.1 */
+        animation: fadein 0.3s;
+        width: 100%;
+        transition-timing-function: ease-in cubic-bezier(0.075, 0.82, 0.165, 1);
+        /*height: 100%;*/
+
+    }
+
+
+
+    .modal-content {
+        border-radius: 0px;
+    }
+
+    .span-2 {
+        grid-column-end: span 2;
+        grid-row-end: span 2;
+        font-size: 1.2em;
+    }
+
+    .font-increase {
+        font-size: 1.1em
+    }
+
+    .span-2-column {
+        grid-column-end: span 2;
+        grid-row-end: span 3;
+    }
+
+    .span-1-column {
+        grid-column-end: span 1;
+        grid-row-end: span 3;
+    }
+
+    .column-4-row-1 {
+        grid-column-end: span 4;
+        grid-row-end: span 1;
+    }
+
+    .column-2-row-1 {
+        grid-column-end: span 2;
+        grid-row-end: span 1;
+    }
+
+    .span-2-row {
+        grid-column-end: span 2;
+    }
+
+    .span-3 {
+        grid-column-end: span 3;
+        grid-row-end: span 3;
+        -webkit-animation: fadein 0.5s;
+        /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: fadein 0.5s;
+        /* Firefox < 16 */
+        -ms-animation: fadein ease-in 0.5s;
+        /* Internet Explorer */
+        -o-animation: fadein 0.5s;
+        /* Opera < 12.1 */
+        animation: fadein ease-in 0.5s;
+        font-size: 2em
+    }
+
+    @keyframes fadein {
+        from {
+            opacity: 0.5;
+            width: 50%;
+            height: 50%;
+        }
+
+        to {
+            opacity: 1;
+            width: 100%;
+            height: 100%
+        }
+    }
+
+    /* Firefox < 16 */
+    @-moz-keyframes fadein {
+        from {
+            opacity: 0;
+            width: 50%;
+            height: 50%;
+        }
+
+        to {
+            opacity: 1;
+            width: 100%;
+            height: 100%
+        }
+    }
+
+    /* Safari, Chrome and Opera > 12.1 */
+    @-webkit-keyframes fadein {
+        from {
+            opacity: 0;
+            width: 50%;
+            height: 50%;
+        }
+
+        to {
+            opacity: 1;
+            width: 100%;
+            height: 100%
+        }
+    }
+
+    /* Internet Explorer */
+    @-ms-keyframes fadein {
+        from {
+            opacity: 0;
+            width: 50%;
+            height: 50%;
+        }
+
+        to {
+            opacity: 1;
+            width: 100%;
+            height: 100%
+        }
+    }
+
+    /* Opera < 12.1 */
+    @-o-keyframes fadein {
+        from {
+            opacity: 0;
+            width: 50%;
+            height: 50%;
+        }
+
+        to {
+            opacity: 1;
+            width: 100%;
+            height: 100%
+        }
+    }
+
+    #exampleModal {
+        padding-right: 0px !important;
+    }
+
+    .modal-dialog {
+        margin: 0px !important;
+        max-width: 100%;
+        top: 80px;
+    }
+
+    .modal-content {
+        background: #fffffffa;
+    }
+
+    .grid-item-0 {
+        background-color: #9a7e00;
+    }
+
+    .grid-item-1 {
+        background-color: #ffc600;
+    }
+
+    .grid-item-2 {
+        background-color: #1796cd;
+    }
+
+    .grid-item-3 {
+        background-color: #179ba3;
+    }
+
+    .grid-item-4 {
+        background-color: #c7721f;
+    }
+
+    .grid-item-5 {
+        background-color: #3d6325;
+    }
+
+    .grid-item-6 {
+        background-color: #005b9a;
+    }
+
+    .grid-item-7 {
+        background-color: #ef8823;
+    }
+
+    .grid-item-8 {
+        background-color: #af1811;
+    }
+
+    .grid-item-9 {
+        background-color: #516a9e;
+    }
+
+    .grid-item-10 {
+        background-color: #80572b;
+    }
+
+    .grid-item-11 {
+        background-color: #a9895a;
+    }
+
+    .grid-item-12 {
+        background-color: #de3975;
+    }
+
+    .grid-item-13 {
+        background-color: #88a339;
+    }
+
+    .grid-item-14 {
+        background-color: #007a4b;
+    }
+
+    .grid-item-15 {
+        background-color: #6922b1;
+    }
+
+    .grid-item-16 {
+        background-color: #21c9a3;
+    }
+
+    .grid-item-17 {
+        background-color: #9a3f00;
+    }
+
+    .grid-item-18 {
+        background-color: #5e2a6a;
+    }
+
+    .grid-item-19 {
+        background-color: #63343c;
+    }
+
+    .grid-item-20 {
+        background-color: #ff9450;
+    }
+
+    .modal_icon_image {
+        width: 24px;
+        height: 24px;
+        cursor: pointer
+    }
+
+    .wind_current_status {
+        background-color: #003d6c;
+    }
+
+    .wind_policies_off {
+        background-color: #069ffd;
+    }
+
+    .wind_policies {
+        background-color: #0a7ec5;
+    }
+
+    .wind_schemes {
+        background-color: #0061a3;
+    }
+
+    .wind_rd {
+        background-color: #286894;
+    }
+
+    .wind_hrd {
+        background-color: #003d6c;
+    }
+
+    .wind_emerging {
+        background-color: #0061a3;
+    }
+
+    .wind_supporting {
+        background-color: #0a7ec5;
+    }
+
+    .wind_off_shore {
+        background-color: #069ffd;
+    }
+
+    .wind_on_shore {
+        background-color: #003d6c;
+    }
+
+    .solar_current {
+        background-color: #fe9e2d;
+    }
+
+    .solar_policies {
+        background-color: #ffbd2c;
+    }
+
+    .solar_schemes {
+        background-color: #d2b058;
+    }
+
+    .solar_scheme_off {
+        background-color: #fe9e2d;
+    }
+
+    .solar_grid_conn {
+        background-color: #ffbd2c;
+    }
+
+    .solar_rd {
+        background-color: #fe7b2d;
+    }
+
+    .solar_proj_completed {
+        background-color: #fe9e2d;
+    }
+
+    .solar_ongoing_proj {
+        background-color: #ffbd2c;
+    }
+
+    .solar_focused_rd {
+        background-color: #d2b058;
+    }
+
+    .solar_lab_policy {
+        background-color: #dbaa27;
+    }
+
+    .solar_hrd {
+        background-color: #fe9e2d;
+    }
+
+    .solar_hrd_pol {
+        background-color: #ffbd2c;
+    }
+
+    .solar_acc_sup {
+        background-color: #d2b058;
+    }
+
+    .solar_fin_sup {
+        background-color: #dbaa27;
+    }
+
+    .solar_emerging {
+        background-color: #dbaa27;
+    }
+
+    .solar_sup_ins {
+        background-color: #fec52d;
+    }
+
+    .mission_home {
+        background-color: #bd8732
+    }
+
+    .ministry_do {
+        background-color: #996818;
+    }
+
+    .mission_vision {
+        background-color: #7f6814;
+    }
+
+    .mission_core {
+        background-color: #997d18;
+    }
+
+    .mission_organogram {
+        background-color: #996818;
+    }
+
+    .ministry_overall {
+        background-color: #bd8732;
+    }
+
+    .ministry_about {
+        background-color: #7f6814;
+    }
+
+    .hydro_status {
+        background-color: #2385a2;
+    }
+
+    .hydro_policies {
+        background-color: #239ba2;
+    }
+
+    .hydro_schemes {
+        background-color: #1a7278
+    }
+
+    .hydro_rd {
+        background-color: #23a298;
+    }
+
+    .hydro_projects_completed {
+        background-color: #2385a2;
+    }
+
+    .hydro_ongoing_projects {
+        background-color: #239ba2;
+    }
+
+    .hydro_focused_rd {
+        background-color: #1a7278;
+    }
+
+    .hydro_lab {
+        background-color: #23a298;
+    }
+
+    .hydro_hrd {
+        background-color: #2385a2;
+    }
+
+    .hydro_hrd_policy {
+        background-color: #239ba2;
+    }
+
+    .hydro_acc_sup {
+        background-color: #1a7278;
+    }
+
+    .hydro_fin_sup {
+        background-color: #23a298
+    }
+
+    .hydro_emerg {
+        background-color: #1a7278;
+    }
+
+    .hydro_sup_ins {
+        background-color: #239ba2;
+    }
+
+    .waste_current {
+        background-color: #c5512b
+    }
+
+    .waste_policies {
+        background-color: #c5862b
+    }
+
+    .waste_schemes {
+        background-color: #a06723
+    }
+
+    .waste_rd {
+        background-color: #ae5c16
+    }
+
+    .waste_proj_comp {
+        background-color: #c5862b;
+    }
+
+    .waste_ongoing_proj {
+        background-color: #a06723
+    }
+
+    .waste_focused_rd {
+        background-color: #c5512b
+    }
+
+    .waste_lab {
+        background-color: #ae5c16
+    }
+
+    .waste_hrd {
+        background-color: #c5512b
+    }
+
+    .waste_hrd_policy {
+        background-color: #c5862b
+    }
+
+    .waste_acc_sup {
+        background-color: #a06723
+    }
+
+    .waste_fin_sup {
+        background-color: #ae5c16
+    }
+
+    .waste_emerging_areas {
+        background-color: #a06723
+    }
+
+    .waste_sup_ins {
+        background-color: #c5722b
+    }
+
+    .bio_current {
+        background-color: #286242;
+    }
+
+    .bio_policies {
+        background-color: #625928;
+    }
+
+    .bio_schemes {
+        background-color: #586228;
+    }
+
+    .bio_rd {
+        background-color: #2d530b;
+    }
+
+    .bio_proj_comp {
+        background-color: #286242;
+    }
+
+    .bio_ongoing_proj {
+        background-color: #625928;
+    }
+
+    .bio_focused_rd {
+        background-color: #586228
+    }
+
+    .bio_lab {
+        background-color: #3e6228
+    }
+
+    .bio_hrd {
+        background-color: #286242;
+    }
+
+    .bio_hrd_policy {
+        background-color: #3e6228;
+    }
+
+    .bio_acc_sup {
+        background-color: #625928
+    }
+
+    .bio_fin_sup {
+        background-color: #586228
+    }
+
+    .bio_emerging_areas {
+        background-color: #586228
+    }
+
+    .bio_sup_ins {
+        background-color: #3e6228;
+    }
+
+    .other_status {
+        background-color: #0b8598
+    }
+
+    .other_policies {
+        background-color: #3e66ad
+    }
+
+    .other_schemes {
+        background-color: #0b4498
+    }
+
+    .other_off {
+        background-color: #0b8598
+    }
+
+    .other_on {
+        background-color: #3e66ad
+    }
+
+    .other_rd {
+        background-color: #2598d4
+    }
+
+    .other_hrd {
+        background-color: #0b8598
+    }
+
+    .other_emerging_areas {
+        background-color: #0b4498
+    }
+
+    .other_sup_ins {
+        background-color: #3e66ad
+    }
+
+    .hydrogen_energy {
+        background-color: #eb7132
+    }
+
+    .chemical_energy {
+        background-color: #ff8824
+    }
+
+    .battery_operated_vehicles {
+        background-color: #d6572d
+    }
+
+    .geo_thermal_energy {
+        background-color: #eda032
+    }
+
+    .biofuel_energy {
+        background-color: #eda032
+    }
+
+    .ocean_energy {
+        background-color: #c5712a
+    }
+
+    .nise_aut {
+        background-color: #db3c5b
+    }
+
+    .niwe_aut {
+        background-color: #b43161
+    }
+
+    .nire_aut {
+        background-color: #ba514c
+    }
+
+    .seci_psu {
+        background-color: #606060
+    }
+
+    .ireda_psu {
+        background-color: #828282
+    }
+
+    .tender_recent {
+        background-color: #985a0f;
+    }
+
+    .tender_archived {
+        background-color: #7a4623;
+    }
+
+    .know_train {
+        background-color: #792aae
+    }
+
+    .know_info {
+        background-color: #4c2aae
+    }
+
+    .know_videos {
+        background-color: #502086
+    }
+
+    .know_pres {
+        background-color: #682aae
+    }
+
+    .know_irix {
+        background-color: #4c2aae
+    }
+
+    .media_latest {
+        background-color: #9e1818
+    }
+
+    .media_clippings {
+        background-color: #a23a14
+    }
+
+    .media_ministry {
+        background-color: #9a2900
+    }
+
+    .media_events {
+        background-color: #9e1818
+    }
+
+    .media_advertisements {
+        background-color: #a23a14
+    }
+
+    .what_isa {
+        background-color: #a86a5d
+    }
+
+    .re_about {
+        background-color: #482c69
+    }
+
+    .re_journey {
+        background-color: #5d2c69
+    }
+
+    .re_agenda {
+        background-color: #692c5b
+    }
+
+    .re_last {
+        background-color: #51185e
+    }
+
+    .pi_rfd {
+        background-color: #008728
+    }
+
+    .pi_policies {
+        background-color: #066722
+    }
+
+    .pi_presentations {
+        background-color: #566706
+    }
+
+    .pi_advertisements {
+        background-color: #0e794c
+    }
+
+    .pi_events {
+        background-color: #01693d
+    }
+
+    .pi_reports {
+        background-color: #0e794c
+    }
+
+    .pi_circulars {
+        background-color: #066722
+    }
+
+    .pi_notifications {
+        background-color: #008728
+    }
+
+    .ir_announce {
+        background-color: #7f442e
+    }
+
+    .ir_fresh {
+        background-color: #6f3517
+    }
+
+    .ir_latest {
+        background-color: #6e3930
+    }
+
+    .ir_articles {
+        background-color: #7f572e
+    }
+
+    .ir_speeches {
+        background-color: #664625
+    }
+
+
+    .grid-layout {
+        cursor: pointer
+    }
+
+    .grid-layout a:hover {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .grid-layout a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .left-ico.desktop {
+        display: none !important;
+    }
+
+
+    .modal-header.menu_header {
+        padding: 2rem 2rem 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .modal-header.menu_header>*:first-child,
+    .modal-header.menu_header>*:last-child,
+        {
+        flex: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .modal-header.menu_header .modal_icon_image.back_button {
+        display: block !important;
+    }
+
+    .modal-header.menu_header .nav-secondar.mobile {
+        text-align: center;
+        flex: 1;
+        align-items: center;
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .modal-header .close {
+        padding: 0;
+        margin: 0;
+    }
+
+    .modal-body {
+        padding-top: 0px padding-bottom: 20px;
+    }
+
+    span.closemenu {
+        font-size: 2rem;
+        font-weight: 700;
+        opacity: 1;
+    }
+
+    .close {
+        opacity: 1
+    }
+
+
+    .ministry_third {
+        background: #6d480d;
+    }
+
+    /*.search-wrapper {
+		position: relative;
+	}
+
+	.search-wrapper .search-results {
+		position: absolute;
+		background: white;
+		width: 100%;
+		top: 50px;
+		border-radius: 0 0 5px 5px;
+		border: 1px solid #fafafa;
+		box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.25);
+		overflow: auto;
+		max-height: 300px;
+		opacity: 0;
+		transition: all 0.5s;
+	}
+
+	.search-wrapper .search-results.show {
+		top: 40px;
+		opacity: 1;
+	}
+
+	
+
+	.search-wrapper .search-results .item {
+		border-bottom: 1px solid #aaa;
+		padding: 10px;
+		cursor: pointer;
+
+	}
+
+	.search-wrapper .search-results .item .title {
+		font-size: 14px;
+		line-height: normal;
+		margin: 0 0 4px;
+	}
+
+	.search-wrapper .search-results .item .desc {
+		font-size: 12px;
+		line-height: normal;
+		margin: 0;
+		color: #dc3545 !important;
+	}
+
+	.search-wrapper .search-results .item:last-child {
+		border-bottom: 1px solid transparent;
+	}
+
+	.search-wrapper .search-results .item:hover {
+		background: #fafafa;
+	}
+
+	.search-wrapper .close-icon {
+		border: 1px solid transparent;
+		background-color: transparent;
+		display: inline-block;
+		vertical-align: middle;
+		outline: 0;
+		cursor: pointer;
+	}
+
+	.search-wrapper .close-icon:after {
+		content: "X";
+		display: block;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		background-color: #E50F0F;
+		z-index: 1;
+		right: 20px;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		padding: 2px;
+		border-radius: 50%;
+		text-align: center;
+		color: white;
+		font-weight: bold;
+		font-size: 12px;
+		line-height: normal;
+		box-shadow: 0 0 2px #E50F0F;
+		cursor: pointer;
+	}
+
+	.search-wrapper .search-box:not(:valid)~.close-icon {
+		display: none;
+	}
+
+	.search-wrapper .search-box:focus~.close-icon {
+		display: block;
+	}*/
+
+    .modal-content {
+        padding-top: 0px;
+        height: 100%;
+    }
+
+
+
+
+    /* media queries */
+    /* ------------------------------------------------------------------------- */
+
+    /* to tablet css above tablet sizes ----------- */
+
+    @media only screen and (min-width : 578px) {}
+
+    /* to desktop css above tablet sizes ----------- */
+    @media only screen and (min-width : 992px) {
+
+        .morphsearch.open .morphsearch-input {
+            font-size: 2.5em;
+        }
+
+        .global-search-results-container {
+            height: 100%;
+            padding: 8rem 0.05rem 0.05rem;
+        }
+
+        #main-navbar.navbar.search-active {
+            padding: 1.5rem 2rem;
+            -webkit-box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.25);
+            -moz-box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.25);
+        }
+
+        .morphsearch.open .morphsearch-form {
+            width: 100% !important;
+            background-color: white;
+            background: white url('/img/search.png') no-repeat left center;
+            background-size: 6% !important;
+            background-position: 8px !important;
+            padding-left: 8% !important;
+            border: none;
+        }
+
+        .left-ico.desktop {
+            display: block !important;
+        }
+
+        .searchd {
+            display: none;
+        }
+
+        .grid-item.sub-sub-grid {
+            grid-column-end: span 3;
+            grid-row-end: span 1;
+        }
+
+        .span-3 .service-content2 {
+            top: 29%;
+        }
+
+        .span-3 .service-content2 img {
+            width: 25%;
+        }
+
+        .service-content2 img {
+            width: 40%;
+        }
+
+        .span-3 .front-content2 {
+            font-size: x-large;
+        }
+
+        .front-content2 {
+            font-size: 11px;
+            line-height: 0px;
+        }
+
+        .sub-grid {
+            font-size: 15px !important;
+        }
+
+        .service-content2 {
+            top: 14%;
+        }
+
+        .grid-item {
+            font-size: 0.6em
+        }
+
+        .modal-content {
+            padding-top: 0px;
+            height: 100%
+        }
+
+        #main-navbar.navbar {
+            padding: 1.5rem 2rem;
+            -webkit-box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.25);
+            -moz-box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.25);
+        }
+
+        .navbar-form {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .grid-layout {
+            /*grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));*/
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 10px;
+            grid-auto-rows: 145px;
+        }
+
+        .grid-item {
+            padding: 1rem;
+            font-size: 1em;
+        }
+
+        .searchd {
+            display: none;
+        }
+
+        .mobile_none {
+            display: none;
+        }
+
+        .mobile_handling {
+            display: block
+        }
+
+        .solar_hrd,
+        .hydro_hrd,
+        .waste_hrd,
+        .bio_hrd,
+        .other_hrd,
+            {
+            grid-column-end: span 1 !important;
+            grid-row-end: span 1 !important;
+        }
+
+        .solar_emerging,
+        .hydro_emerg,
+        .waste_emerging_areas,
+        .bio_emerging_areas,
+        .other_emerging_areas,
+        .geo_thermal_energy,
+        .biofuel_energy,
+        .solar_sup_ins,
+        .hydro_sup_ins,
+        .waste_sup_ins,
+        .bio_sup_ins,
+        .other_sup_ins,
+        .media_latest,
+        .media_clippings,
+        .media_ministry,
+        .media_events,
+        .media_advertisements,
+        .what_isa,
+        .re_about,
+        .mobile-2 {
+            grid-column-end: span 1 !important;
+            grid-row-end: span 1 !important;
+        }
+
+        .ocean_energy,
+        .seci_psu,
+        .ireda_psu,
+        .tender_recent,
+        .tender_archived {
+            grid-column-end: span 1 !important;
+            grid-row-end: span 1 !important;
+        }
+
+        .mobile_modal {
+            position: relative;
+            /*top: -42px;*/
+            text-align: center;
+            padding: 0;
+        }
+
+        .mobile_handling_1 {
+            display: none;
+        }
+
+        .service-box2 .service-icon2 .front-content2 {
+            top: 30%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(-50%);
+        }
+
+        .service-box2 .service-icon2 .front-content2 h3 {
+            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 1.4em;
+        }
+
+    }
+
+    /* ipad portrait/landscape ----------- */
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {}
+
+    /* ipad portrait ----------- */
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {}
+
+    /* ipad landscape ----------- */
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {}
+
+    @media only screen and (min-width : 1140px) and (max-width: 1223px) {}
+
+    /* 13 inch displays ----------- */
+    @media only screen and (min-width : 1224px) and (max-width: 1300px) {}
+
+    @media only screen and (min-width : 1301px) and (max-width: 1400px) {}
+
+    /* 24 inch iMac ----------- */
+    @media only screen and (min-width : 1600px) {}
+
+    /* 27 inch iMac ----------- */
+    @media only screen and (min-width : 2000px) {}
+
+    .modal-backdrop {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1040;
+        background-color: #ffffff00;
+    }
+
+    .menu_header {
+        padding: 0.3rem;
+    }
+
+    .grid-layout {
+        padding: 0.5rem;
+    }
+
+    .menu_positioning {
+        padding-top: 2px;
+    }
+
+    .mobile_handling_1 {
+        display: none
+    }
+
+    .morphsearch.open .morphsearch-input.loading {
+        background: url('https://mnre.gov.in/new/img/mnre-loader-64.gif') no-repeat right center !important;
+        background-size: 4% !important;
+    }
+
+    .global-search-results-wrapper .global-search-results,
+    .global-search-results-wrapper .global-search-results>.row {
+        height: 100%;
+        position: relative;
+    }
+
+    .global-search-results-wrapper .global-search-results {
+        padding-bottom: 20px;
+    }
+
+    .global-search-results-wrapper .global-search-results .global-search-results-nav,
+    .global-search-results-wrapper .global-search-results .global-search-results-tabs {
+        position: relative;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .morphsearch input.search-box::-webkit-input-placeholder,
+    .morphsearch input.search-box:focus::-webkit-input-placeholder,
+    .morphsearch input.search-box::-moz-placeholder,
+    .morphsearch input.search-box:focus::-moz-placeholder,
+    .morphsearch input.search-box:-ms-input-placeholder,
+    .morphsearch input.search-box:focus:-ms-input-placeholder {
+        font-size: 1em;
+    }
+
+    .morphsearch input.search-box::placeholder,
+    .morphsearch input.search-box:focus::placeholder,
+        {
+        font-size: 0.6em;
+    }
+
+    .morphsearch.open input.search-box::-webkit-input-placeholder,
+    .morphsearch.open input.search-box:focus::-webkit-input-placeholder {
+        font-size: 0.6em;
+    }
+
+    .morphsearch input.search-box::-moz-placeholder,
+    .morphsearch input.search-box:focus::-moz-placeholder {
+        font-size: 0.6em;
+    }
+
+    .morphsearch.open input.search-box:-ms-input-placeholder,
+    .morphsearch.open input.search-box:focus:-ms-input-placeholder {
+        font-size: 0.6em;
+    }
+
+    .morphsearch.open input.search-box::placeholder,
+    .morphsearch.open input.search-box:focus::placeholder,
+        {
+        font-size: 0.6em;
+    }
+
+
+    .global-search-results-wrapper .nav-pills .nav-link {
+        background: white;
+        color: #222;
+        border: 1px solid #ccc;
+        border-radius: 0;
+        padding: 5px 10px !important;
+    }
+
+    .global-search-results-wrapper .nav-pills .nav-link.active {
+        color: white;
+        background: #ec5a62 !important
+    }
+
+    .global-search-results-wrapper .card {
+        margin-top: 0;
+    }
+
+    .ellipsis {
+        display: block;
+        display: -webkit-box;
+        max-width: 100%;
+        margin: 0 auto;
+        font-size: 14px;
+        line-height: 1.3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 36px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .card-title.ellipsis {
+        height: 36px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .card-text.ellipsis {
+        height: 100px;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+        margin-bottom: 10px;
+    }
+
+    #nav-links-tools li {
+        padding-right: 0.8rem;
+    }
+
+    .ir_long {
+        grid-column-end: span 1 !important;
+        grid-row-end: span 3 !important;
+    }
+
+    .kc_long {
+        grid-column-end: span 2 !important;
+        grid-row-end: span 1 !important;
+    }
+
+    .mc_long {
+        grid-column-end: span 2 !important;
+        grid-row-end: span 3 !important;
+    }
+
+    @media screen and (max-width: 700px) {
+
+        .kc_long,
+        .mc_long {
+            grid-column-end: span 1 !important;
+            grid-row-end: span 1 !important;
+        }
+    }
+</style>
+
+<nav id="main-navbar" class="navbar navbar-dark navbar-expand-md bg-white justify-content-between fixed-top">
+
+    <div class="w-100 d-flex justify-content-between align-items-center">
+        <div
+            class="brand-menu position-relative w-auto d-flex justify-content-between align-items-center order-md-0 order-2">
+            <div class="d-flex flex-row justify-content-center align-items-center">
+                {{!-- <div class="d-flex align-items-end left-ico desktop mr-3">
+                    <a onclick="goBack()"><i class="fas fa-arrow-circle-left"></i></a> &nbsp;&nbsp;<a class="hico"
+                        href="/"><i class="fas fa-home"></i></a>
+                </div> --}}
+                <button class="navbar-toggler" type="button" data-backdrop="static" data-toggle="modal"
+                    data-target="#exampleModal">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times"></i>
+                </button>
+                <div id="desktop_menu--trigger" class="d-none d-md-block fs-20 m-0" data-backdrop="static"
+                    data-toggle="modal" data-target="#exampleModal">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times-circle"></i>
+                    <span>Menu</span>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="brand position-relative d-flex flex-fill justify-content-center align-items-center align-content-stretch">
+            <div class="first-box col d-none d-md-block"></div>
+            <div class="brand-logo">
+                <a href="/" class="text-left text-md-center col px-0">
+                    <img src="/img/logo.png" class="logo">
+                </a>
+            </div>
+
+            <div class="morphsearch-parent col d-flex align-items-center justify-content-end justify-content-md-center"
+                id="morphsearch-parent">
+                <div id="morphsearch" class="morphsearch col">
+                    <form class="morphsearch-form" onsubmit="event.preventDefault()">
+                        <input type="text" class="morphsearch-input" placeholder="What are you looking for ..."
+                            name="srch-term" id="srch-term" required autocomplete="off">
+                    </form>
+                </div>
+                <span class="morphsearch-close"></span>
+            </div>
+        </div>
+
+        <div class="user-prefs d-none d-md-block">
+            <div class="_language_mode">
+                <a href="javascript:;" onclick="_switchLanguage('EN')">En</a>
+                <a href="javascript:;" onclick="_switchLanguage('HI')">Hi</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="nav-item"><input type="button" class="decrease" value=" - "></li>
+                <li class="nav-item"><input type="button" class="resetMe" value=" A "></li>
+                <li class="nav-item"><input type="button" class="increase" value=" + "></li>
+                <li class="nav-item"><a data-fancybox data-animation-duration="700" data-src="#animatedModal"
+                        href="javascript:;" class="btn btn-primary subsbt">Subscribe</a>
+                    <div style="display: none;" id="animatedModal" class="animated-modal">
+                        <div class="subscribe">
+                            <form>
+                                <!-- 	Image:: Email Logo  -->
+                                <img src="https://68.media.tumblr.com/abc925865de6e5f091dc7721315db6ea/tumblr_inline_orpfllNWRK1v00f4n_540.png"
+                                    alt="Email">
+
+                                <!-- 	Title Card subscribe  -->
+                                <h3>subscribe</h3>
+                                <p> Please pick the content you want to subscribe for </p>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input name="contentCheck" type="checkbox" class="form-check-input"
+                                            value="eakshay">eAkshay Urja
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input name="contentCheck" type="checkbox" class="form-check-input"
+                                            value="monthly">Monthly Newsletter
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input name="contentCheck" type="checkbox" class="form-check-input"
+                                            value="tuts">E-Tutorials
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input name="contentCheck" type="checkbox" class="form-check-input"
+                                            value="reports">Annual Reports
+                                    </label>
+                                </div>
+
+                                <!-- 	Description -->
+
+
+                                <!-- 	input Email -->
+                                <input id="subscribeEmail" type="email" name="Email"
+                                    placeholder="Enter your email address" autofocus autocomplete required>
+
+                                <!-- 	subscribe Button -->
+                                <button class="subbt">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-linkse" onclick="javascript: (
+			function () { 
+					var css = 'html {-webkit-filter: grayscale(0.9);' +
+							'-moz-filter: grayscale(0.9);' + 
+							'-o-filter: grayscale(0.9);' + 
+							'-ms-filter: grayscale(0.9); }',
+					head = document.getElementsByTagName('head')[0],
+					style = document.createElement('style');
+		
+			if (!window.counter) { window.counter = 1;} else  { window.counter ++;
+			if (window.counter % 2 == 0) { var css ='html {-webkit-filter: invert(0%); -moz-filter: invert(0%); -o-filter: invert(0%); -ms-filter: invert(0%); }'}
+			};
+		
+			style.type = 'text/css';
+			if (style.styleSheet){
+				style.styleSheet.cssText = css;
+			} else {
+				style.appendChild(document.createTextNode(css));
+			}
+		
+			head.appendChild(style);
+			}());
+			"><span class="ms ml-3"><i class="fa fa-adjust"></i></span></a></li>
+
+            </ul>
+        </div>
+    </div>
+
+</nav>
+
+<div id="global-search-results-wrapper" class="global-search-results-wrapper">
+    <div class="morphsearch-content">
+        <div id="global-search-results" class="global-search-results">
+            <div class="global-search-results-container d-flex flex-column flex-md-row align-content-stretch">
+                <!-- Nav tabs -->
+                <div class="col col-md-3 global-search-results-nav mb-4">
+                    <div class="nav flex-column nav-pills" id="global-search-results-nav" role="tablist"
+                        aria-orientation="vertical">
+                        {{!-- <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+						<a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+						<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+						<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a> --}}
+                    </div>
+                </div>
+
+                <div class="col col-md-9 global-search-results-tabs">
+
+                    <div class="tab-content" id="global-search-results-tabs">
+                        {{!-- <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">Home Tab</div>
+						<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">Profile Tab</div>
+						<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">Message Tab</div>
+						<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">Settings Tab</div> --}}
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div><!-- /morphsearch-content -->
+</div>
+
+<div class="modal fade _main_nav" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content pb-3">
+
+            <div class="modal-header menu_header">
+                {{!-- <img src="/img/left-arrow.png" class="modal_icon_image back_button" alt="" onclick="backtick()"> --}}
+                <div class="nav-secondar mobile">
+                    <li class=" nav-item"><input type="button" class="increase" value=" A+ "></li>
+                    <li class="nav-item"><input type="button" class="decrease" value=" A- "></li>
+                    <li class="nav-item"><input type="button" class="resetMe" value=" A "></li>
+                    <li class="nav-item"><a data-fancybox data-animation-duration="700" data-src="#animatedModal"
+                            href="javascript:;" class="btn btn-primary subsbt">Subscribe</a>
+                        <div style="display: none;" id="animatedModal" class="animated-modal">
+                            <div class="subscribe">
+                                <form>
+                                    <!-- 	Image:: Email Logo  -->
+                                    <img src="https://68.media.tumblr.com/abc925865de6e5f091dc7721315db6ea/tumblr_inline_orpfllNWRK1v00f4n_540.png"
+                                        alt="Email">
+
+                                    <!-- 	Title Card subscribe  -->
+                                    <h3>subscribe</h3>
+                                    <p> Please pick the content you want to subscribe for </p>
+                                    {{!-- <div class="form-check-inline">
+										<label class="form-check-label">
+											<input name="contentCheck" type="checkbox" class="form-check-input" value="">eAkshay Urja
+										</label>
+									</div>
+									<div class="form-check-inline">
+										<label class="form-check-label">
+											<input name="contentCheck" type="checkbox" class="form-check-input" value="">Monthly Newsletter
+										</label>
+									</div>
+									<div class="form-check-inline">
+										<label class="form-check-label">
+											<input name="contentCheck" type="checkbox" class="form-check-input" value="">E-Tutorials
+										</label>
+									</div>
+									<div class="form-check-inline">
+										<label class="form-check-label">
+											<input name="contentCheck" type="checkbox" class="form-check-input" value="">Annual Reports
+										</label>
+									</div> --}}
+                                    {{!-- <label class="checkbox-inline">
+										<input class="form" name="contentCheck" type="checkbox" value="eakshay"> eAkshay Urja</label>
+									<label class="checkbox-inline"><input name="contentCheck" type="checkbox"
+											value="monthly">
+										Monthly Newsletter</label>
+									<label class="checkbox-inline"><input type="checkbox" name="contentCheck"
+											value="etutorial">
+										E-tutorials</label>
+									<label class="checkbox-inline"><input type="checkbox" name="contentCheck"
+											value="annualreports">
+										Annual Reports</label> --}}
+
+                                    <!-- 	Description -->
+
+
+                                    <!-- 	input Email -->
+                                    <input type="email" name="Email" placeholder="Enter your email address" autofocus
+                                        autocomplete required>
+
+                                    <!-- 	subscribe Button -->
+                                    <button class="subbt2">Subscribe</button>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-linkse" onclick="javascript: (
+function () { 
+    var css = 'html {-webkit-filter: grayscale(0.9);' +
+        '-moz-filter: grayscale(0.9);' + 
+        '-o-filter: grayscale(0.9);' + 
+        '-ms-filter: grayscale(0.9); }',
+    head = document.getElementsByTagName('head')[0],
+    style = document.createElement('style');
+
+if (!window.counter) { window.counter = 1;} else  { window.counter ++;
+if (window.counter % 2 == 0) { var css ='html {-webkit-filter: invert(0%); -moz-filter: invert(0%); -o-filter: invert(0%); -ms-filter: invert(0%); }'}
+ };
+
+style.type = 'text/css';
+if (style.styleSheet){
+  style.styleSheet.cssText = css;
+} else {
+  style.appendChild(document.createTextNode(css));
+}
+
+head.appendChild(style);
+ }());
+"><span class="ms ml-3"><i class="fa fa-adjust"></i></span></a></li>
+                </div>
+
+                {{!-- <button type="button" class="close mobile_non" data-dismiss="modal" onclick="wewer()"
+                    aria-label="Close">
+                    <span aria-hidden="true" class="closemenu">&times;</span>
+                </button> --}}
+            </div>
+            <div class="modal-body mobile_modal">
+                <div class="container-fluid">
+                    <span class="mobile_handling_1" style="margin:auto">
+                        <i class="fas fa-search"></i>
+                    </span>
+                    <div class="grid-layout">
+                        <span class="_back_btn" onclick="backtick()">
+                            <img src="/img/left-arrow.png" class="modal_icon_image back_button" alt=""
+                                style="z-index: 1000;">
+                        </span>
+                        {{#each menu}}
+                        <div id="{{this.short}}" class="grid-item bxx2 service-box2 grid-item-{{@index}}"
+                            onclick="animate_item({{@index}},'{{this.relativeUrl}}')">
+                            <div class="service-icon2">
+                                <div class="front-content2">
+                                    <h3>{{this.title}} <span class="_custom_menu_title"></span></h3>
+                                </div>
+                            </div>
+                            <div class="service-content2">
+                                <img src="/{{this.image}}">
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        if (navigator.userAgent.indexOf('Mac') > 0) {
+            $('body').addClass('_mac_os');
+        };
+    });
+
+    document.querySelector('#desktop_menu--trigger').addEventListener('click', function () {
+        var menuText = document.querySelector('#desktop_menu--trigger span').textContent;
+        if (menuText == 'Menu') {
+            document.querySelector('#desktop_menu--trigger span').textContent = 'Close';
+            document.querySelector('#desktop_menu--trigger .fa-bars').style.display = 'none';
+            document.querySelector('#desktop_menu--trigger .fa-times-circle').style.display = 'inline-block';
+        } else if (menuText == 'Close') {
+            document.querySelector('#desktop_menu--trigger span').textContent = 'Menu';
+            document.querySelector('#desktop_menu--trigger .fa-bars').style.display = 'inline-block';
+            document.querySelector('#desktop_menu--trigger .fa-times-circle').style.display = 'none';
+        }
+    });
+
+    var mobileNav = document.querySelector('.navbar-toggler');
+    mobileNav.onclick = function () {
+        mobileNav.classList.toggle('active');
+    }
+
+    $(document).keyup(function (e) {
+        if (e.key === "Escape" || e.key == 27) {
+            document.querySelector('#desktop_menu--trigger span').textContent = 'Menu';
+            document.querySelector('#desktop_menu--trigger .fa-bars').style.display = 'inline-block';
+            document.querySelector('#desktop_menu--trigger .fa-times-circle').style.display = 'none';
+        }
+    });
+
+    var hideBackButon = function () {
+        $('._back_btn').hide();
+    }
+
+    $('#contact_us').click(function () {
+        hideBackButon();
+        location.href = "/contact-mnre";
+    });
+    $('#re_invest').click(function () {
+        hideBackButon();
+        location.href = "/re-invest/2019";
+    });
+    $('#green_energy_corridor').click(function () {
+        hideBackButon();
+        location.href = "/green-energy-corridor/";
+    });
+    $('#human_resource_development').click(function () {
+        hideBackButon();
+        location.href = "/human-resource-development/";
+    });
+    $('#quality_standard_policy').click(function () {
+        hideBackButon();
+        location.href = "/quality-standard-policy/";
+    });
+    $('#international_solar_alliance').click(function () {
+        hideBackButon();
+        location.href = "/isa/";
+    });
+    $('#international_relations').click(function () {
+        location.href = '/international-relations';
+    });
+    $('#parliament_questions').click(function () {
+        location.href = "/parliament-questions";
+    });
+    $('#schedule_an_appointment').click(function () {
+        //location.href = '/schedule-an-appointment'
+        var choice = confirm("You are Redirecting to an External Site. Do you want to continue ?")
+        if (choice == true) {
+            window.open("https://evisitors.nic.in/", "_blank")
+        } else {
+            console.log('Redirect Cancelled')
+        }
+    });
+    $('#rti').click(function () {
+        var choice = confirm("You are Redirecting to an External Site. Do you want to continue ?")
+        if (choice == true) {
+            window.open("https://rti.gov.in", "_blank")
+        } else {
+            itemClickedBoolean = false;
+            console.log('Redirect Cancelled')
+            $('span._back_btn').css('display', 'none');
+        }
+    });
+
+    var subscribeForm = document.forms[1]
+    $('.subbt').click(function (e) {
+        e.preventDefault()
+        var items = $('[name="contentCheck"]:checked');
+        var email = $('#subscribeEmail').val()
+        var checkedValues = []
+        for (var i = 0; i < items.length; i++) {
+            checkedValues.push(items[i].value)
+        }
+        if (checkedValues.length > 0 && email) {
+            console.log(checkedValues, email)
+            axios.post('/subscription/add', {
+                subscriptions: checkedValues,
+                email: email
+            }).then((response) => {
+                return response.data
+            }).catch((error) => {
+                console.log(error)
+            }).then((data) => {
+                if (data.status == "Success") {
+                    $('.fancybox-close-small').click()
+                    $('#subscribeEmail').val('')
+                    for (var i = 0; i < items.length; i++) {
+                        items[i].checked = false
+                    }
+                    alert('Subscription Added')
+                }
+            })
+        } else if (checkedValues.length == 0) {
+            alert("Please Choose a Subscription")
+        } else if (!email) {
+            alert("Please Enter an email")
+        }
+    })
+
+</script>
+
+<script>
+	/*
+	 { "route":"/", "route_vars":{}, "desc_key":"", "img_key":"", "title_key":"ad_title",				"criteria": ["ad_tags_contains"], 	 			"name": "ad", }
+					,{ "route":"/", "route_vars":{}, "desc_key":"", "img_key":"", "title_key":"admnre_title",			"criteria": ["admnre_tags_contains"], 			"name": "admnre", }
+					,{ "route":"/", "route_vars":{}, "desc_key":"", "img_key":"", "title_key":"banner_title",			"criteria": ["banner_tags_contains"], 			"name": "bannerimages", }
+					,{ "route":"/", "route_vars":{}, "desc_key":"", "img_key":"", "title_key":"blog_title",				"criteria": ["blogs_tags_contains"], 			"name": "blog", }
+					,{ "route":"/", "route_vars":{}, "desc_key":"", "img_key":"", "title_key":"circular_title",			"criteria": ["circular_tags_contains"], 		"name": "circular", }
+					,{ "route":"/", "route_vars":{}, "desc_key":"", "img_key":"", "title_key":"manufacturer_title",		"criteria": ["manufacturer_tags_contains"], 	"name": "manufacturer", }
+					,{ "route":"/", "route_vars":{}, "desc_key":"", "img_key":"", "title_key":"event_title",			"criteria": ["event_tags_contains"], 			"name": "event", }
+					
+					,{ "route":"/", "route_vars":{}, "desc_key":"", "img_key":"", "title_key":"notification_title",		"criteria": ["notification_tags_contains"], 	"name": "notification", }
+					,{ "route":"/", "route_vars":{}, "desc_key":"", "img_key":"", "title_key":"photo_title",			"criteria": ["photo_tags_contains"], 			"name": "photo", }
+					,{ "route":"/", "route_vars":{}, "desc_key":"", "img_key":"", "title_key":"policy_title",			"criteria": ["policy_tags_contains"], 			"name": "policy", }
+					,{ "route":"/", "route_vars":{}, "desc_key":"", "img_key":"", "title_key":"presentation_title",		"criteria": ["presentation_tags_contains"], 	"name": "presentation", }
+					,{ "route":"/", "route_vars":{}, "desc_key":"", "img_key":"", "title_key":"report_title",			"criteria": ["report_tags_contains"], 			"name": "report", }
+					,{ "route":"/", "route_vars":{}, "desc_key":"", "img_key":"", "title_key":"rfd_title",				"criteria": ["rfd_tags_contains"], 				"name": "rfd", }
+					,{ "route":"/", "route_vars":{}, "desc_key":"", "img_key":"", "title_key":"scheme_title",			"criteria": ["scheme_tags_contains"], 			"name": "scheme" }
+	*/
+
+    $(document).ready(function () {
+        $("#srch-term").search({
+            apiUrlPrefix: "http://10.246.24.71/search",
+            models: [
+                {
+                    "name": "menusearch",
+                    "route": "/menusearch/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "overview",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Overview",
+                    "url": "url"
+                },
+                {
+                    "name": "organogram",
+                    "route": "/public-information/whos-who",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "name",
+                    "desc_key": "designation",
+                    "img_key": "thumbnail",
+                    "search": ["name_contains"],
+                    "title": "Who's Who"
+                },
+                {
+                    "name": "organogram",
+                    "route": "/public-information/whos-who",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "name",
+                    "desc_key": "designation",
+                    "img_key": "thumbnail",
+                    "search": ["designation_contains"],
+                    "title": "Who's Who"
+                },
+                {
+                    "name": "ad",
+                    "route": "/ad/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Advertisements"
+                },
+                {
+                    "name": "account",
+                    "route": "/account/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Accounts"
+                },
+                {
+                    "name": "album",
+                    "route": "/album/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Albums"
+                },
+                {
+                    "name": "casestudydoc",
+                    "route": "/casestudydoc/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Case Studies"
+                },
+                {
+                    "name": "circular",
+                    "route": "/circular/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Circulars"
+                },
+                {
+                    "name": "corrigendum",
+                    "route": "/corrigendum/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Corrigendum"
+                },
+                {
+                    "name": "currentnotice",
+                    "route": "/currentnotice/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Current Notices"
+                },
+                {
+                    "name": "event",
+                    "route": "/event/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Events"
+                },
+                {
+                    "name": "greenenergydoc",
+                    "route": "/greenenergydoc/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Green Energy Documents"
+                },
+                {
+                    "name": "hrdevdoc",
+                    "route": "/hrdevdoc/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Human Resource Development Documents"
+                },
+                {
+                    "name": "labpolicydocument",
+                    "route": "/labpolicydocument/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Lab Policy Documents"
+                },
+                {
+                    "name": "internationalrelation",
+                    "route": "/internationalrelation/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "International Relations"
+                },
+                {
+                    "name": "manufacturerlist",
+                    "route": "/manufacturerlist/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Manufacturers"
+                },
+                {
+                    "name": "newsarticle",
+                    "route": "/news/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "content",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "News"
+                },
+                {
+                    "name": "notification",
+                    "route": "/notification/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Notifications"
+                },
+                {
+                    "name": "officememorandum",
+                    "route": "/officememorandum/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Office Memorandums"
+                },
+                {
+                    "name": "officeorder",
+                    "route": "/officeorder/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Office Orders"
+                },
+                {
+                    "name": "organogram",
+                    "route": "/the-ministry/organogram-of-the-ministry",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "name",
+                    "desc_key": "designation",
+                    "img_key": "thumbnail",
+                    "search": ["designation_contains"],
+                    "title": "Organogram"
+                },
+                {
+                    "name": "policydocument",
+                    "route": "/policy/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Policies"
+                },
+                {
+                    "name": "presentation",
+                    "route": "/presentation/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Presentations"
+                },
+                {
+                    "name": "recruitmentrule",
+                    "route": "/recruitmentrule/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Recruitment Rule"
+                },
+                {
+                    "name": "report",
+                    "route": "/report/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Reports"
+                },
+                {
+                    "name": "researchdevelopment",
+                    "route": "/researchdevelopment/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "R&D"
+                },
+                {
+                    "name": "rfd",
+                    "route": "/rfd/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Result Framework Documentation"
+                },
+                {
+                    "name": "schemedocument",
+                    "route": "/schemedocument/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Schemes"
+                },
+                {
+                    "name": "secretaryspeechvisit",
+                    "route": "/secretaryspeechvisit/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Secretary Speeches & Visits"
+                },
+                {
+                    "name": "tenderdocument",
+                    "route": "/tenderdocument/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Tenders"
+                },
+                {
+                    "name": "trainingmodule",
+                    "route": "/trainingmodule/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Training Modules"
+                },
+                {
+                    "name": "video",
+                    "route": "/video/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "Videos"
+                },
+                {
+                    "name": "videoelearning",
+                    "route": "/videoelearning/__ID__",
+                    "route_vars": { "__ID__": "id" },
+                    "title_key": "title",
+                    "desc_key": "description",
+                    "img_key": "thumbnail",
+                    "search": ["meta_keywords_contains"],
+                    "title": "E-learning Videos"
+                }
+            ],
+            onSearchStart: function () {
+                $("#global-search-results-nav").html("");
+                $("#global-search-results-tabs").html("");
+                $(this).addClass("loading");
+            },
+            onSearchItemWiseResult: function (model, items, index) {
+
+                //console.log(model,items,index);
+                var id = 'search_' + (model.name.toLowerCase());
+                $tabs = $("#global-search-results-tabs");
+                var div = '<div class="tab-pane fade show" id="' + id + '" role="tabpanel" aria-labelledby="' + id + '-tab"></div>'
+                $tab = $(div);
+
+                if (index === 0) $tab.addClass("active");
+
+                var content = "<div class='row'>";
+                for (var i = 0; i < items.length; i++) {
+                    var item = items[i];
+                    var link = model.route;
+                    var date = item.createdAt;//toLocaleString({locale:'en-IN', timeZone: 'Asia/Kolkata'});
+
+                    var route_vars = model.route_vars;
+                    for (var key in route_vars) {
+                        link = link.replace(key, item[route_vars[key]]);
+                    }
+
+                    content += '<div class="col-xs-12 col-sm-6 col-md-4 mb-4">';
+                    content += '		<div class="card h-100">';
+                    if (model.img !== undefined && model.img != '')
+                        content += '			<img class="card-img-top" src="' + (item[model.img_key]) + '" alt="">';
+                    content += '			<div class="card-body text-right">';
+                    content += '				<p class="date fs-12">' + (new Date(date).toDateString()) + '</p>';
+                    content += '				<h6 class="card-title text-left ellipsis mt-2">' + item[model.title_key] + '</h6>';
+                    content += '				<p class="card-text text-left ellipsis mt-2">' + item[model.desc_key] + '</p>';
+                    content += '				<a class="text-danger mt-3" target="_blank" href="' + link + '"><strong>READ MORE</strong></a>';
+                    content += '			</div>';
+                    content += '		</div>';
+                    content += '</div>';
+                }
+                content += "</div>";
+                $tab.append(content);
+                $tabs.append($tab);
+
+                $nav = $("#global-search-results-nav");
+
+                var div = '<a class="nav-link" id="' + id + '-tab" data-toggle="pill" href="#' + id + '" role="tab" aria-controls="' + id + '" aria-selected="true"></a>';
+                $li = $(div);
+                $li.append('<h6 class="line-height-1">' + (model.title.toUpperCase()) + '</h6>');
+                $li.append('<p class="ellipsis">Total ' + (items.length) + ' pages have matching content.</p>');
+                if (index === 0) $li.addClass("active");
+                $nav.append($li);
+
+                return { tab: $tab.html(), nav: $li.html() };
+            },
+            onSearchComplete: function (results) {
+                console.log("Search Completed:", results);
+                $(this).removeClass("loading");
+                if (results.length === 0) {
+                    var row = `<div class="col-8 mt-5">
+                                    <h3>NO MATCHING RECORD(s) FOUND</h3>
+                                    <p class="mt-4" style="font-size:20px">We do not found any matching records with your provided search term.
+                                    <br>Please try something else or contact support for any specific query.
+                                    </p>
+                                </div>`
+                    $("#global-search-results-tabs").html(row);
+                }
+            },
+        });
+    });
+</script>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

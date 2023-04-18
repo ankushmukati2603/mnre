@@ -1,0 +1,74 @@
+<div class="container-fluid wde">
+    <h1 class="text-center wdet">Public Information</h1>
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 mt-3" style="margin:0 auto;">
+            <h2 class="energtext text-center">Circulars</h2>
+        </div>
+    </div>
+</div>
+
+<div class="container h-100 mt-3">
+    <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+            <input class="search_input" type="text" name="" placeholder="Search for News">
+            <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+
+    </div>
+    <div class="row mt-2 sfilter">
+
+        <div class="col-sm-2">
+            <div class="form-group ">
+                <select id="ilceler" class="form-control">
+                    <option selected>Sort by</option>
+                    <option>Relevance</option>
+                    <option>Recency</option>
+                    <option>Popularity</option>
+
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group ">
+                <select id="arac-turu" class="form-control">
+                    <option selected>Media type</option>
+                    <option>PDF</option>
+                    <option>Image</option>
+                    <option>Video</option>
+
+                </select>
+            </div>
+        </div>
+    </div>{{#if articles}}
+    <h1 class="text-center py-5">
+        Documents
+    </h1>
+    <div class="pdf-view pb-5">
+        {{#each articles}}
+        <div class="row pdf ml-5 mr-5 mt-5">
+            <div class="col viewdoc">
+                {{#if this.issue_date}}
+                {{#if this.submission_date}}
+                <span class="date"><span class="issue_date">{{this.issue_date}}</span> - {{this.submission_date}}</span>
+                {{else}}
+                <span class="date"><span class="issue_date">{{this.issue_date}}</span></span>
+                {{/if}}
+                {{/if}}
+                <span class="date">&nbsp;</span>
+                <h4 class="guideh">{{this.title}}</h4>
+            </div>
+            <div class="col-sm-3">
+                <a target="_blank" href="http://13.127.146.147:1337/{{this.file.url}}" class="ml-1">
+                    <img class="pdf" src="/img/view-pdf.png" alt="view">
+                </a>
+                <a target="_blank" href="http://13.127.146.147:1337/{{this.file.url}}" class="ml-1">
+                    <img class="pdf" src="/img/download-pdf.png" alt="view">
+                </a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}

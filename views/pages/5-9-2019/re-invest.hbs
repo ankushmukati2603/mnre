@@ -1,0 +1,68 @@
+<div id="carouselExampleFade" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active _reinvest_banner">
+      <img src="/img/reinvest_banner.png" class="d-block mas" alt="...">
+      <div class="header-text hidden-xs">
+        <div class="col-sm-8 pb-4 httext">
+          <h4>
+            <span>Upcoming event - 3rd edition of the RE-Invest</span>
+          </h4>
+
+          <span class="stext"></span>
+        </div>
+        <div class="col-sm-4 noone ml-5 mt-3">
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+<div class="container-fluid rehd reinvest_bg">
+  <h1 class="text-center rehd reinvest_bg" style="margin: 0; padding-bottom: 12px;">{{page_title}}</h1>
+
+</div>
+<main class="ml-5 mr-5 mb-5 mt-5">
+  <div class="row filter-bc mb-5 _policy_dropdown">
+    <div class="col">
+      <div class="search-option">
+
+        <label for="f184318d184322" class="sr-only">Format</label>
+        <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+          onChange="window.location.href=this.value">
+          <option value="">Select Year</option>
+          <option title="energy-policy" value="/re-invest/2018">Re-Invest 2018</option>
+          <option title="energy-policy" value="/re-invest/2019">Re-invest 2019</option>
+
+        </select>
+      </div>
+
+    </div>
+
+
+  </div>
+  <div class="container-fluid">
+    <div class="hdpart">
+      <div class="col-sm-12 mt-3 rmtext">
+        <div class="margin_boo">
+          {{{overview}}}
+        </div>
+        <br>
+        <br>
+        <br>
+        <a href="https://re-invest.in/" target="_blank" class="external_link"><button class="rebt reinvest_bg">Go To
+            Website</button></a>
+      </div>
+    </div>
+  </div>
+
+
+</main>
+
+<script>
+  var LH = location.pathname
+  document.getElementById('f184318d184322').value = LH
+</script>

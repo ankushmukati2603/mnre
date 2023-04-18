@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="/stylesheets/feedback_page.css">
+<div class="_page_head hdtitle">
+  <p class="_heading">Feedback</p>
+</div>
+
+<style>
+  #error_message {
+    margin-bottom: 20px;
+    background: hsl(358, 90%, 24%);
+    padding: 0px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.5s ease;
+  }
+
+  .error {
+    color: red !important;
+    font-size: 12px;
+  }
+</style>
+
+<main class="_page_wrapper">
+  <div class="_feedback_form">
+    <div id="error_message">
+
+    </div>
+    <form name="registration-form" id="registrationForm" method="POST" action="" role="form">
+      <div class="_form_field">
+        <label for="first-name">First Name</label>
+        <input type="text" id="name" placeholder="First Name" name="name">
+      </div>
+      <div class="_form_field">
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last" placeholder="Last Name" name="last" required>
+      </div>
+      <div class="_form_field">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Email" name="email" required>
+      </div>
+      <div class="_form_field">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" placeholder="Subject" name="subject" required>
+      </div>
+      <div class="_form_field">
+        <label for="email">Feedback</label>
+        <textarea id="feedback" placeholder="Write your feedback here..." rows="4" name="feedback" required></textarea>
+      </div>
+      <div class="_form_field">
+        <input type="submit" class="feedback feedback_submit">
+      </div>
+    </form>
+  </div>
+</main>
+<script src="/js/jquery.validate.min.js"></script>
+<script>
+
+
+
+  $('form[name="registration-form"]').validate({
+    rules: {
+      name: 'required',
+      last: 'required',
+      email: {
+        required: true,
+        email: true
+      },
+      subject: 'required',
+      feedback: 'required',
+
+    },
+    messages: {
+      name: 'Please enter your First Name',
+      last: 'Please enter your Last Name',
+      email: 'Please enter a valid Email Address',
+      subject: 'Please enter your Subject',
+      feedback: 'Please enter your Feedback'
+
+    },
+    submitHandler: function (form) {
+      var firstName = $('#name').val()
+      var lastName = $('#last').val()
+      var email = $('#email').val()
+      var subject = $('#subject').val()
+      var message = $('#feedback').val()
+
+      axios.post('/mail/feedback', {
+        firstName: firstName,
+        lastName: lastName,
+        subject: subject,
+        email: email,
+        message: message
+      }).then(response => response.data).catch(error => {
+        console.log(error)
+      }).then(data => {
+        if (data.status == "Success") {
+          document.getElementById('registrationForm').reset()
+          alert('Feedback Submitted!')
+        } else {
+          alert('Feedback Not Submitted!')
+        }
+      })
+
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid').removeClass('is-valid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-valid').removeClass('is-invalid');
+    }
+
+  });
+</script>

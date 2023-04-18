@@ -1,0 +1,54 @@
+<div class="_page_head {{banner_background}}">
+    <p class="_heading">{{page_title}}</p>
+</div>
+
+<div class="_main_wrapper">
+    <div class="_page_wrapper">
+        {{#if overview}}
+        <div class="margin_boo">
+            {{{overview}}}
+        </div>
+        {{/if}}
+
+        <div class="_documents_wrap">
+            {{#if articles}}
+            <!-- Accordion -->
+            <div class="_policy_wrapper">
+                <div class="_policy_accordion">
+                    <div class="accordion" id="accordionExample">
+                        {{#each articles}}
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        data-target="#collapse_{{@index}}" aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                        {{this.title}}
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapse_{{@index}}" class="collapse" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <p>{{this.description}}</p>
+                                    <div class="_pdf_links">
+                                        <a target="_blank" href="{{../document_path}}{{this.file.url}}" class="ml-1">
+                                            <img class="pdf" src="{{../site_url}}/img/view-pdf.png" alt="view">
+                                        </a>
+                                        <a data-href="{{../document_path}}{{this.file.url}}" class="ml-1 download_file">
+                                            <img class="pdf" src="{{../site_url}}/img/download-pdf.png" alt="view">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion -->
+            {{/if}}
+        </div>
+    </div>
+</div>

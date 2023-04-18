@@ -1,0 +1,215 @@
+<div class="container-fluid wde {{head_bg}}">
+    <h1 class="text-center wdet">{{page_title}}</h1>
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 mt-3" style="margin:0 auto;">
+            <style>
+                #chartdiv {
+                    height: 500px;
+                }
+            
+                .label_map {
+                    display: inline-block;
+                    position: relative;
+                    width: 50%;
+                }
+            </style>
+            
+            
+            <!-- Chart code -->
+            <script>
+                
+                am4core.ready(function () {
+                    var energy = location.pathname.split('/')[2]
+			console.log(energy)
+                    var query = ''
+                    if (energy == "solar"){
+                        query="solar"
+                    } else if(energy == "wind"){
+                        query="wind"
+                    } else if(energy == "small-hydro"){
+                        query= "small_hydro"
+                    } else if(energy =="waste-to-energy"){
+                        query = "waste"
+                    } else {
+                        query = "bio_energy"
+                    }
+                    // Themes begin
+                    // Themes end
+                    am4core.options.commercialLicense = true;
+                    /* Create map instance */
+                    var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+
+
+                    /* Set map definition */
+
+
+                    /* Set projection */
+                    chart.projection = new am4maps.projections.Miller();
+
+                    /* Create map polygon series */
+                    var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+                    polygonSeries.tooltip.label.interactionsEnabled = true;
+                    polygonSeries.tooltip.keepTargetHover = true;
+                    polygonSeries.calculateVisualCenter = true;
+                    polygonSeries.mapPolygons.template.tooltipPosition = "fixed";
+
+                    polygonSeries.exclude = ['AQ']
+                    /* Make map load polygon (like country names) data from GeoJSON */
+                    polygonSeries.useGeodata = true;
+                    axios.get(`http://10.246.24.71/internationalrelations?${query}=true`).then(response => response.data).catch(error => {
+                        console.log(error)
+                    }).then(wata => {
+                        wata.forEach(w => {
+                            // found.properties.policies.push(w)
+                            am4geodata_worldHigh.features.forEach(c => {
+                                if (c.properties.name == w.country) {
+                                    var item = {
+                                        id: c.id,
+                                        name: c.properties.name,
+                                        full_name: w.title,
+                                        policy_name: w.title.substr(0, 25).concat('...'),
+                                        policy_id: w.file.url,
+                                        fill: am4core.color("#bada55")
+                                    }
+                                    polygonSeries.data.push(item)
+                                }
+                            })
+                        })
+
+                        chart.geodata = am4geodata_worldHigh;
+
+                    })
+
+                    /* Configure series */
+                    var polygonTemplate = polygonSeries.mapPolygons.template;
+                    polygonTemplate.applyOnClones = true;
+                    polygonTemplate.tooltipHTML = "<div class='label_map'>{name} <br> <a target='_blank' style='color:white' title='{full_name}' href='http://10.246.24.71{policy_id}'>{policy_name}</a></div>";
+                    polygonTemplate.nonScalingStroke = true;
+                    polygonTemplate.strokeOpacity = 0.5;
+                    polygonTemplate.fill = chart.colors.getIndex(2);
+                    var lastSelected;
+                    polygonTemplate.propertyFields.fill = "fill";
+                    polygonTemplate.events.on("hit", function (ev) {
+                        if (lastSelected) {
+                            // This line serves multiple purposes:
+                            // 1. Clicking a country twice actually de-activates, the line below
+                            //    de-activates it in advance, so the toggle then re-activates, making it
+                            //    appear as if it was never de-activated to begin with.
+                            // 2. Previously activated countries should be de-activated.
+                            lastSelected.isActive = false;
+                        }
+                        ev.target.series.chart.zoomToMapObject(ev.target);
+                        if (lastSelected !== ev.target) {
+                            lastSelected = ev.target;
+                        }
+                    })
+
+
+
+
+                    /* Create selected and hover states and set alternative fill color */
+                    var ss = polygonTemplate.states.create("active");
+                    ss.properties.fill = chart.colors.getIndex(2);
+
+
+                    var hs = polygonTemplate.states.create("hover");
+                    hs.properties.fill = am4core.color("#bada44");
+
+                    // Hide Antarctica
+
+                    // Small map
+                    chart.smallMap = new am4maps.SmallMap();
+                    // Re-position to top right (it defaults to bottom left)
+                    chart.smallMap.align = "right";
+                    chart.smallMap.valign = "top";
+                    chart.smallMap.series.push(polygonSeries);
+
+                    // Zoom control
+                    chart.zoomControl = new am4maps.ZoomControl();
+
+                    var homeButton = new am4core.Button();
+                    homeButton.events.on("hit", function () {
+                        chart.goHome();
+                    });
+
+                    homeButton.icon = new am4core.Sprite();
+                    homeButton.padding(7, 5, 7, 5);
+                    homeButton.width = 30;
+                    homeButton.icon.path = "M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8";
+                    homeButton.marginBottom = 10;
+                    homeButton.parent = chart.zoomControl;
+                    homeButton.insertBefore(chart.zoomControl.plusButton);
+
+
+
+                    chart.mouseWheelBehaviour = "none"
+
+                }); // end am4core.ready()
+            </script>
+            
+            <div id="chartdiv"></div>
+        </div>
+    </div>
+</div>
+{{#if overview}}
+<div class="container-fluid">
+    <div class="hdpart">
+        <div class="col-sm-12 mt-3" style="margin:0 auto;text-align:center;">
+            <div class="margin_boo">
+                {{{overview}}}
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+<div class="container mt-5">
+    <div class="d-flex justify-content-center">
+        <div class="row filter-bc">
+            <div class="col">
+                <div class="search-option">
+
+                    <label for="f184318d184322" class="sr-only">Format</label>
+                    <select title="Format" id="f184318d184322" name="documentType_" class="form-control"
+                        onChange="window.location.href=this.value">
+                        <option title="energy-policy" value="">All Energy</option>
+                        <option title="energy-policy" value="/international-relations/solar">Solar</option>
+                        <option title="energy-policy" value="/international-relations/wind">Wind</option>
+                        <option title="popularity" value="/international-relations/small-hydro">Small Hydro</option>
+                        <option title="popularity" value="/international-relations/waste-to-energy">Waste to Energy</option>
+                        <option title="popularity" value="/international-relations/bio-energy">Bio Energy</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container mb-5">
+{{#if tenders}}
+    {{#each tenders}}
+    <div class="row pdf ml-5 mr-5 mt-5">
+        <div class="col viewdoc">
+            <span class="date issue_date">{{this.issue_date}}</span>
+            <h4 class="guideh">{{this.title}}</h4>
+        </div>
+        <div class="col-sm-3">
+            <a href="http://10.246.24.71{{this.file.url}}" target="_blank" class="ml-1"><img
+                    class="pdf" src="/img/view-pdf.png" alt="view"></a>
+            <a data-href="http://10.246.24.71{{this.file.url}}" class="ml-1 download_file"><img
+                    class="pdf" src="/img/download-pdf.png" alt="download"></a>
+        </div>
+    </div>
+    {{/each}}
+{{else}}
+	<div class="row "><div class="col-sm-12"><h1 class="text-center mt-5 mb-5">No Documents Found</h1></div></div>
+{{/if}}
+
+
+</div>

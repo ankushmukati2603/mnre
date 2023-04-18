@@ -1,0 +1,441 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+</style>
+{{> language_dom}}
+<div class="_wrapper _admin_wrapper">
+    <div class="_section_wrap _energy_list">
+        {{#each elements}}
+        <div class="_energy_wrap _single_cat">
+            <div class="_page_head">
+                <p>
+                    <i>
+                        <img src="{{this.icon}}" alt="" />
+                    </i>
+                    <span>{{this.heading}}</span>
+                </p>
+            </div>
+
+            <div class="_links_wrap {{this.class}}">
+                {{#if child}}
+                <ul class="_links_list">
+                    {{#each this.child}}
+                    <li>
+                        <p>{{this.heading}}</p>
+                        <div class="_action">
+                            {{#if this.class}}
+                            {{#if this.href}}
+                            <a href="{{this.href}}">Schemes</a>
+                            {{else}}
+                            <span class="{{this.class}} edit_button_text">
+                                Edit
+                            </span>
+                            {{/if}}
+                            {{else}}
+                            <span class="edit_button_text">
+                                Edit
+                            </span>
+                            {{/if}}
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+{{#each GEO}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+{{#each OCEAN}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+{{#each BIOF}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+{{#each ES}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+{{#each FC}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+{{#each BOV}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+{{#each HYD_NEW}}
+<div class="modal" id="{{this.modal_id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{this.title}}</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns is-multiline">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <label for="{{this.modal_id}}" class="label"></label>
+                <textarea id="{{this.textarea_id}}" cols="30" rows="10" class="textarea"></textarea>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success {{this.saveButtonClass}}">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+{{/each}}
+
+<div class="modal" id="hydrogen__section--one">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Hydrogen Energy</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="hydrogenEnergyDescription" class="label">Description</label>
+                        <textarea name="hydrogen-energy-description" class="textarea"
+                            id="hydrogenEnergyDescription"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveHydrogenSectionOne">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="fcsectionone">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Chemical Energy Fuel Cell Energy Section One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="box">
+                <div class="columns is-multiline">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="column is-12">
+                        <figure class="image">
+                            <img src="" id="fuelCellPanelSavedImage" alt="">
+                        </figure>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="fuelCellInputFileElement" class="label">Fuel Cell Energy Banner</label>
+                                <input type="file" name="" id="fuelCellInputFileElement">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="fuelCellDescription" class="label">Fuel Cell Banner Description</label>
+                                <textarea class="textarea" id="fuelCellDescription"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveFuelCellSectionOne">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="modal" id="batterysectionone">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Battery Section One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="box">
+                <div class="columns is-multiline">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="column is-12">
+                        <figure class="image">
+                            <img src="" id="batteryPanelSavedImage" alt="">
+                        </figure>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="batteryInputFileElement" class="label">Energy Storage Energy Banner</label>
+                                <input type="file" name="" id="batteryInputFileElement">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="batteryDescription" class="label">Energy Storage Banner
+                                    Dbatterycription</label>
+                                <textarea class="textarea" id="batteryDescription"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveBatterySectionOne">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="geosectionone">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Geo Thermal Energy</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="geoDescription" class="label">Description</label>
+                        <textarea class="textarea" id="geoDescription"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveGeoSectionOne">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="essectionone">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Energy Storage</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="esDescription" class="label">Description</label>
+                        <textarea class="textarea" id="esDescription"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveEsSectionOne">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="biofsectionone">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Battery Section One</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="box">
+                <div class="columns is-multiline">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="column is-12">
+                        <figure class="image">
+                            <img src="" id="biofPanelSavedImage" alt="">
+                        </figure>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="biofInputFileElement" class="label">Energy Storage Energy Banner</label>
+                                <input type="file" name="" id="biofInputFileElement">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <div class="control">
+                                <label for="biofDescription" class="label">Energy Storage Banner
+                                    Dbatterycription</label>
+                                <textarea class="textarea" id="biofDescription"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveBioFSectionOne">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+<div class="modal" id="oceansectionone">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Ocean Energy</p>
+            <button class="delete ministryModalClose" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body _no_scroll">
+            <div class="_modal_form">
+                <div class="form _full_field">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="_form_field">
+                        <label for="oceanDescription" class="label">Description</label>
+                        <textarea class="textarea" id="oceanDescription"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success saveOceanSectionOne">Save changes</button>
+            <button class="button ministryModalClose">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+<div class="notification" id="dashboardNotification">
+    <p id="notification_message">
+        We are Legion!
+    </p>
+</div>

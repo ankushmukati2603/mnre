@@ -1,0 +1,23 @@
+<style>
+    .inline__linking{
+        text-align: center
+    }
+</style>
+
+<div class="_admin_home">
+    <div class="_wrapper">
+        {{#each sections}}
+        <div class="_admin_cards">        
+            <p class="_card_title">{{this.title}}</p>            
+            <a class="_card_link" href="{{this.link}}">GO TO ADMIN</a>
+            <img src="{{this.img}}" alt=""/>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<div class="notification" id="dashboardNotification">
+    <p id="notification_message">
+        We are Legion!
+    </p>
+</div>

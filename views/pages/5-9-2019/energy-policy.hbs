@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="/stylesheets/energy-policy.css">
+
+<div class="_page_head {{head_bg}}-bg">
+    <p class="_heading">{{page_title}}</p>
+</div>
+
+<div class="_main_wrapper">
+    <div class="_policy_wrapper">
+        <div class="_policy_dropdown">
+            <div class="search-option">
+                <label for="f184318d184322" class="sr-only">Format</label>
+                <select id="f184318d184ccc322" class="form-control policy_option"
+                    onchange="window.location.pathname = this.value">
+                    <option title="Solar Policy and Guidelines" value="/Solar/policy-and-guidelines">Solar</option>
+                    <option title="Wind Policy and Guidelines" value="/Wind/policy-and-guidelines">Wind</option>
+                    <option title="Small Hydro Policy and Guidelines" value="/Small Hydro/policy-and-guidelines">Small
+                        Hydro</option>
+                    <option title="Waste to energy Policy and Guidelines"
+                        value="/Waste To Energy/policy-and-guidelines">Waste To Energy</option>
+                    <option title="Bio Energy Policy and Guidelines" value="/Bio Energy/policy-and-guidelines">Bio
+                        Energy</option>
+                </select>
+            </div>
+        </div>
+        <!-- Accordion -->
+        <div class="_policy_accordion">
+            <div class="accordion" id="accordionExample">
+                {{#each articles}}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse"
+                                data-target="#collapse_{{@index}}" aria-expanded="true" aria-controls="collapseOne">
+                                {{this.title}}
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapse_{{@index}}" class="collapse" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                            <p>{{this.description}}</p>
+
+                            <div class="_pdf_links">
+                                <a target="_blank" href="http://10.246.24.71/{{this.file.url}}" class="ml-1">
+                                    <img class="pdf" src="/img/view-pdf.png" alt="view">
+                                </a>
+                                <a data-href="http://10.246.24.71/{{this.file.url}}" class="ml-1 download_file">
+                                    <img class="pdf" src="/img/download-pdf.png" alt="view">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <!-- Accordion -->
+    </div>
+</div>
+
+<script>
+    $('.option').not('.option:nth-child(1)').on('click', function (e) {
+        var target = $(e.currentTarget).data('value')
+        if (target == location.pathname) {
+            console.log("currently on the same page")
+        } else {
+            location.href = target
+        }
+    })
+
+    var page = decodeURI(location.pathname).split('/')[1]
+    console.log(page)
+    if (page == "Solar") {
+        $('.policy_option').val('/Solar/policy-and-guidelines')
+    } else if (page == "Wind") {
+        $('.policy_option').val('/Wind/policy-and-guidelines')
+    } else if (page == "Small Hydro") {
+        $('.policy_option').val('/Small Hydro/policy-and-guidelines')
+    } else if (page == "Waste To Energy") {
+        $('.policy_option').val('/Waste To Energy/policy-and-guidelines')
+    } else if (page == "Bio Energy") {
+        $('.policy_option').val('/Bio Energy/policy-and-guidelines')
+    }
+</script>

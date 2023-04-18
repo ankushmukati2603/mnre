@@ -1,0 +1,480 @@
+<style>
+    #chartdiv {
+        width: 90%;
+        height: 600px
+    }
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/maps.js"></script>
+<script src="//www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+
+<!-- Chart code -->
+<script>
+    //Data
+    
+
+    var one = data.filter(d => d.Year == '2015')
+    var two = data.filter(d => d.Year == '2016')
+    var three = data.filter(d => d.Year == '2017')
+    var four = data.filter(d => d.Year == '2018')
+
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+
+    window.onload = function () {
+        $('.image_map_right_first').hide()
+        $('.fourth').show()
+
+        var currentMap = 'indiaHigh'
+        var title = ''
+
+        var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+        chart.seriesContainer.draggable = false;
+        chart.seriesContainer.resizable = false;
+
+        chart.maxZoomLevel = 1;
+        // Set map definition
+        chart.geodataSource.url = "https://www.amcharts.com/lib/4/geodata/json/" + currentMap + ".json";
+        chart.geodataSource.events.on("parseended", function (ev) {
+            /*var data = [];
+            for (var i = 0; i < ev.target.data.features.length; i++) {
+                var foundOne = one.find(function (o) {
+                    return o.CODE == ev.target.data.features[i].id
+                })
+                if (foundOne) {
+                    data.push({
+                        id: ev.target.data.features[i].id,
+                        value: foundOne["Installed (MW)"],
+                        value_2: foundOne["Target (MW)"],
+                    })
+                } else {
+                    data.push({
+                        id: ev.target.data.features[i].id,
+                        value: "Not Available",
+                        value_2: "Not Available",
+                    })
+                }
+
+            }
+            polygonSeries.data = data; */
+            $('.dot:nth-of-type(4)').click()
+            $('.dot:nth-of-type(4) span').css('background', '#96CA3E')
+
+        })
+
+        $('.dot').click(function (e) {
+            var choice = $(e.currentTarget).children('date').text()
+            if (choice == '2015') {
+                $('.image_map_right_first').hide()
+                $('.first').show()
+                var data = [];
+                for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+                    console.log(chart["_dataSources"].geodata.data.features[i])
+                    var foundOne = one.find(function (o) {
+                        return o.CODE == chart["_dataSources"].geodata.data.features[i].id
+                    })
+                    if (foundOne) {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: foundOne["Installed (MW)"],
+                            value_2: foundOne["Target (MW)"],
+                        })
+                    } else {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: "Not Available",
+                            value_2: "Not Available",
+                        })
+                    }
+
+                }
+                polygonSeries.data = data;
+            } else if (choice == '2016') {
+                $('.image_map_right_first').hide()
+                $('.second').show()
+                var data = [];
+                for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+                    var foundOne = two.find(function (o) {
+                        return o.CODE == chart["_dataSources"].geodata.data.features[i].id
+                    })
+                    if (foundOne) {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: foundOne["Installed (MW)"],
+                            value_2: foundOne["Target (MW)"],
+                        })
+                    } else {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: "Not Available",
+                            value_2: "Not Available",
+                        })
+                    }
+
+                }
+                polygonSeries.data = data;
+            } else if (choice == '2017') {
+                $('.image_map_right_first').hide()
+                $('.third').show()
+                var data = [];
+                for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+                    var foundOne = three.find(function (o) {
+                        return o.CODE == chart["_dataSources"].geodata.data.features[i].id
+                    })
+                    if (foundOne) {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: foundOne["Installed (MW)"],
+                            value_2: foundOne["Target (MW)"]
+                        })
+                    } else {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: "Not Available",
+                            value_2: "Not Available",
+                        })
+                    }
+
+                }
+                polygonSeries.data = data;
+            } else if (choice == '2018') {
+                $('.image_map_right_first').hide()
+                $('.fourth').show()
+                var data = [];
+                for (var i = 0; i < chart["_dataSources"].geodata.data.features.length; i++) {
+                    var foundOne = four.find(function (o) {
+                        return o.CODE == chart["_dataSources"].geodata.data.features[i].id
+                    })
+                    if (foundOne) {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: foundOne["Installed (MW)"],
+                            value_2: foundOne["Target (MW)"],
+                        })
+                    } else {
+                        data.push({
+                            id: chart["_dataSources"].geodata.data.features[i].id,
+                            value: "Not Available",
+                            value_2: "Not Available",
+                        })
+                    }
+
+                }
+                polygonSeries.data = data;
+            }
+        })
+        // Set projection
+        chart.projection = new am4maps.projections.Mercator();
+
+        // Create map polygon series
+        var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+        //Set min/max fill color for each area
+        polygonSeries.heatRules.push({
+            property: "fill",
+            target: polygonSeries.mapPolygons.template,
+            min: chart.colors.getIndex(1).brighten(1),
+            max: chart.colors.getIndex(2).brighten(-0.3)
+        });
+
+        // Make map load polygon data (state shapes and names) from GeoJSON
+        polygonSeries.useGeodata = true;
+
+        // Configure series tooltip
+        var polygonTemplate = polygonSeries.mapPolygons.template;
+
+        polygonTemplate.tooltipText = "{name} \n" +
+            "Total Capacity : {value} MW \n" +
+            "Overall Target : {value_2} MW"
+        polygonTemplate.nonScalingStroke = true;
+        polygonTemplate.strokeWidth = 0.5;
+        console.log(polygonTemplate)
+
+        // Create hover state and set alternative fill color
+        var hs = polygonTemplate.states.create("hover");
+        // hs.properties.fill = chart.colors.getIndex(9).brighten(-0.5);
+
+        hs.properties.fill = ("#FFC000")
+
+        //  $('g').click(function () {
+        //    location.href = '/mp'
+        //})
+
+        polygonTemplate.events.on("hit", function (event) {
+            console.log(event)
+        });
+
+        function changeBackgoundofDots() {
+            $('.dot span').css('background', '#fff')
+        }
+
+        $('.dot:nth-of-type(1)').click(function () {
+            var clickedDot = $(this)
+            changeBackgoundofDots()
+            $(clickedDot[0].children[0]).css('background', '#D62031')
+        })
+        $('.dot:nth-of-type(2)').click(function () {
+            var clickedDot = $(this)
+            changeBackgoundofDots()
+            $(clickedDot[0].children[0]).css('background', '#13ABD9')
+        })
+        $('.dot:nth-of-type(3)').click(function () {
+            var clickedDot = $(this)
+            changeBackgoundofDots()
+            $(clickedDot[0].children[0]).css('background', '#D6158A')
+        })
+        $('.dot:nth-of-type(4)').click(function () {
+            var clickedDot = $(this)
+            changeBackgoundofDots()
+            $(clickedDot[0].children[0]).css('background', '#96CA3E')
+        })
+        $('.bd-solar').click(function () {
+            $('.border_orage_tabs').css('border-bottom', '9px #fdbf2c solid')
+        })
+        $('.bd-wind').click(function () {
+            $('.border_orage_tabs').css('border-bottom', '9px #1796cd solid')
+        })
+        $('.bd-bmp').click(function () {
+            $('.border_orage_tabs').css('border-bottom', '9px #3d6325 solid')
+        })
+        $('.bd-gas').click(function () {
+            $('.border_orage_tabs').css('border-bottom', '9px #516a9e solid')
+        })
+        $('.bd-bgp').click(function () {
+            $('.border_orage_tabs').css('border-bottom', '9px #88a339 solid')
+        })
+        $('.bd-hydro').click(function () {
+            $('.border_orage_tabs').css('border-bottom', '9px #179ba3 solid')
+        })
+        $('.bd-we').click(function () {
+            $('.border_orage_tabs').css('border-bottom', '9px #c7721f solid')
+        })
+    };
+
+
+</script>
+
+<div id="carouselExampleFade" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/img/wasteofenergy_banner.jpg" class="d-block w-100" alt="...">
+            <div class="header-text-energies hidden-xs">
+                <div class="col-md-12 text-left">
+
+
+                    <span class="engtext">
+                        Some Waste To Energy Power Station, India
+                    </span>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container energies">
+    <div class="d-flex justify-content-center">
+      <div class="active_tabs">
+        <a href="/energy">
+            <div class="p-4 bd-gas">&nbsp;&nbsp;&nbsp;&nbsp;Overall&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </a>
+        <a href="/energy/solar">
+            <div class="p-4  bd-solar">Solar Power</div>
+        </a>
+        <a href="/energy/wind">
+            <div class="p-4 bd-wind">Wind Power</div>
+        </a>
+       
+        <a href="/energy/biogas">
+            <div class="p-4 bd-bgp">Bio Energy</div>
+        </a>
+
+        <a href="/energy/hydro">
+            <div class="p-4 bd-hydro">Small Hydro</div>
+        </a>
+        <a href="/energy/waste">
+            <div class="p-4 bd-we">Waste to Energy</div>
+        </a>
+        <a href="#">
+        <div class="p-4 bd-bgp">Emerging Technologies</div>
+      </a>
+      </div>
+    </div>
+</div>
+
+
+<div class="container newsbg">
+    <h1 class="solar-head ml-4 pt-4">WASTE TO ENERGY</h1>
+   
+</div>
+
+<div class="container px-5 py-5">
+    <div class="row">
+        <div class="col-sm-8">
+
+            <p>
+                The increasing industrialization, urbanization, and changes in the pattern of life, which accompany the process of economic growth, give rise to a generation of increasing quantities of wastes leading to increased threats to the environment. In recent years, technologies have been developed that not only help in generating a substantial quantity of decentralized energy but also in reducing the quantity of waste for its safe disposal. The Ministry is promoting all the technology options available for setting up projects for recovery of energy in the form of Biogas/BioCNG/Electricity from agricultural, Industrial and urban wastes including municipal solid waste.
+
+            </p>
+            <p class="checkcaption" style="display:none">no modal boxes?</p>
+            <div class="check" style="display:none">
+                <input type="checkbox" id="switch1" name="switch1" class="switch" checked hidden />
+                <label for="switch1"></label>
+            </div>
+            <div id="timeline">
+                <div class="dot" id="one">
+                    <span></span>
+                    <date>2015</date>
+                </div>
+                <div class="dot" id="two">
+                    <span></span>
+                    <date>2016</date>
+                </div>
+                <div class="dot" id="three">
+                    <span></span>
+                    <date>2017</date>
+                </div>
+                <div class="dot" id="four">
+                    <span></span>
+                    <date>2018</date>
+                </div>
+                <div class="inside"></div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div id="chartdiv"></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="/img/energies/waste_2015.png" class="image_map_right_first first" alt="">
+                        <img src="/img/energies/waste_2016.png" class="image_map_right_first second" alt="">
+                        <img src="/img/energies/waste_2017.png" class="image_map_right_first third" alt="">
+                        <img src="/img/energies/waste_2018.png" class="image_map_right_first fourth" alt="">
+                        <img class="image_map_right_second" src="/img/cap.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-4">
+            <div class="policy px-4 policy__container--width">
+                <div class="card policy__card--background" style="height:470px;width:350px">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3 class="float-left policy__card--title">Policies to Support Waste to Energy</h3>
+                            <div class="float-right"><img src="/img/policyrhs_icon.png" alt=""
+                                    class="img img-fluid policy__icon--sizing"></div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="card-text">
+                            <img src="/img/policycircle.png" alt="" class="img img-fluid policy__image--positioning">
+                            <div class="owl-carousel policy__carousel--positioning">
+                                <div class="text-center policy__item--text-color">
+                                    <h4>Policy 1</h4>
+                                    <p class="policy__item-description--positioning">Encourages participation of private
+                                        sector to
+                                        set up biomass power based projects
+                                        in the state</p>
+                                    <p class="mt-3"><i class="fas fa-angle-double-right policy__item-icon--font"></i>
+                                    </p>
+                                </div>
+                                <div class="text-center policy__item--text-color">
+                                    <h4>Policy 2</h4>
+                                    <p class="policy__item-description--positioning">Encourages participation of private
+                                        sector to
+                                        set up biomass power based projects
+                                        in the state</p>
+                                    <p class="mt-3"><i class="fas fa-angle-double-right policy__item-icon--font"></i>
+                                    </p>
+                                </div>
+                                <div class="text-center policy__item--text-color">
+                                    <h4>Policy 3</h4>
+                                    <p class="policy__item-description--positioning">Encourages participation of private
+                                        sector to
+                                        set up biomass power based projects
+                                        in the state</p>
+                                    <p class="mt-3"><i class="fas fa-angle-double-right policy__item-icon--font"></i>
+                                    </p>
+                                </div>
+                                <div class="text-center policy__item--text-color">
+                                    <h4>Policy 4</h4>
+                                    <p class="policy__item-description--positioning">Encourages participation of private
+                                        sector to
+                                        set up biomass power based projects
+                                        in the state</p>
+                                    <p class="mt-3"><i class="fas fa-angle-double-right policy__item-icon--font"></i>
+                                    </p>
+                                </div>
+                                <div class="text-center policy__item--text-color">
+                                    <h4>Policy 5</h4>
+                                    <p class="policy__item-description--positioning">Encourages participation of private
+                                        sector to
+                                        set up biomass power based projects
+                                        in the state</p>
+                                    <p class="mt-3"><i class="fas fa-angle-double-right policy__item-icon--font"></i>
+                                    </p>
+                                </div>
+                                <div class="text-center policy__item--text-color">
+                                    <h4>Policy 6</h4>
+                                    <p class="policy__item-description--positioning">Encourages participation of private
+                                        sector to
+                                        set up solar power based projects
+                                        in the state</p>
+                                    <p class="mt-3"><i class="fas fa-angle-double-right policy__item-icon--font"></i>
+                                    </p>
+                                </div>
+                                <div class="text-center policy__item--text-color">
+                                    <h4>Policy 7</h4>
+                                    <p class="policy__item-description--positioning">Encourages participation of private
+                                        sector to
+                                        set up solar power based projects
+                                        in the state</p>
+                                    <p class="mt-3"><i class="fas fa-angle-double-right policy__item-icon--font"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="otherdiv policy__division--positioning">
+            <div class="hdiv">
+                <h2 class="purple-head" style="line-height:1">Other Links</h2>
+            </div>
+            <div class="box_content px-3 py-2 pt-5">
+                <ol class="rounded-list">
+                    <li>
+                        <ol>
+                            <li><a href="#" target="_blank">Grid Connected Power</a></li>
+                            <li><a href="#" target="_blank">Off Grid </a></li>
+                            <li><a href="#" target="_blank">Decentralized System </a></li>
+                            <li><a href="#" target="_blank">Scheme</a></li>
+                            <li><a href="#" target="_blank">R&D</a></li>
+                            <li><a href="#" target="_blank">Standard and Quality</a></li>
+                            <li><a href="#" target="_blank">Solar Green Cities</a></li>
+                            <li><a href="#" target="_blank">Case Study</a></li>
+                            <li><a href="#" target="_blank">Videos</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 mb-5">
+            <img src="/img/nsm.png" width="100%" height:"100%">
+        </div>
+    </div>
+</div>

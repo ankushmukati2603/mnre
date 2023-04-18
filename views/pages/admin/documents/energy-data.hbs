@@ -1,0 +1,203 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+</style>
+{{> language_dom}}
+
+
+<div class="_wrapper _admin_wrapper">
+    <div class="_section_wrap _energy_list">
+        <div class="_table_listings">
+            <div class="_top">
+                <p class="_head">{{heading}}</p>
+                <a class="button" href="javascript:void(0)"
+                    onclick="_energyMapDataModal('{{form}}Modal','{{form}}')">Add
+                    New
+                    Listing</a>
+            </div>
+
+            <table id="table_id" class="display">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Energy</th>
+                        <th>State</th>
+                        <th>Value</th>
+                        <th>Year</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr>
+                        <td>#</td>
+                        <td>{{this.energy}}</td>
+                        <td>{{this.state}}</td>
+                        <td>{{this.value}}</td>
+                        <td>{{this.year}}</td>
+                        <td>
+                            <button onclick="_getEnergyDataById('{{this._id}}','energyDataModal')">Edit</button>
+                            <button onclick="_removeEnergyDataById('{{this._id}}')">Delete</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="{{form}}Modal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <button class="delete" onclick="_closeModal('{{form}}Modal')" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form">
+                    <form name="_{{form}}_form" id="_{{form}}_form" class="_schemes_form">
+                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                        <input type="hidden" value="add" id="_action_mode" name="_action_mode">
+                        <div class="_form_field">
+                            <label>Energy :</label>
+                            <select class="_location_drop" id="_energy" name="_energy">
+                                <option value="">Choose Year</option>
+                                <option value="Solar Energy">Solar Energy</option>
+                                <option value="Wind Energy">Wind Energy</option>
+                                <option value="Small Hydro">Small Hydro</option>
+                                <option value="Bio Energy">Bio Energy</option>
+                                <option value="Waste to Energy">Waste to Energy</option>
+                            </select>
+                        </div>
+                        <div class="_form_field">
+                            <label>State :</label>
+                            <select class="_location_drop" id="_state" name="_state">
+                                <option value="">Choose Year</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chhatisgarh">Chhatisgarh</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jammu & Kashmir">Jammu & Kashmir</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="West Bengal">West Bengal</option>
+                                <option value="Andaman & Nicobar">Andaman & Nicobar</option>
+                                <option value="Chandigarh">Chandigarh</option>
+                                <option value="Dadar & Nagar Haveli">Dadar & Nagar Haveli</option>
+                                <option value="Daman & Diu">Daman & Diu</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Lakshwadeep">Lakshwadeep</option>
+                                <option value="Pondicherry">Pondicherry</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class="_form_field">
+                            <label>Value :</label>
+                            <input type="text" placeholder="Type your title here..." name="_value" class="input"
+                                id="_value"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Year :</label>
+                            <select class="_location_drop" id="_year" name="_year">
+                                <option value="">Choose Year</option>
+                                <option value="2010">2010</option>
+                                <option value="2011">2011</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                            </select>
+                        </div>
+                        <div class="_form_field">
+                            <label>Code :</label>
+                            <select class="_location_drop" id="_code" name="_code">
+                                <option value="">Choose Code</option>
+                                <option value="IN-AP">IN-AP</option>
+                                <option value="IN-AR">IN-AR</option>
+                                <option value="IN-AS">IN-AS</option>
+                                <option value="IN-BR">IN-BR</option>
+                                <option value="IN-CT">IN-CT</option>
+                                <option value="IN-GA">IN-GA</option>
+                                <option value="IN-GJ">IN-GJ</option>
+                                <option value="IN-HR">IN-HR</option>
+                                <option value="IN-HP">IN-HP</option>
+                                <option value="IN-JK">IN-JK</option>
+                                <option value="IN-JH">IN-JH</option>
+                                <option value="IN-KA">IN-KA</option>
+                                <option value="IN-KL">IN-KL</option>
+                                <option value="IN-MP">IN-MP</option>
+                                <option value="IN-MH">IN-MH</option>
+                                <option value="IN-MN">IN-MN</option>
+                                <option value="IN-ML">IN-ML</option>
+                                <option value="IN-MZ">IN-MZ</option>
+                                <option value="IN-NL">IN-NL</option>
+                                <option value="IN-OR">IN-OR</option>
+                                <option value="IN-PB">IN-PB</option>
+                                <option value="IN-RJ">IN-RJ</option>
+                                <option value="IN-SK">IN-SK</option>
+                                <option value="IN-TN">IN-TN</option>
+                                <option value="IN-TG">IN-TG</option>
+                                <option value="IN-TR">IN-TR</option>
+                                <option value="IN-UP">IN-UP</option>
+                                <option value="IN-UP">IN-UP</option>
+                                <option value="IN-WB">IN-WB</option>
+                                <option value="IN-CH">IN-CH</option>
+                                <option value="IN-DN">IN-DN</option>
+                                <option value="IN-DD">IN-DD</option>
+                                <option value="IN-DL">IN-DL</option>
+                                <option value="IN-LD">IN-LD</option>
+                                <option value="IN-PD">IN-PD</option>
+                                <option value="IN-AN">IN-AN</option>
+                                <option value="IN-OT">IN-OT</option>
+                            </select>
+                        </div>
+                        <footer class="modal-card-foot">
+                            <button class="button is-success _saveData">Save changes</button>
+                        </footer>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

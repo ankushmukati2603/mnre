@@ -1,0 +1,91 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+</style>
+{{> language_dom}}
+
+
+<div class="_wrapper _admin_wrapper">
+    <div class="_section_wrap _energy_list">
+        <div class="_table_listings">
+            <div class="_top">
+                <p class="_head">{{heading}}</p>
+                <a class="button" href="javascript:void(0)" onclick="_menuModal('formModal','{{form}}')">Add New
+                    Listing</a>
+            </div>
+
+            <table id="table_id" class="display">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Meta Keywords</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr>
+                        <td>#</td>
+                        <td>{{this.title}}</td>
+                        <td>{{this.description}}</td>
+                        <td>{{this.meta_keywords}}</td>
+                        <td>
+                            <button onclick="_getMenuById('{{this._id}}','formModal')">Edit</button>
+                            <button onclick="_removeMenuById('{{this._id}}')">Delete</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="formModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <button class="delete" onclick="_closeModal('formModal')" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form">
+                    <form name="_{{form}}_form" id="_{{form}}_form" class="_schemes_form">
+                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                        <input type="hidden" value="add" id="_action_mode" name="_action_mode">
+                        <div class="_form_field">
+                            <label>Title :</label>
+                            <input type="text" placeholder="Type your title here..." name="_title" class="input"
+                                id="_title">
+                        </div>
+                        <div class="_form_field ">
+                            <label>Meta Keywords :</label>
+                            <textarea name="_meta_keywords" id="_meta_keywords" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="_form_field ">
+                            <label>Overview :</label>
+                            <textarea name="_overview" id="_overview" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Url :</label>
+                            <input type="text" placeholder="Type your url here..." name="_url" class="input" id="_url">
+                        </div>
+                        <footer class="modal-card-foot">
+                            <button class="button is-success _saveData">Save changes</button>
+                        </footer>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

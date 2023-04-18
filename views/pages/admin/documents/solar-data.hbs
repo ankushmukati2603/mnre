@@ -1,0 +1,124 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+</style>
+{{> language_dom}}
+
+
+<div class="_wrapper _admin_wrapper">
+    <div class="_section_wrap _energy_list">
+        <div class="_table_listings">
+            <div class="_top">
+                <p class="_head">{{heading}}</p>
+                <a class="button" href="javascript:void(0)" onclick="_solarDataModal('formModal','{{form}}')">Add
+                    New
+                    Listing</a>
+            </div>
+
+            <table id="table_id" class="display">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Lantern lamp</th>
+                        <th>Home light</th>
+                        <th>Street light</th>
+                        <th>Pump</th>
+                        <th>Standalone</th>
+                        <th>Year</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr>
+                        <td>#</td>
+                        <td>{{this.lantern_lamp}}</td>
+                        <td>{{this.home_light}}</td>
+                        <td>{{this.street_light}}</td>
+                        <td>{{this.pump}}</td>
+                        <td>{{this.standalone}}</td>
+                        <td>{{this.year}}</td>
+                        <td>
+                            <button onclick="_getSolarDataById('{{this._id}}','formModal')">Edit</button>
+                            <button onclick="_removeSolarDataById('{{this._id}}')">Delete</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="formModal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <button class="delete" onclick="_closeModal('formModal')" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form">
+                    <form name="_{{form}}_form" id="_{{form}}_form" class="_schemes_form">
+                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                        <input type="hidden" value="add" id="_action_mode" name="_action_mode">
+                        <div class="_form_field">
+                            <label>lantern lamp :</label>
+                            <input type="text" name="lantern_lamp" class="input" id="lantern_lamp"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>home light :</label>
+                            <input type="text" name="home_light" class="input" id="home_light"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>street light :</label>
+                            <input type="text" name="street_light" class="input" id="street_light"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>pump :</label>
+                            <input type="text" name="pump" class="input" id="pump"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>standalone :</label>
+                            <input type="text" name="standalone" class="input" id="standalone"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Year :</label>
+                            <select class="_location_drop" id="_year" name="_year">
+                                <option value="">Choose Year</option>
+                                <option value="2010">2010</option>
+                                <option value="2011">2011</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                            </select>
+                        </div>
+                        <footer class="modal-card-foot">
+                            <button class="button is-success _saveData">Save changes</button>
+                        </footer>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

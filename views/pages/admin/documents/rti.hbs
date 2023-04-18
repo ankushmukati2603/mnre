@@ -1,0 +1,129 @@
+<style>
+    .admin_edit_content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 24px;
+    }
+
+    .editPage_section_list {
+        padding-bottom: 0px;
+    }
+</style>
+{{> language_dom}}
+
+
+<div class="_wrapper _admin_wrapper">
+    <div class="_section_wrap _energy_list">
+        <div class="_table_listings">
+            <div class="_top">
+                <p class="_head">{{heading}}</p>
+                <a class="button" href="javascript:void(0)"
+                    onclick="_annualReportsModal('{{form}}Modal','{{form}}')">Add
+                    New
+                    Listing</a>
+            </div>
+
+            <table id="table_id" class="display">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Title</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr>
+                        <td>#</td>
+                        <td>{{this.title}}</td>
+                        <td>
+                            <button onclick="_getrtiById('{{this._id}}','rtiModal')">Edit</button>
+                            <button onclick="_removertiById('{{this._id}}')">Delete</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="{{form}}Modal">
+    <div class="modal-background"></div>
+    <div class="modal-card main__modal--card">
+        <header class="modal-card-head">
+            <button class="delete" onclick="_closeModal('{{form}}Modal')" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="_modal_form">
+                <div class="form">
+                    <form name="_{{form}}_form" id="_{{form}}_form" class="_schemes_form">
+                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                        <input type="hidden" value="add" id="_action_mode" name="_action_mode">
+                        <div class="_form_field">
+                            <label>Title :</label>
+                            <input type="text" placeholder="Type your title here..." name="_title" class="input"
+                                id="_title"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Title (Hindi):</label>
+                            <input type="text" name="_title_hi" class="input" id="_title_hi"></textarea>
+                        </div>
+                        <div class="_form_field">
+                            <label>Url :</label>
+                            <input type="text" placeholder="Type your title here..." name="_url" class="input"
+                                id="_url"></textarea>
+                        </div>
+			<div class="_form_field">
+                            <label>Issue Date :</label>
+                            <input type="text" name="_issue_date" class="input" id="_issue_date">
+                        </div>
+                        <div class="_form_field">
+                            <label>Ordering (Default is 0):</label>
+                            <input type="text" placeholder="Default Order : 0" value="0" name="_ordering" class="input"
+                                id="_ordering" />
+                        </div>
+
+                        <div class="_upload_image _file">
+                            <div class="_form_field">
+                                <label for="_rtiFileMain" class="label">File (English) :</label>
+                                <input type="file" id="_rtiFileMain">
+                                <input type="hidden" name="_file" />
+                            </div>
+                            <div class="_show_uploaded">
+
+                            </div>
+                            {{#if (ifEquals access "super-admin")}}
+                            <div class="_reviewed_box">
+
+                            </div>
+                            {{/if}}
+                        </div>
+
+                        <div class="_upload_image _thumbnail _pdfhindi">
+                            <div class="_form_field">
+                                <label for="_rtiFileThumb" class="label">File (Hindi) :</label>
+                                <input type="file" id="_rtiFileThumb">
+                                <input type="hidden" name="_thumbnail" />
+                            </div>
+                            <div class="_show_uploaded">
+
+                            </div>
+                            {{#if (ifEquals access "super-admin")}}
+                            <div class="_reviewed_box">
+
+                            </div>
+                            {{/if}}
+                        </div>
+
+                        <footer class="modal-card-foot">
+                            <button class="button is-success _saveData">Save changes</button>
+                        </footer>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<style>
+    .appn {
+        background: #22C9A1;
+        padding: 15px;
+    }
+
+    h1.appn {
+        text-transform: uppercase;
+        color: #ffffff;
+
+    }
+</style>
+<div class="container-fluid appn">
+    <h1 class="text-center appn">{{page_title}}</h1>
+
+</div>
+<main class="mb-5 mt-5 ml-5 mr-5">
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-sm-12 pt-4 px-5">
+                {{#if questions}}
+                <div class="accordion" id="accordionExample">
+                    {{#each questions}}
+                    <div class="card">
+                        <div class="card-header" id="heading-{{this._id}}">
+                            <h3 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-{{this._id}}" aria-expanded="true" aria-controls="collapse-{{this._id}}">
+                                    {{this.question}}
+                                </button>
+                            </h3>
+                        </div>
+
+                        <div id="collapse-{{this._id}}" class="collapse show" aria-labelledby="heading-{{this._id}}"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                {{this.answer}}
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</main>
